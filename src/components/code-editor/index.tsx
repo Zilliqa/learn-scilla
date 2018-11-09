@@ -33,7 +33,6 @@ export default class CodeEditor extends React.Component<IProps, IState> {
           language="javascript"
           value={code}
           options={options}
-          onChange={this.onChange}
           editorDidMount={this.editorDidMount}
         />
         {this.props.children}
@@ -61,16 +60,7 @@ export default class CodeEditor extends React.Component<IProps, IState> {
     );
   }
 
-  private editorDidMount = (editor) => {
-    // console.log('editorDidMount', editor, editor.getValue(), editor.getModel());
-    this.editor = editor;
-  };
-
-  private onChange = (newValue, e) => {
-    // e.preventDefault();
-    console.log('onChange', newValue, e);
-  };
-
+  // Handles event to submit current code
   private hanldleSubmitCode = (e) => {
     e.preventDefault();
     if (this.editor === undefined) {
@@ -80,11 +70,13 @@ export default class CodeEditor extends React.Component<IProps, IState> {
     this.props.submitCode(value);
   };
 
+  // Handles event to control the visibility of answer
   private hanldleToggle = (e) => {
     e.preventDefault();
     this.props.toggleShowAnswer();
   };
 
+  // Handles event to check answer
   private handleCheckAnswer = (e) => {
     e.preventDefault();
     if (this.editor === undefined) {
@@ -92,5 +84,10 @@ export default class CodeEditor extends React.Component<IProps, IState> {
     }
     const code = this.editor.getValue();
     this.props.checkAnswer(code);
+  };
+
+  private editorDidMount = (editor): void => {
+    // console.log('editorDidMount', editor, editor.getValue(), editor.getModel());
+    this.editor = editor;
   };
 }

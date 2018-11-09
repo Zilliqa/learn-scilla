@@ -77,15 +77,18 @@ export class CodeContainer extends React.Component<IProps, IState> {
     );
   }
 
-  public toggleShowAnswer = () => {
+  // Controls the visibility of answer code
+  public toggleShowAnswer = (): void => {
     this.setState({ showAnswer: !this.state.showAnswer });
   };
 
-  public submitCode = (codeForDiff, cb) => {
+  // Updates code for hint
+  public submitCode = (codeForDiff: string, cb): void => {
     this.setState({ codeForDiff }, cb);
   };
 
-  public checkAnswer = (code: string) => {
+  // Checks the code written by user if it's correct
+  public checkAnswer = (code: string): void => {
     // const { answerCode } = this.props;
     const isCorrect = this.compareAnswer(code, answerCode);
     if (isCorrect) {
@@ -95,6 +98,7 @@ export class CodeContainer extends React.Component<IProps, IState> {
     }
   };
 
+  // Compares code written by user and the answer
   private compareAnswer = (submitted: string, answer: string): boolean => {
     return submitted === answer;
   };
