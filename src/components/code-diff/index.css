@@ -1,0 +1,6 @@
+.hide-answer .diff .view-lines {
+  display: none;
+}
+.hide-answer .diff .view-lines.line-delete {
+  display: block;
+}
