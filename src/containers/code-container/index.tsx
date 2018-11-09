@@ -2,13 +2,46 @@ import React from 'react';
 import Layout from '../../components/layout';
 import { Col, Row } from 'reactstrap';
 import Steps, { Step } from 'rc-steps';
+import { translate } from 'react-i18next';
+import * as H from 'history';
 
 import CodeLesson from '../../components/code-lesson';
 import CodeEditor from '../../components/code-editor';
 import CodeDiff from '../../components/code-diff';
-export class CodeContainer extends React.Component<any, {}> {
+
+interface IProps {
+  t: (key: string) => string;
+  history: H.History;
+  location: H.Location;
+}
+interface IState {
+  code: string;
+}
+
+const initialCode = `(* HelloWorld contract *)
+let one_msg =
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+  Cons {Message} msg nil_msg
+`;
+
+const codeAnswer = `(* HelloWorld contract *)
+let one_msg =
+  fun (msg : Message) =>
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+`;
+
+export class CodeContainer extends React.Component<IProps, IState> {
+  public readonly state = {
+    code: ''
+  };
+  public componentDidMount() {
+    this.setState({ code: initialCode });
+  }
   public render(): React.ReactNode {
-    const { location, history } = this.props;
+    const { location, history, t } = this.props;
+    const { code } = this.state;
     return (
       <Layout location={location} history={history}>
         <Steps progressDot={true} size="small" current={1}>
@@ -28,27 +61,18 @@ export class CodeContainer extends React.Component<any, {}> {
             <CodeLesson lesson={`## Title \n ### Subtitle \n * item1`} />
           </Col>
           <Col xs={12} sm={12} md={7} lg={7}>
-            <CodeEditor code={code} />
-            <CodeDiff original={original} code={code} />
+            <CodeEditor code={code} submitCode={this.submitCode} t={t}>
+              <CodeDiff original={code} code={codeAnswer} />
+            </CodeEditor>
           </Col>
         </Row>
       </Layout>
     );
   }
+  private submitCode = (code) => {
+    this.setState({ code });
+  };
 }
 
-export default CodeContainer;
-
-const original = `(* HelloWorld contract *)
-let one_msg =
-  let nil_msg = Nil {Message} in
-  Cons {Message} msg nil_msg
-  Cons {Message} msg nil_msg
-`;
-
-const code = `(* HelloWorld contract *)
-let one_msg =
-  fun (msg : Message) =>
-  let nil_msg = Nil {Message} in
-  Cons {Message} msg nil_msg
-`;
+const WithTranslation = translate('translations')(CodeContainer);
+export default WithTranslation;

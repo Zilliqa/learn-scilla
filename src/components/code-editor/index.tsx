@@ -2,24 +2,18 @@ import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 
 interface IProps {
+  t: (key: string) => string;
   code: string;
+  submitCode: (code: string) => void;
 }
 interface IState {
   code: string;
 }
 
-// Using with webpack
 export default class CodeEditor extends React.Component<IProps, IState> {
   public editor;
-  constructor(props) {
-    super(props);
-    this.state = {
-      code: this.props.code
-    };
-  }
-
   public render() {
-    const { code } = this.state;
+    const { code, t } = this.props;
     const options = {
       selectOnLineNumbers: true,
       roundedSelection: false,
@@ -29,41 +23,44 @@ export default class CodeEditor extends React.Component<IProps, IState> {
     };
     return (
       <div>
-        <div>
-          <button onClick={this.changeEditorValue}>Change value</button>
-          <button onClick={this.changeBySetState}>Change by setState</button>
-        </div>
-        <hr />
         <MonacoEditor
           width="600"
-          height="400"
+          height="300"
           language="javascript"
           value={code}
           options={options}
           onChange={this.onChange}
           editorDidMount={this.editorDidMount}
         />
+        {this.props.children}
+        <div>
+          <button className="btn btn-sm btn-outline-primary btn-block">
+            {t('editor.submitAnswer')}
+          </button>
+          <button
+            className="btn btn-sm btn-outline-secondary btn-block"
+            onClick={this.hanldleSubmitCode}
+          >
+            {t('editor.showHint')}
+          </button>
+        </div>
       </div>
     );
   }
 
-  private onChange = (newValue, e) => {
-    console.log('onChange', newValue, e); // eslint-disable-line no-console
-  };
-
   private editorDidMount = (editor) => {
-    // eslint-disable-next-line no-console
     console.log('editorDidMount', editor, editor.getValue(), editor.getModel());
     this.editor = editor;
   };
 
-  private changeEditorValue = () => {
-    if (this.editor) {
-      this.editor.setValue('// code changed! \n');
-    }
+  private onChange = (newValue, e) => {
+    console.log('onChange', newValue, e);
   };
 
-  private changeBySetState = () => {
-    this.setState({ code: '// code changed by setState! \n' });
+  private hanldleSubmitCode = () => {
+    if (this.editor === undefined) {
+      return;
+    }
+    this.props.submitCode(this.editor.getValue());
   };
 }
