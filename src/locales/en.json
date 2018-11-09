@@ -1,4 +1,8 @@
 {
+  "editor" : {
+    "showHint": "Show Hint",
+    "submitAnswer": "Submit Answer"
+  },
   "form": {
     "submit":"Submit",
     "cancel":"Cancel"
