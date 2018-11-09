@@ -1,0 +1,10 @@
+# Build folder and files #
+##########################
+build/
+
+# Development folders and files #
+#################################
+.tmp/
+dist/
+node_modules/
+*.compiled.*

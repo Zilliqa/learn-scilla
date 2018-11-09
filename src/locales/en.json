@@ -1,0 +1,34 @@
+{
+  "form": {
+    "submit":"Submit",
+    "cancel":"Cancel"
+  },
+  "auth": {
+    "checkYourEmail": "Check your email",
+    "email":"Email" ,
+    "emailMessage" : "email address required",
+    "emailInvalidMessage":"Invalid email",
+    "emailValidMessage":"Valid email",
+
+    "password":"Password" ,
+    "passwordMessage" : "password required",
+    "passwordInvalidMessage":"Invalid password",
+    "passwordValidMessage":"Valid password",
+
+    "password2":"Password" ,
+    "password2Message" : "password repeat required",
+    "password2InvalidMessage":"Password is not Identical",
+    "password2ValidMessage":"Valid password",
+
+    "passwordResetTitle":"Reset Password",
+    "signUpTitle":"Sign Up",
+    "signInTitle":"Login",
+    "forgotPasswordTitle":"Request to reset password",
+    "auth.passwordResetSuccessMessage":"Password reset Successful"
+  },
+  "link": {
+    "login": "Login",
+    "signUp": "Sign up",
+    "forgotPassword": "Forgot password"
+  }
+}
