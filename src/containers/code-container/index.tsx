@@ -16,32 +16,31 @@ interface IProps {
 }
 interface IState {
   code: string;
+  showAnswer: boolean;
 }
 
-const initialCode = `(* HelloWorld contract *)
-let one_msg =
-  let nil_msg = Nil {Message} in
-  Cons {Message} msg nil_msg
-  Cons {Message} msg nil_msg
+const initialCode = `
+var x = 1;
+var y = 0;
 `;
 
-const codeAnswer = `(* HelloWorld contract *)
-let one_msg =
-  fun (msg : Message) =>
-  let nil_msg = Nil {Message} in
-  Cons {Message} msg nil_msg
+const codeAnswer = `
+var x = 1;
+var y = 0;
+var z = x + y;
 `;
 
 export class CodeContainer extends React.Component<IProps, IState> {
   public readonly state = {
-    code: ''
+    code: '',
+    showAnswer: false
   };
   public componentDidMount() {
     this.setState({ code: initialCode });
   }
   public render(): React.ReactNode {
     const { location, history, t } = this.props;
-    const { code } = this.state;
+    const { code, showAnswer } = this.state;
     return (
       <Layout location={location} history={history}>
         <Steps progressDot={true} size="small" current={1}>
@@ -61,15 +60,26 @@ export class CodeContainer extends React.Component<IProps, IState> {
             <CodeLesson lesson={`## Title \n ### Subtitle \n * item1`} />
           </Col>
           <Col xs={12} sm={12} md={7} lg={7}>
-            <CodeEditor code={code} submitCode={this.submitCode} t={t}>
-              <CodeDiff original={code} code={codeAnswer} />
+            <CodeEditor
+              code={code}
+              submitCode={this.submitCode}
+              showAnswer={showAnswer}
+              toggleShowAnswer={this.toggleShowAnswer}
+              t={t}
+            >
+              <CodeDiff original={code} code={codeAnswer} showAnswer={showAnswer} />
             </CodeEditor>
           </Col>
         </Row>
       </Layout>
     );
   }
-  private submitCode = (code) => {
+
+  public toggleShowAnswer = () => {
+    this.setState({ showAnswer: !this.state.showAnswer });
+  };
+
+  public submitCode = (code) => {
     this.setState({ code });
   };
 }
