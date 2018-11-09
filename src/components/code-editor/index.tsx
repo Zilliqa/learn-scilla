@@ -4,9 +4,10 @@ import MonacoEditor from 'react-monaco-editor';
 interface IProps {
   t: (key: string) => string;
   code: string;
-  submitCode: (code: string) => void;
+  submitCode: (code: string, cb?) => void;
   showAnswer: boolean;
   toggleShowAnswer: () => void;
+  checkAnswer: (code) => void;
 }
 interface IState {
   code: string;
@@ -32,12 +33,14 @@ export default class CodeEditor extends React.Component<IProps, IState> {
           language="javascript"
           value={code}
           options={options}
-          onChange={this.onChange}
           editorDidMount={this.editorDidMount}
         />
         {this.props.children}
         <div>
-          <button className="btn btn-sm btn-outline-primary btn-block">
+          <button
+            className="btn btn-sm btn-outline-primary btn-block"
+            onClick={this.handleCheckAnswer}
+          >
             {t('editor.submitAnswer')}
           </button>
           <button
@@ -57,25 +60,34 @@ export default class CodeEditor extends React.Component<IProps, IState> {
     );
   }
 
-  private editorDidMount = (editor) => {
-    // console.log('editorDidMount', editor, editor.getValue(), editor.getModel());
-    this.editor = editor;
-  };
-
-  private onChange = (newValue, e) => {
-    // e.preventDefault();
-    console.log('onChange', newValue, e);
-  };
-
+  // Handles event to submit current code
   private hanldleSubmitCode = (e) => {
     e.preventDefault();
     if (this.editor === undefined) {
       return;
     }
-    this.props.submitCode(this.editor.getValue());
+    const value = this.editor.getValue();
+    this.props.submitCode(value);
   };
+
+  // Handles event to control the visibility of answer
   private hanldleToggle = (e) => {
     e.preventDefault();
     this.props.toggleShowAnswer();
+  };
+
+  // Handles event to check answer
+  private handleCheckAnswer = (e) => {
+    e.preventDefault();
+    if (this.editor === undefined) {
+      return;
+    }
+    const code = this.editor.getValue();
+    this.props.checkAnswer(code);
+  };
+
+  private editorDidMount = (editor): void => {
+    // console.log('editorDidMount', editor, editor.getValue(), editor.getModel());
+    this.editor = editor;
   };
 }

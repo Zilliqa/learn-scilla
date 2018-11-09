@@ -16,16 +16,17 @@ interface IProps {
 }
 interface IState {
   code: string;
+  codeForDiff: string;
   showAnswer: boolean;
 }
 
 const initialCode = `
 var x = 1;
 var y = 0;
-var a = 0;
+var y = 0;
 `;
 
-const codeAnswer = `
+const answerCode = `
 var x = 1;
 var y = 0;
 var z = x + y;
@@ -33,15 +34,14 @@ var z = x + y;
 
 export class CodeContainer extends React.Component<IProps, IState> {
   public readonly state = {
-    code: '',
+    code: initialCode,
+    codeForDiff: answerCode,
     showAnswer: false
   };
-  public componentDidMount() {
-    this.setState({ code: initialCode });
-  }
+
   public render(): React.ReactNode {
     const { location, history, t } = this.props;
-    const { code, showAnswer } = this.state;
+    const { code, codeForDiff, showAnswer } = this.state;
     return (
       <Layout location={location} history={history}>
         <Steps progressDot={true} size="small" current={1}>
@@ -65,10 +65,11 @@ export class CodeContainer extends React.Component<IProps, IState> {
               code={code}
               submitCode={this.submitCode}
               showAnswer={showAnswer}
+              checkAnswer={this.checkAnswer}
               toggleShowAnswer={this.toggleShowAnswer}
               t={t}
             >
-              <CodeDiff original={code} code={codeAnswer} showAnswer={showAnswer} />
+              <CodeDiff codeForDiff={codeForDiff} answerCode={answerCode} showAnswer={showAnswer} />
             </CodeEditor>
           </Col>
         </Row>
@@ -76,12 +77,30 @@ export class CodeContainer extends React.Component<IProps, IState> {
     );
   }
 
-  public toggleShowAnswer = () => {
+  // Controls the visibility of answer code
+  public toggleShowAnswer = (): void => {
     this.setState({ showAnswer: !this.state.showAnswer });
   };
 
-  public submitCode = (code) => {
-    this.setState({ code });
+  // Updates code for hint
+  public submitCode = (codeForDiff: string, cb): void => {
+    this.setState({ codeForDiff }, cb);
+  };
+
+  // Checks the code written by user if it's correct
+  public checkAnswer = (code: string): void => {
+    // const { answerCode } = this.props;
+    const isCorrect = this.compareAnswer(code, answerCode);
+    if (isCorrect) {
+      alert('Correct!');
+    } else {
+      alert('Try again!');
+    }
+  };
+
+  // Compares code written by user and the answer
+  private compareAnswer = (submitted: string, answer: string): boolean => {
+    return submitted === answer;
   };
 }
 
