@@ -15,17 +15,18 @@ interface IProps {
   location: H.Location;
 }
 interface IState {
-  code: string;
+  currentCode: string;
+  submittedCode: string;
   showAnswer: boolean;
 }
 
 const initialCode = `
 var x = 1;
 var y = 0;
-var a = 0;
+var y = 0;
 `;
 
-const codeAnswer = `
+const answerCode = `
 var x = 1;
 var y = 0;
 var z = x + y;
@@ -33,15 +34,14 @@ var z = x + y;
 
 export class CodeContainer extends React.Component<IProps, IState> {
   public readonly state = {
-    code: '',
+    currentCode: initialCode,
+    submittedCode: answerCode,
     showAnswer: false
   };
-  public componentDidMount() {
-    this.setState({ code: initialCode });
-  }
+
   public render(): React.ReactNode {
     const { location, history, t } = this.props;
-    const { code, showAnswer } = this.state;
+    const { currentCode, submittedCode, showAnswer } = this.state;
     return (
       <Layout location={location} history={history}>
         <Steps progressDot={true} size="small" current={1}>
@@ -62,13 +62,17 @@ export class CodeContainer extends React.Component<IProps, IState> {
           </Col>
           <Col xs={12} sm={12} md={7} lg={7}>
             <CodeEditor
-              code={code}
+              code={currentCode}
               submitCode={this.submitCode}
               showAnswer={showAnswer}
               toggleShowAnswer={this.toggleShowAnswer}
               t={t}
             >
-              <CodeDiff original={code} code={codeAnswer} showAnswer={showAnswer} />
+              <CodeDiff
+                submittedCode={submittedCode}
+                answerCode={answerCode}
+                showAnswer={showAnswer}
+              />
             </CodeEditor>
           </Col>
         </Row>
@@ -80,8 +84,8 @@ export class CodeContainer extends React.Component<IProps, IState> {
     this.setState({ showAnswer: !this.state.showAnswer });
   };
 
-  public submitCode = (code) => {
-    this.setState({ code });
+  public submitCode = (submittedCode) => {
+    this.setState({ submittedCode });
   };
 }
 

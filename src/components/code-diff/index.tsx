@@ -3,8 +3,8 @@ import { MonacoDiffEditor } from 'react-monaco-editor';
 import './index.css';
 
 interface IProps {
-  original: string;
-  code: string;
+  submittedCode: string;
+  answerCode: string;
   showAnswer: boolean;
 }
 
@@ -15,8 +15,8 @@ const CodeDiff: React.SFC<IProps> = (props) => (
         width="600"
         height="250"
         language="javascript"
-        original={props.original}
-        value={props.code}
+        original={props.submittedCode}
+        value={props.answerCode}
         options={{
           readOnly: true,
           renderSideBySide: false
