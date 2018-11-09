@@ -6,26 +6,19 @@ interface IProps {
   code: string;
 }
 
-// Using with webpack
-export default class CodeEditor extends React.Component<IProps, {}> {
-  public editor;
-
-  public render() {
-    const { original, code } = this.props;
-    const options = {
+const CodeDiff: React.SFC<IProps> = (props) => (
+  <MonacoDiffEditor
+    width="600"
+    height="250"
+    language="javascript"
+    original={props.original}
+    value={props.code}
+    options={{
       readOnly: true,
       renderSideBySide: false,
       cursorStyle: 'line'
-    };
-    return (
-      <MonacoDiffEditor
-        width="600"
-        height="300"
-        language="javascript"
-        original={original}
-        value={code}
-        options={options}
-      />
-    );
-  }
-}
+    }}
+  />
+);
+
+export default CodeDiff;
