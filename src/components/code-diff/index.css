@@ -1,6 +1,6 @@
-.hide-answer .diff .view-lines {
-  display: none;
-}
-.hide-answer .diff .view-lines.line-delete {
+.code-diff-container .hide-answer .view-line{
   display: block;
+}
+.code-diff-container .view-line{
+  display: none;
 }

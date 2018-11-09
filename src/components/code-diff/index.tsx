@@ -9,18 +9,20 @@ interface IProps {
 }
 
 const CodeDiff: React.SFC<IProps> = (props) => (
-  <div className={`diff ${props.showAnswer ? 'hide-answer' : ''}`}>
-    <MonacoDiffEditor
-      width="600"
-      height="250"
-      language="javascript"
-      original={props.original}
-      value={props.code}
-      options={{
-        readOnly: true,
-        renderSideBySide: false
-      }}
-    />
+  <div className="code-diff-container">
+    <div className={props.showAnswer ? 'hide-answer' : ''}>
+      <MonacoDiffEditor
+        width="600"
+        height="250"
+        language="javascript"
+        original={props.original}
+        value={props.code}
+        options={{
+          readOnly: true,
+          renderSideBySide: false
+        }}
+      />
+    </div>
   </div>
 );
 

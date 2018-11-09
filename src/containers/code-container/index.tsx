@@ -22,6 +22,7 @@ interface IState {
 const initialCode = `
 var x = 1;
 var y = 0;
+var a = 0;
 `;
 
 const codeAnswer = `
