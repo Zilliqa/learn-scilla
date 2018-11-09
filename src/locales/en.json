@@ -1,6 +1,8 @@
 {
   "editor" : {
     "showHint": "Show Hint",
+    "showAnswer": "Show Answer",
+    "hideAnswer": "Hide Answer",
     "submitAnswer": "Submit Answer"
   },
   "form": {

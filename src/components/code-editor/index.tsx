@@ -5,6 +5,8 @@ interface IProps {
   t: (key: string) => string;
   code: string;
   submitCode: (code: string) => void;
+  showAnswer: boolean;
+  toggleShowAnswer: () => void;
 }
 interface IState {
   code: string;
@@ -13,7 +15,8 @@ interface IState {
 export default class CodeEditor extends React.Component<IProps, IState> {
   public editor;
   public render() {
-    const { code, t } = this.props;
+    const { code, showAnswer, t } = this.props;
+
     const options = {
       selectOnLineNumbers: true,
       roundedSelection: false,
@@ -43,24 +46,36 @@ export default class CodeEditor extends React.Component<IProps, IState> {
           >
             {t('editor.showHint')}
           </button>
+          <button
+            className="btn btn-sm btn-outline-secondary btn-block"
+            onClick={this.hanldleToggle}
+          >
+            {t(showAnswer ? 'editor.hideAnswer' : 'editor.showAnswer')}
+          </button>
         </div>
       </div>
     );
   }
 
   private editorDidMount = (editor) => {
-    console.log('editorDidMount', editor, editor.getValue(), editor.getModel());
+    // console.log('editorDidMount', editor, editor.getValue(), editor.getModel());
     this.editor = editor;
   };
 
   private onChange = (newValue, e) => {
+    // e.preventDefault();
     console.log('onChange', newValue, e);
   };
 
-  private hanldleSubmitCode = () => {
+  private hanldleSubmitCode = (e) => {
+    e.preventDefault();
     if (this.editor === undefined) {
       return;
     }
     this.props.submitCode(this.editor.getValue());
+  };
+  private hanldleToggle = (e) => {
+    e.preventDefault();
+    this.props.toggleShowAnswer();
   };
 }
