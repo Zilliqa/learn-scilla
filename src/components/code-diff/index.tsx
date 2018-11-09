@@ -3,7 +3,7 @@ import { MonacoDiffEditor } from 'react-monaco-editor';
 import './index.css';
 
 interface IProps {
-  submittedCode: string;
+  codeForDiff: string;
   answerCode: string;
   showAnswer: boolean;
 }
@@ -15,7 +15,7 @@ const CodeDiff: React.SFC<IProps> = (props) => (
         width="600"
         height="250"
         language="javascript"
-        original={props.submittedCode}
+        original={props.codeForDiff}
         value={props.answerCode}
         options={{
           readOnly: true,

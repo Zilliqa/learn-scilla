@@ -4,9 +4,10 @@ import MonacoEditor from 'react-monaco-editor';
 interface IProps {
   t: (key: string) => string;
   code: string;
-  submitCode: (code: string) => void;
+  submitCode: (code: string, cb?) => void;
   showAnswer: boolean;
   toggleShowAnswer: () => void;
+  checkAnswer: (code) => void;
 }
 interface IState {
   code: string;
@@ -37,7 +38,10 @@ export default class CodeEditor extends React.Component<IProps, IState> {
         />
         {this.props.children}
         <div>
-          <button className="btn btn-sm btn-outline-primary btn-block">
+          <button
+            className="btn btn-sm btn-outline-primary btn-block"
+            onClick={this.handleCheckAnswer}
+          >
             {t('editor.submitAnswer')}
           </button>
           <button
@@ -72,10 +76,21 @@ export default class CodeEditor extends React.Component<IProps, IState> {
     if (this.editor === undefined) {
       return;
     }
-    this.props.submitCode(this.editor.getValue());
+    const value = this.editor.getValue();
+    this.props.submitCode(value);
   };
+
   private hanldleToggle = (e) => {
     e.preventDefault();
     this.props.toggleShowAnswer();
+  };
+
+  private handleCheckAnswer = (e) => {
+    e.preventDefault();
+    if (this.editor === undefined) {
+      return;
+    }
+    const code = this.editor.getValue();
+    this.props.checkAnswer(code);
   };
 }

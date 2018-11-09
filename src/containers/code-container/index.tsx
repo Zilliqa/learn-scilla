@@ -15,8 +15,8 @@ interface IProps {
   location: H.Location;
 }
 interface IState {
-  currentCode: string;
-  submittedCode: string;
+  code: string;
+  codeForDiff: string;
   showAnswer: boolean;
 }
 
@@ -34,14 +34,14 @@ var z = x + y;
 
 export class CodeContainer extends React.Component<IProps, IState> {
   public readonly state = {
-    currentCode: initialCode,
-    submittedCode: answerCode,
+    code: initialCode,
+    codeForDiff: answerCode,
     showAnswer: false
   };
 
   public render(): React.ReactNode {
     const { location, history, t } = this.props;
-    const { currentCode, submittedCode, showAnswer } = this.state;
+    const { code, codeForDiff, showAnswer } = this.state;
     return (
       <Layout location={location} history={history}>
         <Steps progressDot={true} size="small" current={1}>
@@ -62,17 +62,14 @@ export class CodeContainer extends React.Component<IProps, IState> {
           </Col>
           <Col xs={12} sm={12} md={7} lg={7}>
             <CodeEditor
-              code={currentCode}
+              code={code}
               submitCode={this.submitCode}
               showAnswer={showAnswer}
+              checkAnswer={this.checkAnswer}
               toggleShowAnswer={this.toggleShowAnswer}
               t={t}
             >
-              <CodeDiff
-                submittedCode={submittedCode}
-                answerCode={answerCode}
-                showAnswer={showAnswer}
-              />
+              <CodeDiff codeForDiff={codeForDiff} answerCode={answerCode} showAnswer={showAnswer} />
             </CodeEditor>
           </Col>
         </Row>
@@ -84,8 +81,22 @@ export class CodeContainer extends React.Component<IProps, IState> {
     this.setState({ showAnswer: !this.state.showAnswer });
   };
 
-  public submitCode = (submittedCode) => {
-    this.setState({ submittedCode });
+  public submitCode = (codeForDiff, cb) => {
+    this.setState({ codeForDiff }, cb);
+  };
+
+  public checkAnswer = (code: string) => {
+    // const { answerCode } = this.props;
+    const isCorrect = this.compareAnswer(code, answerCode);
+    if (isCorrect) {
+      alert('Correct!');
+    } else {
+      alert('Try again!');
+    }
+  };
+
+  private compareAnswer = (submitted: string, answer: string): boolean => {
+    return submitted === answer;
   };
 }
 
