@@ -51,7 +51,7 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
     const { pathname } = this.props.location;
 
     return (
-      <Navbar expand="md" color="dark" dark={true} fixed={'top'}>
+      <Navbar expand="md" color="light" light={true} fixed={'top'}>
         <div className="navbar-wrapper">
           <NavbarBrand href={paths.home}>{'Learn Scilla'}</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
