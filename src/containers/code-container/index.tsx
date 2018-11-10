@@ -57,6 +57,17 @@ export class CodeContainer extends React.Component<IProps, IState> {
     );
   }
 
+  public goNext = (): void => {
+    const { history, match } = this.props;
+    const routeParams = match.params;
+
+    const lesson: number = routeParams.lesson;
+    const chapter: number = parseInt(routeParams.chapter, 10);
+    const lang: string = routeParams.lang;
+    const nextChapterPath = `/learn/${lang}/lesson/${lesson}/chapter/${chapter + 1}`;
+    history.push(nextChapterPath);
+  };
+
   private renderNavButtons = (lessonKey: string, chapterIndex: number): React.ReactNode => {
     const { t, codes } = this.props;
 
@@ -96,7 +107,7 @@ export class CodeContainer extends React.Component<IProps, IState> {
     );
   };
 
-  private goBack = () => {
+  private goBack = (): void => {
     const { history, match } = this.props;
     const routeParams = match.params;
 
@@ -105,17 +116,6 @@ export class CodeContainer extends React.Component<IProps, IState> {
     const lang: string = routeParams.lang;
     const previousChapterPath = `/learn/${lang}/lesson/${lesson}/chapter/${chapter - 1}`;
     history.push(previousChapterPath);
-  };
-
-  private goNext = () => {
-    const { history, match } = this.props;
-    const routeParams = match.params;
-
-    const lesson: number = routeParams.lesson;
-    const chapter: number = parseInt(routeParams.chapter, 10);
-    const lang: string = routeParams.lang;
-    const nextChapterPath = `/learn/${lang}/lesson/${lesson}/chapter/${chapter + 1}`;
-    history.push(nextChapterPath);
   };
 
   private renderStepProgressbar = (lessonKey: string, chapterIndex: number): React.ReactNode => {
@@ -155,7 +155,13 @@ export class CodeContainer extends React.Component<IProps, IState> {
     const answerCode = code.answerCode;
 
     return (
-      <CodeREPL initialCode={initialCode} answerCode={answerCode} instruction={instruction} t={t} />
+      <CodeREPL
+        initialCode={initialCode}
+        answerCode={answerCode}
+        instruction={instruction}
+        t={t}
+        goNext={this.goNext}
+      />
     );
   };
 }

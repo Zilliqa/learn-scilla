@@ -3,7 +3,7 @@ import { MonacoDiffEditor } from 'react-monaco-editor';
 import './index.css';
 
 interface IProps {
-  showAnswer: boolean;
+  isAnswerVisible: boolean;
   codeForDiff: string;
   answerCode: string;
 }
@@ -16,7 +16,7 @@ const CodeDiff: React.SFC<IProps> = (props) => {
   };
 
   // This className decide code visibility
-  const codeVisibleStyle = props.showAnswer ? 'show-answer' : '';
+  const codeVisibleStyle = props.isAnswerVisible ? 'show-answer' : '';
   return (
     <div className="code-diff-container">
       <div className={codeVisibleStyle}>

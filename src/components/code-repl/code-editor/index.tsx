@@ -1,33 +1,24 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 import { ButtonGroup, Button } from 'reactstrap';
-import {
-  FaCheck,
-  FaChevronLeft,
-  FaChevronRight,
-  FaRegLightbulb,
-  FaRegEye,
-  FaRegEyeSlash,
-  FaRegComments
-} from 'react-icons/fa';
+import { FaCheck, FaRegLightbulb, FaRegEye, FaRegEyeSlash, FaRegComments } from 'react-icons/fa';
 
 interface IProps {
   t: (key: string) => string;
   code: string;
-  submitCode: (code: string, cb?) => void;
-  showAnswer: boolean;
+  showHint: (code: string, cb?) => void;
+  isAnswerVisible: boolean;
   toggleShowAnswer: () => void;
   checkAnswer: (code) => void;
 }
-interface IState {
-  code: string;
-}
 
 // Renders code editor
-export default class CodeEditor extends React.Component<IProps, IState> {
+export default class CodeEditor extends React.Component<IProps, {}> {
   public editor;
+  public readonly state = {
+    code: this.props.code
+  };
   public render() {
-    const { code } = this.props;
     const options = {
       selectOnLineNumbers: true,
       roundedSelection: false,
@@ -39,8 +30,8 @@ export default class CodeEditor extends React.Component<IProps, IState> {
       <div>
         <MonacoEditor
           editorDidMount={this.editorDidMount}
-          value={code}
           options={options}
+          value={this.props.code}
           height="300"
           language="javascript"
         />
@@ -52,10 +43,10 @@ export default class CodeEditor extends React.Component<IProps, IState> {
   }
 
   private renderButtons = (): React.ReactNode => {
-    const { showAnswer, t } = this.props;
+    const { isAnswerVisible, t } = this.props;
 
-    const showAnswerButtonText = t(showAnswer ? 'editor.hideAnswer' : 'editor.showAnswer');
-    const showAnswerButtonIcon = showAnswer ? <FaRegEyeSlash /> : <FaRegEye />;
+    const showAnswerButtonText = t(isAnswerVisible ? 'editor.hideAnswer' : 'editor.showAnswer');
+    const showAnswerButtonIcon = isAnswerVisible ? <FaRegEyeSlash /> : <FaRegEye />;
     return (
       <div>
         <div className="text-right">
@@ -63,7 +54,7 @@ export default class CodeEditor extends React.Component<IProps, IState> {
             <FaCheck /> {t('editor.submitAnswer')}
           </Button>{' '}
           <ButtonGroup>
-            <Button outline={true} color="secondary" size="sm" onClick={this.hanldleSubmitCode}>
+            <Button outline={true} color="secondary" size="sm" onClick={this.handleShowHint}>
               <FaRegLightbulb /> {t('editor.showHint')}
             </Button>
             <Button outline={true} color="secondary" size="sm" onClick={this.hanldleToggle}>
@@ -79,13 +70,14 @@ export default class CodeEditor extends React.Component<IProps, IState> {
   };
 
   // Handles event to submit current code
-  private hanldleSubmitCode = (e) => {
+  private handleShowHint = (e) => {
     e.preventDefault();
     if (this.editor === undefined) {
       return;
     }
     const value = this.editor.getValue();
-    this.props.submitCode(value);
+    console.log('vv', value);
+    this.props.showHint(value);
   };
 
   // Handles event to control the visibility of answer

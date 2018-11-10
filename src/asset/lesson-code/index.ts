@@ -2,14 +2,14 @@ const ic1 = `
 contract zealgame
 (owner: ByStr20)
 field player_name : String = "Bob"
-Transition change(newName: String)
+Transition changeName(newName: String)
 tempvar <- player_name
 end
 `;
 const ac1 = `
 contract zealgame
 (owner: ByStr20)
-field player_name : String = ”Alice”
+field player_name : String = "Alice"
 Transition changeName(newName: String)
 tempvar <- player_name
 end
@@ -26,7 +26,7 @@ contract zealgame
 const ac2 = `
 contract zealgame
 (owner: ByStr20)
-field player_name : String = ”Alice”
+field player_name : String = "Alice"
 Transition changeName(newName: String)
 tempvar <- player_name
 end
