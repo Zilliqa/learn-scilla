@@ -1,6 +1,6 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
-
+import { ButtonGroup, Button } from 'reactstrap';
 interface IProps {
   t: (key: string) => string;
   code: string;
@@ -13,11 +13,11 @@ interface IState {
   code: string;
 }
 
+// Renders code editor
 export default class CodeEditor extends React.Component<IProps, IState> {
   public editor;
   public render() {
-    const { code, showAnswer, t } = this.props;
-
+    const { code } = this.props;
     const options = {
       selectOnLineNumbers: true,
       roundedSelection: false,
@@ -28,37 +28,39 @@ export default class CodeEditor extends React.Component<IProps, IState> {
     return (
       <div>
         <MonacoEditor
+          editorDidMount={this.editorDidMount}
+          value={code}
+          options={options}
           width="600"
           height="300"
           language="javascript"
-          value={code}
-          options={options}
-          editorDidMount={this.editorDidMount}
         />
         {this.props.children}
-        <div>
-          <button
-            className="btn btn-sm btn-outline-primary btn-block"
-            onClick={this.handleCheckAnswer}
-          >
-            {t('editor.submitAnswer')}
-          </button>
-          <button
-            className="btn btn-sm btn-outline-secondary btn-block"
-            onClick={this.hanldleSubmitCode}
-          >
-            {t('editor.showHint')}
-          </button>
-          <button
-            className="btn btn-sm btn-outline-secondary btn-block"
-            onClick={this.hanldleToggle}
-          >
-            {t(showAnswer ? 'editor.hideAnswer' : 'editor.showAnswer')}
-          </button>
-        </div>
+        {this.renderButtons()}
       </div>
     );
   }
+
+  private renderButtons = (): React.ReactNode => {
+    const { showAnswer, t } = this.props;
+
+    const showAnswerButtonText = t(showAnswer ? 'editor.hideAnswer' : 'editor.showAnswer');
+    return (
+      <div>
+        <Button color="primary" size="sm" onClick={this.handleCheckAnswer}>
+          {t('editor.submitAnswer')}
+        </Button>{' '}
+        <ButtonGroup>
+          <Button outline={true} color="secondary" size="sm" onClick={this.hanldleSubmitCode}>
+            {t('editor.showHint')}
+          </Button>
+          <Button outline={true} color="secondary" size="sm" onClick={this.hanldleToggle}>
+            {showAnswerButtonText}
+          </Button>
+        </ButtonGroup>{' '}
+      </div>
+    );
+  };
 
   // Handles event to submit current code
   private hanldleSubmitCode = (e) => {

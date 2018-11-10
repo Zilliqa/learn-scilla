@@ -1,4 +1,4 @@
-.code-diff-container .hide-answer .view-line{
+.code-diff-container .show-answer .view-line{
   display: block;
 }
 .code-diff-container .view-line{

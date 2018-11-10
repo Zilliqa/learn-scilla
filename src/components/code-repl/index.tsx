@@ -30,10 +30,10 @@ export default class CodeREPL extends React.Component<IProps, IState> {
     const { code, codeForDiff, showAnswer } = this.state;
     return (
       <Row>
-        <Col xs={12} sm={12} md={5} lg={5}>
+        <Col xs={12} sm={12} md={6} lg={5} className="p-0">
           <CodeInstruction instruction={instruction} />
         </Col>
-        <Col xs={12} sm={12} md={7} lg={7}>
+        <Col xs={12} sm={12} md={6} lg={7} className="p-0">
           <CodeEditor
             code={code}
             submitCode={this.submitCode}
