@@ -61,9 +61,13 @@ export default class CodeEditor extends React.Component<IProps, {}> {
               {showAnswerButtonIcon} {showAnswerButtonText}
             </Button>
           </ButtonGroup>{' '}
-          <Button outline={true} color="secondary" size="sm">
+          <a
+            className="btn btn-outline-secondary btn-sm"
+            href={'https://gitter.im/Zilliqa/SmartContract'}
+            target="_blank"
+          >
             <FaRegComments /> {t('editor.discuss')}
-          </Button>
+          </a>
         </div>
       </div>
     );
