@@ -1,6 +1,16 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 import { ButtonGroup, Button } from 'reactstrap';
+import {
+  FaCheck,
+  FaChevronLeft,
+  FaChevronRight,
+  FaRegLightbulb,
+  FaRegEye,
+  FaRegEyeSlash,
+  FaRegComments
+} from 'react-icons/fa';
+
 interface IProps {
   t: (key: string) => string;
   code: string;
@@ -31,11 +41,11 @@ export default class CodeEditor extends React.Component<IProps, IState> {
           editorDidMount={this.editorDidMount}
           value={code}
           options={options}
-          width="600"
           height="300"
           language="javascript"
         />
         {this.props.children}
+        <br />
         {this.renderButtons()}
       </div>
     );
@@ -45,19 +55,37 @@ export default class CodeEditor extends React.Component<IProps, IState> {
     const { showAnswer, t } = this.props;
 
     const showAnswerButtonText = t(showAnswer ? 'editor.hideAnswer' : 'editor.showAnswer');
+    const showAnswerButtonIcon = showAnswer ? <FaRegEyeSlash /> : <FaRegEye />;
     return (
-      <div className="text-center">
-        <Button color="primary" size="sm" onClick={this.handleCheckAnswer}>
-          {t('editor.submitAnswer')}
-        </Button>{' '}
-        <ButtonGroup>
-          <Button outline={true} color="secondary" size="sm" onClick={this.hanldleSubmitCode}>
-            {t('editor.showHint')}
+      <div>
+        <div className="float-left">
+          <Button color="primary" size="sm" onClick={this.handleCheckAnswer}>
+            <FaCheck /> {t('editor.submitAnswer')}
+          </Button>{' '}
+          <ButtonGroup>
+            <Button outline={true} color="secondary" size="sm" onClick={this.hanldleSubmitCode}>
+              <FaRegLightbulb /> {t('editor.showHint')}
+            </Button>
+            <Button outline={true} color="secondary" size="sm" onClick={this.hanldleToggle}>
+              {showAnswerButtonIcon} {showAnswerButtonText}
+            </Button>
+          </ButtonGroup>{' '}
+          <Button outline={true} color="secondary" size="sm">
+            <FaRegComments /> {t('editor.discuss')}
           </Button>
-          <Button outline={true} color="secondary" size="sm" onClick={this.hanldleToggle}>
-            {showAnswerButtonText}
-          </Button>
-        </ButtonGroup>{' '}
+        </div>
+        <div className="float-right">
+          <ButtonGroup>
+            <Button outline={true} color="secondary" size="sm">
+              <FaChevronLeft />
+              {t('editor.back')}
+            </Button>
+            <Button outline={true} color="secondary" size="sm">
+              {t('editor.next')}
+              <FaChevronRight />
+            </Button>
+          </ButtonGroup>{' '}
+        </div>
       </div>
     );
   };
