@@ -13,7 +13,7 @@ export const appHistory = createHistory();
 
 export const paths = {
   home: '/home',
-  codeTutorial: '/learn',
+  codeTutorial: '/learn/:lang/lesson/:lesson/chapter/:chapter',
   signin: '/signin',
   signup: '/signup',
   forgotPassword: '/forget-password',
