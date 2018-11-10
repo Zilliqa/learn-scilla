@@ -1,11 +1,11 @@
 {
   "editor" : {
-    "showHint": "Show Hint",
+    "showHint": "Hint",
     "showAnswer": "Show Answer",
     "hideAnswer": "Hide Answer",
-    "submitAnswer": "Submit Answer",
-    "back": "Previous Chapter",
-    "next": "Next Chapter",
+    "submitAnswer": "Check Answer",
+    "back": "Back",
+    "next": "Skip",
     "discuss": "Discuss"
   },
   "form": {

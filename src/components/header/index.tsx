@@ -60,18 +60,10 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
           <Nav className="ml-auto" navbar={true}>
             <NavItem>
               <Link
-                to={paths.home}
+                to={paths.lesson}
                 className={`nav-link ${pathname === paths.home ? 'active' : ''}`}
               >
-                {'Home'}
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link
-                to={'learn/en/lesson/1/chapter/1'}
-                className={`nav-link ${pathname === paths.codeTutorial ? 'active' : ''}`}
-              >
-                {'Learn'}
+                {'Lesson'}
               </Link>
             </NavItem>
 

@@ -10,39 +10,48 @@ interface IProps {
   initialCode: string;
   answerCode: string;
   instruction: string;
+  goNext: () => void;
 }
 
 interface IState {
   code: string;
   codeForDiff: string;
-  showAnswer: boolean;
+  isAnswerVisible: boolean;
 }
 
 export default class CodeREPL extends React.Component<IProps, IState> {
   public readonly state = {
-    code: this.props.initialCode,
+    code: '',
     codeForDiff: this.props.answerCode,
-    showAnswer: false
+    isAnswerVisible: false
   };
+
+  public componentDidMount() {
+    this.setState({ code: this.props.initialCode });
+  }
 
   public render(): React.ReactNode {
     const { t, instruction, answerCode } = this.props;
-    const { code, codeForDiff, showAnswer } = this.state;
+    const { code, codeForDiff, isAnswerVisible } = this.state;
     return (
       <Row>
-        <Col xs={12} sm={12} md={6} lg={5} className="p-0">
+        <Col xs={12} sm={12} md={6} lg={5}>
           <CodeInstruction instruction={instruction} t={t} />
         </Col>
-        <Col xs={12} sm={12} md={6} lg={7} className="p-0">
+        <Col xs={12} sm={12} md={6} lg={7}>
           <CodeEditor
             code={code}
-            submitCode={this.submitCode}
-            showAnswer={showAnswer}
             checkAnswer={this.checkAnswer}
+            showHint={this.showHint}
             toggleShowAnswer={this.toggleShowAnswer}
+            isAnswerVisible={isAnswerVisible}
             t={t}
           >
-            <CodeDiff codeForDiff={codeForDiff} answerCode={answerCode} showAnswer={showAnswer} />
+            <CodeDiff
+              codeForDiff={codeForDiff}
+              answerCode={answerCode}
+              isAnswerVisible={isAnswerVisible}
+            />
           </CodeEditor>
         </Col>
       </Row>
@@ -51,12 +60,12 @@ export default class CodeREPL extends React.Component<IProps, IState> {
 
   // Controls the visibility of answer code
   public toggleShowAnswer = (): void => {
-    this.setState({ showAnswer: !this.state.showAnswer });
+    this.setState({ isAnswerVisible: !this.state.isAnswerVisible });
   };
 
   // Updates code for hint
-  public submitCode = (codeForDiff: string, cb): void => {
-    this.setState({ codeForDiff }, cb);
+  public showHint = (codeForDiff: string, cb): void => {
+    this.setState({ code: codeForDiff, codeForDiff }, cb);
   };
 
   // Checks the code written by user if it's correct
@@ -65,9 +74,19 @@ export default class CodeREPL extends React.Component<IProps, IState> {
     const isCorrect = this.compareAnswer(code, answerCode);
     if (isCorrect) {
       alert('Correct!');
+      this.initializeState();
+      this.props.goNext();
     } else {
       alert('Try again!');
     }
+  };
+
+  private initializeState = () => {
+    this.setState({
+      code: this.props.initialCode,
+      codeForDiff: this.props.answerCode,
+      isAnswerVisible: false
+    });
   };
 
   // Compares code written by user and the answer

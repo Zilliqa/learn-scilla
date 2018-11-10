@@ -7,13 +7,13 @@ const ch2 = `
 Explanation about why we choose to define ’owner’ and what’s ByStr20 \n
 `;
 const ch3 = `
-Chapter 3: Mutable variables\n
+## Chapter 3: Mutable variables\n
 Make a fixed player Alice.
 Start with one field, that will just declare the
 player name to be Alice
 `;
 const ch4 = `
-Chapter 4: Transition \n
+## Chapter 4: Transition \n
 Explain transition, make an empty one.
 Go into details about how one can
 call transitions and how this part
@@ -30,7 +30,8 @@ declaration in a single place.
 `;
 
 const en = {
-  lesson1: [ch1, ch2, ch3, ch4, ch5]
+  lesson1: [ch1, ch2, ch3, ch4, ch5],
+  lesson2: [ch1, ch2, ch3, ch4, ch5]
 };
 
 export default en;

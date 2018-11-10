@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Button, ButtonGroup } from 'reactstrap';
 import './index.css';
 
 interface IProps {
@@ -9,23 +8,8 @@ interface IProps {
 }
 
 const CodeInstruction: React.SFC<IProps> = (props) => (
-  <div>
-    <div className="code-instruction-container">
-      <ReactMarkdown source={props.instruction} />
-    </div>
-    <div className="text-center">
-      <ButtonGroup>
-        <Button outline={true} color="secondary" size="sm">
-          {props.t('editor.back')}
-        </Button>
-        <Button outline={true} color="secondary" size="sm">
-          {props.t('editor.next')}
-        </Button>
-      </ButtonGroup>{' '}
-      <Button outline={true} color="secondary" size="sm">
-        {props.t('editor.discuss')}
-      </Button>
-    </div>
+  <div className="code-instruction-container">
+    <ReactMarkdown source={props.instruction} />
   </div>
 );
 export default CodeInstruction;
