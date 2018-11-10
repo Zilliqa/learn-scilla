@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Layout from '../../components/layout';
-import Steps, { Step } from 'rc-steps';
 import { translate } from 'react-i18next';
 import * as H from 'history';
 import Spinner from '../../components/spinner';
@@ -39,17 +38,22 @@ export class CodeContainer extends React.Component<IProps, IState> {
 
     return (
       <Layout location={location} history={history}>
-        <StepProgressbar current={chapterIndex} total={totalChapter} />
-        {isfetching ? (
-          <Spinner />
-        ) : (
-          <CodeREPL
-            initialCode={initialCode}
-            answerCode={answerCode}
-            instruction={instruction}
-            t={t}
-          />
-        )}
+        <div className="py-2">
+          <StepProgressbar current={chapterIndex} total={totalChapter} />
+        </div>
+        <br />
+        <div>
+          {isfetching ? (
+            <Spinner />
+          ) : (
+            <CodeREPL
+              initialCode={initialCode}
+              answerCode={answerCode}
+              instruction={instruction}
+              t={t}
+            />
+          )}
+        </div>
       </Layout>
     );
   }
