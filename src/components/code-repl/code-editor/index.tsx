@@ -46,7 +46,7 @@ export default class CodeEditor extends React.Component<IProps, IState> {
 
     const showAnswerButtonText = t(showAnswer ? 'editor.hideAnswer' : 'editor.showAnswer');
     return (
-      <div>
+      <div className="text-center">
         <Button color="primary" size="sm" onClick={this.handleCheckAnswer}>
           {t('editor.submitAnswer')}
         </Button>{' '}

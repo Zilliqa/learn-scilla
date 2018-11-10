@@ -18,16 +18,10 @@ import * as H from 'history';
 import Collapse from 'reactstrap/lib/Collapse';
 import { Link } from 'react-router-dom';
 
-interface IRoutes {
-  path: string;
-  component: React.ReactNode;
-  label?: string;
-}
-
 interface IHeaderProps {
   history: H.History;
   location: H.Location;
-  routeList: IRoutes[];
+
   i18n: {
     language: string;
     changeLanguage: (lang: string) => void;
@@ -52,33 +46,51 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
     i18n.changeLanguage('en');
   }
   public render(): React.ReactNode {
-    const { isAuth, logout, routeList } = this.props;
+    const { isAuth, logout } = this.props;
 
     const { pathname } = this.props.location;
-    const links = routeList.filter((item) => item.label).map((item) => (
-      <NavItem key={item.path}>
-        <Link to={item.path} className={`nav-link ${pathname === item.path ? 'active' : ''}`}>
-          {item.label}
-        </Link>
-      </NavItem>
-    ));
 
     return (
-      <Navbar expand="md" color="dark" dark={true} fixed={'top'}>
+      <Navbar expand="md" color="light" light={true} fixed={'top'}>
         <div className="navbar-wrapper">
           <NavbarBrand href={paths.home}>{'Learn Scilla'}</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
         </div>
         <Collapse isOpen={this.state.isOpen} navbar={true}>
           <Nav className="ml-auto" navbar={true}>
-            {links}
+            <NavItem>
+              <Link
+                to={paths.home}
+                className={`nav-link ${pathname === paths.home ? 'active' : ''}`}
+              >
+                {'Home'}
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link
+                to={'learn/en/lesson/1/chapter/1'}
+                className={`nav-link ${pathname === paths.codeTutorial ? 'active' : ''}`}
+              >
+                {'Learn'}
+              </Link>
+            </NavItem>
+
             {isAuth ? (
               <NavItem>
                 <NavLink onClick={logout} style={{ cursor: 'pointer' }}>
                   {'Logout'}
                 </NavLink>
               </NavItem>
-            ) : null}
+            ) : (
+              <NavItem>
+                <Link
+                  to={paths.signin}
+                  className={`nav-link ${pathname === paths.signin ? 'active' : ''}`}
+                >
+                  {'Login'}
+                </Link>
+              </NavItem>
+            )}
             {this.renderI18nDropdown()}
           </Nav>
         </Collapse>

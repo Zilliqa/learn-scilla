@@ -31,7 +31,7 @@ export default class CodeREPL extends React.Component<IProps, IState> {
     return (
       <Row>
         <Col xs={12} sm={12} md={6} lg={5} className="p-0">
-          <CodeInstruction instruction={instruction} />
+          <CodeInstruction instruction={instruction} t={t} />
         </Col>
         <Col xs={12} sm={12} md={6} lg={7} className="p-0">
           <CodeEditor

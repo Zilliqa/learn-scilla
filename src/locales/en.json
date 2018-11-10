@@ -3,7 +3,10 @@
     "showHint": "Show Hint",
     "showAnswer": "Show Answer",
     "hideAnswer": "Hide Answer",
-    "submitAnswer": "Submit Answer"
+    "submitAnswer": "Submit Answer",
+    "back": "Previous Chapter",
+    "next": "Next Chapter",
+    "discuss": "Discuss"
   },
   "form": {
     "submit":"Submit",

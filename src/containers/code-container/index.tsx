@@ -3,19 +3,21 @@ import { connect } from 'react-redux';
 import Layout from '../../components/layout';
 import { translate } from 'react-i18next';
 import * as H from 'history';
-import Spinner from '../../components/spinner';
+// import Spinner from '../../components/spinner';
 import CodeREPL from '../../components/code-repl';
 import StepProgressbar from '../../components/step-progressbar';
-import lessonMockUpList from './mockUpData';
+import lessonIntructions from '../../asset/lesson-instruction';
+import lessonCodes from '../../asset/lesson-code';
+import { IMatch } from '../../typings';
 
 interface IProps {
   t: (key: string) => string;
   history: H.History;
   location: H.Location;
+  match: IMatch;
   accessToken: string;
-  lessonIndex?: number;
-  chapterIndex?: number;
-  lessonList?: any;
+  instructions?: any;
+  codes?: any;
 }
 interface IState {
   code: string;
@@ -25,47 +27,80 @@ interface IState {
 
 export class CodeContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
-    const { location, history, lessonList, t, lessonIndex, chapterIndex } = this.props;
-    const chapterList = lessonList[lessonIndex] || [];
-    const totalChapter = chapterList.length;
+    const { location, history, match } = this.props;
 
-    const chapter = chapterList[chapterIndex] || {};
+    const routeParams = match.params;
 
-    const instruction = chapter.instruction;
-    const initialCode = chapter.initialCode;
-    const answerCode = chapter.answerCode;
-    const isfetching = false;
+    // TODO: if these params are not valid, redirect
+    const currentLesson: number = routeParams.lesson;
+    const currentChapter: number = routeParams.chapter;
+    const currentLang: string = routeParams.lang;
+
+    // This will be used as a key e.g. lesson1
+    const lessonKey: string = `lesson${currentLesson}`;
+
+    // This should starts from 0
+    const chapterIndex: number = currentChapter - 1;
 
     return (
       <Layout location={location} history={history}>
-        <div className="py-2">
-          <StepProgressbar current={chapterIndex} total={totalChapter} />
-        </div>
-        <br />
         <div>
-          {isfetching ? (
-            <Spinner />
-          ) : (
-            <CodeREPL
-              initialCode={initialCode}
-              answerCode={answerCode}
-              instruction={instruction}
-              t={t}
-            />
-          )}
+          {this.renderStepProgressbar(lessonKey, chapterIndex)}
+          <br />
+          <div>{this.renderCodeREPL(lessonKey, chapterIndex, currentLang)}</div>
         </div>
       </Layout>
     );
   }
+  private renderStepProgressbar = (lessonKey: string, chapterIndex: number): React.ReactNode => {
+    const { codes } = this.props;
+
+    // Check if code is undefined
+    if (codes === undefined) {
+      return null;
+    }
+    const codeChapterList = codes[lessonKey] || [];
+    const total = codeChapterList.length;
+    return (
+      <div className="py-2">
+        <StepProgressbar current={chapterIndex} total={total} />
+      </div>
+    );
+  };
+
+  private renderCodeREPL = (
+    lessonKey: string,
+    chapterIndex: number,
+    lang: string
+  ): React.ReactNode => {
+    const { instructions, codes, t } = this.props;
+
+    if (codes === undefined || instructions === undefined || instructions[lang] === undefined) {
+      return null;
+    }
+
+    const intructionsLocalized = instructions[lang];
+    const instructionChapterList = intructionsLocalized[lessonKey] || [];
+    const instruction = instructionChapterList[chapterIndex] || {};
+
+    const codeChapterList = codes[lessonKey] || [];
+    const code = codeChapterList[chapterIndex] || {};
+    const initialCode = code.initialCode;
+    const answerCode = code.answerCode;
+
+    return (
+      <CodeREPL initialCode={initialCode} answerCode={answerCode} instruction={instruction} t={t} />
+    );
+  };
 }
 
 const WithTranslation = translate('translations')(CodeContainer);
 
 const mapStateToProps = (state) => ({
   accessToken: state.persist.accessToken,
-  lessonList: lessonMockUpList,
-  lessonIndex: 0,
-  chapterIndex: 0
+  // tslint:disable-nextline
+  instructions: lessonIntructions,
+  codes: lessonCodes
 });
 
 const mapDispatchToProps = (dispatch) => ({});
