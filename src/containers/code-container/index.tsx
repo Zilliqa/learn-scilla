@@ -6,6 +6,7 @@ import { translate } from 'react-i18next';
 import * as H from 'history';
 import Spinner from '../../components/spinner';
 import CodeREPL from '../../components/code-repl';
+import StepProgressbar from '../../components/step-progressbar';
 import lessonMockUpList from './mockUpData';
 
 interface IProps {
@@ -26,26 +27,19 @@ interface IState {
 export class CodeContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
     const { location, history, lessonList, t, lessonIndex, chapterIndex } = this.props;
-    const chapterList = lessonList[lessonIndex - 1] || [];
-    const chapter = chapterList[chapterIndex - 1] || {};
+    const chapterList = lessonList[lessonIndex] || [];
+    const totalChapter = chapterList.length;
+
+    const chapter = chapterList[chapterIndex] || {};
+
     const instruction = chapter.instruction;
     const initialCode = chapter.initialCode;
     const answerCode = chapter.answerCode;
     const isfetching = false;
+
     return (
       <Layout location={location} history={history}>
-        <Steps progressDot={true} size="small" current={1}>
-          <Step />
-          <Step />
-          <Step />
-          <Step />
-          <Step />
-          <Step />
-          <Step />
-          <Step />
-          <Step />
-          <Step />
-        </Steps>
+        <StepProgressbar current={chapterIndex} total={totalChapter} />
         {isfetching ? (
           <Spinner />
         ) : (
@@ -66,8 +60,8 @@ const WithTranslation = translate('translations')(CodeContainer);
 const mapStateToProps = (state) => ({
   accessToken: state.persist.accessToken,
   lessonList: lessonMockUpList,
-  lessonIndex: 1,
-  chapterIndex: 1
+  lessonIndex: 0,
+  chapterIndex: 0
 });
 
 const mapDispatchToProps = (dispatch) => ({});
