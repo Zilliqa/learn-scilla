@@ -37,7 +37,8 @@ const ch2 = {
 };
 
 const lesson = {
-  lesson1: [ch1, ch2, ch1, ch1, ch1]
+  lesson1: [ch1, ch2, ch1, ch1, ch1],
+  lesson2: [ch1, ch2, ch1, ch1, ch1]
 };
 
 export default lesson;

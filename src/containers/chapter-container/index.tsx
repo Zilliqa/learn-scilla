@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Layout from '../../components/layout';
 import { translate } from 'react-i18next';
+import Layout from '../../components/layout';
 import * as H from 'history';
 // import Spinner from '../../components/spinner';
 import CodeREPL from '../../components/code-repl';
 import StepProgressbar from '../../components/step-progressbar';
-import lessonIntructions from '../../asset/lesson-instruction';
-import lessonCodes from '../../asset/lesson-code';
 import { IMatch } from '../../typings';
 import { ButtonGroup, Button } from 'reactstrap';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
+import lessonIntructions from '../../asset/lesson-instruction';
+import lessonCodes from '../../asset/lesson-code';
 
 interface IProps {
   t: (key: string) => string;
@@ -27,7 +28,7 @@ interface IState {
   showAnswer: boolean;
 }
 
-export class CodeContainer extends React.Component<IProps, IState> {
+export class ChapterContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
     const { location, history, match } = this.props;
 
@@ -64,7 +65,7 @@ export class CodeContainer extends React.Component<IProps, IState> {
     const lesson: number = routeParams.lesson;
     const chapter: number = parseInt(routeParams.chapter, 10);
     const lang: string = routeParams.lang;
-    const nextChapterPath = `/learn/${lang}/lesson/${lesson}/chapter/${chapter + 1}`;
+    const nextChapterPath = `/${lang}/lesson/${lesson}/chapter/${chapter + 1}`;
     history.push(nextChapterPath);
   };
 
@@ -114,7 +115,7 @@ export class CodeContainer extends React.Component<IProps, IState> {
     const lesson: number = routeParams.lesson;
     const chapter: number = parseInt(routeParams.chapter, 10);
     const lang: string = routeParams.lang;
-    const previousChapterPath = `/learn/${lang}/lesson/${lesson}/chapter/${chapter - 1}`;
+    const previousChapterPath = `/${lang}/lesson/${lesson}/chapter/${chapter - 1}`;
     history.push(previousChapterPath);
   };
 
@@ -166,11 +167,10 @@ export class CodeContainer extends React.Component<IProps, IState> {
   };
 }
 
-const WithTranslation = translate('translations')(CodeContainer);
+const WithTranslation = translate('translations')(ChapterContainer);
 
 const mapStateToProps = (state) => ({
   accessToken: state.persist.accessToken,
-  // tslint:disable-nextline
   instructions: lessonIntructions,
   codes: lessonCodes
 });

@@ -30,7 +30,8 @@ declaration in a single place.
 `;
 
 const en = {
-  lesson1: [ch1, ch2, ch3, ch4, ch5]
+  lesson1: [ch1, ch2, ch3, ch4, ch5],
+  lesson2: [ch1, ch2, ch3, ch4, ch5]
 };
 
 export default en;
