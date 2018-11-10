@@ -48,7 +48,7 @@ export class ResetPasswordContainer extends React.Component<IProps, IState> {
     return (
       <Layout location={location} history={history}>
         <div className="blanket">
-          <div style={{ paddingTop: 180, paddingBottom: 200 }}>
+          <div style={{ paddingTop: 100, paddingBottom: 150 }}>
             {showInfoMessage ? (
               <MessageInfoCard message={message} t={t} />
             ) : (

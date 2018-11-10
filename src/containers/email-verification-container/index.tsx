@@ -41,7 +41,7 @@ export class TokenVerificationCardContainer extends React.Component<IProps, {}> 
     return (
       <Layout location={location} history={history}>
         <div className="blanket">
-          <div style={{ paddingTop: 240, paddingBottom: 200 }}>
+          <div style={{ paddingTop: 100, paddingBottom: 150 }}>
             {isVerifyingEmail ? <Spinner /> : <MessageInfoCard t={t} message={message} />}
           </div>
         </div>
