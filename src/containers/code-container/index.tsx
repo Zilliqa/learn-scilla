@@ -9,6 +9,8 @@ import StepProgressbar from '../../components/step-progressbar';
 import lessonIntructions from '../../asset/lesson-instruction';
 import lessonCodes from '../../asset/lesson-code';
 import { IMatch } from '../../typings';
+import { ButtonGroup, Button } from 'reactstrap';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 interface IProps {
   t: (key: string) => string;
@@ -48,10 +50,74 @@ export class CodeContainer extends React.Component<IProps, IState> {
           {this.renderStepProgressbar(lessonKey, chapterIndex)}
           <br />
           <div>{this.renderCodeREPL(lessonKey, chapterIndex, currentLang)}</div>
+          <br />
+          <div className="text-right">{this.renderNavButtons(lessonKey, chapterIndex)}</div>
         </div>
       </Layout>
     );
   }
+
+  private renderNavButtons = (lessonKey: string, chapterIndex: number): React.ReactNode => {
+    const { t, codes } = this.props;
+
+    // Check if code is undefined
+    if (codes === undefined) {
+      return null;
+    }
+    const codeChapterList = codes[lessonKey] || [];
+    const total = codeChapterList.length;
+
+    const isLessThanOne = chapterIndex <= 0;
+    const isGreaterThanTotal = chapterIndex >= total - 1;
+
+    return (
+      <ButtonGroup>
+        <Button
+          outline={true}
+          color="secondary"
+          size="sm"
+          onClick={this.goBack}
+          disabled={isLessThanOne}
+        >
+          <FaChevronLeft />
+          {t('editor.back')}
+        </Button>
+        <Button
+          outline={true}
+          color="secondary"
+          size="sm"
+          onClick={this.goNext}
+          disabled={isGreaterThanTotal}
+        >
+          {t('editor.next')}
+          <FaChevronRight />
+        </Button>
+      </ButtonGroup>
+    );
+  };
+
+  private goBack = () => {
+    const { history, match } = this.props;
+    const routeParams = match.params;
+
+    const lesson: number = routeParams.lesson;
+    const chapter: number = parseInt(routeParams.chapter, 10);
+    const lang: string = routeParams.lang;
+    const previousChapterPath = `/learn/${lang}/lesson/${lesson}/chapter/${chapter - 1}`;
+    history.push(previousChapterPath);
+  };
+
+  private goNext = () => {
+    const { history, match } = this.props;
+    const routeParams = match.params;
+
+    const lesson: number = routeParams.lesson;
+    const chapter: number = parseInt(routeParams.chapter, 10);
+    const lang: string = routeParams.lang;
+    const nextChapterPath = `/learn/${lang}/lesson/${lesson}/chapter/${chapter + 1}`;
+    history.push(nextChapterPath);
+  };
+
   private renderStepProgressbar = (lessonKey: string, chapterIndex: number): React.ReactNode => {
     const { codes } = this.props;
 

@@ -58,7 +58,7 @@ export default class CodeEditor extends React.Component<IProps, IState> {
     const showAnswerButtonIcon = showAnswer ? <FaRegEyeSlash /> : <FaRegEye />;
     return (
       <div>
-        <div className="float-left">
+        <div className="text-right">
           <Button color="primary" size="sm" onClick={this.handleCheckAnswer}>
             <FaCheck /> {t('editor.submitAnswer')}
           </Button>{' '}
@@ -73,18 +73,6 @@ export default class CodeEditor extends React.Component<IProps, IState> {
           <Button outline={true} color="secondary" size="sm">
             <FaRegComments /> {t('editor.discuss')}
           </Button>
-        </div>
-        <div className="float-right">
-          <ButtonGroup>
-            <Button outline={true} color="secondary" size="sm">
-              <FaChevronLeft />
-              {t('editor.back')}
-            </Button>
-            <Button outline={true} color="secondary" size="sm">
-              {t('editor.next')}
-              <FaChevronRight />
-            </Button>
-          </ButtonGroup>{' '}
         </div>
       </div>
     );
