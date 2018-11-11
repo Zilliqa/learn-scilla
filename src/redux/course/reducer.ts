@@ -1,5 +1,3 @@
-import * as userTypes from '../user/actions';
-
 import lessonIntructions from '../../asset/lesson-instruction';
 import lessonCodes from '../../asset/lesson-code';
 
