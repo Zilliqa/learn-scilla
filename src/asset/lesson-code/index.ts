@@ -1,36 +1,33 @@
-const ic1 = `
-contract zealgame
+const ic1 = `contract zealgame
 (owner: ByStr20)
 field player_name : String = "Bob"
 Transition changeName(newName: String)
 tempvar <- player_name
-end
-`;
-const ac1 = `
-contract zealgame
+end`;
+const ac1 = `contract zealgame
 (owner: ByStr20)
 field player_name : String = "Alice"
 Transition changeName(newName: String)
 tempvar <- player_name
-end
-`;
+end`;
 const ch1 = {
   initialCode: ic1,
   answerCode: ac1
 };
 
-const ic2 = `
-contract zealgame
-(*Start typing from the line below *)
-`;
-const ac2 = `
-contract zealgame
+const ic2 = `contract zealgame
+(owner: ByStr20)
+field player_name : String = "Bob"
+Transition changeName(newName: String)
+tempvar <- player_name
+end`;
+const ac2 = `contract zealgame
 (owner: ByStr20)
 field player_name : String = "Alice"
 Transition changeName(newName: String)
 tempvar <- player_name
-end
-`;
+end`;
+
 const ch2 = {
   initialCode: ic2,
   answerCode: ac2
