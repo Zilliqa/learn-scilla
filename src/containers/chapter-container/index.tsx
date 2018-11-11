@@ -10,9 +10,6 @@ import { IMatch } from '../../typings';
 import { ButtonGroup, Button } from 'reactstrap';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-import lessonIntructions from '../../asset/lesson-instruction';
-import lessonCodes from '../../asset/lesson-code';
-
 interface IProps {
   i18n: {
     language: string;
@@ -210,8 +207,8 @@ const WithTranslation = translate('translations')(ChapterContainer);
 
 const mapStateToProps = (state) => ({
   accessToken: state.persist.accessToken,
-  instructions: lessonIntructions,
-  codes: lessonCodes
+  instructions: state.course.lessonIntructions,
+  codes: state.course.lessonCodes
 });
 
 const mapDispatchToProps = (dispatch) => ({});

@@ -13,15 +13,19 @@ interface IProps {
   history: H.History;
   location: H.Location;
   match: IMatch;
+  codes: any[];
 }
 
 export class LessonContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
-    const { location, history, match, t } = this.props;
+    const { location, history, match, t, codes } = this.props;
     const routeParams = match.params;
 
     const lesson: number = parseInt(routeParams.lesson, 10);
-
+    const lessonKey: string = `lesson${lesson}`;
+    const codeChapterList = codes[lessonKey];
+    const total = codeChapterList.length;
+    const isLastLesson: boolean = total === lesson;
     return (
       <Layout location={location} history={history}>
         <Container>
@@ -32,12 +36,15 @@ export class LessonContainer extends React.Component<IProps, {}> {
                   <CardTitle>{t('lesson.congratulations')}</CardTitle>
                   <p>{t('lesson.completeMessage')}</p>
                   <br />
-                  <Link
-                    className="btn btn-primary btn-block"
-                    to={`/lesson/${lesson + 1}/chapter/1`}
-                  >
-                    {t('lesson.nextLesson')}
-                  </Link>
+                  {isLastLesson ? (
+                    <Link
+                      className="btn btn-primary btn-block"
+                      to={`/lesson/${lesson + 1}/chapter/1`}
+                    >
+                      {t('lesson.nextLesson')}
+                    </Link>
+                  ) : null}
+
                   <Link className="btn btn-outline-secondary btn-block" to={paths.lessonList}>
                     {t('link.contentMenu')}
                   </Link>
@@ -53,7 +60,9 @@ export class LessonContainer extends React.Component<IProps, {}> {
 
 const WithTranslation = translate('translations')(LessonContainer);
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  codes: state.course.lessonCodes
+});
 
 const mapDispatchToProps = (dispatch) => ({});
 

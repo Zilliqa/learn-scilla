@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom';
 import * as H from 'history';
 import uuidv4 from 'uuid/v4';
 
-import lessonCodes from '../../asset/lesson-code';
-
 interface IProps {
   t: (key: string) => string;
   history: H.History;
@@ -54,7 +52,7 @@ const WithTranslation = translate('translations')(LessonContainer);
 
 const mapStateToProps = (state) => ({
   accessToken: state.persist.accessToken,
-  codes: lessonCodes
+  codes: state.course.lessonCodes
 });
 
 const mapDispatchToProps = (dispatch) => ({});
