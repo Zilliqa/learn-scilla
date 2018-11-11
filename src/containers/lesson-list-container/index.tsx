@@ -38,7 +38,7 @@ export class LessonContainer extends React.Component<IProps, {}> {
           <div style={{ paddingTop: 30, paddingBottom: 100 }}>
             <Row className="py-5">
               <Col sm={10} md={8} lg={5} className="mr-auto ml-auto text-center">
-                <h3>{t('lesson.title')}</h3>
+                <h3>{t('lesson.listTitle')}</h3>
                 <br />
                 {lessonList}
               </Col>

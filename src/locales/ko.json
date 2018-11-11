@@ -1,7 +1,10 @@
 {
   "lesson": {
     "lesson": "레슨",
-    "title": "Scilla 튜토리얼 시작하기"
+    "congratulations": "축하합니다.",
+    "listTitle": "Scilla 튜토리얼 시작하기",
+    "completeMessage": "현재 레슨을 완료하셨습니다.",
+    "nextLesson": "다음 레슨 진행하기"
   },
   "chapter":{
     "chapter": "챕터",
@@ -19,7 +22,6 @@
     "submit":"확인",
     "cancel":"취소"
   },
-
   "auth": {
     "checkYourEmail": "이메일을 확인해주세요",
     "email":"Email" ,
@@ -44,7 +46,8 @@
     "auth.passwordResetSuccessMessage":"성공적으로 비밀번호를 변경하였습니다."
   },
   "link": {
-    "lesson": "레슨",
+    "tutorial": "튜토리얼",
+    "contentMenu": "목차",
     "login": "로그인",
     "logout": "로그아웃",
     "signUp": "회원가입",
