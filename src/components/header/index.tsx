@@ -46,8 +46,7 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
     i18n.changeLanguage('en');
   }
   public render(): React.ReactNode {
-    const { isAuth, logout } = this.props;
-
+    const { isAuth, logout, t } = this.props;
     const { pathname } = this.props.location;
 
     return (
@@ -63,14 +62,14 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
                 to={paths.lesson}
                 className={`nav-link ${pathname === paths.home ? 'active' : ''}`}
               >
-                {'Lesson'}
+                {t('link.lesson')}
               </Link>
             </NavItem>
 
             {isAuth ? (
               <NavItem>
                 <NavLink onClick={logout} style={{ cursor: 'pointer' }}>
-                  {'Logout'}
+                  {t('link.logout')}
                 </NavLink>
               </NavItem>
             ) : (
@@ -79,7 +78,7 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
                   to={paths.signin}
                   className={`nav-link ${pathname === paths.signin ? 'active' : ''}`}
                 >
-                  {'Login'}
+                  {t('link.login')}
                 </Link>
               </NavItem>
             )}

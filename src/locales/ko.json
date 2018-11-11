@@ -1,12 +1,19 @@
 {
+  "lesson": {
+    "lesson": "레슨",
+    "title": "Scilla 튜토리얼 시작해보기"
+  },
+  "chapter":{
+    "chapter": "챕터",
+    "back": "뒤로하기",
+    "next": "스킵하기",
+    "discuss": "토론하기"
+    },
   "editor" : {
     "showHint": "힌트",
     "showAnswer": "정답 보기",
     "hideAnswer": "정답 가리기",
-    "submitAnswer": "정답 확인",
-    "back": "뒤로하기",
-    "next": "스킵하기",
-    "discuss": "토론하기"
+    "submitAnswer": "정답 확인"
   },
   "form": {
     "submit":"확인",
@@ -37,7 +44,9 @@
     "auth.passwordResetSuccessMessage":"성공적으로 비밀번호를 변경하였습니다."
   },
   "link": {
+    "lesson": "레슨",
     "login": "로그인",
+    "logout": "로그아웃",
     "signUp": "회원가입",
     "forgotPassword": "패스워드를 잊으셨나요?"
   }

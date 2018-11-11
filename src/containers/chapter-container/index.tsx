@@ -97,7 +97,7 @@ export class ChapterContainer extends React.Component<IProps, IState> {
           disabled={isLessThanOne}
         >
           <FaChevronLeft />
-          {t('editor.back')}
+          {t('chapter.back')}
         </Button>
         <Button
           outline={true}
@@ -106,7 +106,7 @@ export class ChapterContainer extends React.Component<IProps, IState> {
           onClick={this.goNext}
           disabled={isGreaterThanTotal}
         >
-          {t('editor.next')}
+          {t('chapter.next')}
           <FaChevronRight />
         </Button>
       </ButtonGroup>

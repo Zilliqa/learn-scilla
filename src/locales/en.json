@@ -1,12 +1,19 @@
 {
+  "lesson": {
+    "lesson": "Lesson",
+    "title": "Start Scilla Tutorial"
+  },
+  "chapter":{
+    "chapter": "chapter",
+    "back": "Back",
+    "next": "Skip",
+    "discuss": "Discuss"
+  },
   "editor" : {
     "showHint": "Hint",
     "showAnswer": "Show Answer",
     "hideAnswer": "Hide Answer",
-    "submitAnswer": "Check Answer",
-    "back": "Back",
-    "next": "Skip",
-    "discuss": "Discuss"
+    "submitAnswer": "Check Answer"
   },
   "form": {
     "submit":"Submit",
@@ -36,7 +43,9 @@
     "auth.passwordResetSuccessMessage":"Password reset Successful"
   },
   "link": {
+    "lesson": "Lesson",
     "login": "Login",
+    "logout": "Logout",
     "signUp": "Sign up",
     "forgotPassword": "Forgot password"
   }
