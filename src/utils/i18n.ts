@@ -1,6 +1,7 @@
 import i18next from 'i18next';
 
 import english from '../locales/en.json';
+import korean from '../locales/ko.json';
 
 import LanguageDetector from 'i18next-browser-languagedetector';
 
@@ -16,7 +17,8 @@ i18next.use(LanguageDetector).init({
   ns: ['translations'],
   defaultNS: 'translations',
   resources: {
-    en: { translations: english }
+    en: { translations: english },
+    ko: { translations: korean }
   }
 });
 

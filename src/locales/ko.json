@@ -1,0 +1,53 @@
+{
+  "lesson": {
+    "lesson": "레슨",
+    "title": "Scilla 튜토리얼 시작하기"
+  },
+  "chapter":{
+    "chapter": "챕터",
+    "back": "뒤로하기",
+    "next": "스킵하기",
+    "discuss": "토론하기"
+    },
+  "editor" : {
+    "showHint": "힌트",
+    "showAnswer": "정답 보기",
+    "hideAnswer": "정답 가리기",
+    "submitAnswer": "정답 확인"
+  },
+  "form": {
+    "submit":"확인",
+    "cancel":"취소"
+  },
+
+  "auth": {
+    "checkYourEmail": "이메일을 확인해주세요",
+    "email":"Email" ,
+    "emailMessage" : "이메일 주소를 입력해주세요",
+    "emailInvalidMessage":"유효하지 않은 이메일 형식.",
+    "emailValidMessage":"유효한 이메일 형식",
+
+    "password":"Password" ,
+    "passwordMessage" : "패스워드를 입력해주세요",
+    "passwordInvalidMessage":"유효하지 않은 패스워드 형식",
+    "passwordValidMessage":"유효한 않은 패스워드 형식",
+
+    "password2":"Password" ,
+    "password2Message" : "패스워드를 다시 한번 입력해주세요",
+    "password2InvalidMessage":" 일치하지 않는 패스워드",
+    "password2ValidMessage":"일치하는 패스워드",
+
+    "passwordResetTitle":"비밀번호 변경",
+    "signUpTitle":"회원가입",
+    "signInTitle":"로그인",
+    "forgotPasswordTitle":"비밀번호 변경 요청하기",
+    "auth.passwordResetSuccessMessage":"성공적으로 비밀번호를 변경하였습니다."
+  },
+  "link": {
+    "lesson": "레슨",
+    "login": "로그인",
+    "logout": "로그아웃",
+    "signUp": "회원가입",
+    "forgotPassword": "패스워드를 잊으셨나요?"
+  }
+}

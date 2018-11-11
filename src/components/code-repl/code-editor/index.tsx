@@ -66,7 +66,7 @@ export default class CodeEditor extends React.Component<IProps, {}> {
             href={'https://gitter.im/Zilliqa/SmartContract'}
             target="_blank"
           >
-            <FaRegComments /> {t('editor.discuss')}
+            <FaRegComments /> {t('chapter.discuss')}
           </a>
         </div>
       </div>

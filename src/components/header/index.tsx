@@ -41,13 +41,9 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
     color: '',
     isOpen: false
   };
-  public componentDidMount() {
-    const i18n = this.props.i18n;
-    i18n.changeLanguage('en');
-  }
-  public render(): React.ReactNode {
-    const { isAuth, logout } = this.props;
 
+  public render(): React.ReactNode {
+    const { isAuth, logout, t } = this.props;
     const { pathname } = this.props.location;
 
     return (
@@ -63,14 +59,14 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
                 to={paths.lesson}
                 className={`nav-link ${pathname === paths.home ? 'active' : ''}`}
               >
-                {'Lesson'}
+                {t('link.lesson')}
               </Link>
             </NavItem>
 
             {isAuth ? (
               <NavItem>
                 <NavLink onClick={logout} style={{ cursor: 'pointer' }}>
-                  {'Logout'}
+                  {t('link.logout')}
                 </NavLink>
               </NavItem>
             ) : (
@@ -79,7 +75,7 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
                   to={paths.signin}
                   className={`nav-link ${pathname === paths.signin ? 'active' : ''}`}
                 >
-                  {'Login'}
+                  {t('link.login')}
                 </Link>
               </NavItem>
             )}
@@ -97,15 +93,20 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
 
   private renderI18nDropdown = () => {
     const i18n = this.props.i18n;
-
     const lang: string = i18n.language;
+    const LANG = {
+      en: 'English',
+      ko: '한국어'
+    };
+
     return (
       <UncontrolledDropdown nav={true} inNavbar={true}>
         <DropdownToggle caret={true} nav={true}>
-          {lang}
+          {LANG[lang]}
         </DropdownToggle>
         <DropdownMenu right={true} size="sm">
           <DropdownItem onClick={() => i18n.changeLanguage('en')}>{'English'}</DropdownItem>
+          <DropdownItem onClick={() => i18n.changeLanguage('ko')}>{'한국어'}</DropdownItem>
         </DropdownMenu>
       </UncontrolledDropdown>
     );

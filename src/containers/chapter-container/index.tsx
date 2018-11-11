@@ -14,6 +14,10 @@ import lessonIntructions from '../../asset/lesson-instruction';
 import lessonCodes from '../../asset/lesson-code';
 
 interface IProps {
+  i18n: {
+    language: string;
+    changeLanguage: (lang: string) => void;
+  };
   t: (key: string) => string;
   history: H.History;
   location: H.Location;
@@ -30,14 +34,15 @@ interface IState {
 
 export class ChapterContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
-    const { location, history, match } = this.props;
+    const { location, history, match, i18n } = this.props;
+
+    const currentLang: string = i18n.language;
 
     const routeParams = match.params;
 
     // TODO: if these params are not valid, redirect
     const currentLesson: number = routeParams.lesson;
     const currentChapter: number = routeParams.chapter;
-    const currentLang: string = routeParams.lang;
 
     // This will be used as a key e.g. lesson1
     const lessonKey: string = `lesson${currentLesson}`;
@@ -64,8 +69,8 @@ export class ChapterContainer extends React.Component<IProps, IState> {
 
     const lesson: number = routeParams.lesson;
     const chapter: number = parseInt(routeParams.chapter, 10);
-    const lang: string = routeParams.lang;
-    const nextChapterPath = `/${lang}/lesson/${lesson}/chapter/${chapter + 1}`;
+
+    const nextChapterPath = `/lesson/${lesson}/chapter/${chapter + 1}`;
     history.push(nextChapterPath);
   };
 
@@ -92,7 +97,7 @@ export class ChapterContainer extends React.Component<IProps, IState> {
           disabled={isLessThanOne}
         >
           <FaChevronLeft />
-          {t('editor.back')}
+          {t('chapter.back')}
         </Button>
         <Button
           outline={true}
@@ -101,7 +106,7 @@ export class ChapterContainer extends React.Component<IProps, IState> {
           onClick={this.goNext}
           disabled={isGreaterThanTotal}
         >
-          {t('editor.next')}
+          {t('chapter.next')}
           <FaChevronRight />
         </Button>
       </ButtonGroup>
@@ -114,8 +119,8 @@ export class ChapterContainer extends React.Component<IProps, IState> {
 
     const lesson: number = routeParams.lesson;
     const chapter: number = parseInt(routeParams.chapter, 10);
-    const lang: string = routeParams.lang;
-    const previousChapterPath = `/${lang}/lesson/${lesson}/chapter/${chapter - 1}`;
+
+    const previousChapterPath = `/lesson/${lesson}/chapter/${chapter - 1}`;
     history.push(previousChapterPath);
   };
 

@@ -7,6 +7,7 @@ import { routeList } from '../../routes';
 import { Container } from 'reactstrap';
 import * as H from 'history';
 import styles from './layout.module.css';
+
 interface ILayoutProps {
   history: H.History;
   location: H.Location;
