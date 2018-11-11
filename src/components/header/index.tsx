@@ -97,15 +97,20 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
 
   private renderI18nDropdown = () => {
     const i18n = this.props.i18n;
-
     const lang: string = i18n.language;
+    const LANG = {
+      en: 'English',
+      ko: '한국어'
+    };
+
     return (
       <UncontrolledDropdown nav={true} inNavbar={true}>
         <DropdownToggle caret={true} nav={true}>
-          {lang}
+          {LANG[lang]}
         </DropdownToggle>
         <DropdownMenu right={true} size="sm">
           <DropdownItem onClick={() => i18n.changeLanguage('en')}>{'English'}</DropdownItem>
+          <DropdownItem onClick={() => i18n.changeLanguage('ko')}>{'한국어'}</DropdownItem>
         </DropdownMenu>
       </UncontrolledDropdown>
     );

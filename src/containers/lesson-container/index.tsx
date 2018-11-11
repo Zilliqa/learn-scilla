@@ -19,15 +19,14 @@ interface IProps {
 
 export class LessonContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
-    const { location, history, codes, t } = this.props;
-    const lang = 'en';
-    const lessonKeys = Object.keys(codes);
+    const { location, history, codes } = this.props;
 
+    const lessonKeys = Object.keys(codes);
     const lessonList = lessonKeys.map((lessonKey, index) => (
       <Link
         key={uuidv4()}
         className="btn btn-outline-primary btn-block"
-        to={`/${lang}/lesson/${index + 1}/chapter/${1}`}
+        to={`/lesson/${index + 1}/chapter/${1}`}
       >
         {`Lesson ${index + 1}`}
       </Link>
