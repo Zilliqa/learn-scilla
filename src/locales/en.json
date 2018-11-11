@@ -1,7 +1,10 @@
 {
   "lesson": {
     "lesson": "Lesson",
-    "title": "Start Scilla Tutorial"
+    "congratulations": "Congratulations",
+    "listTitle": "Start Scilla Tutorial",
+    "completeMessage": "You have completed this lesson.",
+    "nextLesson": "Proceed to Next Lesson"
   },
   "chapter":{
     "chapter": "chapter",
@@ -43,10 +46,11 @@
     "auth.passwordResetSuccessMessage":"Password reset Successful"
   },
   "link": {
-    "lesson": "Lesson",
-    "login": "Login",
-    "logout": "Logout",
+    "tutorial": "Tutorial",
+    "contentMenu": "Content Menu",
+    "signIn": "Login",
     "signUp": "Sign up",
+    "signOut": "Logout",
     "forgotPassword": "Forgot password"
   }
 }

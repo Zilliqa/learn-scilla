@@ -10,9 +10,6 @@ import { IMatch } from '../../typings';
 import { ButtonGroup, Button } from 'reactstrap';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-import lessonIntructions from '../../asset/lesson-instruction';
-import lessonCodes from '../../asset/lesson-code';
-
 interface IProps {
   i18n: {
     language: string;
@@ -34,21 +31,15 @@ interface IState {
 
 export class ChapterContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
-    const { location, history, match, i18n } = this.props;
+    const { location, history, i18n } = this.props;
 
     const currentLang: string = i18n.language;
 
-    const routeParams = match.params;
-
-    // TODO: if these params are not valid, redirect
-    const currentLesson: number = routeParams.lesson;
-    const currentChapter: number = routeParams.chapter;
-
     // This will be used as a key e.g. lesson1
-    const lessonKey: string = `lesson${currentLesson}`;
+    const lessonKey: string = this.getLessonKey();
 
     // This should starts from 0
-    const chapterIndex: number = currentChapter - 1;
+    const chapterIndex: number = this.getChatperIndex();
 
     return (
       <Layout location={location} history={history}>
@@ -64,13 +55,33 @@ export class ChapterContainer extends React.Component<IProps, IState> {
   }
 
   public goNext = (): void => {
-    const { history, match } = this.props;
+    const { history, codes, match } = this.props;
     const routeParams = match.params;
-
-    const lesson: number = routeParams.lesson;
+    const lesson: number = parseInt(routeParams.lesson, 10);
     const chapter: number = parseInt(routeParams.chapter, 10);
 
-    const nextChapterPath = `/lesson/${lesson}/chapter/${chapter + 1}`;
+    const lessonKey: string = this.getLessonKey();
+    const chapterIndex: number = this.getChatperIndex();
+
+    // Check if code is undefined
+    if (codes === undefined) {
+      return;
+    }
+
+    const codeChapterList = codes[lessonKey] || [];
+    // Calculate total
+    const total = codeChapterList.length;
+
+    // Check if the current chapter is the end of this lesson.
+    const isLastChapter = chapterIndex === total - 1;
+
+    let nextChapterPath = `/lesson/${lesson}/chapter/${chapter + 1}`;
+
+    // If the last chapter, go to lesson complete page
+    if (isLastChapter) {
+      nextChapterPath = `/lesson-complete/${lesson}`;
+    }
+
     history.push(nextChapterPath);
   };
 
@@ -113,11 +124,31 @@ export class ChapterContainer extends React.Component<IProps, IState> {
     );
   };
 
+  private getLessonKey = (): string => {
+    const { match } = this.props;
+    const routeParams = match.params;
+    const currentLesson: string = routeParams.lesson;
+
+    // This will be used as a key e.g. lesson1
+    const lessonKey: string = `lesson${currentLesson}`;
+    return lessonKey;
+  };
+
+  private getChatperIndex = (): number => {
+    const { match } = this.props;
+    const routeParams = match.params;
+    const currentChapter: number = routeParams.chapter;
+
+    // This should starts from 0
+    const chapterIndex: number = currentChapter - 1;
+    return chapterIndex;
+  };
+
   private goBack = (): void => {
     const { history, match } = this.props;
     const routeParams = match.params;
 
-    const lesson: number = routeParams.lesson;
+    const lesson: number = parseInt(routeParams.lesson, 10);
     const chapter: number = parseInt(routeParams.chapter, 10);
 
     const previousChapterPath = `/lesson/${lesson}/chapter/${chapter - 1}`;
@@ -176,8 +207,8 @@ const WithTranslation = translate('translations')(ChapterContainer);
 
 const mapStateToProps = (state) => ({
   accessToken: state.persist.accessToken,
-  instructions: lessonIntructions,
-  codes: lessonCodes
+  instructions: state.course.lessonIntructions,
+  codes: state.course.lessonCodes
 });
 
 const mapDispatchToProps = (dispatch) => ({});

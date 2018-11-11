@@ -4,7 +4,8 @@ import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
 import AuthContainer from './containers/auth-form-container';
-import LessonContainer from './containers/lesson-container';
+import LessonListContainer from './containers/lesson-list-container';
+import LessonCompleteContainer from './containers/lesson-complete-container';
 import ChapterContainer from './containers/chapter-container';
 import EmailVerificationContainer from './containers/email-verification-container';
 import ResetPasswordContainer from './containers/reset-password-container';
@@ -13,7 +14,8 @@ export const appHistory = createHistory();
 
 export const paths = {
   home: '/home',
-  lesson: '/lesson',
+  lessonList: '/lesson-list',
+  lessonComplete: '/lesson-complete/:lesson',
   chapter: '/lesson/:lesson/chapter/:chapter',
   signin: '/signin',
   signup: '/signup',
@@ -25,11 +27,15 @@ export const paths = {
 export const routeList = [
   {
     path: paths.home,
-    component: LessonContainer
+    component: LessonListContainer
   },
   {
-    path: paths.lesson,
-    component: LessonContainer
+    path: paths.lessonList,
+    component: LessonListContainer
+  },
+  {
+    path: paths.lessonComplete,
+    component: LessonCompleteContainer
   },
   {
     path: paths.chapter,

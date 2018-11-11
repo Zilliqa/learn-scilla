@@ -56,17 +56,17 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
           <Nav className="ml-auto" navbar={true}>
             <NavItem>
               <Link
-                to={paths.lesson}
+                to={paths.lessonList}
                 className={`nav-link ${pathname === paths.home ? 'active' : ''}`}
               >
-                {t('link.lesson')}
+                {t('link.tutorial')}
               </Link>
             </NavItem>
 
             {isAuth ? (
               <NavItem>
                 <NavLink onClick={logout} style={{ cursor: 'pointer' }}>
-                  {t('link.logout')}
+                  {t('link.signOut')}
                 </NavLink>
               </NavItem>
             ) : (
@@ -75,7 +75,7 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
                   to={paths.signin}
                   className={`nav-link ${pathname === paths.signin ? 'active' : ''}`}
                 >
-                  {t('link.login')}
+                  {t('link.signIn')}
                 </Link>
               </NavItem>
             )}
