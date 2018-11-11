@@ -23,7 +23,7 @@ export default class SignupCheckEmailCard extends React.Component<IProps, {}> {
                 </div>
                 <div className="text-center">
                   <small>
-                    <Link to={paths.signin}>{t('link.signin')}</Link>
+                    <Link to={paths.signin}>{t('link.signIn')}</Link>
                   </small>
                 </div>
                 <br />

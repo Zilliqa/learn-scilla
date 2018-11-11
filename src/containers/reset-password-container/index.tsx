@@ -74,7 +74,7 @@ export class ResetPasswordContainer extends React.Component<IProps, IState> {
           <PasswordResetForm t={t} handleResetPassword={this.resetPassword} />
           <br />
           <small>
-            <Link to={paths.signin}>{t('link.signin')}</Link>
+            <Link to={paths.signin}>{t('link.signIn')}</Link>
           </small>
         </CardBody>
       </Card>

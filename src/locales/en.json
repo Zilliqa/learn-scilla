@@ -48,9 +48,9 @@
   "link": {
     "tutorial": "Tutorial",
     "contentMenu": "Content Menu",
-    "login": "Login",
-    "logout": "Logout",
+    "signIn": "Login",
     "signUp": "Sign up",
+    "signOut": "Logout",
     "forgotPassword": "Forgot password"
   }
 }

@@ -129,7 +129,7 @@ export class LoginContainer extends React.Component<IProps, IState> {
           <SignUpForm handleSignUp={this.signUp} isSubmitting={isSigningUp} t={t} />
           <br />
           <small>
-            <Link to={paths.signin}>{t('link.signin')}</Link>
+            <Link to={paths.signin}>{t('link.signIn')}</Link>
           </small>
         </CardBody>
       </Card>

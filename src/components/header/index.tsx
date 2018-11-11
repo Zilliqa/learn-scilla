@@ -66,7 +66,7 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
             {isAuth ? (
               <NavItem>
                 <NavLink onClick={logout} style={{ cursor: 'pointer' }}>
-                  {t('link.logout')}
+                  {t('link.signOut')}
                 </NavLink>
               </NavItem>
             ) : (
@@ -75,7 +75,7 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
                   to={paths.signin}
                   className={`nav-link ${pathname === paths.signin ? 'active' : ''}`}
                 >
-                  {t('link.login')}
+                  {t('link.signIn')}
                 </Link>
               </NavItem>
             )}

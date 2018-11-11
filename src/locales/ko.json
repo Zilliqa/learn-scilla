@@ -48,9 +48,9 @@
   "link": {
     "tutorial": "튜토리얼",
     "contentMenu": "목차",
-    "login": "로그인",
-    "logout": "로그아웃",
+    "signIn": "로그인",
     "signUp": "회원가입",
+    "signOut": "로그아웃",
     "forgotPassword": "패스워드를 잊으셨나요?"
   }
 }
