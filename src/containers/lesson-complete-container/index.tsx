@@ -36,14 +36,14 @@ export class LessonContainer extends React.Component<IProps, {}> {
                   <CardTitle>{t('lesson.congratulations')}</CardTitle>
                   <p>{t('lesson.completeMessage')}</p>
                   <br />
-                  {isLastLesson ? (
+                  {isLastLesson ? null : (
                     <Link
                       className="btn btn-primary btn-block"
                       to={`/lesson/${lesson + 1}/chapter/1`}
                     >
                       {t('lesson.nextLesson')}
                     </Link>
-                  ) : null}
+                  )}
 
                   <Link className="btn btn-outline-secondary btn-block" to={paths.lessonList}>
                     {t('link.contentMenu')}
