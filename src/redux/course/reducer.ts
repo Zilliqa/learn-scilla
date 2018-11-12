@@ -1,5 +1,5 @@
-import lessonIntructions from '../../asset/lesson-instruction';
-import lessonCodes from '../../asset/lesson-code';
+import lessonIntructions from '../../assets/lesson-instruction';
+import lessonCodes from '../../assets/lesson-code';
 
 const initialState = { lessonCodes, lessonIntructions };
 
