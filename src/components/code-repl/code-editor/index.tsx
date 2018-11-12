@@ -33,7 +33,7 @@ export default class CodeEditor extends React.Component<IProps, {}> {
           options={options}
           value={this.props.code}
           height="300"
-          language="javascript"
+          language="fsharp"
         />
         {this.props.children}
         <br />

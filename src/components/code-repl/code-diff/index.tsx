@@ -22,7 +22,7 @@ const CodeDiff: React.SFC<IProps> = (props) => {
       <div className={codeVisibleStyle}>
         <MonacoDiffEditor
           height="250"
-          language="javascript"
+          language="fsharp"
           original={props.codeForDiff}
           value={props.answerCode}
           options={options}
