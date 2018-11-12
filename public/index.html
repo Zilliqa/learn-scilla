@@ -19,6 +19,23 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
+    <!-- monaco editor setup -->
+    <script src="%PUBLIC_URL%/vs/loader.js"></script>
+    <script>
+      require.config({
+        paths: {
+          "vs": "vs"
+        }
+      });
+      window.MonacoEnvironment = {
+        getWorkerUrl: function (workerId, label) {
+          return "%PUBLIC_URL%/vs/base/worker/workerMain.js";
+        }
+      };
+    </script>
+    <!-- end monaco editor setup -->
+
     <title>Learn Scilla</title>
   </head>
   <body>
