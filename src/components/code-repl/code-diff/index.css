@@ -1,8 +1,13 @@
-.code-diff-container .show-answer .view-line{
-  display: block;
+.code-diff-container .show-answer .view-line {
+  display: block
 }
+
 .code-diff-container .view-line{
   display: none;
+}
+
+.code-diff-container .monaco-diff-editor  .line-delete .view-line {
+  display: block !important;
 }
 
 .code-diff-container  .monaco-diff-editor .line-insert,
