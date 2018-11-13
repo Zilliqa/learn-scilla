@@ -206,7 +206,6 @@ export class ChapterContainer extends React.Component<IProps, IState> {
 const WithTranslation = translate('translations')(ChapterContainer);
 
 const mapStateToProps = (state) => ({
-  accessToken: state.persist.accessToken,
   instructions: state.course.lessonIntructions,
   codes: state.course.lessonCodes
 });

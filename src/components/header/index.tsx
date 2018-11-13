@@ -12,23 +12,21 @@ import {
   NavbarBrand,
   NavbarToggler
 } from 'reactstrap';
-import { translate } from 'react-i18next';
+
 import { paths } from '../../routes';
 import * as H from 'history';
 import Collapse from 'reactstrap/lib/Collapse';
 import { Link } from 'react-router-dom';
+import AuthModal from '../auth-modal';
 
 interface IHeaderProps {
   history: H.History;
   location: H.Location;
-
   i18n: {
     language: string;
     changeLanguage: (lang: string) => void;
   };
   t: (key: string) => string;
-  isAuth: boolean;
-  logout: () => void;
 }
 
 interface IHeaderStates {
@@ -36,15 +34,14 @@ interface IHeaderStates {
   color: string;
 }
 
-class Header extends React.Component<IHeaderProps, IHeaderStates> {
+export default class Header extends React.Component<IHeaderProps, IHeaderStates> {
   public readonly state: IHeaderStates = {
     color: '',
     isOpen: false
   };
 
   public render(): React.ReactNode {
-    const { isAuth, logout, t } = this.props;
-    const { pathname } = this.props.location;
+    const { t } = this.props;
 
     return (
       <Navbar expand="md" color="light" light={true} fixed={'top'}>
@@ -55,30 +52,13 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
         <Collapse isOpen={this.state.isOpen} navbar={true}>
           <Nav className="ml-auto" navbar={true}>
             <NavItem>
-              <Link
-                to={paths.lessonList}
-                className={`nav-link ${pathname === paths.home ? 'active' : ''}`}
-              >
+              <Link className="nav-link" to={paths.lessonList}>
                 {t('link.tutorial')}
               </Link>
             </NavItem>
 
-            {isAuth ? (
-              <NavItem>
-                <NavLink onClick={logout} style={{ cursor: 'pointer' }}>
-                  {t('link.signOut')}
-                </NavLink>
-              </NavItem>
-            ) : (
-              <NavItem>
-                <Link
-                  to={paths.signin}
-                  className={`nav-link ${pathname === paths.signin ? 'active' : ''}`}
-                >
-                  {t('link.signIn')}
-                </Link>
-              </NavItem>
-            )}
+            <AuthModal />
+
             {this.renderI18nDropdown()}
           </Nav>
         </Collapse>
@@ -112,5 +92,3 @@ class Header extends React.Component<IHeaderProps, IHeaderStates> {
     );
   };
 }
-
-export default translate('translations')(Header);

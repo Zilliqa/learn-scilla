@@ -43,7 +43,10 @@
     "signUpTitle":"Sign Up",
     "signInTitle":"Login",
     "forgotPasswordTitle":"Request to reset password",
-    "auth.passwordResetSuccessMessage":"Password reset Successful"
+    "passwordResetSuccessMessage":"Password reset Successful",
+
+    "signInWithGoogle": "Sign In With Google",
+    "signInWithGitHub": "Sign In With GitHub"
   },
   "link": {
     "tutorial": "Tutorial",

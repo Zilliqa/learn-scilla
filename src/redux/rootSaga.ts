@@ -1,17 +1,7 @@
-import { all, fork } from 'redux-saga/effects';
-
-import * as userSagas from './user/sagas';
+// import { all, fork } from 'redux-saga/effects';
 
 function* root() {
-  yield all([
-    /* USER */
-    fork(userSagas.watchGetUserSaga),
-    fork(userSagas.watchSignUpSaga),
-    fork(userSagas.watchSignInSaga),
-    fork(userSagas.watchVerifyEmailSaga),
-    fork(userSagas.watchResetPasswordSaga),
-    fork(userSagas.watchRequestPasswordResetSaga)
-  ]);
+  // yield all([]);
 }
 
 export default root;

@@ -43,7 +43,9 @@
     "signUpTitle":"회원가입",
     "signInTitle":"로그인",
     "forgotPasswordTitle":"비밀번호 변경 요청하기",
-    "auth.passwordResetSuccessMessage":"성공적으로 비밀번호를 변경하였습니다."
+    "passwordResetSuccessMessage":"성공적으로 비밀번호를 변경하였습니다.",
+    "signInWithGoogle": "Google으로 로그인",
+    "signInWithGitHub": "GitHub으로 로그인"
   },
   "link": {
     "tutorial": "튜토리얼",

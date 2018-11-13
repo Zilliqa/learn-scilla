@@ -1,14 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 import Footer from '../footer';
 import Header from '../header';
-import * as userActions from '../../redux/user/actions';
-import { routeList } from '../../routes';
 import { Container } from 'reactstrap';
 import * as H from 'history';
 import styles from './layout.module.css';
 
 interface ILayoutProps {
+  i18n: {
+    language: string;
+    changeLanguage: (lang: string) => void;
+  };
+  t: (key: string) => string;
+  firebase: any; // TODO: specify type
+  auth: { isLoaded: boolean; isEmpty: boolean };
   history: H.History;
   location: H.Location;
   children?: React.ReactNode;
@@ -18,19 +23,11 @@ interface ILayoutProps {
 
 class Layout extends React.Component<ILayoutProps, {}> {
   public render() {
-    const { history, location, children, accessToken, removeAccessToken } = this.props;
-    const isAuth = accessToken !== undefined;
+    const { history, location, children, t, i18n } = this.props;
 
     return (
       <div>
-        <Header
-          history={history}
-          location={location}
-          isAuth={isAuth}
-          routeList={routeList}
-          logout={removeAccessToken}
-          background={'transparent'}
-        />
+        <Header i18n={i18n} t={t} history={history} location={location} />
         <Container className={styles.container}>{children}</Container>
         <Footer />
       </div>
@@ -38,15 +35,6 @@ class Layout extends React.Component<ILayoutProps, {}> {
   }
 }
 
-const mapStateToProps = (state) => ({
-  accessToken: state.persist.accessToken
-});
+const WithTranslation = translate('translations')(Layout);
 
-const mapDispatchToProps = (dispatch) => ({
-  removeAccessToken: () => dispatch(userActions.removeAccessToken())
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Layout);
+export default WithTranslation;

@@ -3,12 +3,9 @@ import { Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import createHistory from 'history/createBrowserHistory';
 
-import AuthContainer from './containers/auth-form-container';
 import LessonListContainer from './containers/lesson-list-container';
 import LessonCompleteContainer from './containers/lesson-complete-container';
 import ChapterContainer from './containers/chapter-container';
-import EmailVerificationContainer from './containers/email-verification-container';
-import ResetPasswordContainer from './containers/reset-password-container';
 
 export const appHistory = createHistory();
 
@@ -17,11 +14,7 @@ export const paths = {
   lessonList: '/lesson-list',
   lessonComplete: '/lesson-complete/:lesson',
   chapter: '/lesson/:lesson/chapter/:chapter',
-  signin: '/signin',
-  signup: '/signup',
-  forgotPassword: '/forget-password',
-  emailVerification: '/email-verification',
-  resetPassword: '/password-reset'
+  signin: '/signin'
 };
 
 export const routeList = [
@@ -40,26 +33,6 @@ export const routeList = [
   {
     path: paths.chapter,
     component: ChapterContainer
-  },
-  {
-    path: paths.signin,
-    component: AuthContainer
-  },
-  {
-    path: paths.signup,
-    component: AuthContainer
-  },
-  {
-    path: paths.forgotPassword,
-    component: AuthContainer
-  },
-  {
-    path: paths.emailVerification,
-    component: EmailVerificationContainer
-  },
-  {
-    path: paths.resetPassword,
-    component: ResetPasswordContainer
   }
 ];
 
