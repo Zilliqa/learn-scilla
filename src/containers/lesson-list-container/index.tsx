@@ -51,7 +51,6 @@ export class LessonContainer extends React.Component<IProps, {}> {
 const WithTranslation = translate('translations')(LessonContainer);
 
 const mapStateToProps = (state) => ({
-  accessToken: state.persist.accessToken,
   codes: state.course.lessonCodes
 });
 
