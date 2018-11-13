@@ -12,6 +12,8 @@ export const firebaseConfig = {
   messagingSenderId: '825204243213'
 };
 
+// react-redux-firebase config
 export const reactReduxFirebaseConfig = {
-  // userProfile: 'users'
+  userProfile: 'users',
+  useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
 };
