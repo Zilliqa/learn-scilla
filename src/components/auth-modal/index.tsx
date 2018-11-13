@@ -2,9 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
-
 import { translate } from 'react-i18next';
-import * as H from 'history';
 import Spinner from '../../components/spinner';
 import { NavItem, NavLink, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
@@ -12,20 +10,6 @@ interface IProps {
   t: (key: string) => string;
   firebase: any; // TODO: specify type
   auth: { isLoaded: boolean; isEmpty: boolean };
-  history: H.History;
-  location: H.Location;
-
-  signUp: (body) => void;
-  isSigningUp: boolean;
-  isSignUpSuccessful: boolean;
-
-  signIn: (body) => void;
-  isSigningIn: boolean;
-  accessToken?: string;
-
-  requestPasswordReset: (body) => void;
-  isRequestingPasswordReset: boolean;
-  isRequestPasswordResetSuccessful: boolean;
 }
 
 interface IState {
