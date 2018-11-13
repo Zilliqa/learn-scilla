@@ -54,7 +54,7 @@ export class AuthModal extends React.Component<IProps, IState> {
       <NavItem>
         <NavLink onClick={this.toggleModal}>{t('link.signIn')}</NavLink>
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} fade={false} size="sm">
-          <ModalHeader toggle={this.toggleModal} />
+          <ModalHeader toggle={this.toggleModal}>{'Learn Scilla'}</ModalHeader>
           <ModalBody>
             {!isLoaded ? (
               <Spinner />
