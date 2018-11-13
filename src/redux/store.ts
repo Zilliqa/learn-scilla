@@ -1,38 +1,42 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import createSagaMiddleware from 'redux-saga';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import firebase from 'firebase';
-import { reactReduxFirebase } from 'react-redux-firebase';
-
-import rootReducer from './rootReducer';
-import rootSaga from './rootSaga';
+import { reactReduxFirebase, firebaseReducer } from 'react-redux-firebase';
+import { reduxFirestore, firestoreReducer } from 'redux-firestore';
+import 'firebase/database';
+import 'firebase/firestore'; // make sure you add this for firestore
 
 import { firebaseConfig, reactReduxFirebaseConfig } from './config';
+
+import course from './course/reducer';
 
 // Initialize Firebase with config
 firebase.initializeApp(firebaseConfig);
 
-function configureStore() {
-  const sagaMiddleware = createSagaMiddleware();
-  const middlewares = [sagaMiddleware];
+// Initialize Firestore with timeshot settings
+firebase.firestore().settings({ timestampsInSnapshots: true });
 
-  // Use redux logger only when env is development
-  if (process.env.NODE_ENV === 'development') {
-    const { logger } = require('redux-logger');
-    middlewares.push(logger);
-  }
+// Add firebase and firestore to reducers
+const rootReducer = combineReducers({
+  firebase: firebaseReducer,
+  firestore: firestoreReducer,
+  course
+});
 
-  return {
-    ...createStore(
-      rootReducer,
-      compose(
-        // Firebase instance as first argument
-        reactReduxFirebase(firebase, reactReduxFirebaseConfig),
-        applyMiddleware(...middlewares)
-      )
-    ),
-    runSaga: sagaMiddleware.run
-  };
+let middlewares: any[] = [];
+
+// Use redux logger only when env is development
+if (process.env.NODE_ENV === 'development') {
+  // tslint:disable-next-line
+  const { logger } = require('redux-logger');
+  middlewares = [logger];
 }
 
-export const store = configureStore();
-store.runSaga(rootSaga);
+export const store = createStore(
+  rootReducer,
+  compose(
+    reduxFirestore(firebase),
+    // Firebase instance as first argument
+    reactReduxFirebase(firebase, reactReduxFirebaseConfig),
+    applyMiddleware(...middlewares)
+  )
+);
