@@ -1,4 +1,4 @@
-import { ChapterCode, LessonCode, CourseCode } from '../../typings';
+import { ChapterCodeType, LessonCodeType, CourseCodeType } from '../../typings';
 
 const ic1 = `contract zealgame
 (owner: ByStr20)
@@ -30,13 +30,14 @@ Transition changeName(newName: String)
 tempvar <- player_name
 end`;
 
-const ch2: ChapterCode = {
+const ch2: ChapterCodeType = {
   initialCode: ic2,
   answerCode: ac2
 };
 
-const lesson1: LessonCode = [ch1, ch2, ch1, ch1, ch1];
-const lesson2: LessonCode = [ch1, ch2, ch1, ch1, ch1];
-const course: CourseCode = [lesson1, lesson2];
+const lesson1: LessonCodeType = [ch1, ch2, ch1, ch1, ch1];
+const lesson2: LessonCodeType = [ch1, ch2, ch1, ch1, ch1];
+
+const course: CourseCodeType = [lesson1, lesson2];
 
 export default course;

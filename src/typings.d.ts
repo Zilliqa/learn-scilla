@@ -5,16 +5,16 @@ export interface IMatch {
   url: string;
 }
 
-export type ChapterCode = {
+export type ChapterCodeType = {
   initialCode: string;
   answerCode: string;
 };
-export type LessonCode = ChapterCode[];
-export type CourseCode = LessonCode[];
+export type LessonCodeType = ChapterCodeType[];
+export type CourseCodeType = LessonCodeType[];
 
-export type ChaperInstruction = string[];
-export type LessonInstruction = {
+export type ChaperInstructionType = string[];
+export type LessonInstructionType = {
   title: string;
-  chapters: ChaperInstruction;
+  chapters: ChaperInstructionType;
 };
-export type CourseInstruction = LessonInstruction[];
+export type CourseInstructionType = LessonInstructionType[];
