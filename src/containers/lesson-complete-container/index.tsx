@@ -5,7 +5,7 @@ import Layout from '../../components/layout';
 import { Container, Row, Col, Card, CardTitle } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import * as H from 'history';
-import { IMatch } from '../../typings';
+import { IMatch, CourseCodeType } from '../../typings';
 import { paths } from '../../routes';
 
 interface IProps {
@@ -13,7 +13,7 @@ interface IProps {
   history: H.History;
   location: H.Location;
   match: IMatch;
-  codes: any[];
+  codes: CourseCodeType;
 }
 
 export class LessonContainer extends React.Component<IProps, {}> {
@@ -61,7 +61,7 @@ export class LessonContainer extends React.Component<IProps, {}> {
 const WithTranslation = translate('translations')(LessonContainer);
 
 const mapStateToProps = (state) => ({
-  codes: state.course.lessonCodes
+  codes: state.course.courseCodes
 });
 
 const mapDispatchToProps = (dispatch) => ({});

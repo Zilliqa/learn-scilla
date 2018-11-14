@@ -6,7 +6,7 @@ import * as H from 'history';
 // import Spinner from '../../components/spinner';
 import CodeREPL from '../../components/code-repl';
 import StepProgressbar from '../../components/step-progressbar';
-import { IMatch } from '../../typings';
+import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 import { ButtonGroup, Button } from 'reactstrap';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Spinner from '../../components/spinner';
@@ -21,8 +21,8 @@ interface IProps {
   location: H.Location;
   match: IMatch;
   accessToken: string;
-  instructions?: any;
-  codes?: any;
+  instructions: CourseInstructionType;
+  codes: CourseCodeType;
 }
 interface IState {
   code: string;
@@ -206,8 +206,8 @@ export class ChapterContainer extends React.Component<IProps, IState> {
 const WithTranslation = translate('translations')(ChapterContainer);
 
 const mapStateToProps = (state) => ({
-  instructions: state.course.lessonInstructions,
-  codes: state.course.lessonCodes
+  instructions: state.course.courseInstructions,
+  codes: state.course.courseCodes
 });
 
 const mapDispatchToProps = (dispatch) => ({});

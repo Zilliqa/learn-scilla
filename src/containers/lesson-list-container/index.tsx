@@ -8,7 +8,7 @@ import * as H from 'history';
 import uuidv4 from 'uuid/v4';
 import { Line } from 'rc-progress';
 import Spinner from '../../components/spinner';
-
+import { CourseInstructionType } from '../../typings';
 interface IProps {
   i18n: {
     language: string;
@@ -18,7 +18,7 @@ interface IProps {
   history: H.History;
   location: H.Location;
   accessToken: string;
-  instructions: any[];
+  instructions: CourseInstructionType;
 }
 
 export class LessonContainer extends React.Component<IProps, {}> {
@@ -47,7 +47,6 @@ export class LessonContainer extends React.Component<IProps, {}> {
     return (
       <Layout location={location} history={history}>
         <Container>
-
           <div style={{ paddingTop: 30, paddingBottom: 100 }}>
             <Row className="py-5">
               <Col sm={10} md={8} lg={5} className="mr-auto ml-auto text-center">
@@ -66,7 +65,7 @@ export class LessonContainer extends React.Component<IProps, {}> {
 const WithTranslation = translate('translations')(LessonContainer);
 
 const mapStateToProps = (state) => ({
-  instructions: state.course.lessonInstructions
+  instructions: state.course.courseInstructions
 });
 
 const mapDispatchToProps = (dispatch) => ({});
