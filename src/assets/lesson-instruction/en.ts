@@ -1,3 +1,4 @@
+import { LessonInstruction, CourseInstruction } from '../../typings';
 const ch1 = `
 ## Chapter 1: Contract declaration \n
 Change name "Bob" -> "Alice".
@@ -19,9 +20,15 @@ const ch5 = `
 Change name "Bob" -> "Alice".
 `;
 
-const en = {
-  lesson1: [ch1, ch2, ch3, ch4, ch5],
-  lesson2: [ch1, ch2, ch3, ch4, ch5]
+const lesson1: LessonInstruction = {
+  title: 'Lorem ipsum dolor',
+  chapters: [ch1, ch2, ch3, ch4, ch5]
 };
+const lesson2: LessonInstruction = {
+  title: 'sed do eiusmod tempor',
+  chapters: [ch1, ch2, ch3, ch4, ch5]
+};
+
+const en: CourseInstruction = [lesson1, lesson2];
 
 export default en;
