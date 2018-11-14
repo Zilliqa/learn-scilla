@@ -13,6 +13,7 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'rc-steps/assets/index.css';
 import 'rc-steps/assets/iconfont.css';
+import 'rc-progress/assets/index.css';
 import './index.css';
 
 ReactDOM.render(
