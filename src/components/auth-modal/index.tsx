@@ -25,10 +25,11 @@ export class AuthModal extends React.Component<IProps, IState> {
 
     const { isLoaded, isEmpty } = auth;
 
+    const cursorStyle = { cursor: 'pointer' };
     if (!isEmpty) {
       return (
         <NavItem>
-          <NavLink onClick={this.logout} style={{ cursor: 'pointer' }}>
+          <NavLink onClick={this.logout} style={cursorStyle}>
             {t('link.signOut')}
           </NavLink>
         </NavItem>
@@ -36,19 +37,24 @@ export class AuthModal extends React.Component<IProps, IState> {
     }
     return (
       <NavItem>
-        <NavLink onClick={this.toggleModal}>{t('link.signIn')}</NavLink>
+        <NavLink
+          onClick={this.toggleModal}
+          style={cursorStyle}
+        >
+          {t('link.signIn')}
+        </NavLink>
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} fade={false} size="sm">
           <ModalHeader toggle={this.toggleModal}>{'Learn Scilla'}</ModalHeader>
           <ModalBody>
             {!isLoaded ? (
               <Spinner />
             ) : (
-              <div className="text-center py-3">
-                <button className="btn btn-outline-primary" onClick={this.signInWithGoogle}>
-                  {t('auth.signInWithGoogle')}
-                </button>
-              </div>
-            )}
+                <div className="text-center py-3">
+                  <button className="btn btn-outline-primary" onClick={this.signInWithGoogle}>
+                    {t('auth.signInWithGoogle')}
+                  </button>
+                </div>
+              )}
           </ModalBody>
         </Modal>
       </NavItem>
