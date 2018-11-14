@@ -1,3 +1,5 @@
+import { LessonInstructionType, CourseInstructionType } from '../../typings';
+
 const ch1 = `
 ## 챕터 1: Contract declaration \n
 "Bob" -> "Alice"으로 이름을 변경하세요.
@@ -20,9 +22,15 @@ const ch5 = `
 "Bob" -> "Alice"으로 이름을 변경하세요.
 `;
 
-const en = {
-  lesson1: [ch1, ch2, ch3, ch4, ch5],
-  lesson2: [ch1, ch2, ch3, ch4, ch5]
+const lesson1: LessonInstructionType = {
+  title: 'Lorem ipsum dolor',
+  chapters: [ch1, ch2, ch3, ch4, ch5]
+};
+const lesson2: LessonInstructionType = {
+  title: 'sed do eiusmod tempor',
+  chapters: [ch1, ch2, ch3, ch4, ch5]
 };
 
-export default en;
+const ko: CourseInstructionType = [lesson1, lesson2];
+
+export default ko;

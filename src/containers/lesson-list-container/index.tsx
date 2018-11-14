@@ -6,28 +6,42 @@ import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import * as H from 'history';
 import uuidv4 from 'uuid/v4';
-
+import { Line } from 'rc-progress';
+import Spinner from '../../components/spinner';
+import { CourseInstructionType } from '../../typings';
 interface IProps {
+  i18n: {
+    language: string;
+    changeLanguage: (lang: string) => void;
+  };
   t: (key: string) => string;
   history: H.History;
   location: H.Location;
   accessToken: string;
-  codes?: any;
+  instructions: CourseInstructionType;
 }
 
 export class LessonContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
-    const { location, history, codes, t } = this.props;
+    const { location, history, instructions, i18n, t } = this.props;
 
-    const lessonKeys = Object.keys(codes);
-    const lessonList = lessonKeys.map((lessonKey, index) => (
-      <Link
-        key={uuidv4()}
-        className="btn btn-outline-primary btn-block"
-        to={`/lesson/${index + 1}/chapter/${1}`}
-      >
-        {`${t('lesson.lesson')} ${index + 1}`}
-      </Link>
+    const lang: string = i18n.language;
+
+    if (instructions === undefined || instructions[lang] === undefined) {
+      return <Spinner />;
+    }
+
+    const intructionsLocalized = instructions[lang];
+    const lessonList = intructionsLocalized.map((item, index) => (
+      <div key={uuidv4()}>
+        <Link
+          className="btn btn-outline-primary btn-block text-left"
+          to={`/lesson/${index + 1}/chapter/${1}`}
+        >
+          {`${t('lesson.lesson')} ${index + 1}`}: {`${item.title}`}
+        </Link>
+        <Line style={{ marginTop: -15 }} percent="10" strokeWidth="1" strokeColor="#007bff" />
+      </div>
     ));
 
     return (
@@ -51,7 +65,7 @@ export class LessonContainer extends React.Component<IProps, {}> {
 const WithTranslation = translate('translations')(LessonContainer);
 
 const mapStateToProps = (state) => ({
-  codes: state.course.lessonCodes
+  instructions: state.course.courseInstructions
 });
 
 const mapDispatchToProps = (dispatch) => ({});

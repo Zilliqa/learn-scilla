@@ -6,9 +6,10 @@ import * as H from 'history';
 // import Spinner from '../../components/spinner';
 import CodeREPL from '../../components/code-repl';
 import StepProgressbar from '../../components/step-progressbar';
-import { IMatch } from '../../typings';
+import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 import { ButtonGroup, Button } from 'reactstrap';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import Spinner from '../../components/spinner';
 
 interface IProps {
   i18n: {
@@ -20,8 +21,8 @@ interface IProps {
   location: H.Location;
   match: IMatch;
   accessToken: string;
-  instructions?: any;
-  codes?: any;
+  instructions: CourseInstructionType;
+  codes: CourseCodeType;
 }
 interface IState {
   code: string;
@@ -36,7 +37,7 @@ export class ChapterContainer extends React.Component<IProps, IState> {
     const currentLang: string = i18n.language;
 
     // This will be used as a key e.g. lesson1
-    const lessonKey: string = this.getLessonKey();
+    const lessonIndex: number = this.getLessonIndex();
 
     // This should starts from 0
     const chapterIndex: number = this.getChatperIndex();
@@ -44,11 +45,11 @@ export class ChapterContainer extends React.Component<IProps, IState> {
     return (
       <Layout location={location} history={history}>
         <div>
-          {this.renderStepProgressbar(lessonKey, chapterIndex)}
+          {this.renderStepProgressbar(lessonIndex, chapterIndex)}
           <br />
-          <div>{this.renderCodeREPL(lessonKey, chapterIndex, currentLang)}</div>
+          <div>{this.renderCodeREPL(lessonIndex, chapterIndex, currentLang)}</div>
           <br />
-          <div className="text-right">{this.renderNavButtons(lessonKey, chapterIndex)}</div>
+          <div className="text-right">{this.renderNavButtons(lessonIndex, chapterIndex)}</div>
         </div>
       </Layout>
     );
@@ -60,7 +61,7 @@ export class ChapterContainer extends React.Component<IProps, IState> {
     const lesson: number = parseInt(routeParams.lesson, 10);
     const chapter: number = parseInt(routeParams.chapter, 10);
 
-    const lessonKey: string = this.getLessonKey();
+    const lessonIndex: number = this.getLessonIndex();
     const chapterIndex: number = this.getChatperIndex();
 
     // Check if code is undefined
@@ -68,7 +69,7 @@ export class ChapterContainer extends React.Component<IProps, IState> {
       return;
     }
 
-    const codeChapterList = codes[lessonKey] || [];
+    const codeChapterList = codes[lessonIndex] || [];
     // Calculate total
     const total = codeChapterList.length;
 
@@ -85,14 +86,14 @@ export class ChapterContainer extends React.Component<IProps, IState> {
     history.push(nextChapterPath);
   };
 
-  private renderNavButtons = (lessonKey: string, chapterIndex: number): React.ReactNode => {
+  private renderNavButtons = (lessonIndex: number, chapterIndex: number): React.ReactNode => {
     const { t, codes } = this.props;
 
     // Check if code is undefined
     if (codes === undefined) {
       return null;
     }
-    const codeChapterList = codes[lessonKey] || [];
+    const codeChapterList = codes[lessonIndex] || [];
     const total = codeChapterList.length;
 
     const isLessThanOne = chapterIndex <= 0;
@@ -124,22 +125,20 @@ export class ChapterContainer extends React.Component<IProps, IState> {
     );
   };
 
-  private getLessonKey = (): string => {
+  private getLessonIndex = (): number => {
     const { match } = this.props;
     const routeParams = match.params;
-    const currentLesson: string = routeParams.lesson;
+    const currentLesson: number = parseInt(routeParams.lesson, 10);
 
-    // This will be used as a key e.g. lesson1
-    const lessonKey: string = `lesson${currentLesson}`;
-    return lessonKey;
+    const lessonIndex: number = currentLesson - 1;
+    return lessonIndex;
   };
 
   private getChatperIndex = (): number => {
     const { match } = this.props;
     const routeParams = match.params;
-    const currentChapter: number = routeParams.chapter;
+    const currentChapter: number = parseInt(routeParams.chapter, 10);
 
-    // This should starts from 0
     const chapterIndex: number = currentChapter - 1;
     return chapterIndex;
   };
@@ -155,14 +154,14 @@ export class ChapterContainer extends React.Component<IProps, IState> {
     history.push(previousChapterPath);
   };
 
-  private renderStepProgressbar = (lessonKey: string, chapterIndex: number): React.ReactNode => {
+  private renderStepProgressbar = (lessonIndex: number, chapterIndex: number): React.ReactNode => {
     const { codes } = this.props;
 
     // Check if code is undefined
     if (codes === undefined) {
       return null;
     }
-    const codeChapterList = codes[lessonKey] || [];
+    const codeChapterList = codes[lessonIndex] || [];
     const total = codeChapterList.length;
     return (
       <div className="py-2">
@@ -172,21 +171,22 @@ export class ChapterContainer extends React.Component<IProps, IState> {
   };
 
   private renderCodeREPL = (
-    lessonKey: string,
+    lessonIndex: number,
     chapterIndex: number,
     lang: string
   ): React.ReactNode => {
     const { instructions, codes, t } = this.props;
 
     if (codes === undefined || instructions === undefined || instructions[lang] === undefined) {
-      return null;
+      return <Spinner />;
     }
 
     const intructionsLocalized = instructions[lang];
-    const instructionChapterList = intructionsLocalized[lessonKey] || [];
+    const lesson = intructionsLocalized[lessonIndex] || {};
+    const instructionChapterList = lesson.chapters || [];
     const instruction = instructionChapterList[chapterIndex] || {};
 
-    const codeChapterList = codes[lessonKey] || [];
+    const codeChapterList = codes[lessonIndex] || [];
     const code = codeChapterList[chapterIndex] || {};
     const initialCode = code.initialCode;
     const answerCode = code.answerCode;
@@ -206,8 +206,8 @@ export class ChapterContainer extends React.Component<IProps, IState> {
 const WithTranslation = translate('translations')(ChapterContainer);
 
 const mapStateToProps = (state) => ({
-  instructions: state.course.lessonIntructions,
-  codes: state.course.lessonCodes
+  instructions: state.course.courseInstructions,
+  codes: state.course.courseCodes
 });
 
 const mapDispatchToProps = (dispatch) => ({});
