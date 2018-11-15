@@ -30,7 +30,7 @@ interface IState {
   showAnswer: boolean;
 }
 
-export class ChapterContainer extends React.Component<IProps, IState> {
+class ChapterContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
     const { location, history, i18n } = this.props;
 
@@ -210,9 +210,7 @@ const mapStateToProps = (state) => ({
   codes: state.course.courseCodes
 });
 
-const mapDispatchToProps = (dispatch) => ({});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  undefined
 )(WithTranslation);

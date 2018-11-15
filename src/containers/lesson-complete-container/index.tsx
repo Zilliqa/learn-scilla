@@ -16,7 +16,7 @@ interface IProps {
   codes: CourseCodeType;
 }
 
-export class LessonContainer extends React.Component<IProps, {}> {
+class LessonContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
     const { location, history, match, t, codes } = this.props;
     const routeParams = match.params;
@@ -64,9 +64,7 @@ const mapStateToProps = (state) => ({
   codes: state.course.courseCodes
 });
 
-const mapDispatchToProps = (dispatch) => ({});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  undefined
 )(WithTranslation);
