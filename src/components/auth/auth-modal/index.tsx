@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
 import { translate } from 'react-i18next';
-import Spinner from '../../components/spinner';
+import Spinner from '../../../components/spinner';
 import { NavItem, NavLink, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 interface IProps {
@@ -37,10 +37,7 @@ export class AuthModal extends React.Component<IProps, IState> {
     }
     return (
       <NavItem>
-        <NavLink
-          onClick={this.toggleModal}
-          style={cursorStyle}
-        >
+        <NavLink onClick={this.toggleModal} style={cursorStyle}>
           {t('link.signIn')}
         </NavLink>
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} fade={false} size="sm">
@@ -49,12 +46,12 @@ export class AuthModal extends React.Component<IProps, IState> {
             {!isLoaded ? (
               <Spinner />
             ) : (
-                <div className="text-center py-3">
-                  <button className="btn btn-outline-primary" onClick={this.signInWithGoogle}>
-                    {t('auth.signInWithGoogle')}
-                  </button>
-                </div>
-              )}
+              <div className="text-center py-3">
+                <button className="btn btn-outline-primary" onClick={this.signInWithGoogle}>
+                  {t('auth.signInWithGoogle')}
+                </button>
+              </div>
+            )}
           </ModalBody>
         </Modal>
       </NavItem>
