@@ -16,7 +16,7 @@ interface IState {
   isModalOpen: boolean;
 }
 
-export class AuthModal extends React.Component<IProps, IState> {
+class AuthModal extends React.Component<IProps, IState> {
   public readonly state = {
     isModalOpen: false
   };
