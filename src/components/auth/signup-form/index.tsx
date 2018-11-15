@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormFeedback, FormText, Input, FormGroup, Form } from 'reactstrap';
-import { EMAIL_REGEX, PASSWORD_REGEX } from '../../utils/regex';
-import { getInputValidationState } from '../../utils/helpers';
+import { EMAIL_REGEX, PASSWORD_REGEX } from '../../../utils/regex';
+import { getInputValidationState } from '../../../utils/helpers';
 
 interface IProps {
   t: (key: string) => string;
