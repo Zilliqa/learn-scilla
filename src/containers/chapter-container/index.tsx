@@ -4,7 +4,7 @@ import { translate } from 'react-i18next';
 import Layout from '../../components/layout';
 import * as H from 'history';
 // import Spinner from '../../components/spinner';
-import CodeREPL from '../../components/code-repl';
+import CodeTutorial from '../../components/code-tutorial';
 import StepProgressbar from '../../components/step-progressbar';
 import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 import { ButtonGroup, Button } from 'reactstrap';
@@ -47,7 +47,7 @@ export class ChapterContainer extends React.Component<IProps, IState> {
         <div>
           {this.renderStepProgressbar(lessonIndex, chapterIndex)}
           <br />
-          <div>{this.renderCodeREPL(lessonIndex, chapterIndex, currentLang)}</div>
+          <div>{this.renderCodeTutorial(lessonIndex, chapterIndex, currentLang)}</div>
           <br />
           <div className="text-right">{this.renderNavButtons(lessonIndex, chapterIndex)}</div>
         </div>
@@ -170,7 +170,7 @@ export class ChapterContainer extends React.Component<IProps, IState> {
     );
   };
 
-  private renderCodeREPL = (
+  private renderCodeTutorial = (
     lessonIndex: number,
     chapterIndex: number,
     lang: string
@@ -192,7 +192,7 @@ export class ChapterContainer extends React.Component<IProps, IState> {
     const answerCode = code.answerCode;
 
     return (
-      <CodeREPL
+      <CodeTutorial
         initialCode={initialCode}
         answerCode={answerCode}
         instruction={instruction}
