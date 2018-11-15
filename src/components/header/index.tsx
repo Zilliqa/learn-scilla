@@ -16,7 +16,7 @@ import { paths } from '../../routes';
 import * as H from 'history';
 import Collapse from 'reactstrap/lib/Collapse';
 import { Link } from 'react-router-dom';
-import AuthModal from '../auth-modal';
+import AuthModal from '../auth/auth-modal';
 
 interface IHeaderProps {
   history: H.History;
