@@ -2,21 +2,48 @@ import React from 'react';
 import uuidv4 from 'uuid/v4';
 import { Link } from 'react-router-dom';
 import { Line } from 'rc-progress';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { withFirebase } from 'react-redux-firebase';
 
 const LessonList = (props) => {
-  const lessonList = props.lessonList || [];
-  const t = props.t;
-  return lessonList.map((item, index) => (
-    <div key={uuidv4()}>
-      <Link
-        className="btn btn-outline-primary btn-block text-left"
-        to={`/lesson/${index + 1}/chapter/${1}`}
-      >
-        {`${t('lesson.lesson')} ${index + 1}`}: {`${item.title}`}
-      </Link>
-      <Line style={{ marginTop: -15 }} percent="10" strokeWidth="1" strokeColor="#007bff" />
-    </div>
-  ));
+  const { t, profile, lessonList } = props;
+  const list = lessonList || [];
+  return list.map((item, index) => {
+    const lessonNum: number = index + 1;
+    const lessonKey: string = `lesson${lessonNum}`;
+    const lessonProgressNum: number = profile[lessonKey] || 0;
+    const isLoaded: boolean = profile.isLoaded;
+    const chapters: string[] = item.chapters || [];
+    const totalNum: number = chapters.length;
+
+    const progressText = isLoaded ? `[${lessonProgressNum}/${totalNum}]` : '';
+    const progressPercent = Math.floor((lessonProgressNum / totalNum) * 100);
+    return (
+      <div key={uuidv4()}>
+        <Link
+          className="btn btn-outline-primary btn-block text-left"
+          to={`/lesson/${lessonNum}/chapter/${1}`}
+        >
+          {`${t('lesson.lesson')} ${lessonNum}`}: {`${item.title} ${progressText}`}
+        </Link>
+        <Line
+          style={{ marginTop: -15 }}
+          percent={`${progressPercent}`}
+          strokeWidth={1}
+          strokeColor={'#007bff'}
+          trailColor={isLoaded ? '#D9D9D9' : 'transparent'}
+        />
+      </div>
+    );
+  });
 };
 
-export default LessonList;
+const mapStateToProps = (state) => ({
+  profile: state.firebase.profile
+});
+
+export default compose(
+  withFirebase,
+  connect(mapStateToProps)
+)(LessonList);
