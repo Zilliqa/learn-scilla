@@ -10,6 +10,8 @@ import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 import { ButtonGroup, Button } from 'reactstrap';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Spinner from '../../components/spinner';
+import { compose } from 'redux';
+import { withFirebase } from 'react-redux-firebase';
 
 interface IProps {
   i18n: {
@@ -23,6 +25,7 @@ interface IProps {
   accessToken: string;
   instructions: CourseInstructionType;
   codes: CourseCodeType;
+  firebase: any;
 }
 interface IState {
   code: string;
@@ -56,7 +59,8 @@ class ChapterContainer extends React.Component<IProps, IState> {
   }
 
   public goNext = (): void => {
-    const { history, codes, match } = this.props;
+    const { firebase, history, codes, match } = this.props;
+
     const routeParams = match.params;
     const lesson: number = parseInt(routeParams.lesson, 10);
     const chapter: number = parseInt(routeParams.chapter, 10);
@@ -82,7 +86,8 @@ class ChapterContainer extends React.Component<IProps, IState> {
     if (isLastChapter) {
       nextChapterPath = `/lesson-complete/${lesson}`;
     }
-
+    const lessonKey = `lesson${lesson}`;
+    firebase.updateProfile({ [lessonKey]: chapter });
     history.push(nextChapterPath);
   };
 
@@ -210,7 +215,7 @@ const mapStateToProps = (state) => ({
   codes: state.course.courseCodes
 });
 
-export default connect(
-  mapStateToProps,
-  undefined
+export default compose(
+  withFirebase,
+  connect(mapStateToProps)
 )(WithTranslation);
