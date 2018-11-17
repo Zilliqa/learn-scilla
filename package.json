@@ -18,7 +18,8 @@
     "tslint": "tslint --project tsconfig.json --format stylish",
     "format": "prettier --write '**/*.{ts,tsx,js}' --config .prettierrc",
     "test:ci": "CI=true react-scripts test --updateSnapshot --forceExit --detectOpenHandles",
-    "ci": "npm run tslint && npm run format && npm run test:ci"
+    "ci": "npm run tslint && npm run format && npm run test:ci",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "axios": "^0.18.0",
