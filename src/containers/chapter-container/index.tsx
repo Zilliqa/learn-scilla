@@ -86,8 +86,12 @@ class ChapterContainer extends React.Component<IProps, IState> {
     if (isLastChapter) {
       nextChapterPath = `/lesson-complete/${lesson}`;
     }
+
     const lessonKey = `lesson${lesson}`;
+    // Update lesson progress
     firebase.updateProfile({ [lessonKey]: chapter });
+
+    // Navigate to next chapter
     history.push(nextChapterPath);
   };
 
