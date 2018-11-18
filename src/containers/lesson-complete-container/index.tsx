@@ -22,8 +22,8 @@ class LessonContainer extends React.Component<IProps, {}> {
     const routeParams = match.params;
 
     const lesson: number = parseInt(routeParams.lesson, 10);
-    const lessonKey: string = `lesson${lesson}`;
-    const codeChapterList = codes[lessonKey];
+    const lessonIndex = lesson - 1;
+    const codeChapterList = codes[lessonIndex];
     const total = codeChapterList.length;
     const isLastLesson: boolean = total === lesson;
     return (
