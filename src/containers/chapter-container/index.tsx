@@ -26,6 +26,7 @@ interface IProps {
   instructions: CourseInstructionType;
   codes: CourseCodeType;
   firebase: any;
+  profile: any;
 }
 interface IState {
   code: string;
@@ -59,7 +60,7 @@ class ChapterContainer extends React.Component<IProps, IState> {
   }
 
   public goNext = (): void => {
-    const { firebase, history, codes, match } = this.props;
+    const { firebase, history, profile, codes, match } = this.props;
 
     const routeParams = match.params;
     const lesson: number = parseInt(routeParams.lesson, 10);
@@ -74,6 +75,7 @@ class ChapterContainer extends React.Component<IProps, IState> {
     }
 
     const codeChapterList = codes[lessonIndex] || [];
+
     // Calculate total
     const total = codeChapterList.length;
 
@@ -87,9 +89,13 @@ class ChapterContainer extends React.Component<IProps, IState> {
       nextChapterPath = `/lesson-complete/${lesson}`;
     }
 
-    const lessonKey = `lesson${lesson}`;
-    // Update lesson progress
-    firebase.updateProfile({ [lessonKey]: chapter });
+    const lessonKey: string = `lesson${lessonIndex + 1}`;
+    const lessonProgressNum: number = profile[lessonKey] || 0;
+
+    if (lessonProgressNum < chapter) {
+      // Update lesson progress
+      firebase.updateProfile({ [lessonKey]: chapter });
+    }
 
     // Navigate to next chapter
     history.push(nextChapterPath);
@@ -216,7 +222,8 @@ const WithTranslation = translate('translations')(ChapterContainer);
 
 const mapStateToProps = (state) => ({
   instructions: state.course.courseInstructions,
-  codes: state.course.courseCodes
+  codes: state.course.courseCodes,
+  profile: state.firebase.profile
 });
 
 export default compose(
