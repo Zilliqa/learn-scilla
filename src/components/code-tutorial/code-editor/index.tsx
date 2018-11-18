@@ -80,7 +80,6 @@ export default class CodeEditor extends React.Component<IProps, {}> {
       return;
     }
     const value = this.editor.getValue();
-    console.log('vv', value);
     this.props.showHint(value);
   };
 

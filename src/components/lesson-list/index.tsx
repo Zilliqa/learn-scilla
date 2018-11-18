@@ -23,7 +23,7 @@ const LessonList = (props) => {
       <div key={uuidv4()}>
         <Link
           className="btn btn-outline-primary btn-block text-left"
-          to={`/lesson/${lessonNum}/chapter/${1}`}
+          to={`/lesson/${lessonNum}/chapter/${lessonProgressNum + 1}`}
         >
           {`${t('lesson.lesson')} ${lessonNum}`}: {`${item.title} ${progressText}`}
         </Link>
