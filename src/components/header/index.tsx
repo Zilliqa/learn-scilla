@@ -44,10 +44,8 @@ export default class Header extends React.Component<IHeaderProps, IHeaderStates>
 
     return (
       <Navbar expand="md" color="light" light={true} fixed={'top'}>
-        <div className="navbar-wrapper">
-          <NavbarBrand href={paths.home}>{'Learn Scilla'}</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-        </div>
+        <NavbarBrand href={paths.home}>{'Learn Scilla'}</NavbarBrand>
+        <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar={true}>
           <Nav className="ml-auto" navbar={true}>
             <NavItem>
