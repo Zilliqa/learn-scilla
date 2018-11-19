@@ -2,6 +2,7 @@ import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 import { ButtonGroup, Button } from 'reactstrap';
 import { FaCheck, FaRegLightbulb, FaRegEye, FaRegEyeSlash, FaRegComments } from 'react-icons/fa';
+import { language, configuration } from '../config';
 
 interface IProps {
   t: (key: string) => string;
@@ -18,6 +19,7 @@ export default class CodeEditor extends React.Component<IProps, {}> {
   public readonly state = {
     code: this.props.code
   };
+
   public render() {
     const options = {
       selectOnLineNumbers: true,
@@ -34,6 +36,7 @@ export default class CodeEditor extends React.Component<IProps, {}> {
           value={this.props.code}
           height="300"
           language="scilla"
+          editorWillMount={this.editorWillMount}
         />
         {this.props.children}
         <br />
@@ -41,6 +44,17 @@ export default class CodeEditor extends React.Component<IProps, {}> {
       </div>
     );
   }
+  public editorWillMount = (monaco) => {
+    this.editor = monaco;
+    if (!monaco.languages.getLanguages().some(({ id }) => id === 'scilla')) {
+      // Register a new language
+      monaco.languages.register({ id: 'scilla' });
+      // Register a tokens provider for the language
+      monaco.languages.setMonarchTokensProvider('scilla', language);
+      // Set the editing configuration for the language
+      monaco.languages.setLanguageConfiguration('scilla', configuration);
+    }
+  };
 
   private renderButtons = (): React.ReactNode => {
     const { isAnswerVisible, t } = this.props;
