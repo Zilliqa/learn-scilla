@@ -4,7 +4,8 @@ import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
 import { translate } from 'react-i18next';
 import Spinner from '../../../components/spinner';
-import { NavItem, NavLink, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { NavItem, NavLink, Modal, ModalBody } from 'reactstrap';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 interface IProps {
   t: (key: string) => string;
@@ -45,8 +46,7 @@ class AuthModal extends React.Component<IProps, IState> {
         <NavLink onClick={this.toggleModal} style={cursorStyle}>
           {t('link.signIn')}
         </NavLink>
-        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} fade={false} size="sm">
-          <ModalHeader toggle={this.toggleModal}>{'Learn Scilla'}</ModalHeader>
+        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} size="sm">
           <ModalBody>
             {!isLoaded ? (
               <Spinner />
@@ -57,7 +57,7 @@ class AuthModal extends React.Component<IProps, IState> {
                     className="btn btn-outline-primary"
                     onClick={() => this.signIn(GOOGLE_PROVIDER, POPUP_TYPE)}
                   >
-                    {t('auth.signInWithGoogle')}
+                    <FaGoogle /> <small>{t('auth.signInWithGoogle')}</small>
                   </button>
                 </div>
                 <div className="py-1">
@@ -65,7 +65,7 @@ class AuthModal extends React.Component<IProps, IState> {
                     className="btn btn-outline-primary"
                     onClick={() => this.signIn(GITHUB_PROVIDER, POPUP_TYPE)}
                   >
-                    {t('auth.signInWithGitHub')}
+                    <FaGithub /> <small>{t('auth.signInWithGitHub')}</small>
                   </button>
                 </div>
               </div>
