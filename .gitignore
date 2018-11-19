@@ -22,5 +22,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # firebase
-firebase-debug.log*
-hosting.*.cache
+.firebase
