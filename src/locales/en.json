@@ -45,8 +45,8 @@
     "forgotPasswordTitle":"Request to reset password",
     "passwordResetSuccessMessage":"Password reset Successful",
 
-    "signInWithGoogle": "Sign In With Google",
-    "signInWithGitHub": "Sign In With GitHub"
+    "signInWithGoogle": "Sign in with Google",
+    "signInWithGitHub": "Sign in with GitHub"
   },
   "link": {
     "tutorial": "Tutorial",

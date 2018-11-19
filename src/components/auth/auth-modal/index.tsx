@@ -16,6 +16,10 @@ interface IState {
   isModalOpen: boolean;
 }
 
+const GITHUB_PROVIDER = 'github';
+const GOOGLE_PROVIDER = 'google';
+const POPUP_TYPE = 'popup';
+
 class AuthModal extends React.Component<IProps, IState> {
   public readonly state = {
     isModalOpen: false
@@ -26,6 +30,7 @@ class AuthModal extends React.Component<IProps, IState> {
     const { isLoaded, isEmpty } = auth;
 
     const cursorStyle = { cursor: 'pointer' };
+
     if (!isEmpty) {
       return (
         <NavItem>
@@ -46,10 +51,23 @@ class AuthModal extends React.Component<IProps, IState> {
             {!isLoaded ? (
               <Spinner />
             ) : (
-              <div className="text-center py-3">
-                <button className="btn btn-outline-primary" onClick={this.signInWithGoogle}>
-                  {t('auth.signInWithGoogle')}
-                </button>
+              <div className="py-3 text-center">
+                <div className="py-1">
+                  <button
+                    className="btn btn-outline-primary"
+                    onClick={() => this.signIn(GOOGLE_PROVIDER, POPUP_TYPE)}
+                  >
+                    {t('auth.signInWithGoogle')}
+                  </button>
+                </div>
+                <div className="py-1">
+                  <button
+                    className="btn btn-outline-primary"
+                    onClick={() => this.signIn(GITHUB_PROVIDER, POPUP_TYPE)}
+                  >
+                    {t('auth.signInWithGitHub')}
+                  </button>
+                </div>
               </div>
             )}
           </ModalBody>
@@ -64,9 +82,9 @@ class AuthModal extends React.Component<IProps, IState> {
     });
   };
 
-  private signInWithGoogle = (): void => {
+  private signIn = (provider: string, type: string): void => {
     const { firebase } = this.props;
-    const options = { provider: 'google', type: 'popup' };
+    const options = { provider, type };
     firebase.login(options);
     this.setState({
       isModalOpen: false
