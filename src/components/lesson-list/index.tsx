@@ -19,11 +19,13 @@ const LessonList = (props) => {
 
     const progressText = isLoaded ? `[${lessonProgressNum}/${totalNum}]` : '';
     const progressPercent = Math.floor((lessonProgressNum / totalNum) * 100);
+    const chapterToStart = totalNum <= lessonProgressNum ? totalNum : lessonProgressNum + 1;
+
     return (
       <div key={uuidv4()}>
         <Link
           className="btn btn-outline-primary btn-block text-left"
-          to={`/lesson/${lessonNum}/chapter/${lessonProgressNum + 1}`}
+          to={`/lesson/${lessonNum}/chapter/${chapterToStart}`}
         >
           {`${t('lesson.lesson')} ${lessonNum}`}: {`${item.title} ${progressText}`}
         </Link>
