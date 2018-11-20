@@ -10,23 +10,27 @@ interface IProps {
 
 // Renders diff editor
 const CodeDiff: React.SFC<IProps> = (props) => {
-  const options = {
+  const options: any = {
     readOnly: true,
-    renderSideBySide: false
+    renderSideBySide: false,
+    lineNumbers: 'off'
   };
 
   // This className decide code visibility
   const codeVisibleStyle = props.isAnswerVisible ? 'show-answer' : '';
   return (
     <div className="code-diff-container">
-      <div className={codeVisibleStyle}>
-        <MonacoDiffEditor
-          height="250"
-          language="scilla"
-          original={props.codeForDiff}
-          value={props.answerCode}
-          options={options}
-        />
+      <span className="text-secondary">{'Hint'}</span>
+      <div className="code-diff-border">
+        <div className={codeVisibleStyle}>
+          <MonacoDiffEditor
+            height="200"
+            language="scilla"
+            original={props.codeForDiff}
+            value={props.answerCode}
+            options={options}
+          />
+        </div>
       </div>
     </div>
   );
