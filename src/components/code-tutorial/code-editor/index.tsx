@@ -3,6 +3,7 @@ import MonacoEditor from 'react-monaco-editor';
 import { ButtonGroup, Button } from 'reactstrap';
 import { FaCheck, FaRegLightbulb, FaRegEye, FaRegEyeSlash, FaRegComments } from 'react-icons/fa';
 import { language, configuration } from '../config';
+import './index.css';
 
 interface IProps {
   t: (key: string) => string;
@@ -30,14 +31,16 @@ export default class CodeEditor extends React.Component<IProps, {}> {
     };
     return (
       <div>
-        <MonacoEditor
-          editorDidMount={this.editorDidMount}
-          options={options}
-          value={this.props.code}
-          height="300"
-          language="scilla"
-          editorWillMount={this.editorWillMount}
-        />
+        <div className="code-editor-container">
+          <MonacoEditor
+            editorDidMount={this.editorDidMount}
+            options={options}
+            value={this.props.code}
+            height="300"
+            language="scilla"
+            editorWillMount={this.editorWillMount}
+          />
+        </div>
         {this.props.children}
         <br />
         {this.renderButtons()}

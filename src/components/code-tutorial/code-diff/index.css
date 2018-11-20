@@ -1,3 +1,11 @@
+.code-diff-border {
+  border: 1px solid #eaeaea;
+}
+
+.code-diff-container {
+  margin: 15px 0px 0px 40px;
+}
+
 .code-diff-container .show-answer .view-line {
   display: block;
 }
@@ -13,4 +21,8 @@
 .code-diff-container .monaco-diff-editor .line-insert,
 .code-diff-container .monaco-diff-editor .char-insert {
   background-color: rgba(255, 255, 255, 100) !important;
+}
+
+.monaco-editor .view-overlays .current-line {
+  border: none !important;
 }
