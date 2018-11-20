@@ -6,6 +6,7 @@ interface IProps {
   isAnswerVisible: boolean;
   codeForDiff: string;
   answerCode: string;
+  t: (key: string) => string;
 }
 
 // Renders diff editor
@@ -20,7 +21,7 @@ const CodeDiff: React.SFC<IProps> = (props) => {
   const codeVisibleStyle = props.isAnswerVisible ? 'show-answer' : '';
   return (
     <div className="code-diff-container">
-      <span className="text-secondary">{'Hint'}</span>
+      <span className="text-secondary">{props.t('editor.hint')}</span>
       <div className="code-diff-border">
         <div className={codeVisibleStyle}>
           <MonacoDiffEditor

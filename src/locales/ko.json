@@ -13,7 +13,8 @@
     "discuss": "토론하기"
     },
   "editor" : {
-    "showHint": "힌트",
+    "hint": "힌트",
+    "showHint": "힌트 보기",
     "showAnswer": "정답 보기",
     "hideAnswer": "정답 가리기",
     "submitAnswer": "정답 확인"

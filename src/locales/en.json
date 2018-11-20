@@ -13,7 +13,8 @@
     "discuss": "Discuss"
   },
   "editor" : {
-    "showHint": "Hint",
+    "hint": "Hint",
+    "showHint": "Show Hint",
     "showAnswer": "Show Answer",
     "hideAnswer": "Hide Answer",
     "submitAnswer": "Check Answer"

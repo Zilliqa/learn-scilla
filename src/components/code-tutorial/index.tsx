@@ -51,6 +51,7 @@ export default class CodeREPL extends React.Component<IProps, IState> {
               codeForDiff={codeForDiff}
               answerCode={answerCode}
               isAnswerVisible={isAnswerVisible}
+              t={t}
             />
           </CodeEditor>
         </Col>
