@@ -10,17 +10,17 @@ const Footer: React.SFC = () => (
       <span className={styles.copyright}>{copyright}</span>
       <Nav style={{ justifyContent: 'center' }}>
         <NavItem>
-          <NavLink href="https://github.com/Zilliqa" target="_blank">
+          <NavLink href="https://github.com/Zilliqa" target="_blank" className="text-secondary">
             <FaGithub />
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="https://gitter.im/Zilliqa" target="_blank">
+          <NavLink href="https://gitter.im/Zilliqa" target="_blank" className="text-secondary">
             <FaGitter />
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="https://t.me/zilliqachat" target="_blank">
+          <NavLink href="https://t.me/zilliqachat" target="_blank" className="text-secondary">
             <FaTelegramPlane />
           </NavLink>
         </NavItem>
