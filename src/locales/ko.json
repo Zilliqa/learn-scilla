@@ -1,20 +1,17 @@
 {
-  "user": {
-    "account": "Account"
-  },
   "lesson": {
     "lesson": "레슨",
     "congratulations": "축하합니다.",
-    "listTitle": "Scilla 튜토리얼 시작하기",
+    "listTitle": "Scilla Tutorial",
     "chapterCompleteMessage": "현재 챕터를 완료하셨습니다.",
     "lessonCompleteMessage": "현재 레슨을 완료하셨습니다.",
     "nextLesson": "다음 레슨 진행하기"
   },
   "chapter":{
     "chapter": "챕터",
-    "back": "뒤로하기",
-    "next": "스킵하기",
-    "discuss": "토론하기"
+    "back": "뒤로가기",
+    "next": "건너뛰기",
+    "discuss": "논의하기"
     },
   "editor" : {
     "hint": "힌트",
@@ -28,17 +25,17 @@
     "cancel":"취소"
   },
   "auth": {
-    "checkYourEmail": "이메일을 확인해주세요",
-    "email":"Email" ,
-    "emailMessage" : "이메일 주소를 입력해주세요",
-    "emailInvalidMessage":"유효하지 않은 이메일 형식.",
-    "emailValidMessage":"유효한 이메일 형식",
-
     "signUpTitle":"회원가입",
     "signInTitle":"로그인",
 
     "signInWithGoogle": "Google으로 로그인",
-    "signInWithGitHub": "GitHub으로 로그인"
+    "signInWithGitHub": "GitHub으로 로그인",
+
+    "checkYourEmail": "이메일을 확인해주세요",
+    "email":"Email" ,
+    "emailMessage" : "이메일 주소를 입력해주세요",
+    "emailInvalidMessage":"유효하지 않은 이메일 형식.",
+    "emailValidMessage":"유효한 이메일 형식"
   },
   "link": {
     "tutorial": "튜토리얼",
@@ -46,6 +43,6 @@
     "signIn": "로그인",
     "signUp": "회원가입",
     "signOut": "로그아웃",
-    "forgotPassword": "패스워드를 잊으셨나요?"
+    "forgotPassword": "패스워드 찾기"
   }
 }
