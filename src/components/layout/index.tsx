@@ -4,7 +4,6 @@ import Footer from '../footer';
 import Header from '../header';
 import { Container } from 'reactstrap';
 import * as H from 'history';
-import styles from './layout.module.css';
 
 interface IProps {
   i18n: {
@@ -26,7 +25,7 @@ const Layout: React.SFC<IProps> = (props) => {
   return (
     <div>
       <Header i18n={i18n} t={t} history={history} location={location} />
-      <Container className={styles.container}>{children}</Container>
+      <Container>{children}</Container>
       <Footer />
     </div>
   );

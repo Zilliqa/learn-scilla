@@ -25,7 +25,7 @@ const CodeDiff: React.SFC<IProps> = (props) => {
       <div className="code-diff-border">
         <div className={codeVisibleStyle}>
           <MonacoDiffEditor
-            height="200"
+            height="160"
             language="scilla"
             original={props.codeForDiff}
             value={props.answerCode}
