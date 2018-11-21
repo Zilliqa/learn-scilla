@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withFirebase } from 'react-redux-firebase';
-import { Progress } from 'reactstrap';
 
 const LessonList: React.SFC<any> = (props) => {
   const { t, profile, lessonList } = props;
@@ -22,20 +21,14 @@ const LessonList: React.SFC<any> = (props) => {
     const totalNum: number = chapters.length;
 
     const progressText = isLoaded ? `[${lessonProgressNum}/${totalNum}]` : '';
-    const progressPercent = Math.floor((lessonProgressNum / totalNum) * 100);
     const chapterToStart = totalNum <= lessonProgressNum ? totalNum : lessonProgressNum + 1;
 
     const startingLessonPath = `/lesson/${lessonNum}/chapter/${chapterToStart}`;
     return (
-      <div key={uuidv4()} style={{ margin: 3 }}>
-        <Link className="btn btn-outline-primary btn-block text-left" to={startingLessonPath}>
+      <div key={uuidv4()} style={{ margin: 10 }}>
+        <Link className="btn btn-primary btn-block text-left" to={startingLessonPath}>
           {`${t('lesson.lesson')} ${lessonNum}`}: {`${item.title} ${progressText}`}
         </Link>
-
-        <Progress
-          style={{ height: 5, padding: 1, backgroundColor: 'transparent' }}
-          value={progressPercent}
-        />
       </div>
     );
   });
