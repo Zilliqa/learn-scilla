@@ -182,11 +182,7 @@ class ChapterContainer extends React.Component<IProps, IState> {
     }
     const codeChapterList = codes[lessonIndex] || [];
     const total = codeChapterList.length;
-    return (
-      <div className="py-2">
-        <StepProgressbar current={chapterIndex} total={total} />
-      </div>
-    );
+    return <StepProgressbar current={chapterIndex} total={total} />;
   };
 
   private renderCodeTutorial = (
