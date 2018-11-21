@@ -12,7 +12,8 @@ const LessonList = (props) => {
   return list.map((item, index) => {
     const lessonNum: number = index + 1;
     const lessonKey: string = `lesson${lessonNum}`;
-    const lessonProgressNum: number = profile[lessonKey] || 0;
+    const progressProfile = profile.progress || {};
+    const lessonProgressNum: number = progressProfile[lessonKey] || 0;
     const isLoaded: boolean = profile.isLoaded;
     const chapters: string[] = item.chapters || [];
     const totalNum: number = chapters.length;
