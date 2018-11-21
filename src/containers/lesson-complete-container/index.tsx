@@ -21,11 +21,12 @@ class LessonContainer extends React.Component<IProps, {}> {
     const { location, history, match, t, codes } = this.props;
     const routeParams = match.params;
 
-    const lesson: number = parseInt(routeParams.lesson, 10);
-    const lessonIndex = lesson - 1;
-    const codeChapterList = codes[lessonIndex];
-    const total = codeChapterList.length;
-    const isLastLesson: boolean = total === lesson;
+    const currentLessonNum: number = parseInt(routeParams.lesson, 10);
+    const numOfTotalLesson = codes.length;
+
+    const isLast: boolean = numOfTotalLesson === currentLessonNum;
+
+    const nextLessonPath = `/lesson/${currentLessonNum + 1}/chapter/1`;
     return (
       <Layout location={location} history={history}>
         <Container>
@@ -36,11 +37,8 @@ class LessonContainer extends React.Component<IProps, {}> {
                   <CardTitle>{t('lesson.congratulations')}</CardTitle>
                   <p>{t('lesson.lessonCompleteMessage')}</p>
                   <br />
-                  {isLastLesson ? null : (
-                    <Link
-                      className="btn btn-primary btn-block"
-                      to={`/lesson/${lesson + 1}/chapter/1`}
-                    >
+                  {isLast ? null : (
+                    <Link className="btn btn-primary btn-block" to={nextLessonPath}>
                       {t('lesson.nextLesson')}
                     </Link>
                   )}
