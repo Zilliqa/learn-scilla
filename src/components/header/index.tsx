@@ -40,24 +40,15 @@ export default class Header extends React.Component<IHeaderProps, IHeaderStates>
   };
 
   public render(): React.ReactNode {
-    const { t } = this.props;
-
     return (
       <Navbar expand="md" color="pale" light={true}>
-        <NavbarBrand href={paths.home} className="text-secondary">
+        <NavbarBrand href={paths.lessonList} className="text-secondary">
           {'LearnScilla'}
         </NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar={true}>
           <Nav className="ml-auto" navbar={true}>
-            <NavItem>
-              <Link className="nav-link" to={paths.lessonList}>
-                {t('link.tutorial')}
-              </Link>
-            </NavItem>
-
             <AuthModal />
-
             {this.renderI18nDropdown()}
           </Nav>
         </Collapse>
