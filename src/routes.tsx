@@ -19,10 +19,6 @@ export const paths = {
 
 export const routeList = [
   {
-    path: paths.home,
-    component: LessonListContainer
-  },
-  {
     path: paths.lessonList,
     component: LessonListContainer
   },
@@ -43,7 +39,7 @@ export const RouterNode: React.SFC = () => (
         {routeList.map((prop, key) => (
           <Route exact={true} path={prop.path} key={key} component={prop.component} />
         ))}
-        <Redirect from="/" to={paths.home} />
+        <Redirect from="/" to={paths.lessonList} />
       </Switch>
     </div>
   </Router>
