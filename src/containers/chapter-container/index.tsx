@@ -90,13 +90,14 @@ class ChapterContainer extends React.Component<IProps, IState> {
 
     const lessonKey: string = `lesson${lessonIndex + 1}`;
 
+    const isAuth: boolean = !profile.isEmpty;
     // progress data from db
     const progressProfile = profile.progress || {};
 
     const lessonProgressNum: number = progressProfile[lessonKey] || 0;
 
     // Update if progress is less than current chapter
-    if (lessonProgressNum < chapter) {
+    if (isAuth && lessonProgressNum < chapter) {
       // Update lesson progress
       firebase.updateProfile({ progress: { [lessonKey]: chapter } });
     }
