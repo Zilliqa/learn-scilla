@@ -43,7 +43,7 @@ export default class Header extends React.Component<IHeaderProps, IHeaderStates>
     const { t } = this.props;
 
     return (
-      <Navbar expand="md" color="pale" light={true} fixed={'top'}>
+      <Navbar expand="md" color="pale" light={true}>
         <NavbarBrand href={paths.home} className="text-primary">
           {'LearnScilla'}
         </NavbarBrand>
