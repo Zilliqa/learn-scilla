@@ -37,7 +37,6 @@ interface IState {
 class ChapterContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
     const { location, history, i18n } = this.props;
-
     const currentLang: string = i18n.language;
 
     // This will be used as a key e.g. lesson1
@@ -90,11 +89,16 @@ class ChapterContainer extends React.Component<IProps, IState> {
     }
 
     const lessonKey: string = `lesson${lessonIndex + 1}`;
-    const lessonProgressNum: number = profile[lessonKey] || 0;
 
+    // progress data from db
+    const progressProfile = profile.progress || {};
+
+    const lessonProgressNum: number = progressProfile[lessonKey] || 0;
+
+    // Update if progress is less than current chapter
     if (lessonProgressNum < chapter) {
       // Update lesson progress
-      firebase.updateProfile({ [lessonKey]: chapter });
+      firebase.updateProfile({ progress: { [lessonKey]: chapter } });
     }
 
     // Navigate to next chapter
