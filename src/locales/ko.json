@@ -1,4 +1,7 @@
 {
+  "user": {
+    "account": "Account"
+  },
   "lesson": {
     "lesson": "레슨",
     "congratulations": "축하합니다.",
@@ -31,21 +34,9 @@
     "emailInvalidMessage":"유효하지 않은 이메일 형식.",
     "emailValidMessage":"유효한 이메일 형식",
 
-    "password":"Password" ,
-    "passwordMessage" : "패스워드를 입력해주세요",
-    "passwordInvalidMessage":"유효하지 않은 패스워드 형식",
-    "passwordValidMessage":"유효한 않은 패스워드 형식",
-
-    "password2":"Password" ,
-    "password2Message" : "패스워드를 다시 한번 입력해주세요",
-    "password2InvalidMessage":" 일치하지 않는 패스워드",
-    "password2ValidMessage":"일치하는 패스워드",
-
-    "passwordResetTitle":"비밀번호 변경",
     "signUpTitle":"회원가입",
     "signInTitle":"로그인",
-    "forgotPasswordTitle":"비밀번호 변경 요청하기",
-    "passwordResetSuccessMessage":"성공적으로 비밀번호를 변경하였습니다.",
+
     "signInWithGoogle": "Google으로 로그인",
     "signInWithGitHub": "GitHub으로 로그인"
   },

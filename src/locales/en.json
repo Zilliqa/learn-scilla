@@ -1,4 +1,7 @@
 {
+  "user": {
+    "account": "Account"
+  },
   "lesson": {
     "lesson": "Lesson",
     "congratulations": "Congratulations",
@@ -31,21 +34,8 @@
     "emailInvalidMessage":"Invalid email",
     "emailValidMessage":"Valid email",
 
-    "password":"Password" ,
-    "passwordMessage" : "password required",
-    "passwordInvalidMessage":"Invalid password",
-    "passwordValidMessage":"Valid password",
-
-    "password2":"Password" ,
-    "password2Message" : "password repeat required",
-    "password2InvalidMessage":"Password is not Identical",
-    "password2ValidMessage":"Valid password",
-
-    "passwordResetTitle":"Reset Password",
     "signUpTitle":"Sign Up",
     "signInTitle":"Login",
-    "forgotPasswordTitle":"Request to reset password",
-    "passwordResetSuccessMessage":"Password reset Successful",
 
     "signInWithGoogle": "Sign in with Google",
     "signInWithGitHub": "Sign in with GitHub"
