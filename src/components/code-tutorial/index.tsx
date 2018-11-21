@@ -4,6 +4,7 @@ import { Col, Row } from 'reactstrap';
 import CodeInstruction from './code-intruction';
 import CodeEditor from './code-editor';
 import CodeDiff from './code-diff';
+import CodeModal from './code-modal';
 
 interface IProps {
   t: (key: string) => string;
@@ -17,13 +18,15 @@ interface IState {
   code: string;
   codeForDiff: string;
   isAnswerVisible: boolean;
+  isModalVisible: boolean;
 }
 
 export default class CodeREPL extends React.Component<IProps, IState> {
   public readonly state = {
     code: '',
     codeForDiff: this.props.answerCode,
-    isAnswerVisible: false
+    isAnswerVisible: false,
+    isModalVisible: false
   };
 
   public componentDidMount() {
@@ -35,6 +38,7 @@ export default class CodeREPL extends React.Component<IProps, IState> {
     const { code, codeForDiff, isAnswerVisible } = this.state;
     return (
       <Row>
+        {this.renderModal()}
         <Col xs={12} sm={12} md={6} lg={5}>
           <CodeInstruction instruction={instruction} t={t} />
         </Col>
@@ -73,12 +77,17 @@ export default class CodeREPL extends React.Component<IProps, IState> {
   public checkAnswer = (code: string): void => {
     const { answerCode } = this.props;
     const isCorrect = this.compareAnswer(code, answerCode);
+    const newState = {
+      code,
+      codeForDiff: code
+    };
     if (isCorrect) {
-      alert('Correct!');
-      this.initializeState();
-      this.props.goNext();
+      this.setState({
+        isModalVisible: true,
+        ...newState
+      });
     } else {
-      alert('Try again!');
+      this.setState({ ...newState });
     }
   };
 
@@ -86,12 +95,29 @@ export default class CodeREPL extends React.Component<IProps, IState> {
     this.setState({
       code: this.props.initialCode,
       codeForDiff: this.props.answerCode,
-      isAnswerVisible: false
+      isAnswerVisible: false,
+      isModalVisible: false
     });
   };
 
   // Compares code written by user and the answer
   private compareAnswer = (submitted: string, answer: string): boolean => {
-    return submitted === answer;
+    // TODO: require better comparison
+    const isCorrect = submitted.trim() === answer.trim();
+    return isCorrect;
+  };
+
+  private renderModal = () => {
+    const { t } = this.props;
+    const { isModalVisible } = this.state;
+    const closeModal = () => this.setState({ isModalVisible: false });
+    const proceed = () => {
+      this.initializeState();
+      this.props.goNext();
+    };
+
+    return (
+      <CodeModal t={t} proceed={proceed} isModalVisible={isModalVisible} closeModal={closeModal} />
+    );
   };
 }

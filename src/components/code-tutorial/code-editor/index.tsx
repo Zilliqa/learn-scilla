@@ -14,8 +14,12 @@ interface IProps {
   checkAnswer: (code) => void;
 }
 
+interface IState {
+  code: string;
+}
+
 // Renders code editor
-export default class CodeEditor extends React.Component<IProps, {}> {
+export default class CodeEditor extends React.Component<IProps, IState> {
   public editor;
   public readonly state = {
     code: this.props.code
