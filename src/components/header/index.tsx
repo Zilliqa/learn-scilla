@@ -44,7 +44,7 @@ export default class Header extends React.Component<IHeaderProps, IHeaderStates>
 
     return (
       <Navbar expand="md" color="pale" light={true}>
-        <NavbarBrand href={paths.home} className="text-primary">
+        <NavbarBrand href={paths.home} className="text-secondary">
           {'LearnScilla'}
         </NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
