@@ -1,10 +1,10 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
 import { Link } from 'react-router-dom';
-import { Line } from 'rc-progress';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withFirebase } from 'react-redux-firebase';
+import { Progress } from 'reactstrap';
 
 const LessonList: React.SFC<any> = (props) => {
   const { t, profile, lessonList } = props;
@@ -26,20 +26,15 @@ const LessonList: React.SFC<any> = (props) => {
     const chapterToStart = totalNum <= lessonProgressNum ? totalNum : lessonProgressNum + 1;
 
     const startingLessonPath = `/lesson/${lessonNum}/chapter/${chapterToStart}`;
-
-    const trailColor = isLoaded ? '#D9D9D9' : 'transparent';
-    const strokeColor = '#007bff';
     return (
-      <div key={uuidv4()}>
+      <div key={uuidv4()} style={{ margin: 3 }}>
         <Link className="btn btn-outline-primary btn-block text-left" to={startingLessonPath}>
           {`${t('lesson.lesson')} ${lessonNum}`}: {`${item.title} ${progressText}`}
         </Link>
-        <Line
-          style={{ marginTop: -15 }}
-          percent={`${progressPercent}`}
-          strokeWidth={1}
-          strokeColor={strokeColor}
-          trailColor={trailColor}
+
+        <Progress
+          style={{ height: 5, padding: 1, backgroundColor: 'transparent' }}
+          value={progressPercent}
         />
       </div>
     );

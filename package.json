@@ -27,8 +27,6 @@
     "history": "^4.6.1",
     "i18next": "^11.6.0",
     "i18next-browser-languagedetector": "^2.2.2",
-    "rc-progress": "^2.2.6",
-    "rc-steps": "^3.3.0",
     "react": "^16.6.0",
     "react-ace": "^6.2.0",
     "react-dom": "^16.6.0",
