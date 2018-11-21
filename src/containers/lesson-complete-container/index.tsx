@@ -34,7 +34,7 @@ class LessonContainer extends React.Component<IProps, {}> {
               <Card body={true} outline={true} color="secondary">
                 <div className="py-5">
                   <CardTitle>{t('lesson.congratulations')}</CardTitle>
-                  <p>{t('lesson.completeMessage')}</p>
+                  <p>{t('lesson.lessonCompleteMessage')}</p>
                   <br />
                   {isLastLesson ? null : (
                     <Link
