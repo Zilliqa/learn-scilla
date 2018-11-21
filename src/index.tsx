@@ -11,9 +11,6 @@ import * as serviceWorker from './serviceWorker';
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 import 'bootstrap/dist/css/bootstrap.css';
-import 'rc-steps/assets/index.css';
-import 'rc-steps/assets/iconfont.css';
-import 'rc-progress/assets/index.css';
 
 ReactDOM.render(
   <Provider store={store}>
