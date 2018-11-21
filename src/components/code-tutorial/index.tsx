@@ -41,10 +41,10 @@ export default class CodeREPL extends React.Component<IProps, IState> {
     return (
       <Row>
         {this.renderModal()}
-        <Col xs={12} sm={12} md={6} lg={5}>
+        <Col xs={12} sm={12} md={12} lg={5}>
           <CodeInstruction instruction={instruction} t={t} />
         </Col>
-        <Col xs={12} sm={12} md={6} lg={7}>
+        <Col xs={12} sm={12} md={12} lg={7}>
           <CodeEditor
             code={code}
             checkAnswer={this.checkAnswer}

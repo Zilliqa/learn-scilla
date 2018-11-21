@@ -75,16 +75,14 @@ export default class CodeEditor extends React.Component<IProps, IState> {
           <Button color="primary" size="sm" onClick={this.handleCheckAnswer}>
             <FaCheck /> {t('editor.submitAnswer')}
           </Button>{' '}
-          <ButtonGroup>
-            {isHintButtonVisible ? (
-              <Button outline={true} color="secondary" size="sm" onClick={this.hanldleToggle}>
-                {showAnswerButtonIcon} {showAnswerButtonText}
-              </Button>
-            ) : null}
-            <Button outline={true} color="secondary" size="sm" onClick={this.handleShowHint}>
-              <FaRegLightbulb /> {t('editor.showHint')}
+          {isHintButtonVisible ? (
+            <Button outline={true} color="secondary" size="sm" onClick={this.hanldleToggle}>
+              {showAnswerButtonIcon} {showAnswerButtonText}
             </Button>
-          </ButtonGroup>{' '}
+          ) : null}
+          <Button outline={true} color="secondary" size="sm" onClick={this.handleShowHint}>
+            <FaRegLightbulb /> {t('editor.showHint')}
+          </Button>{' '}
           <a
             className="btn btn-outline-secondary btn-sm"
             href={'https://gitter.im/Zilliqa/SmartContract'}
