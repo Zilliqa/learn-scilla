@@ -10,6 +10,7 @@ interface IProps {
   code: string;
   showHint: (code: string, cb?) => void;
   isAnswerVisible: boolean;
+  isHintButtonVisible: boolean;
   toggleShowAnswer: () => void;
   checkAnswer: (code) => void;
 }
@@ -64,7 +65,7 @@ export default class CodeEditor extends React.Component<IProps, IState> {
   };
 
   private renderButtons = (): React.ReactNode => {
-    const { isAnswerVisible, t } = this.props;
+    const { isHintButtonVisible, isAnswerVisible, t } = this.props;
 
     const showAnswerButtonText = t(isAnswerVisible ? 'editor.hideAnswer' : 'editor.showAnswer');
     const showAnswerButtonIcon = isAnswerVisible ? <FaRegEyeSlash /> : <FaRegEye />;
@@ -75,11 +76,13 @@ export default class CodeEditor extends React.Component<IProps, IState> {
             <FaCheck /> {t('editor.submitAnswer')}
           </Button>{' '}
           <ButtonGroup>
+            {isHintButtonVisible ? (
+              <Button outline={true} color="secondary" size="sm" onClick={this.hanldleToggle}>
+                {showAnswerButtonIcon} {showAnswerButtonText}
+              </Button>
+            ) : null}
             <Button outline={true} color="secondary" size="sm" onClick={this.handleShowHint}>
               <FaRegLightbulb /> {t('editor.showHint')}
-            </Button>
-            <Button outline={true} color="secondary" size="sm" onClick={this.hanldleToggle}>
-              {showAnswerButtonIcon} {showAnswerButtonText}
             </Button>
           </ButtonGroup>{' '}
           <a
