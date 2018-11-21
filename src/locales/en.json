@@ -1,11 +1,8 @@
 {
-  "user": {
-    "account": "Account"
-  },
   "lesson": {
     "lesson": "Lesson",
     "congratulations": "Congratulations",
-    "listTitle": "Start Scilla Tutorial",
+    "listTitle": "Scilla Tutorial",
     "chapterCompleteMessage": "You have completed this chapter.",
     "lessonCompleteMessage": "You have completed this lesson.",
     "nextLesson": "Proceed to Next Lesson"
@@ -28,17 +25,18 @@
     "cancel":"Cancel"
   },
   "auth": {
-    "checkYourEmail": "Check your email",
-    "email":"Email" ,
-    "emailMessage" : "email address required",
-    "emailInvalidMessage":"Invalid email",
-    "emailValidMessage":"Valid email",
-
     "signUpTitle":"Sign Up",
     "signInTitle":"Login",
 
     "signInWithGoogle": "Sign in with Google",
-    "signInWithGitHub": "Sign in with GitHub"
+    "signInWithGitHub": "Sign in with GitHub",
+
+    "checkYourEmail": "Check your email",
+    "email":"Email" ,
+    "emailMessage" : "email address required",
+    "emailInvalidMessage":"Invalid email",
+    "emailValidMessage":"Valid email"
+
   },
   "link": {
     "tutorial": "Tutorial",
