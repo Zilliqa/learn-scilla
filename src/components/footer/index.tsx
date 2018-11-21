@@ -4,7 +4,7 @@ import { Nav, NavItem, NavLink } from 'reactstrap';
 import { FaGithub, FaGitter, FaTelegramPlane } from 'react-icons/fa';
 const copyright: string = 'Copyright © LearnScilla 2018';
 
-const Footer: React.SFC<{}> = () => (
+const Footer: React.SFC = () => (
   <footer className={styles.footer}>
     <div className="text-center">
       <span className={styles.copyright}>{copyright}</span>

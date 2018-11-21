@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withFirebase } from 'react-redux-firebase';
 
-const LessonList = (props) => {
+const LessonList: React.SFC<any> = (props) => {
   const { t, profile, lessonList } = props;
   const list = lessonList || [];
   return list.map((item, index) => {

@@ -8,21 +8,21 @@ interface IProps {
   isModalVisible: boolean;
 }
 
-export default class CodeModal extends React.Component<IProps, {}> {
-  public render(): React.ReactNode {
-    const { isModalVisible, t, closeModal, proceed } = this.props;
-    return (
-      <div>
-        <Modal isOpen={isModalVisible} fade={false} toggle={closeModal}>
-          <ModalHeader toggle={closeModal}>{t('lesson.congratulations')}!</ModalHeader>
-          <ModalBody>{t('lesson.chapterCompleteMessage')}</ModalBody>
-          <ModalFooter>
-            <Button color="primary" outline={true} onClick={proceed}>
-              {t('lesson.nextLesson')}
-            </Button>
-          </ModalFooter>
-        </Modal>
-      </div>
-    );
-  }
-}
+const CodeModal: React.SFC<IProps> = (props) => {
+  const { isModalVisible, t, closeModal, proceed } = props;
+  return (
+    <div>
+      <Modal isOpen={isModalVisible} fade={false} toggle={closeModal}>
+        <ModalHeader toggle={closeModal}>{t('lesson.congratulations')}!</ModalHeader>
+        <ModalBody>{t('lesson.chapterCompleteMessage')}</ModalBody>
+        <ModalFooter>
+          <Button color="primary" outline={true} onClick={proceed}>
+            {t('lesson.nextLesson')}
+          </Button>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
+};
+
+export default CodeModal;
