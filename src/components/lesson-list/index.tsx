@@ -27,7 +27,7 @@ const LessonList: React.SFC<any> = (props) => {
     return (
       <div key={uuidv4()} style={{ margin: 10 }}>
         <Link className="btn btn-primary btn-block text-left" to={startingLessonPath}>
-          {`${t('lesson.lesson')} ${lessonNum}`}: {`${item.title} ${progressText}`}
+          {`${t('lesson.lesson')} ${lessonNum}`} : {`${item.title} ${progressText}`}
         </Link>
       </div>
     );
