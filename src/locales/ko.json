@@ -3,7 +3,8 @@
     "lesson": "레슨",
     "congratulations": "축하합니다.",
     "listTitle": "Scilla 튜토리얼 시작하기",
-    "completeMessage": "현재 레슨을 완료하셨습니다.",
+    "chapterCompleteMessage": "현재 챕터를 완료하셨습니다.",
+    "lessonCompleteMessage": "현재 레슨을 완료하셨습니다.",
     "nextLesson": "다음 레슨 진행하기"
   },
   "chapter":{

@@ -3,7 +3,8 @@
     "lesson": "Lesson",
     "congratulations": "Congratulations",
     "listTitle": "Start Scilla Tutorial",
-    "completeMessage": "You have completed this lesson.",
+    "chapterCompleteMessage": "You have completed this chapter.",
+    "lessonCompleteMessage": "You have completed this lesson.",
     "nextLesson": "Proceed to Next Lesson"
   },
   "chapter":{
