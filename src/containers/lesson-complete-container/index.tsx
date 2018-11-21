@@ -33,7 +33,7 @@ class LessonContainer extends React.Component<IProps, {}> {
           <Row className="py-5">
             <Col sm={10} md={8} lg={5} className="mr-auto ml-auto text-center">
               <Card body={true} outline={true} color="secondary">
-                <div className="py-5">
+                <div className="py-5 text-secondary">
                   <CardTitle>{t('lesson.congratulations')}</CardTitle>
                   <p>{t('lesson.lessonCompleteMessage')}</p>
                   <br />
