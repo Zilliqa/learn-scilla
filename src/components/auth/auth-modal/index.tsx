@@ -4,7 +4,17 @@ import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
 import { translate } from 'react-i18next';
 import Spinner from '../../../components/spinner';
-import { NavItem, NavLink, Modal, ModalBody } from 'reactstrap';
+import {
+  DropdownItem,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  NavItem,
+  NavLink,
+  Modal,
+  ModalBody
+} from 'reactstrap';
+
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 interface IProps {
@@ -27,18 +37,22 @@ class AuthModal extends React.Component<IProps, IState> {
   };
   public render(): React.ReactNode {
     const { t, auth } = this.props;
-
     const { isLoaded, isEmpty } = auth;
 
     const cursorStyle = { cursor: 'pointer' };
 
     if (!isEmpty) {
       return (
-        <NavItem>
-          <NavLink onClick={this.logout} style={cursorStyle}>
-            {t('link.signOut')}
-          </NavLink>
-        </NavItem>
+        <UncontrolledDropdown nav={true} inNavbar={true}>
+          <DropdownToggle caret={true} nav={true}>
+            {t('user.account')}
+          </DropdownToggle>
+          <DropdownMenu size="sm">
+            <DropdownItem onClick={this.logout} style={cursorStyle}>
+              {t('link.signOut')}
+            </DropdownItem>
+          </DropdownMenu>
+        </UncontrolledDropdown>
       );
     }
     return (
