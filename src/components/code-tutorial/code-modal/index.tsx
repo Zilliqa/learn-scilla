@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
+import { FaMedal } from 'react-icons/fa';
 
 interface IProps {
   t: (key: string) => string;
@@ -13,10 +14,12 @@ const CodeModal: React.SFC<IProps> = (props) => {
   return (
     <div>
       <Modal isOpen={isModalVisible} fade={false} toggle={closeModal}>
-        <ModalHeader toggle={closeModal}>{t('lesson.congratulations')}!</ModalHeader>
+        <ModalHeader toggle={closeModal} className="text-secondary">
+          <FaMedal /> {t('lesson.congratulations')}
+        </ModalHeader>
         <ModalBody>{t('lesson.chapterCompleteMessage')}</ModalBody>
         <ModalFooter>
-          <Button color="primary" outline={true} onClick={proceed}>
+          <Button color="primary" onClick={proceed}>
             {t('lesson.nextLesson')}
           </Button>
         </ModalFooter>
