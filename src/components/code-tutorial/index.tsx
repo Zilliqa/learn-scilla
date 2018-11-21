@@ -19,6 +19,7 @@ interface IState {
   codeForDiff: string;
   isAnswerVisible: boolean;
   isModalVisible: boolean;
+  isHintButtonVisible: boolean;
 }
 
 export default class CodeREPL extends React.Component<IProps, IState> {
@@ -26,7 +27,8 @@ export default class CodeREPL extends React.Component<IProps, IState> {
     code: '',
     codeForDiff: this.props.answerCode,
     isAnswerVisible: false,
-    isModalVisible: false
+    isModalVisible: false,
+    isHintButtonVisible: false
   };
 
   public componentDidMount() {
@@ -35,7 +37,7 @@ export default class CodeREPL extends React.Component<IProps, IState> {
 
   public render(): React.ReactNode {
     const { t, instruction, answerCode } = this.props;
-    const { code, codeForDiff, isAnswerVisible } = this.state;
+    const { code, codeForDiff, isAnswerVisible, isHintButtonVisible } = this.state;
     return (
       <Row>
         {this.renderModal()}
@@ -47,6 +49,7 @@ export default class CodeREPL extends React.Component<IProps, IState> {
             code={code}
             checkAnswer={this.checkAnswer}
             showHint={this.showHint}
+            isHintButtonVisible={isHintButtonVisible}
             toggleShowAnswer={this.toggleShowAnswer}
             isAnswerVisible={isAnswerVisible}
             t={t}
@@ -70,7 +73,7 @@ export default class CodeREPL extends React.Component<IProps, IState> {
 
   // Updates code for hint
   public showHint = (codeForDiff: string, cb): void => {
-    this.setState({ code: codeForDiff, codeForDiff }, cb);
+    this.setState({ isHintButtonVisible: true, code: codeForDiff, codeForDiff }, cb);
   };
 
   // Checks the code written by user if it's correct
