@@ -3,14 +3,14 @@ import React, { Suspense, lazy } from 'react';
 
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
-const LessonCompleteContainer = lazy(() => import('./containers/lesson-complete-container'));
-const ChapterContainer = lazy(() => import('./containers/chapter-container'));
-
 import LessonListContainer from './containers/lesson-list-container';
+import ChapterContainer from './containers/chapter-container';
+const LessonCompleteContainer = lazy(() => import('./containers/lesson-complete-container'));
+
 import Spinner from './components/spinner';
 
 export const paths = {
-  lessonList: '/lesson-list',
+  lessonList: '/',
   lessonComplete: '/lesson-complete/:lesson',
   chapter: '/lesson/:lesson/chapter/:chapter'
 };
