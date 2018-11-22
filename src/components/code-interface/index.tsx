@@ -1,7 +1,5 @@
 import React from 'react';
-import { Col, Row } from 'reactstrap';
 
-import CodeInstruction from './code-intruction';
 import CodeEditor from './code-editor';
 import CodeDiff from './code-diff';
 import CodeModal from './code-modal';
@@ -10,7 +8,6 @@ interface IProps {
   t: (key: string) => string;
   initialCode: string;
   answerCode: string;
-  instruction: string;
   proceed: () => void;
 }
 
@@ -36,33 +33,28 @@ export default class CodeREPL extends React.Component<IProps, IState> {
   }
 
   public render(): React.ReactNode {
-    const { t, instruction, answerCode } = this.props;
+    const { t, answerCode } = this.props;
     const { code, codeForDiff, isAnswerVisible, isHintButtonVisible } = this.state;
     return (
-      <Row>
+      <div>
         {this.renderModal()}
-        <Col xs={12} sm={12} md={12} lg={5}>
-          <CodeInstruction instruction={instruction} t={t} />
-        </Col>
-        <Col xs={12} sm={12} md={12} lg={7}>
-          <CodeEditor
-            code={code}
-            checkAnswer={this.checkAnswer}
-            showHint={this.showHint}
-            isHintButtonVisible={isHintButtonVisible}
-            toggleShowAnswer={this.toggleShowAnswer}
+        <CodeEditor
+          code={code}
+          checkAnswer={this.checkAnswer}
+          showHint={this.showHint}
+          isHintButtonVisible={isHintButtonVisible}
+          toggleShowAnswer={this.toggleShowAnswer}
+          isAnswerVisible={isAnswerVisible}
+          t={t}
+        >
+          <CodeDiff
+            codeForDiff={codeForDiff}
+            answerCode={answerCode}
             isAnswerVisible={isAnswerVisible}
             t={t}
-          >
-            <CodeDiff
-              codeForDiff={codeForDiff}
-              answerCode={answerCode}
-              isAnswerVisible={isAnswerVisible}
-              t={t}
-            />
-          </CodeEditor>
-        </Col>
-      </Row>
+          />
+        </CodeEditor>
+      </div>
     );
   }
 

@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import Layout from '../../components/layout';
 import * as H from 'history';
-// import Spinner from '../../components/spinner';
-import CodeTutorial from '../../components/code-tutorial';
+
 import StepProgressbar from '../../components/step-progressbar';
+const CodeInterface = lazy(() => import('../../components/code-interface'));
+// import CodeInterface from '../../components/code-interface';
+import CodeInstruction from '../../components/code-instruction';
 import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
-import { ButtonGroup, Button } from 'reactstrap';
+import { ButtonGroup, Button, Row, Col } from 'reactstrap';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Spinner from '../../components/spinner';
 import { compose } from 'redux';
@@ -220,13 +222,21 @@ class ChapterContainer extends React.Component<IProps, IState> {
     const answerCode = code.answerCode;
 
     return (
-      <CodeTutorial
-        initialCode={initialCode}
-        answerCode={answerCode}
-        instruction={instruction}
-        t={t}
-        proceed={this.proceed}
-      />
+      <Row>
+        <Col xs={12} sm={12} md={12} lg={5}>
+          <CodeInstruction instruction={instruction} t={t} />
+        </Col>
+        <Col xs={12} sm={12} md={12} lg={7}>
+          <Suspense fallback={<Spinner />}>
+            <CodeInterface
+              initialCode={initialCode}
+              answerCode={answerCode}
+              t={t}
+              proceed={this.proceed}
+            />
+          </Suspense>
+        </Col>
+      </Row>
     );
   };
 }
