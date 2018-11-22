@@ -58,49 +58,54 @@ class ChapterContainer extends React.Component<IProps, IState> {
     );
   }
 
-  public goNext = (): void => {
-    const { firebase, history, profile, codes, match } = this.props;
-
+  public proceed = (): void => {
+    const { codes, match } = this.props;
     const routeParams = match.params;
+
     const lesson: number = parseInt(routeParams.lesson, 10);
     const chapter: number = parseInt(routeParams.chapter, 10);
-
-    const lessonIndex: number = this.getLessonIndex();
-    const chapterIndex: number = this.getChatperIndex();
 
     // Check if code is undefined
     if (codes === undefined) {
       return;
     }
+    this.updateProgress(lesson, chapter);
+    this.goNextChapter(lesson, chapter);
+  };
 
+  private updateProgress = (currentLesson, currentChapter) => {
+    const { firebase, profile } = this.props;
+
+    // get progress data from db
+    const progressProfile = profile.progress || {};
+    const lessonKey: string = `lesson${currentLesson}`;
+    const progress = { [lessonKey]: currentChapter };
+
+    const isAuth: boolean = !profile.isEmpty;
+    const lessonProgressNum: number = progressProfile[lessonKey] || 0;
+
+    // Update if progress is less than current chapter
+    if (isAuth && lessonProgressNum < currentChapter) {
+      // Update lesson progress
+      firebase.updateProfile({ progress });
+    }
+  };
+
+  private goNextChapter = (currentLesson, currentChapter) => {
+    const { history, codes } = this.props;
+
+    const lessonIndex = currentLesson - 1;
     const codeChapterList = codes[lessonIndex] || [];
 
     // Calculate total
     const total = codeChapterList.length;
 
     // Check if the current chapter is the end of this lesson.
-    const isLastChapter = chapterIndex === total - 1;
-
-    let nextChapterPath = `/lesson/${lesson}/chapter/${chapter + 1}`;
-
+    const isLastChapter = currentChapter === total;
     // If the last chapter, go to lesson complete page
-    if (isLastChapter) {
-      nextChapterPath = `/lesson-complete/${lesson}`;
-    }
-
-    const lessonKey: string = `lesson${lessonIndex + 1}`;
-
-    const isAuth: boolean = !profile.isEmpty;
-    // progress data from db
-    const progressProfile = profile.progress || {};
-
-    const lessonProgressNum: number = progressProfile[lessonKey] || 0;
-
-    // Update if progress is less than current chapter
-    if (isAuth && lessonProgressNum < chapter) {
-      // Update lesson progress
-      firebase.updateProfile({ progress: { [lessonKey]: chapter } });
-    }
+    const nextChapterPath = isLastChapter
+      ? `/lesson-complete/${currentLesson}`
+      : `/lesson/${currentLesson}/chapter/${currentChapter + 1}`;
 
     // Navigate to next chapter
     history.push(nextChapterPath);
@@ -135,7 +140,7 @@ class ChapterContainer extends React.Component<IProps, IState> {
           outline={true}
           color="secondary"
           size="sm"
-          onClick={this.goNext}
+          onClick={this.proceed}
           disabled={isGreaterThanTotal}
         >
           {t('chapter.next')}
@@ -213,7 +218,7 @@ class ChapterContainer extends React.Component<IProps, IState> {
         answerCode={answerCode}
         instruction={instruction}
         t={t}
-        goNext={this.goNext}
+        proceed={this.proceed}
       />
     );
   };
