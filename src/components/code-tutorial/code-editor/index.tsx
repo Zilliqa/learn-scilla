@@ -1,6 +1,6 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
-import { ButtonGroup, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { FaCheck, FaRegLightbulb, FaRegEye, FaRegEyeSlash, FaRegComments } from 'react-icons/fa';
 import { language, configuration } from '../config';
 import './index.css';
