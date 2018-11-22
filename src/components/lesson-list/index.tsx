@@ -15,11 +15,14 @@ const LessonList: React.SFC<any> = (props) => {
     const lessonProgressNum: number = progressProfile[lessonKey] || 0;
 
     const isLoaded: boolean = profile.isLoaded;
+    const isAuth: boolean = !profile.isEmpty;
+    const showProgressText = isLoaded && isAuth;
 
     const chapters: string[] = item.chapters || [];
     const totalNum: number = chapters.length;
 
-    const progressText = isLoaded ? `(${lessonProgressNum}/${totalNum})` : '';
+    const progressStatus = `(${lessonProgressNum}/${totalNum})`;
+    const progressText = showProgressText ? progressStatus : '';
     const chapterToStart = totalNum <= lessonProgressNum ? totalNum : lessonProgressNum + 1;
 
     const startingLessonPath = `/lesson/${lessonNum}/chapter/${chapterToStart}`;
