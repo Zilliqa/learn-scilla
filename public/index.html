@@ -36,6 +36,10 @@
     </script>
     <!-- end monaco editor setup -->
 
+    <style>
+      .spinner{margin:100px auto;width:50px;height:40px;text-align:center;font-size:10px}.spinner>div{background-color:#aaa;height:100%;width:6px;display:inline-block;-webkit-animation:sk-stretchdelay 1.2s infinite ease-in-out;animation:sk-stretchdelay 1.2s infinite ease-in-out}.spinner .rect2{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.spinner .rect3{-webkit-animation-delay:-1s;animation-delay:-1s}.spinner .rect4{-webkit-animation-delay:-.9s;animation-delay:-.9s}.spinner .rect5{-webkit-animation-delay:-.8s;animation-delay:-.8s}@-webkit-keyframes sk-stretchdelay{0%,100%,40%{-webkit-transform:scaleY(.4)}20%{-webkit-transform:scaleY(1)}}@keyframes sk-stretchdelay{0%,100%,40%{transform:scaleY(.4);-webkit-transform:scaleY(.4)}20%{transform:scaleY(1);-webkit-transform:scaleY(1)}}
+    </style>
+
     <title>LearnScilla - An interactive tutorial for people to learn Scilla</title>
     <meta name="description" content="An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process.">
 
@@ -50,6 +54,10 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div class="spinner">
+        <div class="rect1"></div>&nbsp;<div class="rect2"></div>&nbsp;<div class="rect3"></div>&nbsp;<div class="rect4"></div>&nbsp;<div class="rect5"></div>
+      </div>
+    </div>
   </body>
 </html>
