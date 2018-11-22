@@ -3,7 +3,6 @@ import {
   // Collapse,
   Navbar,
   Nav,
-  NavItem,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -16,6 +15,7 @@ import { paths } from '../../routes';
 import * as H from 'history';
 import Collapse from 'reactstrap/lib/Collapse';
 import AuthModal from '../auth/auth-modal';
+import { Link } from 'react-router-dom';
 
 interface IHeaderProps {
   history: H.History;
@@ -41,9 +41,10 @@ export default class Header extends React.Component<IHeaderProps, IHeaderStates>
   public render(): React.ReactNode {
     return (
       <Navbar expand="md" color="pale" light={true}>
-        <NavbarBrand href={paths.lessonList} className="text-secondary">
+        <Link to={paths.lessonList} className="navbar-brand text-secondary">
           {'LearnScilla'}
-        </NavbarBrand>
+        </Link>
+
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar={true}>
           <Nav className="ml-auto" navbar={true}>
