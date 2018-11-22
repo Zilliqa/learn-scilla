@@ -11,7 +11,7 @@ interface IProps {
   initialCode: string;
   answerCode: string;
   instruction: string;
-  goNext: () => void;
+  proceed: () => void;
 }
 
 interface IState {
@@ -116,7 +116,7 @@ export default class CodeREPL extends React.Component<IProps, IState> {
     const closeModal = () => this.setState({ isModalVisible: false });
     const proceed = () => {
       this.initializeState();
-      this.props.goNext();
+      this.props.proceed();
     };
 
     return (
