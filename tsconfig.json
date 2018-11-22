@@ -14,7 +14,7 @@
     "noImplicitAny": false,
     "strict": true,
     "downlevelIteration": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true // workaround for monaco-editor with "const enum"
   },
   "include": [
     "src"
