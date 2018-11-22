@@ -28,6 +28,7 @@
     "i18next-browser-languagedetector": "^2.2.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-helmet": "^5.2.0",
     "react-i18next": "^7.11.0",
     "react-icons": "^3.2.2",
     "react-markdown": "^4.0.3",
