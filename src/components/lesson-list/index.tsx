@@ -19,14 +19,16 @@ const LessonList: React.SFC<any> = (props) => {
     const chapters: string[] = item.chapters || [];
     const totalNum: number = chapters.length;
 
-    const progressText = isLoaded ? `[${lessonProgressNum}/${totalNum}]` : '';
+    const progressText = isLoaded ? `(${lessonProgressNum}/${totalNum})` : '';
     const chapterToStart = totalNum <= lessonProgressNum ? totalNum : lessonProgressNum + 1;
 
     const startingLessonPath = `/lesson/${lessonNum}/chapter/${chapterToStart}`;
     return (
       <div key={startingLessonPath} style={{ margin: 10 }}>
         <Link className="btn btn-primary btn-block text-left" to={startingLessonPath}>
-          {`${t('lesson.lesson')} ${lessonNum}`} : {`${item.title} ${progressText}`}
+          <small> {`${t('lesson.lesson')} ${lessonNum} :`}</small>
+          {` ${item.title} `}
+          <small>{progressText}</small>
         </Link>
       </div>
     );
