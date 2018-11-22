@@ -7,7 +7,6 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarBrand,
   NavbarToggler
 } from 'reactstrap';
 
