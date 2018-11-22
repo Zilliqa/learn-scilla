@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import { Helmet } from 'react-helmet';
+
 import Layout from '../../components/layout';
 import { Container, Row, Col } from 'reactstrap';
 import * as H from 'history';
@@ -31,8 +33,12 @@ class LessonContainer extends React.Component<IProps, {}> {
 
     const intructionsLocalized = instructions[lang];
 
+    const documentTitle = `LearnScilla - An interactive tutorial for people to learn Scilla`;
     return (
       <Layout location={location} history={history}>
+        <Helmet>
+          <title>{documentTitle}</title>
+        </Helmet>
         <Container>
           <div style={{ paddingTop: 30, paddingBottom: 100 }}>
             <Row className="py-5">

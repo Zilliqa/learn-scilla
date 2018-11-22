@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import { Helmet } from 'react-helmet';
 import Layout from '../../components/layout';
 import * as H from 'history';
 // import Spinner from '../../components/spinner';
@@ -36,7 +37,7 @@ interface IState {
 
 class ChapterContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
-    const { location, history, i18n } = this.props;
+    const { location, history, i18n, t } = this.props;
     const currentLang: string = i18n.language;
 
     // This will be used as a key e.g. lesson1
@@ -45,8 +46,14 @@ class ChapterContainer extends React.Component<IProps, IState> {
     // This should starts from 0
     const chapterIndex: number = this.getChatperIndex();
 
+    const documentTitle = `LearnScilla -
+    ${t('lesson.lesson')} ${lessonIndex + 1} ${t('chapter.chapter')} ${chapterIndex + 1}
+    `;
     return (
       <Layout location={location} history={history}>
+        <Helmet>
+          <title>{documentTitle}</title>
+        </Helmet>
         <div>
           {this.renderStepProgressbar(lessonIndex, chapterIndex)}
           <br />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { translate } from 'react-i18next';
 import Layout from '../../components/layout';
 import { Container, Row, Col, Card, CardTitle } from 'reactstrap';
@@ -25,10 +26,14 @@ class LessonContainer extends React.Component<IProps, {}> {
     const numOfTotalLesson = codes.length;
 
     const isLast: boolean = numOfTotalLesson === currentLessonNum;
+    const documentTitle = `LearnScilla - Lesson ${currentLessonNum} Complete`;
 
     const nextLessonPath = `/lesson/${currentLessonNum + 1}/chapter/1`;
     return (
       <Layout location={location} history={history}>
+        <Helmet>
+          <title>{documentTitle}</title>
+        </Helmet>
         <Container>
           <Row className="py-5">
             <Col sm={10} md={8} lg={5} className="mr-auto ml-auto text-center">
