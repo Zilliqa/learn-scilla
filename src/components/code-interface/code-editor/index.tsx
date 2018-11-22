@@ -79,7 +79,7 @@ export default class CodeEditor extends React.Component<IProps, IState> {
             <Button outline={true} color="secondary" size="sm" onClick={this.hanldleToggle}>
               {showAnswerButtonIcon} {showAnswerButtonText}
             </Button>
-          ) : null}
+          ) : null}{' '}
           <Button outline={true} color="secondary" size="sm" onClick={this.handleShowHint}>
             <FaRegLightbulb /> {t('editor.showHint')}
           </Button>{' '}
