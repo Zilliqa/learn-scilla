@@ -1,5 +1,4 @@
 import React from 'react';
-import uuidv4 from 'uuid/v4';
 import { Link } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -25,7 +24,7 @@ const LessonList: React.SFC<any> = (props) => {
 
     const startingLessonPath = `/lesson/${lessonNum}/chapter/${chapterToStart}`;
     return (
-      <div key={uuidv4()} style={{ margin: 10 }}>
+      <div key={startingLessonPath} style={{ margin: 10 }}>
         <Link className="btn btn-primary btn-block text-left" to={startingLessonPath}>
           {`${t('lesson.lesson')} ${lessonNum}`} : {`${item.title} ${progressText}`}
         </Link>
