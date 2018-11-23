@@ -1,5 +1,5 @@
 import React from 'react';
-import { Progress } from 'reactstrap';
+import Progress from 'reactstrap/lib/Progress';
 
 interface IProps {
   current: number;

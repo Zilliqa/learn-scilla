@@ -3,11 +3,15 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { translate } from 'react-i18next';
 import Layout from '../../components/layout';
-import { Container, Row, Col, Card, CardTitle } from 'reactstrap';
+
 import { Link } from 'react-router-dom';
 import * as H from 'history';
 import { IMatch, CourseCodeType } from '../../typings';
 import { paths } from '../../routes';
+
+import Row from 'reactstrap/lib/Row';
+import Col from 'reactstrap/lib/Col';
+import Card from 'reactstrap/lib/Card';
 
 interface IProps {
   t: (key: string) => string;
@@ -34,12 +38,12 @@ class LessonContainer extends React.Component<IProps, {}> {
         <Helmet>
           <title>{documentTitle}</title>
         </Helmet>
-        <Container>
+        <div className="container">
           <Row className="py-5">
             <Col sm={10} md={8} lg={5} className="mr-auto ml-auto text-center">
               <Card body={true} outline={true} color="secondary">
                 <div className="py-5 text-secondary">
-                  <CardTitle>{t('lesson.congratulations')}</CardTitle>
+                  <h3>{t('lesson.congratulations')}</h3>
                   <p>{t('lesson.lessonCompleteMessage')}</p>
                   <br />
                   {isLast ? null : (
@@ -55,7 +59,7 @@ class LessonContainer extends React.Component<IProps, {}> {
               </Card>
             </Col>
           </Row>
-        </Container>
+        </div>
       </Layout>
     );
   }

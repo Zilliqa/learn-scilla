@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withFirebase } from 'react-redux-firebase';
+
 import { translate } from 'react-i18next';
 import Spinner from '../../../components/spinner';
-import { NavItem, NavLink, Modal, ModalBody } from 'reactstrap';
 
 import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { withFirebase } from 'react-redux-firebase';
+import Modal from 'reactstrap/lib/Modal';
 
 interface IProps {
   t: (key: string) => string;
@@ -34,20 +35,20 @@ class AuthModal extends React.Component<IProps, IState> {
 
     if (!isEmpty) {
       return (
-        <NavItem>
-          <NavLink onClick={this.logout} style={cursorStyle}>
+        <li className="nav-item">
+          <a className="nav-link" onClick={this.logout} style={cursorStyle}>
             {t('link.signOut')}
-          </NavLink>
-        </NavItem>
+          </a>
+        </li>
       );
     }
     return (
-      <NavItem>
-        <NavLink onClick={this.toggleModal} style={cursorStyle}>
+      <li className="nav-item">
+        <a className="nav-link" onClick={this.toggleModal} style={cursorStyle}>
           {t('link.signIn')}
-        </NavLink>
+        </a>
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} size="sm">
-          <ModalBody>
+          <div className="modal-body">
             {!isLoaded ? (
               <Spinner />
             ) : (
@@ -70,9 +71,9 @@ class AuthModal extends React.Component<IProps, IState> {
                 </div>
               </div>
             )}
-          </ModalBody>
+          </div>
         </Modal>
-      </NavItem>
+      </li>
     );
   }
 

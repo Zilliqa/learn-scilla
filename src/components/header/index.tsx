@@ -1,20 +1,15 @@
 import React from 'react';
-import {
-  // Collapse,
-  Navbar,
-  Nav,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarToggler
-} from 'reactstrap';
 
+import { Link } from 'react-router-dom';
 import { paths } from '../../routes';
 import * as H from 'history';
-import Collapse from 'reactstrap/lib/Collapse';
 import AuthModal from '../auth/auth-modal';
-import { Link } from 'react-router-dom';
+
+import Collapse from 'reactstrap/lib/Collapse';
+import { UncontrolledDropdown } from 'reactstrap/lib/Uncontrolled';
+import DropdownToggle from 'reactstrap/lib/DropdownToggle';
+import DropdownMenu from 'reactstrap/lib/DropdownMenu';
+import DropdownItem from 'reactstrap/lib/DropdownItem';
 
 interface IHeaderProps {
   history: H.History;
@@ -39,19 +34,22 @@ export default class Header extends React.Component<IHeaderProps, IHeaderStates>
 
   public render(): React.ReactNode {
     return (
-      <Navbar expand="md" color="pale" light={true}>
-        <Link to={paths.lessonList} className="navbar-brand text-secondary">
+      <nav className="navbar navbar-expand-md navbar-light bg-pale">
+        <Link className="navbar-brand text-secondary" to={paths.lessonList}>
           {'LearnScilla'}
         </Link>
 
-        <NavbarToggler onClick={this.toggle} />
+        <button className="navbar-toggler" onClick={this.toggle}>
+          <span className="navbar-toggler-icon" />
+        </button>
+
         <Collapse isOpen={this.state.isOpen} navbar={true}>
-          <Nav className="ml-auto" navbar={true}>
+          <ul className="ml-auto navbar-nav">
             <AuthModal />
             {this.renderI18nDropdown()}
-          </Nav>
+          </ul>
         </Collapse>
-      </Navbar>
+      </nav>
     );
   }
   private toggle = () => {

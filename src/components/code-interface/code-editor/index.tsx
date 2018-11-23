@@ -1,6 +1,5 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
-import { Button } from 'reactstrap';
 import { FaCheck, FaRegLightbulb, FaRegEye, FaRegEyeSlash, FaRegComments } from 'react-icons/fa';
 import { language, configuration } from '../config';
 import './index.css';
@@ -72,17 +71,17 @@ export default class CodeEditor extends React.Component<IProps, IState> {
     return (
       <div>
         <div className="text-right">
-          <Button color="primary" size="sm" onClick={this.handleCheckAnswer}>
+          <button className="btn btn-primary btn-sm" onClick={this.handleCheckAnswer}>
             <FaCheck /> {t('editor.submitAnswer')}
-          </Button>{' '}
+          </button>{' '}
           {isHintButtonVisible ? (
-            <Button outline={true} color="secondary" size="sm" onClick={this.hanldleToggle}>
+            <button className="btn btn-outline-secondary btn-sm" onClick={this.hanldleToggle}>
               {showAnswerButtonIcon} {showAnswerButtonText}
-            </Button>
+            </button>
           ) : null}{' '}
-          <Button outline={true} color="secondary" size="sm" onClick={this.handleShowHint}>
+          <button className="btn btn-outline-secondary btn-sm" onClick={this.handleShowHint}>
             <FaRegLightbulb /> {t('editor.showHint')}
-          </Button>{' '}
+          </button>{' '}
           <a
             className="btn btn-outline-secondary btn-sm"
             href={'https://gitter.im/Zilliqa/SmartContract'}

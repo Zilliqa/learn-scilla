@@ -10,11 +10,13 @@ const CodeInterface = lazy(() => import('../../components/code-interface'));
 // import CodeInterface from '../../components/code-interface';
 import CodeInstruction from '../../components/code-instruction';
 import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
-import { ButtonGroup, Button, Row, Col } from 'reactstrap';
+
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Spinner from '../../components/spinner';
 import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
+import Row from 'reactstrap/lib/Row';
+import Col from 'reactstrap/lib/Col';
 
 interface IProps {
   i18n: {
@@ -134,28 +136,24 @@ class ChapterContainer extends React.Component<IProps, IState> {
     const isGreaterThanTotal = chapterIndex >= total - 1;
 
     return (
-      <ButtonGroup>
-        <Button
-          outline={true}
-          color="secondary"
-          size="sm"
+      <div role="group" className="btn-group">
+        <button
+          className="btn btn-outline-secondary btn-sm"
           onClick={this.goBack}
           disabled={isLessThanOne}
         >
           <FaChevronLeft />
           {t('chapter.back')}
-        </Button>
-        <Button
-          outline={true}
-          color="secondary"
-          size="sm"
+        </button>
+        <button
+          className="btn btn-outline-secondary btn-sm"
           onClick={this.proceed}
           disabled={isGreaterThanTotal}
         >
           {t('chapter.next')}
           <FaChevronRight />
-        </Button>
-      </ButtonGroup>
+        </button>
+      </div>
     );
   };
 
