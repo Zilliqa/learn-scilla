@@ -3,11 +3,9 @@ import i18next from 'i18next';
 import en from '../locales/en.json';
 import ko from '../locales/ko.json';
 
-import LanguageDetector from 'i18next-browser-languagedetector';
-
 const isDev: boolean = process.env.NODE_ENV === 'development';
 
-i18next.use(LanguageDetector).init({
+i18next.init({
   lng: 'en',
   debug: isDev,
   react: { wait: true },
