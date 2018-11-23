@@ -5,13 +5,13 @@ import { FaMedal } from 'react-icons/fa';
 
 interface IProps {
   t: (key: string) => string;
-  proceed: () => void;
+  onSubmit: () => void;
   closeModal: () => void;
   isModalVisible: boolean;
 }
 
 const CodeModal: React.SFC<IProps> = (props) => {
-  const { isModalVisible, t, closeModal, proceed } = props;
+  const { isModalVisible, t, closeModal, onSubmit } = props;
   return (
     <div>
       <Modal isOpen={isModalVisible} fade={false} toggle={closeModal}>
@@ -20,7 +20,7 @@ const CodeModal: React.SFC<IProps> = (props) => {
         </ModalHeader>
         <div className="modal-body">{t('lesson.chapterCompleteMessage')}</div>
         <div className="modal-footer">
-          <button className="btn btn-primary" onClick={proceed}>
+          <button className="btn btn-primary" onClick={onSubmit}>
             {t('lesson.nextLesson')}
           </button>
         </div>

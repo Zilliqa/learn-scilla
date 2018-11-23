@@ -7,10 +7,10 @@ interface IProps {
 }
 
 // Renders step progressbar dynamically
-const StepProgressbar: React.SFC<IProps> = ({ current, total }) => {
+const LessonProgressbar: React.SFC<IProps> = ({ current, total }) => {
   // initialized array with the given total number
   const progressPercent = Math.floor((current / total) * 100);
   return <Progress style={{ height: 5 }} value={progressPercent} />;
 };
 
-export default StepProgressbar;
+export default LessonProgressbar;

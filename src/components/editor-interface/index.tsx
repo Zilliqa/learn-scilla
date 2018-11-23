@@ -34,10 +34,15 @@ export default class CodeREPL extends React.Component<IProps, IState> {
 
   public render(): React.ReactNode {
     const { t, answerCode } = this.props;
-    const { code, codeForDiff, isAnswerVisible, isHintButtonVisible } = this.state;
+    const { code, codeForDiff, isAnswerVisible, isHintButtonVisible, isModalVisible } = this.state;
     return (
       <div>
-        {this.renderModal()}
+        <CodeModal
+          t={t}
+          onSubmit={this.handleProceed}
+          isModalVisible={isModalVisible}
+          closeModal={() => this.setState({ isModalVisible: false })}
+        />
         <CodeEditor
           code={code}
           checkAnswer={this.checkAnswer}
@@ -86,7 +91,7 @@ export default class CodeREPL extends React.Component<IProps, IState> {
     }
   };
 
-  private initializeState = () => {
+  private initializeState = (): void => {
     this.setState({
       code: this.props.initialCode,
       codeForDiff: this.props.answerCode,
@@ -98,28 +103,19 @@ export default class CodeREPL extends React.Component<IProps, IState> {
   // Compares code written by user and the answer
   private compareAnswer = (submitted: string, answer: string): boolean => {
     // TODO: Need a Scilla code fomatter to do better
-    const isCorrect = this.foramtCode(submitted) === this.foramtCode(answer);
+    const isCorrect = this.formatCode(submitted) === this.formatCode(answer);
     return isCorrect;
   };
 
-  private foramtCode = (code) => {
+  private formatCode = (code: string): string => {
     return code
       .split('\n')
       .map((line) => line.replace(/\s\s+/g, ' ').trim())
       .join('\n');
   };
 
-  private renderModal = () => {
-    const { t } = this.props;
-    const { isModalVisible } = this.state;
-    const closeModal = () => this.setState({ isModalVisible: false });
-    const proceed = () => {
-      this.initializeState();
-      this.props.proceed();
-    };
-
-    return (
-      <CodeModal t={t} proceed={proceed} isModalVisible={isModalVisible} closeModal={closeModal} />
-    );
+  private handleProceed = (): void => {
+    this.initializeState();
+    this.props.proceed();
   };
 }

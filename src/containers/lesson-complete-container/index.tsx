@@ -46,6 +46,7 @@ class LessonContainer extends React.Component<IProps, {}> {
                   <h3>{t('lesson.congratulations')}</h3>
                   <p>{t('lesson.lessonCompleteMessage')}</p>
                   <br />
+
                   {isLast ? null : (
                     <Link className="btn btn-primary btn-block" to={nextLessonPath}>
                       {t('lesson.nextLesson')}
