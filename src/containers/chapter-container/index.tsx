@@ -8,7 +8,7 @@ import * as H from 'history';
 import LessonProgressbar from '../../components/lesson-progressbar';
 const EditorInterface = lazy(() => import('../../components/editor-interface'));
 
-import Instruction from '../../components/instruction';
+import InstructionViewer from '../../components/instruction-viewer';
 import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -227,7 +227,7 @@ class ChapterContainer extends React.Component<IProps, IState> {
     return (
       <Row>
         <Col xs={12} sm={12} md={12} lg={5}>
-          <Instruction instruction={instruction} t={t} />
+          <InstructionViewer instruction={instruction} t={t} />
         </Col>
         <Col xs={12} sm={12} md={12} lg={7}>
           <Suspense fallback={<Spinner />}>

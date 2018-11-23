@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 
-import en from '../locales/en.json';
-import ko from '../locales/ko.json';
+import en from './locales/en.json';
+import ko from './locales/ko.json';
 
 const isDev: boolean = process.env.NODE_ENV === 'development';
 
