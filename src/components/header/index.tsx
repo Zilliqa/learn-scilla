@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { paths } from '../../routes';
 import * as H from 'history';
 import AuthModal from '../auth-modal';
-import I18nDropdown from './i18n-dropdown';
+import I18nDropdown from '../i18n-dropdown';
 
 import Collapse from 'reactstrap/lib/Collapse';
 
