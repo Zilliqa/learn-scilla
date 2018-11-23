@@ -1,23 +1,23 @@
-.code-diff-border {
-  border: 1px solid #eaeaea;
-}
-
 .code-diff-container {
   margin: 15px 0px 0px 40px;
 }
 
+/* Reveals the answer code */
 .code-diff-container .show-answer .view-line {
   display: block;
 }
 
+/* Hide the answer code by default */
 .code-diff-container .view-line {
   display: none;
 }
 
+/* Show hint which highlights line to be deleted */
 .code-diff-container .monaco-diff-editor .line-delete .view-line {
   display: block !important;
 }
 
+/* Remove green highlight in the insert line */
 .code-diff-container .monaco-diff-editor .line-insert,
 .code-diff-container .monaco-diff-editor .char-insert {
   background-color: rgba(255, 255, 255, 100) !important;
@@ -25,4 +25,8 @@
 
 .monaco-editor .view-overlays .current-line {
   border: none !important;
+}
+
+.code-diff-border {
+  border: 1px solid #eaeaea;
 }
