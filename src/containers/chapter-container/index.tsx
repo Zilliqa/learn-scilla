@@ -8,10 +8,10 @@ import * as H from 'history';
 import LessonProgressbar from '../../components/lesson-progressbar';
 const EditorInterface = lazy(() => import('../../components/editor-interface'));
 
-import Instruction from '../../components/instruction';
+import InstructionViewer from '../../components/instruction-viewer';
+import ChapterNavigator from '../../components/chapter-navigator';
 import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Spinner from '../../components/spinner';
 import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
@@ -41,13 +41,23 @@ interface IState {
 
 class ChapterContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
-    const { location, history, t } = this.props;
+    const { codes, location, history, t } = this.props;
 
-    const currentLessonNumber: number = this.getLessonNumber();
-    const chapterIndex: number = this.getChatperNumber();
+    const lessonNumber = this.getLessonNumber();
+    const lessonIndex = lessonNumber - 1;
+    const chapterNumber = this.getChatperNumber();
+    const chapterIndex = chapterNumber - 1;
+
+    const instruction = this.getInstruction();
+
+    const codeChapterList = codes[lessonIndex] || [];
+    const total: number = codeChapterList.length || 0;
+
+    const code = codeChapterList[chapterIndex] || {};
+    const { initialCode, answerCode } = code;
 
     const documentTitle = `LearnScilla -
-    ${t('lesson.lesson')} ${currentLessonNumber} ${t('chapter.chapter')} ${chapterIndex + 1}
+    ${t('lesson.lesson')} ${lessonNumber} ${t('chapter.chapter')} ${chapterNumber}
     `;
 
     return (
@@ -56,28 +66,57 @@ class ChapterContainer extends React.Component<IProps, IState> {
           <title>{documentTitle}</title>
         </Helmet>
         <div>
-          {this.renderLessonProgressbar()}
+          <LessonProgressbar current={chapterIndex} total={total} />
           <br />
-          <div>{this.renderCodeTutorial()}</div>
+          <Row>
+            <Col xs={12} sm={12} md={12} lg={5}>
+              <InstructionViewer instruction={instruction} t={t} />
+            </Col>
+            <Col xs={12} sm={12} md={12} lg={7}>
+              <Suspense fallback={<Spinner />}>
+                <EditorInterface
+                  initialCode={initialCode}
+                  answerCode={answerCode}
+                  t={t}
+                  proceed={this.goNext}
+                />
+              </Suspense>
+            </Col>
+          </Row>
           <br />
-          <div className="text-right">{this.renderNavButtons()}</div>
+          <div className="text-right">
+            <ChapterNavigator
+              goBack={this.goBack}
+              goNext={this.goNext}
+              chapterNumber={chapterNumber}
+              total={total}
+              t={t}
+            />
+          </div>
         </div>
       </Layout>
     );
   }
 
-  public proceed = (): void => {
+  public goNext = (): void => {
     const { codes } = this.props;
-
-    const lessonNumber: number = this.getLessonNumber();
-    const chapterNumber: number = this.getChatperNumber();
-
     // Check if code is undefined
     if (codes === undefined) {
       return;
     }
+    const lessonNumber: number = this.getLessonNumber();
+    const chapterNumber: number = this.getChatperNumber();
+
     this.updateProgress(lessonNumber, chapterNumber);
-    this.goNextChapter(lessonNumber, chapterNumber);
+    this.navigateToNextChapter(lessonNumber, chapterNumber);
+  };
+
+  private goBack = (): void => {
+    const { history } = this.props;
+    const lessonNumber: number = this.getLessonNumber();
+    const chapterNumber: number = this.getChatperNumber();
+    const previousChapterPath = `/lesson/${lessonNumber}/chapter/${chapterNumber - 1}`;
+    history.push(previousChapterPath);
   };
 
   private updateProgress = (currentLesson: number, currentChapter: number) => {
@@ -98,9 +137,12 @@ class ChapterContainer extends React.Component<IProps, IState> {
     }
   };
 
-  private goNextChapter = (currentLesson: number, currentChapter: number) => {
+  private navigateToNextChapter = (currentLesson: number, currentChapter: number) => {
     const { history, codes } = this.props;
-
+    // Check if code is undefined
+    if (codes === undefined) {
+      return;
+    }
     const lessonIndex = currentLesson - 1;
     const codeChapterList = codes[lessonIndex] || [];
 
@@ -118,43 +160,22 @@ class ChapterContainer extends React.Component<IProps, IState> {
     history.push(nextChapterPath);
   };
 
-  private renderNavButtons = (): React.ReactNode => {
-    const { t, codes } = this.props;
+  private getInstruction = () => {
+    const { instructions, i18n } = this.props;
+    const lang: string = i18n.language;
 
-    // Check if code is undefined
-    if (codes === undefined) {
-      return null;
-    }
-
-    const lessonNumber: number = this.getLessonNumber();
+    const lessonNumber = this.getLessonNumber();
     const lessonIndex = lessonNumber - 1;
-    const chapterNumber: number = this.getChatperNumber();
-    const codeChapterList = codes[lessonIndex] || [];
-    const total = codeChapterList.length;
+    const chapterNumber = this.getChatperNumber();
+    const chapterIndex = chapterNumber - 1;
 
-    const isBackButtonDisabled = chapterNumber <= 1;
-    const isProceedButtonDisabled = chapterNumber >= total;
+    const intructionsLocalized = instructions[lang];
+    const lesson = intructionsLocalized[lessonIndex] || {};
 
-    return (
-      <div role="group" className="btn-group">
-        <button
-          className="btn btn-outline-secondary btn-sm"
-          onClick={this.goBack}
-          disabled={isBackButtonDisabled}
-        >
-          <FaChevronLeft />
-          {t('chapter.back')}
-        </button>
-        <button
-          className="btn btn-outline-secondary btn-sm"
-          onClick={this.proceed}
-          disabled={isProceedButtonDisabled}
-        >
-          {t('chapter.next')}
-          <FaChevronRight />
-        </button>
-      </div>
-    );
+    const instructionChapterList = lesson.chapters || [];
+    const instruction = instructionChapterList[chapterIndex] || {};
+
+    return instruction;
   };
 
   private getLessonNumber = (): number => {
@@ -167,80 +188,6 @@ class ChapterContainer extends React.Component<IProps, IState> {
     const { match } = this.props;
     const routeParams = match.params;
     return parseInt(routeParams.chapter, 10);
-  };
-
-  private goBack = (): void => {
-    const { history, match } = this.props;
-    const routeParams = match.params;
-
-    const lesson: number = parseInt(routeParams.lesson, 10);
-    const chapter: number = parseInt(routeParams.chapter, 10);
-
-    const previousChapterPath = `/lesson/${lesson}/chapter/${chapter - 1}`;
-    history.push(previousChapterPath);
-  };
-
-  private renderLessonProgressbar = (): React.ReactNode => {
-    const { codes } = this.props;
-
-    const lessonNumber = this.getLessonNumber();
-    const chapterNumber = this.getChatperNumber();
-
-    const lessonIndex = lessonNumber - 1;
-    const chapterIndex = chapterNumber - 1;
-
-    // Check if code is undefined
-    if (codes === undefined) {
-      return null;
-    }
-
-    const codeChapterList = codes[lessonIndex] || [];
-    const total = codeChapterList.length;
-    return <LessonProgressbar current={chapterIndex} total={total} />;
-  };
-
-  private renderCodeTutorial = (): React.ReactNode => {
-    const { instructions, codes, t, i18n } = this.props;
-
-    const lang: string = i18n.language;
-
-    if (codes === undefined || instructions === undefined || instructions[lang] === undefined) {
-      return <Spinner />;
-    }
-
-    const lessonNumber: number = this.getLessonNumber();
-    const chapterNumber: number = this.getChatperNumber();
-
-    const lessonIndex = lessonNumber - 1;
-    const chapterIndex = chapterNumber - 1;
-
-    const intructionsLocalized = instructions[lang];
-    const lesson = intructionsLocalized[lessonIndex] || {};
-    const instructionChapterList = lesson.chapters || [];
-    const instruction = instructionChapterList[chapterIndex] || {};
-
-    const codeChapterList = codes[lessonIndex] || [];
-    const code = codeChapterList[chapterIndex] || {};
-    const initialCode = code.initialCode;
-    const answerCode = code.answerCode;
-
-    return (
-      <Row>
-        <Col xs={12} sm={12} md={12} lg={5}>
-          <Instruction instruction={instruction} t={t} />
-        </Col>
-        <Col xs={12} sm={12} md={12} lg={7}>
-          <Suspense fallback={<Spinner />}>
-            <EditorInterface
-              initialCode={initialCode}
-              answerCode={answerCode}
-              t={t}
-              proceed={this.proceed}
-            />
-          </Suspense>
-        </Col>
-      </Row>
-    );
   };
 }
 

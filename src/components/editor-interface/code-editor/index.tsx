@@ -124,5 +124,6 @@ export default class CodeEditor extends React.Component<IProps, IState> {
   private editorDidMount = (editor): void => {
     // console.log('editorDidMount', editor, editor.getValue(), editor.getModel());
     this.editor = editor;
+    editor.focus();
   };
 }
