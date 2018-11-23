@@ -97,9 +97,16 @@ export default class CodeREPL extends React.Component<IProps, IState> {
 
   // Compares code written by user and the answer
   private compareAnswer = (submitted: string, answer: string): boolean => {
-    // TODO: require better comparison
-    const isCorrect = submitted.trim() === answer.trim();
+    // TODO: Need a Scilla code fomatter to do better
+    const isCorrect = this.foramtCode(submitted) === this.foramtCode(answer);
     return isCorrect;
+  };
+
+  private foramtCode = (code) => {
+    return code
+      .split('\n')
+      .map((line) => line.replace(/\s\s+/g, ' ').trim())
+      .join('\n');
   };
 
   private renderModal = () => {
