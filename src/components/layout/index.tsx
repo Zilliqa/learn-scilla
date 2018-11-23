@@ -2,7 +2,6 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import Footer from '../footer';
 import Header from '../header';
-import { Container } from 'reactstrap';
 import * as H from 'history';
 
 interface IProps {
@@ -25,7 +24,7 @@ const Layout: React.SFC<IProps> = (props) => {
   return (
     <div>
       <Header i18n={i18n} t={t} history={history} location={location} />
-      <Container>{children}</Container>
+      <div className="container">{children}</div>
       <Footer />
     </div>
   );

@@ -4,11 +4,14 @@ import { translate } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 
 import Layout from '../../components/layout';
-import { Container, Row, Col } from 'reactstrap';
+
 import * as H from 'history';
 import LessonList from '../../components/lesson-list';
 import Spinner from '../../components/spinner';
 import { CourseInstructionType } from '../../typings';
+import Row from 'reactstrap/lib/Row';
+import Col from 'reactstrap/lib/Col';
+
 interface IProps {
   i18n: {
     language: string;
@@ -39,7 +42,7 @@ class LessonContainer extends React.Component<IProps, {}> {
         <Helmet>
           <title>{documentTitle}</title>
         </Helmet>
-        <Container>
+        <div className="container">
           <div style={{ paddingTop: 30, paddingBottom: 100 }}>
             <Row className="py-5">
               <Col sm={10} md={8} lg={5} className="mr-auto ml-auto text-center">
@@ -49,7 +52,7 @@ class LessonContainer extends React.Component<IProps, {}> {
               </Col>
             </Row>
           </div>
-        </Container>
+        </div>
       </Layout>
     );
   }
