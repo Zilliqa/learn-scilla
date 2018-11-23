@@ -3,13 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { paths } from '../../routes';
 import * as H from 'history';
-import AuthModal from '../auth/auth-modal';
+import AuthModal from '../auth-modal';
+import I18nDropdown from './i18n-dropdown';
 
 import Collapse from 'reactstrap/lib/Collapse';
-import { UncontrolledDropdown } from 'reactstrap/lib/Uncontrolled';
-import DropdownToggle from 'reactstrap/lib/DropdownToggle';
-import DropdownMenu from 'reactstrap/lib/DropdownMenu';
-import DropdownItem from 'reactstrap/lib/DropdownItem';
 
 interface IHeaderProps {
   history: H.History;
@@ -33,6 +30,7 @@ export default class Header extends React.Component<IHeaderProps, IHeaderStates>
   };
 
   public render(): React.ReactNode {
+    const { i18n, t } = this.props;
     return (
       <nav className="navbar navbar-expand-md navbar-light bg-pale">
         <Link className="navbar-brand text-secondary" to={paths.lessonList}>
@@ -46,7 +44,7 @@ export default class Header extends React.Component<IHeaderProps, IHeaderStates>
         <Collapse isOpen={this.state.isOpen} navbar={true}>
           <ul className="ml-auto navbar-nav">
             <AuthModal />
-            {this.renderI18nDropdown()}
+            <I18nDropdown i18n={i18n} t={t} />
           </ul>
         </Collapse>
       </nav>
@@ -56,33 +54,5 @@ export default class Header extends React.Component<IHeaderProps, IHeaderStates>
     this.setState({
       isOpen: !this.state.isOpen
     });
-  };
-
-  private renderI18nDropdown = () => {
-    const i18n = this.props.i18n;
-    const lang: string = i18n.language;
-
-    const LANG = {
-      en: 'English',
-      ko: '한국어'
-    };
-
-    const cursorStyle = { cursor: 'pointer' };
-
-    return (
-      <UncontrolledDropdown nav={true} inNavbar={true}>
-        <DropdownToggle caret={true} nav={true}>
-          {LANG[lang]}
-        </DropdownToggle>
-        <DropdownMenu right={true} size="sm">
-          <DropdownItem style={cursorStyle} onClick={() => i18n.changeLanguage('en')}>
-            {'English'}
-          </DropdownItem>
-          <DropdownItem style={cursorStyle} onClick={() => i18n.changeLanguage('ko')}>
-            {'한국어'}
-          </DropdownItem>
-        </DropdownMenu>
-      </UncontrolledDropdown>
-    );
   };
 }

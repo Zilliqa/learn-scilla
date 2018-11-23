@@ -1,13 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-
 import { translate } from 'react-i18next';
-import Spinner from '../../../components/spinner';
-
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { withFirebase } from 'react-redux-firebase';
 import Modal from 'reactstrap/lib/Modal';
+import Spinner from '../../components/spinner';
 
 interface IProps {
   t: (key: string) => string;

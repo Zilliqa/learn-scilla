@@ -27,7 +27,6 @@ interface IProps {
 class LessonContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
     const { location, history, instructions, i18n, t } = this.props;
-
     const lang: string = i18n.language;
 
     if (instructions === undefined || instructions[lang] === undefined) {
