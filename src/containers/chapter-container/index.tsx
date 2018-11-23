@@ -5,10 +5,10 @@ import { Helmet } from 'react-helmet';
 import Layout from '../../components/layout';
 import * as H from 'history';
 
-import StepProgressbar from '../../components/step-progressbar';
-const CodeInterface = lazy(() => import('../../components/code-interface'));
-// import CodeInterface from '../../components/code-interface';
-import CodeInstruction from '../../components/code-instruction';
+import LessonProgressbar from '../../components/lesson-progressbar';
+const EditorInterface = lazy(() => import('../../components/editor-interface'));
+
+import Instruction from '../../components/instruction';
 import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -41,50 +41,46 @@ interface IState {
 
 class ChapterContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
-    const { location, history, i18n, t } = this.props;
-    const currentLang: string = i18n.language;
+    const { location, history, t } = this.props;
 
-    // This will be used as a key e.g. lesson1
-    const lessonIndex: number = this.getLessonIndex();
-
-    // This should starts from 0
-    const chapterIndex: number = this.getChatperIndex();
+    const currentLessonNumber: number = this.getLessonNumber();
+    const chapterIndex: number = this.getChatperNumber();
 
     const documentTitle = `LearnScilla -
-    ${t('lesson.lesson')} ${lessonIndex + 1} ${t('chapter.chapter')} ${chapterIndex + 1}
+    ${t('lesson.lesson')} ${currentLessonNumber} ${t('chapter.chapter')} ${chapterIndex + 1}
     `;
+
     return (
       <Layout location={location} history={history}>
         <Helmet>
           <title>{documentTitle}</title>
         </Helmet>
         <div>
-          {this.renderStepProgressbar(lessonIndex, chapterIndex)}
+          {this.renderLessonProgressbar()}
           <br />
-          <div>{this.renderCodeTutorial(lessonIndex, chapterIndex, currentLang)}</div>
+          <div>{this.renderCodeTutorial()}</div>
           <br />
-          <div className="text-right">{this.renderNavButtons(lessonIndex, chapterIndex)}</div>
+          <div className="text-right">{this.renderNavButtons()}</div>
         </div>
       </Layout>
     );
   }
 
   public proceed = (): void => {
-    const { codes, match } = this.props;
-    const routeParams = match.params;
+    const { codes } = this.props;
 
-    const lesson: number = parseInt(routeParams.lesson, 10);
-    const chapter: number = parseInt(routeParams.chapter, 10);
+    const lessonNumber: number = this.getLessonNumber();
+    const chapterNumber: number = this.getChatperNumber();
 
     // Check if code is undefined
     if (codes === undefined) {
       return;
     }
-    this.updateProgress(lesson, chapter);
-    this.goNextChapter(lesson, chapter);
+    this.updateProgress(lessonNumber, chapterNumber);
+    this.goNextChapter(lessonNumber, chapterNumber);
   };
 
-  private updateProgress = (currentLesson, currentChapter) => {
+  private updateProgress = (currentLesson: number, currentChapter: number) => {
     const { firebase, profile } = this.props;
 
     // get progress data from db
@@ -102,7 +98,7 @@ class ChapterContainer extends React.Component<IProps, IState> {
     }
   };
 
-  private goNextChapter = (currentLesson, currentChapter) => {
+  private goNextChapter = (currentLesson: number, currentChapter: number) => {
     const { history, codes } = this.props;
 
     const lessonIndex = currentLesson - 1;
@@ -122,25 +118,29 @@ class ChapterContainer extends React.Component<IProps, IState> {
     history.push(nextChapterPath);
   };
 
-  private renderNavButtons = (lessonIndex: number, chapterIndex: number): React.ReactNode => {
+  private renderNavButtons = (): React.ReactNode => {
     const { t, codes } = this.props;
 
     // Check if code is undefined
     if (codes === undefined) {
       return null;
     }
+
+    const lessonNumber: number = this.getLessonNumber();
+    const lessonIndex = lessonNumber - 1;
+    const chapterNumber: number = this.getChatperNumber();
     const codeChapterList = codes[lessonIndex] || [];
     const total = codeChapterList.length;
 
-    const isLessThanOne = chapterIndex <= 0;
-    const isGreaterThanTotal = chapterIndex >= total - 1;
+    const isBackButtonDisabled = chapterNumber <= 1;
+    const isProceedButtonDisabled = chapterNumber >= total;
 
     return (
       <div role="group" className="btn-group">
         <button
           className="btn btn-outline-secondary btn-sm"
           onClick={this.goBack}
-          disabled={isLessThanOne}
+          disabled={isBackButtonDisabled}
         >
           <FaChevronLeft />
           {t('chapter.back')}
@@ -148,7 +148,7 @@ class ChapterContainer extends React.Component<IProps, IState> {
         <button
           className="btn btn-outline-secondary btn-sm"
           onClick={this.proceed}
-          disabled={isGreaterThanTotal}
+          disabled={isProceedButtonDisabled}
         >
           {t('chapter.next')}
           <FaChevronRight />
@@ -157,22 +157,16 @@ class ChapterContainer extends React.Component<IProps, IState> {
     );
   };
 
-  private getLessonIndex = (): number => {
+  private getLessonNumber = (): number => {
     const { match } = this.props;
     const routeParams = match.params;
-    const currentLesson: number = parseInt(routeParams.lesson, 10);
-
-    const lessonIndex: number = currentLesson - 1;
-    return lessonIndex;
+    return parseInt(routeParams.lesson, 10);
   };
 
-  private getChatperIndex = (): number => {
+  private getChatperNumber = (): number => {
     const { match } = this.props;
     const routeParams = match.params;
-    const currentChapter: number = parseInt(routeParams.chapter, 10);
-
-    const chapterIndex: number = currentChapter - 1;
-    return chapterIndex;
+    return parseInt(routeParams.chapter, 10);
   };
 
   private goBack = (): void => {
@@ -186,28 +180,39 @@ class ChapterContainer extends React.Component<IProps, IState> {
     history.push(previousChapterPath);
   };
 
-  private renderStepProgressbar = (lessonIndex: number, chapterIndex: number): React.ReactNode => {
+  private renderLessonProgressbar = (): React.ReactNode => {
     const { codes } = this.props;
+
+    const lessonNumber = this.getLessonNumber();
+    const chapterNumber = this.getChatperNumber();
+
+    const lessonIndex = lessonNumber - 1;
+    const chapterIndex = chapterNumber - 1;
 
     // Check if code is undefined
     if (codes === undefined) {
       return null;
     }
+
     const codeChapterList = codes[lessonIndex] || [];
     const total = codeChapterList.length;
-    return <StepProgressbar current={chapterIndex} total={total} />;
+    return <LessonProgressbar current={chapterIndex} total={total} />;
   };
 
-  private renderCodeTutorial = (
-    lessonIndex: number,
-    chapterIndex: number,
-    lang: string
-  ): React.ReactNode => {
-    const { instructions, codes, t } = this.props;
+  private renderCodeTutorial = (): React.ReactNode => {
+    const { instructions, codes, t, i18n } = this.props;
+
+    const lang: string = i18n.language;
 
     if (codes === undefined || instructions === undefined || instructions[lang] === undefined) {
       return <Spinner />;
     }
+
+    const lessonNumber: number = this.getLessonNumber();
+    const chapterNumber: number = this.getChatperNumber();
+
+    const lessonIndex = lessonNumber - 1;
+    const chapterIndex = chapterNumber - 1;
 
     const intructionsLocalized = instructions[lang];
     const lesson = intructionsLocalized[lessonIndex] || {};
@@ -222,11 +227,11 @@ class ChapterContainer extends React.Component<IProps, IState> {
     return (
       <Row>
         <Col xs={12} sm={12} md={12} lg={5}>
-          <CodeInstruction instruction={instruction} t={t} />
+          <Instruction instruction={instruction} t={t} />
         </Col>
         <Col xs={12} sm={12} md={12} lg={7}>
           <Suspense fallback={<Spinner />}>
-            <CodeInterface
+            <EditorInterface
               initialCode={initialCode}
               answerCode={answerCode}
               t={t}

@@ -51,7 +51,8 @@ export default class CodeEditor extends React.Component<IProps, IState> {
       </div>
     );
   }
-  public editorWillMount = (monaco) => {
+
+  private editorWillMount = (monaco) => {
     this.editor = monaco;
     if (!monaco.languages.getLanguages().some(({ id }) => id === 'scilla')) {
       // Register a new language

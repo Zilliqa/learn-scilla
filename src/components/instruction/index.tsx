@@ -12,4 +12,5 @@ const CodeInstruction: React.SFC<IProps> = (props) => (
     <ReactMarkdown source={props.instruction} />
   </div>
 );
+
 export default CodeInstruction;
