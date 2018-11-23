@@ -2,18 +2,20 @@
   "lesson": {
     "lesson": "Lesson",
     "congratulations": "Congratulations",
-    "listTitle": "Start Scilla Tutorial",
-    "completeMessage": "You have completed this lesson.",
+    "listTitle": "Scilla Tutorial",
+    "chapterCompleteMessage": "You have completed this chapter.",
+    "lessonCompleteMessage": "You have completed this lesson.",
     "nextLesson": "Proceed to Next Lesson"
   },
   "chapter":{
-    "chapter": "chapter",
+    "chapter": "Chapter",
     "back": "Back",
     "next": "Skip",
     "discuss": "Discuss"
   },
   "editor" : {
-    "showHint": "Hint",
+    "hint": "Hint",
+    "showHint": "Show Hint",
     "showAnswer": "Show Answer",
     "hideAnswer": "Hide Answer",
     "submitAnswer": "Check Answer"
@@ -23,30 +25,18 @@
     "cancel":"Cancel"
   },
   "auth": {
+    "signUpTitle":"Sign Up",
+    "signInTitle":"Login",
+
+    "signInWithGoogle": "Sign in with Google",
+    "signInWithGitHub": "Sign in with GitHub",
+
     "checkYourEmail": "Check your email",
     "email":"Email" ,
     "emailMessage" : "email address required",
     "emailInvalidMessage":"Invalid email",
-    "emailValidMessage":"Valid email",
+    "emailValidMessage":"Valid email"
 
-    "password":"Password" ,
-    "passwordMessage" : "password required",
-    "passwordInvalidMessage":"Invalid password",
-    "passwordValidMessage":"Valid password",
-
-    "password2":"Password" ,
-    "password2Message" : "password repeat required",
-    "password2InvalidMessage":"Password is not Identical",
-    "password2ValidMessage":"Valid password",
-
-    "passwordResetTitle":"Reset Password",
-    "signUpTitle":"Sign Up",
-    "signInTitle":"Login",
-    "forgotPasswordTitle":"Request to reset password",
-    "passwordResetSuccessMessage":"Password reset Successful",
-
-    "signInWithGoogle": "Sign In With Google",
-    "signInWithGitHub": "Sign In With GitHub"
   },
   "link": {
     "tutorial": "Tutorial",

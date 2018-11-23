@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withFirebase } from 'react-redux-firebase';
 import { translate } from 'react-i18next';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { withFirebase } from 'react-redux-firebase';
+import Modal from 'reactstrap/lib/Modal';
 import Spinner from '../../components/spinner';
-import { NavItem, NavLink, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 interface IProps {
   t: (key: string) => string;
@@ -16,42 +17,61 @@ interface IState {
   isModalOpen: boolean;
 }
 
-export class AuthModal extends React.Component<IProps, IState> {
+const GITHUB_PROVIDER = 'github';
+const GOOGLE_PROVIDER = 'google';
+const POPUP_TYPE = 'popup';
+
+class AuthModal extends React.Component<IProps, IState> {
   public readonly state = {
     isModalOpen: false
   };
   public render(): React.ReactNode {
     const { t, auth } = this.props;
-
     const { isLoaded, isEmpty } = auth;
+
+    const cursorStyle = { cursor: 'pointer' };
 
     if (!isEmpty) {
       return (
-        <NavItem>
-          <NavLink onClick={this.logout} style={{ cursor: 'pointer' }}>
+        <li className="nav-item">
+          <a className="nav-link" onClick={this.logout} style={cursorStyle}>
             {t('link.signOut')}
-          </NavLink>
-        </NavItem>
+          </a>
+        </li>
       );
     }
     return (
-      <NavItem>
-        <NavLink onClick={this.toggleModal}>{t('link.signIn')}</NavLink>
-        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} fade={false} size="sm">
-          <ModalHeader toggle={this.toggleModal}>{'Learn Scilla'}</ModalHeader>
-          <ModalBody>
+      <li className="nav-item">
+        <a className="nav-link" onClick={this.toggleModal} style={cursorStyle}>
+          {t('link.signIn')}
+        </a>
+        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} size="sm">
+          <div className="modal-body">
             {!isLoaded ? (
               <Spinner />
             ) : (
-              <div className="text-center py-3">
-                <button className="btn btn-outline-primary" onClick={this.signInWithGoogle}>
-                  {t('auth.signInWithGoogle')}
-                </button>
+              <div className="py-3 text-center">
+                <div className="py-1">
+                  <button
+                    className="btn btn-outline-primary"
+                    onClick={() => this.signIn(GOOGLE_PROVIDER, POPUP_TYPE)}
+                  >
+                    <FaGoogle /> <small>{t('auth.signInWithGoogle')}</small>
+                  </button>
+                </div>
+                <div className="py-1">
+                  <button
+                    className="btn btn-outline-primary"
+                    onClick={() => this.signIn(GITHUB_PROVIDER, POPUP_TYPE)}
+                  >
+                    <FaGithub /> <small>{t('auth.signInWithGitHub')}</small>
+                  </button>
+                </div>
               </div>
             )}
-          </ModalBody>
+          </div>
         </Modal>
-      </NavItem>
+      </li>
     );
   }
 
@@ -61,9 +81,9 @@ export class AuthModal extends React.Component<IProps, IState> {
     });
   };
 
-  private signInWithGoogle = (): void => {
+  private signIn = (provider: string, type: string): void => {
     const { firebase } = this.props;
-    const options = { provider: 'google', type: 'popup' };
+    const options = { provider, type };
     firebase.login(options);
     this.setState({
       isModalOpen: false

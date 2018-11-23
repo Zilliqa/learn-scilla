@@ -2,11 +2,9 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import Footer from '../footer';
 import Header from '../header';
-import { Container } from 'reactstrap';
 import * as H from 'history';
-import styles from './layout.module.css';
 
-interface ILayoutProps {
+interface IProps {
   i18n: {
     language: string;
     changeLanguage: (lang: string) => void;
@@ -21,20 +19,15 @@ interface ILayoutProps {
   removeAccessToken: () => void;
 }
 
-class Layout extends React.Component<ILayoutProps, {}> {
-  public render() {
-    const { history, location, children, t, i18n } = this.props;
+const Layout: React.SFC<IProps> = (props) => {
+  const { history, location, children, t, i18n } = props;
+  return (
+    <div>
+      <Header i18n={i18n} t={t} history={history} location={location} />
+      <div className="container">{children}</div>
+      <Footer />
+    </div>
+  );
+};
 
-    return (
-      <div>
-        <Header i18n={i18n} t={t} history={history} location={location} />
-        <Container className={styles.container}>{children}</Container>
-        <Footer />
-      </div>
-    );
-  }
-}
-
-const WithTranslation = translate('translations')(Layout);
-
-export default WithTranslation;
+export default translate('translations')(Layout);

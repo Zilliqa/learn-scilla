@@ -1,48 +1,57 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import { Helmet } from 'react-helmet';
+
 import Layout from '../../components/layout';
-import { Container, Row, Col } from 'reactstrap';
-import { Link } from 'react-router-dom';
+
 import * as H from 'history';
-import uuidv4 from 'uuid/v4';
+import LessonList from '../../components/lesson-list';
+import Spinner from '../../components/spinner';
+import { CourseInstructionType } from '../../typings';
+import Row from 'reactstrap/lib/Row';
+import Col from 'reactstrap/lib/Col';
 
 interface IProps {
+  i18n: {
+    language: string;
+    changeLanguage: (lang: string) => void;
+  };
   t: (key: string) => string;
   history: H.History;
   location: H.Location;
   accessToken: string;
-  codes?: any;
+  instructions: CourseInstructionType;
 }
 
-export class LessonContainer extends React.Component<IProps, {}> {
+class LessonContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
-    const { location, history, codes, t } = this.props;
+    const { location, history, instructions, i18n, t } = this.props;
+    const lang: string = i18n.language;
 
-    const lessonKeys = Object.keys(codes);
-    const lessonList = lessonKeys.map((lessonKey, index) => (
-      <Link
-        key={uuidv4()}
-        className="btn btn-outline-primary btn-block"
-        to={`/lesson/${index + 1}/chapter/${1}`}
-      >
-        {`${t('lesson.lesson')} ${index + 1}`}
-      </Link>
-    ));
+    if (instructions === undefined || instructions[lang] === undefined) {
+      return <Spinner />;
+    }
 
+    const intructionsLocalized = instructions[lang];
+
+    const documentTitle = `LearnScilla - An interactive tutorial for people to learn Scilla`;
     return (
       <Layout location={location} history={history}>
-        <Container>
+        <Helmet>
+          <title>{documentTitle}</title>
+        </Helmet>
+        <div className="container">
           <div style={{ paddingTop: 30, paddingBottom: 100 }}>
             <Row className="py-5">
               <Col sm={10} md={8} lg={5} className="mr-auto ml-auto text-center">
                 <h3>{t('lesson.listTitle')}</h3>
                 <br />
-                {lessonList}
+                <LessonList lessonList={intructionsLocalized} t={t} />
               </Col>
             </Row>
           </div>
-        </Container>
+        </div>
       </Layout>
     );
   }
@@ -51,12 +60,10 @@ export class LessonContainer extends React.Component<IProps, {}> {
 const WithTranslation = translate('translations')(LessonContainer);
 
 const mapStateToProps = (state) => ({
-  codes: state.course.lessonCodes
+  instructions: state.course.courseInstructions
 });
-
-const mapDispatchToProps = (dispatch) => ({});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  undefined
 )(WithTranslation);

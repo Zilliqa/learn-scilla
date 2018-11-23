@@ -1,23 +1,12 @@
 import React from 'react';
-import {
-  // Collapse,
-  Navbar,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarBrand,
-  NavbarToggler
-} from 'reactstrap';
 
+import { Link } from 'react-router-dom';
 import { paths } from '../../routes';
 import * as H from 'history';
-import Collapse from 'reactstrap/lib/Collapse';
-import { Link } from 'react-router-dom';
 import AuthModal from '../auth-modal';
+import I18nDropdown from '../i18n-dropdown';
+
+import Collapse from 'reactstrap/lib/Collapse';
 
 interface IHeaderProps {
   history: H.History;
@@ -41,54 +30,29 @@ export default class Header extends React.Component<IHeaderProps, IHeaderStates>
   };
 
   public render(): React.ReactNode {
-    const { t } = this.props;
-
+    const { i18n, t } = this.props;
     return (
-      <Navbar expand="md" color="light" light={true} fixed={'top'}>
-        <div className="navbar-wrapper">
-          <NavbarBrand href={paths.home}>{'Learn Scilla'}</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-        </div>
+      <nav className="navbar navbar-expand-md navbar-light bg-pale">
+        <Link className="navbar-brand text-secondary" to={paths.lessonList}>
+          {'LearnScilla'}
+        </Link>
+
+        <button className="navbar-toggler" onClick={this.toggle}>
+          <span className="navbar-toggler-icon" />
+        </button>
+
         <Collapse isOpen={this.state.isOpen} navbar={true}>
-          <Nav className="ml-auto" navbar={true}>
-            <NavItem>
-              <Link className="nav-link" to={paths.lessonList}>
-                {t('link.tutorial')}
-              </Link>
-            </NavItem>
-
+          <ul className="ml-auto navbar-nav">
             <AuthModal />
-
-            {this.renderI18nDropdown()}
-          </Nav>
+            <I18nDropdown i18n={i18n} t={t} />
+          </ul>
         </Collapse>
-      </Navbar>
+      </nav>
     );
   }
   private toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
-  };
-
-  private renderI18nDropdown = () => {
-    const i18n = this.props.i18n;
-    const lang: string = i18n.language;
-    const LANG = {
-      en: 'English',
-      ko: '한국어'
-    };
-
-    return (
-      <UncontrolledDropdown nav={true} inNavbar={true}>
-        <DropdownToggle caret={true} nav={true}>
-          {LANG[lang]}
-        </DropdownToggle>
-        <DropdownMenu right={true} size="sm">
-          <DropdownItem onClick={() => i18n.changeLanguage('en')}>{'English'}</DropdownItem>
-          <DropdownItem onClick={() => i18n.changeLanguage('ko')}>{'한국어'}</DropdownItem>
-        </DropdownMenu>
-      </UncontrolledDropdown>
-    );
   };
 }

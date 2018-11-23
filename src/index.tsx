@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { store } from './redux/store';
+import { store } from './store';
 
 import { I18nextProvider } from 'react-i18next';
-import i18n from './utils/i18n';
+import i18n from './i18n';
 import { RouterNode } from './routes';
 import * as serviceWorker from './serviceWorker';
 
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 import 'bootstrap/dist/css/bootstrap.css';
-import 'rc-steps/assets/index.css';
-import 'rc-steps/assets/iconfont.css';
-import './index.css';
 
 ReactDOM.render(
   <Provider store={store}>
