@@ -23,9 +23,7 @@
   },
   "dependencies": {
     "firebase": "^5.5.9",
-    "history": "^4.6.1",
     "i18next": "^12.1.0",
-    "i18next-browser-languagedetector": "^2.2.4",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
@@ -43,6 +41,7 @@
     "redux-firestore": "^0.6.0"
   },
   "devDependencies": {
+    "@types/history": "^4.7.2",
     "@types/jest": "^23.3.9",
     "@types/node": "^10.12.10",
     "@types/react": "^16.7.6",
