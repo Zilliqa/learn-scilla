@@ -26,7 +26,6 @@ exports[`renders correctly 1`] = `
         <a
           className="text-secondary nav-link"
           href="https://github.com/Zilliqa"
-          onClick={[Function]}
           target="_blank"
         >
           <svg
@@ -54,7 +53,6 @@ exports[`renders correctly 1`] = `
         <a
           className="text-secondary nav-link"
           href="https://gitter.im/Zilliqa"
-          onClick={[Function]}
           target="_blank"
         >
           <svg
@@ -82,7 +80,6 @@ exports[`renders correctly 1`] = `
         <a
           className="text-secondary nav-link"
           href="https://t.me/zilliqachat"
-          onClick={[Function]}
           target="_blank"
         >
           <svg
