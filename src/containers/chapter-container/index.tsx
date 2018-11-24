@@ -6,7 +6,7 @@ import Layout from '../../components/layout';
 import * as H from 'history';
 
 import LessonProgressbar from '../../components/lesson-progressbar';
-const EditorInterface = lazy(() => import('../../components/editor-interface'));
+const EditorUI = lazy(() => import('../../components/editor-ui'));
 
 import InstructionViewer from '../../components/instruction-viewer';
 import ChapterNavigator from '../../components/chapter-navigator';
@@ -74,11 +74,12 @@ class ChapterContainer extends React.Component<IProps, IState> {
             </Col>
             <Col xs={12} sm={12} md={12} lg={7}>
               <Suspense fallback={<Spinner />}>
-                <EditorInterface
+                <EditorUI
                   initialCode={initialCode}
                   answerCode={answerCode}
                   t={t}
                   proceed={this.goNext}
+                  location={location}
                 />
               </Suspense>
             </Col>
