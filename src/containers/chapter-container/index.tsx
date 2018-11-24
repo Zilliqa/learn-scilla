@@ -27,7 +27,6 @@ interface IProps {
   history: H.History;
   location: H.Location;
   match: IMatch;
-  accessToken: string;
   instructions: CourseInstructionType;
   codes: CourseCodeType;
   firebase: any;
@@ -61,7 +60,7 @@ class ChapterContainer extends React.Component<IProps, IState> {
     `;
 
     return (
-      <Layout location={location} history={history}>
+      <Layout>
         <Helmet>
           <title>{documentTitle}</title>
         </Helmet>
@@ -70,7 +69,7 @@ class ChapterContainer extends React.Component<IProps, IState> {
           <br />
           <Row>
             <Col xs={12} sm={12} md={12} lg={5}>
-              <InstructionViewer instruction={instruction} t={t} />
+              <InstructionViewer instruction={instruction} />
             </Col>
             <Col xs={12} sm={12} md={12} lg={7}>
               <Suspense fallback={<Spinner />}>

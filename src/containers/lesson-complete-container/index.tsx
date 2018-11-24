@@ -34,7 +34,7 @@ class LessonContainer extends React.Component<IProps, {}> {
 
     const nextLessonPath = `/lesson/${currentLessonNum + 1}/chapter/1`;
     return (
-      <Layout location={location} history={history}>
+      <Layout>
         <Helmet>
           <title>{documentTitle}</title>
         </Helmet>
