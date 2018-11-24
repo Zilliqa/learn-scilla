@@ -1,6 +1,6 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
-import CodeControlPanel from '../control-panel';
+import ControlPanel from '../control-panel';
 import { language, configuration } from './scilla';
 import './index.css';
 
@@ -19,7 +19,7 @@ interface IState {
 }
 
 // Renders code editor
-export default class CodeEditor extends React.Component<IProps, IState> {
+export default class Editor extends React.Component<IProps, IState> {
   public editor;
   public readonly state = {
     code: this.props.code
@@ -48,7 +48,7 @@ export default class CodeEditor extends React.Component<IProps, IState> {
         </div>
         {this.props.children}
         <br />
-        <CodeControlPanel
+        <ControlPanel
           t={t}
           handleShowHint={this.handleShowHint}
           hanldleToggle={this.hanldleToggle}
