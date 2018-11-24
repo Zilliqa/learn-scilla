@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './footer.module.css';
 import { FaGithub, FaGitter, FaTelegramPlane } from 'react-icons/fa';
+import styles from './footer.module.css';
+
 const copyright: string = 'Copyright © LearnScilla 2018';
 
 const Footer: React.SFC = () => (

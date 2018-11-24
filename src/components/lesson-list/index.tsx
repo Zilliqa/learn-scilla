@@ -21,8 +21,7 @@ const LessonList: React.SFC<any> = (props) => {
     const chapters: string[] = item.chapters || [];
     const totalNum: number = chapters.length;
 
-    const progressStatus = `(${lessonProgressNum}/${totalNum})`;
-    const progressText = showProgressText ? progressStatus : '';
+    const progressText = showProgressText ? `(${lessonProgressNum}/${totalNum})` : '';
     const chapterToStart = totalNum <= lessonProgressNum ? totalNum : lessonProgressNum + 1;
 
     const startingLessonPath = `/lesson/${lessonNum}/chapter/${chapterToStart}`;

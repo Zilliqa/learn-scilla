@@ -3,7 +3,6 @@ import ReactMarkdown from 'react-markdown';
 import './index.css';
 
 interface IProps {
-  t: (key: string) => string;
   instruction: string;
 }
 
