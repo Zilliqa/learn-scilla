@@ -8,7 +8,7 @@ import AuthModal from '../auth-modal';
 import { paths } from '../../routes';
 import I18nDropdown from '../i18n-dropdown';
 
-interface IHeaderProps {
+interface IProps {
   history: H.History;
   location: H.Location;
   t: (key: string) => string;
@@ -18,12 +18,12 @@ interface IHeaderProps {
   };
 }
 
-interface IHeaderStates {
+interface IStates {
   isOpen: boolean;
 }
 
-class Header extends React.Component<IHeaderProps, IHeaderStates> {
-  public readonly state: IHeaderStates = {
+class Header extends React.Component<IProps, IStates> {
+  public readonly state: IStates = {
     isOpen: false
   };
 

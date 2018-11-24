@@ -6,10 +6,10 @@ interface IProps {
   instruction: string;
 }
 
-const CodeInstruction: React.SFC<IProps> = (props) => (
+const InstructionViewer: React.SFC<IProps> = (props) => (
   <div className="code-instruction-container">
     <ReactMarkdown source={props.instruction} />
   </div>
 );
 
-export default CodeInstruction;
+export default InstructionViewer;

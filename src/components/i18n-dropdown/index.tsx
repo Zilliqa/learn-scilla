@@ -12,7 +12,7 @@ interface IProps {
   t: (key: string) => string;
 }
 
-export default class Header extends React.Component<IProps, {}> {
+export default class I18Dropdown extends React.Component<IProps, {}> {
   public langDictionary = {
     en: 'English',
     ko: '한국어'

@@ -11,7 +11,7 @@ interface IProps {
   handleShowHint: (e) => void;
 }
 
-const CodeControlPanel: React.SFC<IProps> = (props) => {
+const ControlPanel: React.SFC<IProps> = (props) => {
   const { isHintButtonVisible, isAnswerVisible, t } = props;
   const showAnswerButtonText = t(isAnswerVisible ? 'editor.hideAnswer' : 'editor.showAnswer');
   const showAnswerButtonIcon = isAnswerVisible ? <FaRegEyeSlash /> : <FaRegEye />;
@@ -41,4 +41,4 @@ const CodeControlPanel: React.SFC<IProps> = (props) => {
   );
 };
 
-export default CodeControlPanel;
+export default ControlPanel;
