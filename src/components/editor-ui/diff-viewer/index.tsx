@@ -9,8 +9,7 @@ interface IProps {
   t: (key: string) => string;
 }
 
-// Renders diff editor
-const CodeDiff: React.SFC<IProps> = (props) => {
+const CodeDiffViewer: React.SFC<IProps> = (props) => {
   const options: any = {
     readOnly: true,
     renderSideBySide: false,
@@ -37,4 +36,4 @@ const CodeDiff: React.SFC<IProps> = (props) => {
   );
 };
 
-export default CodeDiff;
+export default CodeDiffViewer;
