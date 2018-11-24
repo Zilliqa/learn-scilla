@@ -1,7 +1,7 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
-import { FaCheck, FaRegLightbulb, FaRegEye, FaRegEyeSlash, FaRegComments } from 'react-icons/fa';
-import { language, configuration } from '../config';
+import ControlPanel from '../control-panel';
+import { language, configuration } from './scilla';
 import './index.css';
 
 interface IProps {
@@ -19,13 +19,14 @@ interface IState {
 }
 
 // Renders code editor
-export default class CodeEditor extends React.Component<IProps, IState> {
+export default class Editor extends React.Component<IProps, IState> {
   public editor;
   public readonly state = {
     code: this.props.code
   };
 
   public render() {
+    const { t, isAnswerVisible, isHintButtonVisible } = this.props;
     const options = {
       selectOnLineNumbers: true,
       roundedSelection: false,
@@ -47,7 +48,14 @@ export default class CodeEditor extends React.Component<IProps, IState> {
         </div>
         {this.props.children}
         <br />
-        {this.renderButtons()}
+        <ControlPanel
+          t={t}
+          handleShowHint={this.handleShowHint}
+          hanldleToggle={this.hanldleToggle}
+          handleCheckAnswer={this.handleCheckAnswer}
+          isAnswerVisible={isAnswerVisible}
+          isHintButtonVisible={isHintButtonVisible}
+        />
       </div>
     );
   }
@@ -62,37 +70,6 @@ export default class CodeEditor extends React.Component<IProps, IState> {
       // Set the editing configuration for the language
       monaco.languages.setLanguageConfiguration('scilla', configuration);
     }
-  };
-
-  private renderButtons = (): React.ReactNode => {
-    const { isHintButtonVisible, isAnswerVisible, t } = this.props;
-
-    const showAnswerButtonText = t(isAnswerVisible ? 'editor.hideAnswer' : 'editor.showAnswer');
-    const showAnswerButtonIcon = isAnswerVisible ? <FaRegEyeSlash /> : <FaRegEye />;
-    return (
-      <div>
-        <div className="text-right">
-          <button className="btn btn-primary btn-sm" onClick={this.handleCheckAnswer}>
-            <FaCheck /> {t('editor.submitAnswer')}
-          </button>{' '}
-          {isHintButtonVisible ? (
-            <button className="btn btn-outline-secondary btn-sm" onClick={this.hanldleToggle}>
-              {showAnswerButtonIcon} {showAnswerButtonText}
-            </button>
-          ) : null}{' '}
-          <button className="btn btn-outline-secondary btn-sm" onClick={this.handleShowHint}>
-            <FaRegLightbulb /> {t('editor.showHint')}
-          </button>{' '}
-          <a
-            className="btn btn-outline-secondary btn-sm"
-            href={'https://gitter.im/Zilliqa/SmartContract'}
-            target="_blank"
-          >
-            <FaRegComments /> {t('chapter.discuss')}
-          </a>
-        </div>
-      </div>
-    );
   };
 
   // Handles event to submit current code

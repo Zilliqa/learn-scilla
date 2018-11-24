@@ -1,31 +1,29 @@
 import React from 'react';
-
+import { translate } from 'react-i18next';
+import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
-import { paths } from '../../routes';
 import * as H from 'history';
+import Collapse from 'reactstrap/lib/Collapse';
 import AuthModal from '../auth-modal';
+import { paths } from '../../routes';
 import I18nDropdown from '../i18n-dropdown';
 
-import Collapse from 'reactstrap/lib/Collapse';
-
-interface IHeaderProps {
+interface IProps {
   history: H.History;
   location: H.Location;
+  t: (key: string) => string;
   i18n: {
     language: string;
     changeLanguage: (lang: string) => void;
   };
-  t: (key: string) => string;
 }
 
-interface IHeaderStates {
+interface IStates {
   isOpen: boolean;
-  color: string;
 }
 
-export default class Header extends React.Component<IHeaderProps, IHeaderStates> {
-  public readonly state: IHeaderStates = {
-    color: '',
+class Header extends React.Component<IProps, IStates> {
+  public readonly state: IStates = {
     isOpen: false
   };
 
@@ -50,9 +48,13 @@ export default class Header extends React.Component<IHeaderProps, IHeaderStates>
       </nav>
     );
   }
+
   private toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
   };
 }
+
+const withTrans = translate('translations')(Header);
+export default withRouter(withTrans);

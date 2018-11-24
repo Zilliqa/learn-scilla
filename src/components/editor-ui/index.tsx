@@ -1,14 +1,16 @@
 import React from 'react';
 
-import CodeEditor from './code-editor';
-import CodeDiff from './code-diff';
-import CodeModal from './code-modal';
+import Editor from './editor';
+import DiffViewer from './diff-viewer';
+import Modal from './modal';
+import * as H from 'history';
 
 interface IProps {
   t: (key: string) => string;
   initialCode: string;
   answerCode: string;
   proceed: () => void;
+  location: H.Location;
 }
 
 interface IState {
@@ -19,7 +21,7 @@ interface IState {
   isHintButtonVisible: boolean;
 }
 
-export default class CodeREPL extends React.Component<IProps, IState> {
+export default class EditorUI extends React.Component<IProps, IState> {
   public readonly state = {
     code: '',
     codeForDiff: this.props.answerCode,
@@ -32,18 +34,28 @@ export default class CodeREPL extends React.Component<IProps, IState> {
     this.setState({ code: this.props.initialCode });
   }
 
+  public componentWillReceiveProps(nextProps) {
+    const nextLocation = nextProps.location;
+    const currentLocation = this.props.location;
+
+    // if chapter changes, initialize state
+    if (nextLocation.pathname !== currentLocation.pathname) {
+      this.initializeState();
+    }
+  }
+
   public render(): React.ReactNode {
     const { t, answerCode } = this.props;
     const { code, codeForDiff, isAnswerVisible, isHintButtonVisible, isModalVisible } = this.state;
     return (
       <div>
-        <CodeModal
+        <Modal
           t={t}
           onSubmit={this.handleProceed}
           isModalVisible={isModalVisible}
           closeModal={() => this.setState({ isModalVisible: false })}
         />
-        <CodeEditor
+        <Editor
           code={code}
           checkAnswer={this.checkAnswer}
           showHint={this.showHint}
@@ -52,13 +64,13 @@ export default class CodeREPL extends React.Component<IProps, IState> {
           isAnswerVisible={isAnswerVisible}
           t={t}
         >
-          <CodeDiff
+          <DiffViewer
             codeForDiff={codeForDiff}
             answerCode={answerCode}
             isAnswerVisible={isAnswerVisible}
             t={t}
           />
-        </CodeEditor>
+        </Editor>
       </div>
     );
   }
@@ -96,7 +108,8 @@ export default class CodeREPL extends React.Component<IProps, IState> {
       code: this.props.initialCode,
       codeForDiff: this.props.answerCode,
       isAnswerVisible: false,
-      isModalVisible: false
+      isModalVisible: false,
+      isHintButtonVisible: false
     });
   };
 
