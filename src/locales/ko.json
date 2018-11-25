@@ -25,7 +25,8 @@
     "cancel":"취소"
   },
   "account": {
-    "account": "내 계정"
+    "account": "내 계정",
+    "deleteAccount": "계정 삭제"
   },
   "auth": {
     "signUpTitle":"회원가입",
