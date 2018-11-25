@@ -17,10 +17,6 @@ interface IState {
   isModalOpen: boolean;
 }
 
-const GITHUB_PROVIDER = 'github';
-const GOOGLE_PROVIDER = 'google';
-const POPUP_TYPE = 'popup';
-
 class AuthModal extends React.Component<IProps, IState> {
   public readonly state = {
     isModalOpen: false
@@ -42,18 +38,12 @@ class AuthModal extends React.Component<IProps, IState> {
             ) : (
               <div className="py-3 text-center">
                 <div className="py-1">
-                  <button
-                    className="btn btn-outline-primary"
-                    onClick={() => this.signIn(GOOGLE_PROVIDER, POPUP_TYPE)}
-                  >
+                  <button className="btn btn-outline-primary" onClick={() => this.signIn('google')}>
                     <FaGoogle /> <small>{t('auth.signInWithGoogle')}</small>
                   </button>
                 </div>
                 <div className="py-1">
-                  <button
-                    className="btn btn-outline-primary"
-                    onClick={() => this.signIn(GITHUB_PROVIDER, POPUP_TYPE)}
-                  >
+                  <button className="btn btn-outline-primary" onClick={() => this.signIn('github')}>
                     <FaGithub /> <small>{t('auth.signInWithGitHub')}</small>
                   </button>
                 </div>
@@ -71,13 +61,22 @@ class AuthModal extends React.Component<IProps, IState> {
     });
   };
 
-  private signIn = (provider: string, type: string): void => {
+  private signIn = (providerType: string): void => {
     const { firebase } = this.props;
-    const options = { provider, type };
-    firebase.login(options);
-    this.setState({
-      isModalOpen: false
-    });
+
+    let provider = new firebase.auth.GoogleAuthProvider();
+    if (providerType === 'github') {
+      provider = new firebase.auth.GithubAuthProvider();
+    }
+
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(() => {
+        this.setState({
+          isModalOpen: false
+        });
+      });
   };
 }
 
