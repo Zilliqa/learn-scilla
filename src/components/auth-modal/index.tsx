@@ -10,7 +10,7 @@ import Spinner from '../../components/spinner';
 interface IProps {
   t: (key: string) => string;
   firebase: any; // TODO: specify type
-  auth: { isLoaded: boolean; isEmpty: boolean };
+  auth: any; // TODO: specify type
 }
 
 interface IState {
@@ -27,19 +27,9 @@ class AuthModal extends React.Component<IProps, IState> {
   };
   public render(): React.ReactNode {
     const { t, auth } = this.props;
-    const { isLoaded, isEmpty } = auth;
-
+    const { isLoaded } = auth;
     const cursorStyle = { cursor: 'pointer' };
 
-    if (!isEmpty) {
-      return (
-        <li className="nav-item">
-          <a className="nav-link" onClick={this.logout} style={cursorStyle}>
-            {t('link.signOut')}
-          </a>
-        </li>
-      );
-    }
     return (
       <li className="nav-item">
         <a className="nav-link" onClick={this.toggleModal} style={cursorStyle}>
@@ -89,14 +79,6 @@ class AuthModal extends React.Component<IProps, IState> {
       isModalOpen: false
     });
   };
-
-  private logout = () => {
-    const { firebase } = this.props;
-    firebase.logout();
-    this.setState({
-      isModalOpen: false
-    });
-  };
 }
 
 const WithTranslation = translate('translations')(AuthModal);
@@ -107,8 +89,5 @@ const mapStateToProps = (state: any) => ({
 
 export default compose(
   withFirebase,
-  connect(
-    mapStateToProps,
-    undefined
-  )
+  connect(mapStateToProps)
 )(WithTranslation);
