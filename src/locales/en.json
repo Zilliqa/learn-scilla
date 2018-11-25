@@ -25,7 +25,8 @@
     "cancel":"Cancel"
   },
   "account": {
-    "account": "Account"
+    "account": "Account",
+    "deleteAccount": "Delete Account"
   },
   "auth": {
     "signUpTitle":"Sign Up",

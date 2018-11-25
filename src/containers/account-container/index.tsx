@@ -23,7 +23,7 @@ interface IProps {
 
 class AccountContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
-    const { auth } = this.props;
+    const { auth, t } = this.props;
     const { displayName, email, createdAt, isLoaded } = auth;
     const documentTitle = `LearnScilla - Account`;
 
@@ -48,7 +48,7 @@ class AccountContainer extends React.Component<IProps, {}> {
                       className="btn btn-sm btn-outline-secondary"
                       onClick={this.deleteAccount}
                     >
-                      <small>{'Delete Account'}</small>
+                      <small>{t('account.deleteAccount')}</small>
                     </button>
                   </div>
                 ) : (
