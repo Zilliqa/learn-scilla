@@ -44,11 +44,9 @@ class AccountDropdown extends React.Component<IProps, {}> {
   }
 
   private logout = () => {
-    const { firebase } = this.props;
+    const { firebase, history } = this.props;
     firebase.logout();
-    this.setState({
-      isModalOpen: false
-    });
+    history.push(paths.lessonList);
   };
 
   private navigateToAccount = () => {
