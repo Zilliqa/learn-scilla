@@ -37,7 +37,12 @@ export default class I18Dropdown extends React.Component<IProps, {}> {
     const cursorStyle = { cursor: 'pointer' };
     const keys = Object.keys(this.langDictionary);
     return keys.map((key) => (
-      <DropdownItem key={key} style={cursorStyle} onClick={() => this.changeLang(key)}>
+      <DropdownItem
+        key={key}
+        className="text-secondary"
+        style={cursorStyle}
+        onClick={() => this.changeLang(key)}
+      >
         {this.langDictionary[key]}
       </DropdownItem>
     ));

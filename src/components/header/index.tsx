@@ -2,11 +2,15 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { withFirebase } from 'react-redux-firebase';
 import * as H from 'history';
 import Collapse from 'reactstrap/lib/Collapse';
 import AuthModal from '../auth-modal';
 import { paths } from '../../routes';
 import I18nDropdown from '../i18n-dropdown';
+import AccountDropdown from '../account-dropdown';
 
 interface IProps {
   history: H.History;
@@ -16,6 +20,8 @@ interface IProps {
     language: string;
     changeLanguage: (lang: string) => void;
   };
+  firebase: any;
+  auth: any;
 }
 
 interface IStates {
@@ -28,7 +34,9 @@ class Header extends React.Component<IProps, IStates> {
   };
 
   public render(): React.ReactNode {
-    const { i18n, t } = this.props;
+    const { i18n, t, auth, history } = this.props;
+    const { isLoaded, isEmpty } = auth;
+
     return (
       <nav className="navbar navbar-expand-md navbar-light bg-pale">
         <Link className="navbar-brand text-secondary" to={paths.lessonList}>
@@ -41,7 +49,12 @@ class Header extends React.Component<IProps, IStates> {
 
         <Collapse isOpen={this.state.isOpen} navbar={true}>
           <ul className="ml-auto navbar-nav">
-            <AuthModal />
+            {!isLoaded ? null : isEmpty ? <AuthModal /> : <AccountDropdown history={history} />}
+            <li className="nav-item">
+              <Link className="nav-link" to={paths.lessonList}>
+                {t('link.tutorial')}
+              </Link>
+            </li>
             <I18nDropdown i18n={i18n} t={t} />
           </ul>
         </Collapse>
@@ -57,4 +70,13 @@ class Header extends React.Component<IProps, IStates> {
 }
 
 const withTrans = translate('translations')(Header);
-export default withRouter(withTrans);
+const HeaderWithRouter = withRouter(withTrans);
+
+const mapStateToProps = (state: any) => ({
+  auth: state.firebase.auth
+});
+
+export default compose(
+  withFirebase,
+  connect(mapStateToProps)
+)(HeaderWithRouter);
