@@ -24,6 +24,9 @@
     "submit":"Submit",
     "cancel":"Cancel"
   },
+  "account": {
+    "account": "Account"
+  },
   "auth": {
     "signUpTitle":"Sign Up",
     "signInTitle":"Login",

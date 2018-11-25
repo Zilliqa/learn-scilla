@@ -24,6 +24,9 @@
     "submit":"확인",
     "cancel":"취소"
   },
+  "account": {
+    "account": "내 계정"
+  },
   "auth": {
     "signUpTitle":"회원가입",
     "signInTitle":"로그인",
