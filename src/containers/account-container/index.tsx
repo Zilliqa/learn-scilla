@@ -78,58 +78,46 @@ class AccountContainer extends React.Component<IProps, {}> {
     }
   };
 
-  private deleteGitHubAccount = () => {
+  private deleteGitHubAccount = async () => {
     const { firebase } = this.props;
     const provider = new firebase.auth.GithubAuthProvider();
-    return firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-        const { credential } = result;
-        const { accessToken } = credential;
-        const userCredential = firebase.auth.GithubAuthProvider.credential(accessToken);
-        this.deleteWithCredential(userCredential);
-      });
+    try {
+      const result = await firebase.auth().signInWithPopup(provider);
+      const { credential } = result;
+      const { accessToken } = credential;
+      const userCredential = firebase.auth.GithubAuthProvider.credential(accessToken);
+      return this.deleteWithCredential(userCredential);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  private deleteGoogleAccount = () => {
+  private deleteGoogleAccount = async () => {
     const { firebase } = this.props;
     const provider = new firebase.auth.GoogleAuthProvider();
-    return firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-        const { credential } = result;
-        const { idToken } = credential;
-        const userCredential = firebase.auth.GoogleAuthProvider.credential(idToken);
-        this.deleteWithCredential(userCredential);
-      });
+    try {
+      const result = await firebase.auth().signInWithPopup(provider);
+      const { credential } = result;
+      const { idToken } = credential;
+      const userCredential = firebase.auth.GoogleAuthProvider.credential(idToken);
+      return this.deleteWithCredential(userCredential);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  private deleteWithCredential = (credential) => {
+  private deleteWithCredential = async (credential) => {
     const { firebase, history } = this.props;
     const user = firebase.auth().currentUser;
-
-    const deleteAccount = () => {
-      user
-        .delete()
-        .then(() => {
-          history.push(paths.lessonList);
-          alert('Your account has been deleted');
-        })
-        .catch((error) => {
-          console.log(error);
-          alert(error.message);
-        });
-    };
-
-    user
-      .reauthenticateAndRetrieveDataWithCredential(credential)
-      .then(deleteAccount)
-      .catch((error) => {
-        console.log(error);
-        alert(error.message);
-      });
+    try {
+      await user.reauthenticateAndRetrieveDataWithCredential(credential);
+      await user.delete();
+      alert('Your account has been deleted');
+      return history.push(paths.lessonList);
+    } catch (error) {
+      console.log(error);
+      alert(error.message);
+    }
   };
 }
 
