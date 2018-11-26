@@ -1,7 +1,7 @@
 {
   "lesson": {
     "lesson": "레슨",
-    "congratulations": "축하합니다.",
+    "goodjob": "아주 잘했어요",
     "listTitle": "Scilla Tutorial",
     "chapterCompleteMessage": "현재 챕터를 완료하셨습니다.",
     "lessonCompleteMessage": "현재 레슨을 완료하셨습니다.",
@@ -10,18 +10,18 @@
   "chapter":{
     "chapter": "챕터",
     "back": "뒤로가기",
-    "next": "건너뛰기",
-    "discuss": "논의하기"
+    "skip": "건너뛰기",
+    "openChat": "오픈 채팅"
     },
   "editor" : {
     "hint": "힌트",
     "showHint": "힌트 보기",
     "showAnswer": "정답 보기",
-    "hideAnswer": "정답 가리기",
-    "submitAnswer": "정답 확인"
+    "hideAnswer": "정답 숨기기",
+    "checkAnswer": "정답 확인"
   },
   "account": {
-    "account": "내 계정",
+    "account": "계정",
     "deleteAccount": "계정 삭제"
   },
   "auth": {
@@ -30,10 +30,8 @@
   },
   "link": {
     "tutorial": "튜토리얼",
-    "contentMenu": "목차",
+    "tableOfContents": "목차",
     "signIn": "로그인",
-    "signUp": "회원가입",
-    "signOut": "로그아웃",
-    "forgotPassword": "패스워드 찾기"
+    "signOut": "로그아웃"
   }
 }

@@ -1,7 +1,16 @@
 import i18next from 'i18next';
 
 import en from './locales/en.json';
+import ja from './locales/ja.json';
 import ko from './locales/ko.json';
+import zh from './locales/zh.json';
+
+export const langDictionary = {
+  en: 'English',
+  zh: '中文',
+  ja: '日本語',
+  ko: '한국어'
+};
 
 const isDev: boolean = process.env.NODE_ENV === 'development';
 
@@ -19,9 +28,12 @@ i18next.init({
   // have a common namespace used around the full app
   ns: ['translations'],
   defaultNS: 'translations',
+
   resources: {
     en: { translations: en },
-    ko: { translations: ko }
+    ja: { translations: ja },
+    ko: { translations: ko },
+    zh: { translations: zh }
   }
 });
 

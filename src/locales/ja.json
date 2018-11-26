@@ -1,0 +1,37 @@
+{
+  "lesson": {
+    "lesson": "レッスン",
+    "goodjob": "よくやった",
+    "listTitle": "Scilla Tutorial",
+    "chapterCompleteMessage": "あなたはこのチャプターを修了した.",
+    "lessonCompleteMessage": "あなたはこのレッスンを修了した.",
+    "nextLesson": "次のレッスンへ進む"
+  },
+  "chapter":{
+    "chapter": "チャプター",
+    "back": "バック",
+    "skip": "スキップ",
+    "openChat": "チャットに参加"
+  },
+  "editor" : {
+    "hint": "ヒント",
+    "showHint": "ヒントを表示",
+    "showAnswer": "答えを表示",
+    "hideAnswer": "答えを隠す",
+    "checkAnswer": "答え合せ"
+  },
+  "account": {
+    "account": "アカウント",
+    "deleteAccount": "アカウントを削除"
+  },
+  "auth": {
+    "signInWithGoogle": "Googleでログイン",
+    "signInWithGitHub": "GitHubでログイン"
+  },
+  "link": {
+    "tutorial": "チュートリアル",
+    "tableOfContents": "目次",
+    "signIn": "ログイン",
+    "signOut": "ログアウト"
+  }
+}

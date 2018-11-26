@@ -1,4 +1,8 @@
 import en from './en';
-import ko from './ko';
 
-export default { en, ko };
+export default {
+  en,
+  ja: en,
+  ko: en,
+  zh: en
+};
