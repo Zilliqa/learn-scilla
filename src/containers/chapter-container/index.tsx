@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withNamespaces } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import Layout from '../../components/layout';
 import * as H from 'history';
@@ -191,8 +191,9 @@ class ChapterContainer extends React.Component<IProps, IState> {
   };
 }
 
-const WithTranslation = translate('translations')(ChapterContainer);
-
+// @ts-ignore
+const WithTranslation = withNamespaces()(ChapterContainer);
+// @ts-check
 const mapStateToProps = (state) => ({
   instructions: state.course.courseInstructions,
   codes: state.course.courseCodes,

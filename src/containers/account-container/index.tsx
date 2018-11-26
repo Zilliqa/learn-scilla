@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { compose } from 'redux';
-import { translate } from 'react-i18next';
+import { withNamespaces } from 'react-i18next';
 import { withFirebase } from 'react-redux-firebase';
 import Layout from '../../components/layout';
 import * as H from 'history';
@@ -121,9 +121,10 @@ class AccountContainer extends React.Component<IProps, {}> {
   };
 }
 
-const WithTranslation = translate('translations')(AccountContainer);
-
-const mapStateToProps = (state: any) => ({
+// @ts-ignore
+const WithTranslation = withNamespaces()(AccountContainer);
+// @ts-check
+const mapStateToProps = (state) => ({
   auth: state.firebase.auth
 });
 
