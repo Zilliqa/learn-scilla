@@ -4,6 +4,10 @@
 
 # learn-scilla
 
+An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process.
+
+This is one of the [Zilliqa Ecosystem Grant Projects](https://blog.zilliqa.com/announcing-the-second-wave-of-zilliqa-ecosystem-grant-awardees-6e03edadcc0d).
+
 ## Install
 
 ### Install dependencies
