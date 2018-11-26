@@ -20,27 +20,13 @@
     "hideAnswer": "Hide Answer",
     "submitAnswer": "Check Answer"
   },
-  "form": {
-    "submit":"Submit",
-    "cancel":"Cancel"
-  },
   "account": {
     "account": "Account",
     "deleteAccount": "Delete Account"
   },
   "auth": {
-    "signUpTitle":"Sign Up",
-    "signInTitle":"Login",
-
     "signInWithGoogle": "Sign in with Google",
-    "signInWithGitHub": "Sign in with GitHub",
-
-    "checkYourEmail": "Check your email",
-    "email":"Email" ,
-    "emailMessage" : "email address required",
-    "emailInvalidMessage":"Invalid email",
-    "emailValidMessage":"Valid email"
-
+    "signInWithGitHub": "Sign in with GitHub"
   },
   "link": {
     "tutorial": "Tutorial",
