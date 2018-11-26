@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 interface IProps {
   t: (key: string) => string;
@@ -22,16 +22,14 @@ const ChapterNavigator: React.SFC<IProps> = (props) => {
         onClick={goBack}
         disabled={isBackButtonDisabled}
       >
-        <FaChevronLeft />
-        {t('chapter.back')}
+        <FaArrowLeft /> {t('chapter.back')}
       </button>
       <button
         className="btn btn-outline-secondary btn-sm"
         onClick={goNext}
         disabled={isProceedButtonDisabled}
       >
-        {t('chapter.skip')}
-        <FaChevronRight />
+        {t('chapter.skip')} <FaArrowRight />
       </button>
     </div>
   );
