@@ -104,13 +104,19 @@ export default class EditorUI extends React.Component<IProps, IState> {
   };
 
   private initializeState = (): void => {
-    this.setState({
-      code: this.props.initialCode,
-      codeForDiff: this.props.answerCode,
-      isAnswerVisible: false,
-      isModalVisible: false,
-      isHintButtonVisible: false
-    });
+    // scroll to top
+    const scrollToTop = () => window.scrollTo(0, 0);
+
+    this.setState(
+      {
+        code: this.props.initialCode,
+        codeForDiff: this.props.answerCode,
+        isAnswerVisible: false,
+        isModalVisible: false,
+        isHintButtonVisible: false
+      },
+      scrollToTop
+    );
   };
 
   // Compares code written by user and the answer
