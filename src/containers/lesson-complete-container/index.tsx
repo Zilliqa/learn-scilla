@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { translate } from 'react-i18next';
+import { withNamespaces } from 'react-i18next';
 import Layout from '../../components/layout';
 
 import { Link } from 'react-router-dom';
@@ -66,8 +66,9 @@ class LessonContainer extends React.Component<IProps, {}> {
   }
 }
 
-const WithTranslation = translate('translations')(LessonContainer);
-
+// @ts-ignore
+const WithTranslation = withNamespaces()(LessonContainer);
+// @ts-check
 const mapStateToProps = (state) => ({
   codes: state.course.courseCodes
 });

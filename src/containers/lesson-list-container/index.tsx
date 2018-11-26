@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withNamespaces } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import * as H from 'history';
 import Row from 'reactstrap/lib/Row';
@@ -25,7 +25,6 @@ class LessonContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
     const { instructions, i18n, t } = this.props;
     const lang: string = i18n.language;
-
     if (instructions === undefined || instructions[lang] === undefined) {
       return <Spinner />;
     }
@@ -54,8 +53,9 @@ class LessonContainer extends React.Component<IProps, {}> {
   }
 }
 
-const WithTranslation = translate('translations')(LessonContainer);
-
+// @ts-ignore
+const WithTranslation = withNamespaces()(LessonContainer);
+// @ts-check
 const mapStateToProps = (state) => ({
   instructions: state.course.courseInstructions
 });

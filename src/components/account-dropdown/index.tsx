@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { translate } from 'react-i18next';
 import { withFirebase } from 'react-redux-firebase';
 import { UncontrolledDropdown } from 'reactstrap/lib/Uncontrolled';
 import DropdownToggle from 'reactstrap/lib/DropdownToggle';
@@ -55,8 +54,6 @@ class AccountDropdown extends React.Component<IProps, {}> {
   };
 }
 
-const WithTranslation = translate('translations')(AccountDropdown);
-
 const mapStateToProps = (state: any) => ({
   auth: state.firebase.auth
 });
@@ -64,4 +61,4 @@ const mapStateToProps = (state: any) => ({
 export default compose(
   withFirebase,
   connect(mapStateToProps)
-)(WithTranslation);
+)(AccountDropdown);
