@@ -19,7 +19,7 @@ const ControlPanel: React.SFC<IProps> = (props) => {
     <div>
       <div className="text-right">
         <button className="btn btn-primary btn-sm" onClick={props.handleCheckAnswer}>
-          <FaCheck /> {t('editor.submitAnswer')}
+          <FaCheck /> {t('editor.checkAnswer')}
         </button>{' '}
         {isHintButtonVisible ? (
           <button className="btn btn-outline-secondary btn-sm" onClick={props.hanldleToggle}>
@@ -34,7 +34,7 @@ const ControlPanel: React.SFC<IProps> = (props) => {
           href={'https://gitter.im/Zilliqa/SmartContract'}
           target="_blank"
         >
-          <FaRegComments /> {t('chapter.discuss')}
+          <FaRegComments /> {t('chapter.openChat')}
         </a>
       </div>
     </div>

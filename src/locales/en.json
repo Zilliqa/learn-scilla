@@ -1,7 +1,7 @@
 {
   "lesson": {
     "lesson": "Lesson",
-    "congratulations": "Congratulations",
+    "goodjob": "Good job",
     "listTitle": "Scilla Tutorial",
     "chapterCompleteMessage": "You have completed this chapter.",
     "lessonCompleteMessage": "You have completed this lesson.",
@@ -10,15 +10,15 @@
   "chapter":{
     "chapter": "Chapter",
     "back": "Back",
-    "next": "Skip",
-    "discuss": "Discuss"
+    "skip": "Skip",
+    "openChat": "Open Chat"
   },
   "editor" : {
     "hint": "Hint",
     "showHint": "Show Hint",
     "showAnswer": "Show Answer",
     "hideAnswer": "Hide Answer",
-    "submitAnswer": "Check Answer"
+    "checkAnswer": "Check Answer"
   },
   "account": {
     "account": "Account",
@@ -30,10 +30,8 @@
   },
   "link": {
     "tutorial": "Tutorial",
-    "contentMenu": "Content Menu",
+    "tableOfContents": "Table of Contents",
     "signIn": "Login",
-    "signUp": "Sign up",
-    "signOut": "Logout",
-    "forgotPassword": "Forgot password"
+    "signOut": "Logout"
   }
 }

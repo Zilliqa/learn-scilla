@@ -3,6 +3,7 @@ import { UncontrolledDropdown } from 'reactstrap/lib/Uncontrolled';
 import DropdownToggle from 'reactstrap/lib/DropdownToggle';
 import DropdownMenu from 'reactstrap/lib/DropdownMenu';
 import DropdownItem from 'reactstrap/lib/DropdownItem';
+import { langDictionary } from '../../i18n';
 
 interface IProps {
   i18n: {
@@ -13,18 +14,13 @@ interface IProps {
 }
 
 export default class I18Dropdown extends React.Component<IProps, {}> {
-  public langDictionary = {
-    en: 'English',
-    ko: '한국어'
-  };
-
   public render(): React.ReactNode {
     const i18n = this.props.i18n;
     const lang: string = i18n.language;
     return (
       <UncontrolledDropdown nav={true} inNavbar={true}>
         <DropdownToggle caret={true} nav={true}>
-          {this.langDictionary[lang]}
+          {langDictionary[lang]}
         </DropdownToggle>
         <DropdownMenu right={true} size="sm">
           {this.renderItems()}
@@ -35,7 +31,7 @@ export default class I18Dropdown extends React.Component<IProps, {}> {
 
   private renderItems = () => {
     const cursorStyle = { cursor: 'pointer' };
-    const keys = Object.keys(this.langDictionary);
+    const keys = Object.keys(langDictionary);
     return keys.map((key) => (
       <DropdownItem
         key={key}
@@ -43,7 +39,7 @@ export default class I18Dropdown extends React.Component<IProps, {}> {
         style={cursorStyle}
         onClick={() => this.changeLang(key)}
       >
-        {this.langDictionary[key]}
+        {langDictionary[key]}
       </DropdownItem>
     ));
   };

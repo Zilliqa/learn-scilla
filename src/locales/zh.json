@@ -1,0 +1,37 @@
+{
+  "lesson": {
+    "lesson": "Lesson",
+    "goodjob": "太棒啦",
+    "listTitle": "Scilla Tutorial",
+    "chapterCompleteMessage": "你已经完成了这一章.",
+    "lessonCompleteMessage": "你已经完成了这一课.",
+    "nextLesson": "去下一个课程"
+  },
+  "chapter":{
+    "chapter": "Chapter",
+    "back": "上一章",
+    "skip": "下一章",
+    "openChat": "加入群聊"
+  },
+  "editor" : {
+    "hint": "提示",
+    "showHint": "显示提示",
+    "showAnswer": "我要看答案",
+    "hideAnswer": "不看答案了",
+    "checkAnswer": "交卷"
+  },
+  "account": {
+    "account": "账目",
+    "deleteAccount": "删除账目"
+  },
+  "auth": {
+    "signInWithGoogle": "使用 Google 登录",
+    "signInWithGitHub": "使用 GitHub 登录"
+  },
+  "link": {
+    "tutorial": "教程",
+    "tableOfContents": "目录",
+    "signIn": "登录",
+    "signOut": "退出"
+  }
+}

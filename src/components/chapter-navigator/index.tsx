@@ -30,7 +30,7 @@ const ChapterNavigator: React.SFC<IProps> = (props) => {
         onClick={goNext}
         disabled={isProceedButtonDisabled}
       >
-        {t('chapter.next')}
+        {t('chapter.skip')}
         <FaChevronRight />
       </button>
     </div>
