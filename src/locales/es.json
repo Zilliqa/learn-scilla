@@ -1,0 +1,37 @@
+{
+  "lesson": {
+    "lesson": "Lección",
+    "goodjob": "¡Enhorabuena",
+    "listTitle": "Scilla Tutorial",
+    "chapterCompleteMessage": "¡Has completado esta capítulo",
+    "lessonCompleteMessage": "¡Has completado esta lección.",
+    "nextLesson": "Pasar a la siguiente lección"
+  },
+  "chapter":{
+    "chapter": "Capítulo",
+    "back": "Anterior",
+    "skip": "Siguiente",
+    "openChat": "Abrir el chat"
+  },
+  "editor" : {
+    "hint": "pistas",
+    "showHint": "Mostrar pistas",
+    "showAnswer": "Muéstrame la respuesta",
+    "hideAnswer": "Esconde la respuesta",
+    "checkAnswer": "Verificar la respuesta"
+  },
+  "account": {
+    "account": "Cuenta",
+    "deleteAccount": "Borrar Cuenta"
+  },
+  "auth": {
+    "signInWithGoogle": "Iniciar con Google",
+    "signInWithGitHub": "Iniciar con GitHub"
+  },
+  "link": {
+    "tutorial": "Tutorial",
+    "tableOfContents": "Tabla de contenido",
+    "signIn": "Iniciar sesión",
+    "signOut": "Cerrar sesión"
+  }
+}
