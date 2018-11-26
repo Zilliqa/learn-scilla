@@ -5775,9 +5775,10 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   dependencies:
     minimist "0.0.8"
 
-monaco-editor@^0.14.2:
-  version "0.14.3"
-  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.14.3.tgz#7cc4a4096a3821f52fea9b10489b527ef3034e22"
+monaco-editor@^0.15.1:
+  version "0.15.6"
+  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.15.6.tgz#d63b3b06f86f803464f003b252627c3eb4a09483"
+  integrity sha512-JoU9V9k6KqT9R9Tiw1RTU8ohZ+Xnf9DMg6Ktqqw5hILumwmq7xqa/KLXw513uTUsWbhtnHoSJYYR++u3pkyxJg==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -7327,12 +7328,13 @@ react-markdown@^4.0.3:
     unist-util-visit "^1.3.0"
     xtend "^4.0.1"
 
-react-monaco-editor@^0.20.0:
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/react-monaco-editor/-/react-monaco-editor-0.20.0.tgz#ce31dcc326c5898c7c659285d499cdd042d97775"
+react-monaco-editor@0.22.0:
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/react-monaco-editor/-/react-monaco-editor-0.22.0.tgz#2ba4c9557d2e95bb0f097a56f5e5d30598f7f2f9"
+  integrity sha512-SdkfmdbHNzKLd33w98Wxm1MvvGC7sKqdxb79ij6XnYV5WH2zgL5BgJ2FCo/ZDh/JZgUp1mXGt8NjTcbLJVhqVw==
   dependencies:
     "@types/react" "*"
-    monaco-editor "^0.14.2"
+    monaco-editor "^0.15.1"
     prop-types "^15.6.2"
 
 react-popper@^0.10.4:
@@ -7342,10 +7344,10 @@ react-popper@^0.10.4:
     popper.js "^1.14.1"
     prop-types "^15.6.1"
 
-react-redux-firebase@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/react-redux-firebase/-/react-redux-firebase-2.2.2.tgz#6eff36cb47b7f7f4651367ee646e0769b53c8e4e"
-  integrity sha512-+h9Kq0caYVBAIQWIzZL2LVv8D47u9MhDosIaxKAnzjQG2zDMbWS6Wu7jC2/9IkZqyULP559/oA0lVMeCG+VpCQ==
+react-redux-firebase@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/react-redux-firebase/-/react-redux-firebase-2.2.3.tgz#c3af5f96c482fcc83ad7af8713aff2688805e68f"
+  integrity sha512-35xsYpbv40SCvRgz+ELgpelcX2KHTA/QYUPHdzuOY/2XCbz9U+3lcZqEzF7bSiUr/eTPvWyTXgtlSKIoEdxU6g==
   dependencies:
     hoist-non-react-statics "^2.3.1"
     lodash "^4.17.11"
