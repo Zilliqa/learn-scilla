@@ -12,18 +12,23 @@ import { paths } from '../../routes';
 interface IProps {
   t: (key: string) => string;
   history: H.History;
+  location: H.Location;
+
   firebase: any;
   auth: any;
 }
 
 class AccountDropdown extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
-    const { t, auth } = this.props;
+    const { t, auth, location } = this.props;
+    const { pathname } = location;
+
     const { displayName, email } = auth;
     const cursorStyle = { cursor: 'pointer' };
+    const isAccountPath = pathname === paths.account;
     return (
       <UncontrolledDropdown nav={true} inNavbar={true}>
-        <DropdownToggle caret={true} nav={true}>
+        <DropdownToggle caret={true} nav={true} className={isAccountPath ? 'active' : ''}>
           {displayName || email}
         </DropdownToggle>
         <DropdownMenu right={true} size="sm">
