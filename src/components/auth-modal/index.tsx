@@ -61,7 +61,7 @@ class AuthModal extends React.Component<IProps, IState> {
     });
   };
 
-  private signIn = (providerType: string): void => {
+  private signIn = async (providerType: string) => {
     const { firebase } = this.props;
 
     let provider = new firebase.auth.GoogleAuthProvider();
@@ -69,14 +69,11 @@ class AuthModal extends React.Component<IProps, IState> {
       provider = new firebase.auth.GithubAuthProvider();
     }
 
-    firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then(() => {
-        this.setState({
-          isModalOpen: false
-        });
-      });
+    try {
+      await firebase.auth().signInWithPopup(provider);
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
