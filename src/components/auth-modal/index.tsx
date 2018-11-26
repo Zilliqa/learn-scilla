@@ -15,17 +15,19 @@ interface IProps {
 
 interface IState {
   isModalOpen: boolean;
+  isAuthPending: boolean;
 }
 
 class AuthModal extends React.Component<IProps, IState> {
   public readonly state = {
-    isModalOpen: false
+    isModalOpen: false,
+    isAuthPending: false
   };
   public render(): React.ReactNode {
     const { t, auth } = this.props;
+    const { isAuthPending } = this.state;
     const { isLoaded } = auth;
     const cursorStyle = { cursor: 'pointer' };
-
     return (
       <li className="nav-item">
         <a className="nav-link" onClick={this.toggleModal} style={cursorStyle}>
@@ -33,7 +35,7 @@ class AuthModal extends React.Component<IProps, IState> {
         </a>
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} size="sm">
           <div className="modal-body">
-            {!isLoaded ? (
+            {!isLoaded || isAuthPending ? (
               <Spinner />
             ) : (
               <div className="py-3 text-center">
@@ -57,7 +59,8 @@ class AuthModal extends React.Component<IProps, IState> {
 
   private toggleModal = () => {
     this.setState({
-      isModalOpen: !this.state.isModalOpen
+      isModalOpen: !this.state.isModalOpen,
+      isAuthPending: false
     });
   };
 
@@ -70,8 +73,10 @@ class AuthModal extends React.Component<IProps, IState> {
     }
 
     try {
+      this.setState({ isAuthPending: true });
       await firebase.auth().signInWithPopup(provider);
     } catch (error) {
+      this.setState({ isAuthPending: false });
       console.log(error);
     }
   };
