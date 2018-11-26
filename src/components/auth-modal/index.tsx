@@ -64,17 +64,11 @@ class AuthModal extends React.Component<IProps, IState> {
     });
   };
 
-  private signIn = async (providerType: string) => {
+  private signIn = async (provider: string) => {
     const { firebase } = this.props;
-
-    let provider = new firebase.auth.GoogleAuthProvider();
-    if (providerType === 'github') {
-      provider = new firebase.auth.GithubAuthProvider();
-    }
-
     try {
       this.setState({ isAuthPending: true });
-      await firebase.auth().signInWithPopup(provider);
+      await firebase.login({ provider, type: 'popup' });
     } catch (error) {
       this.setState({ isAuthPending: false });
       console.log(error);
