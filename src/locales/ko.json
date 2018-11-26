@@ -20,26 +20,13 @@
     "hideAnswer": "정답 가리기",
     "submitAnswer": "정답 확인"
   },
-  "form": {
-    "submit":"확인",
-    "cancel":"취소"
-  },
   "account": {
     "account": "내 계정",
     "deleteAccount": "계정 삭제"
   },
   "auth": {
-    "signUpTitle":"회원가입",
-    "signInTitle":"로그인",
-
     "signInWithGoogle": "Google으로 로그인",
-    "signInWithGitHub": "GitHub으로 로그인",
-
-    "checkYourEmail": "이메일을 확인해주세요",
-    "email":"Email" ,
-    "emailMessage" : "이메일 주소를 입력해주세요",
-    "emailInvalidMessage":"유효하지 않은 이메일 형식.",
-    "emailValidMessage":"유효한 이메일 형식"
+    "signInWithGitHub": "GitHub으로 로그인"
   },
   "link": {
     "tutorial": "튜토리얼",
