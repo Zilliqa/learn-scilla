@@ -7,11 +7,11 @@ import ko from './locales/ko.json';
 import zh from './locales/zh.json';
 
 export const langDictionary = {
-  en: 'English',
-  es: 'español',
-  zh: '中文',
-  ja: '日本語',
-  ko: '한국어'
+  en: 'English [en]',
+  es: 'Español [es]',
+  ja: '日本語 [ja]',
+  ko: '한국어 [ko]',
+  zh: '中文 [zh]'
 };
 
 const isDev: boolean = process.env.NODE_ENV === 'development';
