@@ -1,4 +1,4 @@
-import { LessonInstructionType, CourseInstructionType } from '../../typings';
+import { LessonInstructionType } from '../../../../typings';
 
 const ch1 = `
 ## Chapter 1: Contract declaration \n
@@ -52,6 +52,4 @@ const lesson1: LessonInstructionType = {
   chapters: [ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8, ch9]
 };
 
-const en: CourseInstructionType = [lesson1];
-
-export default en;
+export default lesson1;
