@@ -5,6 +5,7 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { withFirebase } from 'react-redux-firebase';
 import Modal from 'reactstrap/lib/Modal';
 import Spinner from '../../components/spinner';
+import ModalHeader from 'reactstrap/lib/ModalHeader';
 
 interface IProps {
   t: (key: string) => string;
@@ -32,7 +33,8 @@ class AuthModal extends React.Component<IProps, IState> {
         <a className="nav-link" onClick={this.toggleModal} style={cursorStyle}>
           {t('link.signIn')}
         </a>
-        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} size="sm">
+        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} size="md">
+          <ModalHeader toggle={this.toggleModal} />
           <div className="modal-body">
             {!isLoaded || isAuthPending ? (
               <Spinner />
@@ -40,12 +42,12 @@ class AuthModal extends React.Component<IProps, IState> {
               <div className="py-3 text-center">
                 <div className="py-1">
                   <button className="btn btn-outline-primary" onClick={() => this.signIn('google')}>
-                    <FaGoogle /> <small>{t('auth.signInWithGoogle')}</small>
+                    <FaGoogle /> {t('auth.signInWithGoogle')}
                   </button>
                 </div>
                 <div className="py-1">
                   <button className="btn btn-outline-primary" onClick={() => this.signIn('github')}>
-                    <FaGithub /> <small>{t('auth.signInWithGitHub')}</small>
+                    <FaGithub /> {t('auth.signInWithGitHub')}
                   </button>
                 </div>
               </div>
