@@ -1,4 +1,4 @@
-import { ChapterCodeType, LessonCodeType, CourseCodeType } from '../../typings';
+import { ChapterCodeType, LessonCodeType } from '../../../typings';
 
 const ch1: ChapterCodeType = {
   initialCode: `contract zealgame
@@ -19,6 +19,4 @@ end
 
 const lesson1: LessonCodeType = [ch1, ch1, ch1, ch1, ch1, ch1, ch1, ch1, ch1];
 
-const course: CourseCodeType = [lesson1];
-
-export default course;
+export default lesson1;
