@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { withNamespaces } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import * as H from 'history';
-import Row from 'reactstrap/lib/Row';
-import Col from 'reactstrap/lib/Col';
 import { CourseInstructionType } from '../../typings';
 import LessonList from '../../components/lesson-list';
 import Spinner from '../../components/spinner';
@@ -39,13 +37,13 @@ class LessonContainer extends React.Component<IProps, {}> {
         </Helmet>
         <div className="container">
           <div style={{ paddingTop: 30, paddingBottom: 100 }}>
-            <Row className="py-5">
-              <Col sm={10} md={8} lg={5} className="mr-auto ml-auto text-center">
+            <div className="row py-5">
+              <div className="col-sm-10 col-md-8 col-lg-5 mr-auto ml-auto text-center">
                 <h3>{t('lesson.listTitle')}</h3>
                 <br />
                 <LessonList lessonList={intructionsLocalized} t={t} />
-              </Col>
-            </Row>
+              </div>
+            </div>
           </div>
         </div>
       </Layout>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Progress from 'reactstrap/lib/Progress';
+import Progress from '../progress';
 
 interface IProps {
   current: number;
@@ -10,7 +10,7 @@ interface IProps {
 const LessonProgressbar: React.SFC<IProps> = ({ current, total }) => {
   // initialized array with the given total number
   const progressPercent = Math.floor((current / total) * 100);
-  return <Progress style={{ height: 5 }} value={progressPercent} />;
+  return <Progress value={progressPercent} />;
 };
 
 export default LessonProgressbar;
