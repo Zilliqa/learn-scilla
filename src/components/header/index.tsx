@@ -35,9 +35,16 @@ class Header extends React.Component<IProps, IStates> {
   };
 
   public render(): React.ReactNode {
-    const { i18n, t, auth, history, location } = this.props;
+    const { i18n, t, auth, history, location, firebase } = this.props;
     const { isLoaded, isEmpty } = auth;
     const { pathname } = location;
+
+    const navigateToAccount = () => history.push(paths.account);
+    const logout = () => {
+      firebase.logout();
+      history.push(paths.lessonList);
+    };
+    const login = firebase.login;
 
     return (
       <nav className="navbar navbar-expand-md navbar-light bg-pale">
@@ -61,9 +68,16 @@ class Header extends React.Component<IProps, IStates> {
             </li>
 
             {!isLoaded ? null : isEmpty ? (
-              <AuthModal t={t} />
+              <AuthModal login={login} isLoaded={isLoaded} t={t} />
             ) : (
-              <AccountDropdown history={history} location={location} t={t} />
+              <AccountDropdown
+                t={t}
+                paths={paths}
+                currentPathname={pathname}
+                auth={auth}
+                logout={logout}
+                navigateToAccount={navigateToAccount}
+              />
             )}
 
             <I18nDropdown i18n={i18n} langDictionary={langDictionary} />

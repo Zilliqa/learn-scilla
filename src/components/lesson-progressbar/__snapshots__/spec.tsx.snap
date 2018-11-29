@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="progress"
+  style={
+    Object {
+      "height": 5,
+    }
+  }
+>
+  <div
+    aria-valuemax={100}
+    aria-valuemin="0"
+    aria-valuenow={50}
+    className="progress-bar"
+    role="progressbar"
+    style={
+      Object {
+        "width": "50%",
+      }
+    }
+  />
+</div>
+`;
