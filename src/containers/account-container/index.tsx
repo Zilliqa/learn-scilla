@@ -7,9 +7,6 @@ import { withFirebase } from 'react-redux-firebase';
 import Layout from '../../components/layout';
 import * as H from 'history';
 
-import Row from 'reactstrap/lib/Row';
-import Col from 'reactstrap/lib/Col';
-import Card from 'reactstrap/lib/Card';
 import Spinner from '../../components/spinner';
 import { paths } from '../../routes';
 
@@ -33,9 +30,9 @@ class AccountContainer extends React.Component<IProps, {}> {
           <title>{documentTitle}</title>
         </Helmet>
         <div className="container">
-          <Row className="py-5">
-            <Col sm={10} md={8} lg={5} className="mr-auto ml-auto text-center">
-              <Card body={true} outline={true} color="secondary">
+          <div className="row py-5">
+            <div className="col-sm-10 col-md-8 col-lg-5 mr-auto ml-auto text-center">
+              <div className="card card-body border-secondary">
                 {isLoaded ? (
                   <div className="py-5 text-secondary">
                     {displayName === undefined ? null : <p>{displayName}</p>}
@@ -54,9 +51,9 @@ class AccountContainer extends React.Component<IProps, {}> {
                 ) : (
                   <Spinner />
                 )}
-              </Card>
-            </Col>
-          </Row>
+              </div>
+            </div>
+          </div>
         </div>
       </Layout>
     );

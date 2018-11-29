@@ -15,8 +15,6 @@ import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 import Spinner from '../../components/spinner';
 import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
-import Row from 'reactstrap/lib/Row';
-import Col from 'reactstrap/lib/Col';
 
 interface IProps {
   i18n: {
@@ -40,13 +38,12 @@ interface IState {
 
 class ChapterContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
-    const { codes, location, history, t } = this.props;
+    const { codes, location, t } = this.props;
 
     const lessonNumber = this.getLessonNumber();
     const lessonIndex = lessonNumber - 1;
     const chapterNumber = this.getChatperNumber();
     const chapterIndex = chapterNumber - 1;
-
     const instruction = this.getInstruction();
 
     const codeChapterList = codes[lessonIndex] || [];
@@ -54,7 +51,6 @@ class ChapterContainer extends React.Component<IProps, IState> {
 
     const code = codeChapterList[chapterIndex] || {};
     const { initialCode, answerCode } = code;
-
     const documentTitle = `LearnScilla -
     ${t('lesson.lesson')} ${lessonNumber} ${t('chapter.chapter')} ${chapterNumber}
     `;
@@ -67,11 +63,11 @@ class ChapterContainer extends React.Component<IProps, IState> {
         <div>
           <LessonProgressbar current={chapterIndex} total={total} />
           <br />
-          <Row>
-            <Col xs={12} sm={12} md={12} lg={5}>
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <InstructionViewer instruction={instruction} />
-            </Col>
-            <Col xs={12} sm={12} md={12} lg={7}>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <Suspense fallback={<Spinner />}>
                 <EditorUI
                   initialCode={initialCode}
@@ -81,8 +77,8 @@ class ChapterContainer extends React.Component<IProps, IState> {
                   location={location}
                 />
               </Suspense>
-            </Col>
-          </Row>
+            </div>
+          </div>
           <br />
           <div className="text-right">
             <ChapterNavigator
