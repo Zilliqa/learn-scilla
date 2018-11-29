@@ -3,7 +3,7 @@ import { FaCheck, FaRegLightbulb, FaRegEye, FaRegEyeSlash, FaRegComments } from 
 
 interface IProps {
   t: (key: string) => string;
-  isHintButtonVisible: boolean;
+  isAnswerButtonVisible: boolean;
   isAnswerVisible: boolean;
 
   handleCheckAnswer: (e) => void;
@@ -12,7 +12,7 @@ interface IProps {
 }
 
 const ControlPanel: React.SFC<IProps> = (props) => {
-  const { isHintButtonVisible, isAnswerVisible, t } = props;
+  const { isAnswerButtonVisible, isAnswerVisible, t } = props;
   const showAnswerButtonText = t(isAnswerVisible ? 'editor.hideAnswer' : 'editor.showAnswer');
   const showAnswerButtonIcon = isAnswerVisible ? <FaRegEyeSlash /> : <FaRegEye />;
   return (
@@ -21,7 +21,7 @@ const ControlPanel: React.SFC<IProps> = (props) => {
         <button className="btn btn-primary btn-sm" onClick={props.handleCheckAnswer}>
           <FaCheck /> {t('editor.checkAnswer')}
         </button>{' '}
-        {isHintButtonVisible ? (
+        {isAnswerButtonVisible ? (
           <button className="btn btn-outline-secondary btn-sm" onClick={props.hanldleToggle}>
             {showAnswerButtonIcon} {showAnswerButtonText}
           </button>

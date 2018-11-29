@@ -16,18 +16,20 @@ interface IProps {
 interface IState {
   code: string;
   codeForDiff: string;
+  isCorrect: boolean;
   isAnswerVisible: boolean;
   isModalVisible: boolean;
-  isHintButtonVisible: boolean;
+  isAnswerButtonVisible: boolean;
 }
 
 export default class EditorUI extends React.Component<IProps, IState> {
   public readonly state = {
     code: '',
     codeForDiff: this.props.answerCode,
+    isCorrect: false,
     isAnswerVisible: false,
     isModalVisible: false,
-    isHintButtonVisible: false
+    isAnswerButtonVisible: false
   };
 
   public componentDidMount() {
@@ -45,7 +47,8 @@ export default class EditorUI extends React.Component<IProps, IState> {
         codeForDiff: nextProps.answerCode,
         isAnswerVisible: false,
         isModalVisible: false,
-        isHintButtonVisible: false
+        isAnswerButtonVisible: false,
+        isCorrect: false
       };
       this.initializeState(newState);
     }
@@ -53,7 +56,15 @@ export default class EditorUI extends React.Component<IProps, IState> {
 
   public render(): React.ReactNode {
     const { t, answerCode } = this.props;
-    const { code, codeForDiff, isAnswerVisible, isHintButtonVisible, isModalVisible } = this.state;
+    const {
+      code,
+      codeForDiff,
+      isAnswerVisible,
+      isAnswerButtonVisible,
+      isModalVisible,
+      isCorrect
+    } = this.state;
+
     return (
       <div>
         <Modal
@@ -66,14 +77,14 @@ export default class EditorUI extends React.Component<IProps, IState> {
           code={code}
           checkAnswer={this.checkAnswer}
           showHint={this.showHint}
-          isHintButtonVisible={isHintButtonVisible}
+          isAnswerButtonVisible={isAnswerButtonVisible}
           toggleShowAnswer={this.toggleShowAnswer}
           isAnswerVisible={isAnswerVisible}
           t={t}
         >
           <DiffViewer
             codeForDiff={codeForDiff}
-            answerCode={answerCode}
+            answerCode={isCorrect ? code : answerCode}
             isAnswerVisible={isAnswerVisible}
             t={t}
           />
@@ -83,13 +94,13 @@ export default class EditorUI extends React.Component<IProps, IState> {
   }
 
   // Controls the visibility of answer code
-  public toggleShowAnswer = (): void => {
-    this.setState({ isAnswerVisible: !this.state.isAnswerVisible });
+  public toggleShowAnswer = (code: string): void => {
+    this.setState({ isAnswerVisible: !this.state.isAnswerVisible, code });
   };
 
   // Updates code for hint
   public showHint = (codeForDiff: string, cb): void => {
-    this.setState({ isHintButtonVisible: true, code: codeForDiff, codeForDiff }, cb);
+    this.setState({ isAnswerButtonVisible: true, code: codeForDiff, codeForDiff }, cb);
   };
 
   // Checks the code written by user if it's correct
@@ -103,6 +114,7 @@ export default class EditorUI extends React.Component<IProps, IState> {
     if (isCorrect) {
       this.setState({
         isModalVisible: true,
+        isCorrect: true,
         ...newState
       });
     } else {
@@ -126,8 +138,19 @@ export default class EditorUI extends React.Component<IProps, IState> {
   private formatCode = (code: string): string => {
     return code
       .split('\n')
-      .map((line) => line.replace(/\s\s+/g, ' ').trim())
-      .join('\n');
+      .map((line) => {
+        let lineStr: string = line;
+        if (lineStr.includes('(*') && lineStr.includes('*)')) {
+          const former = lineStr.slice(0, lineStr.lastIndexOf('(*'));
+          const latter = lineStr.slice(lineStr.lastIndexOf('*)') + 2, lineStr.length);
+          lineStr = former + latter;
+        }
+        return lineStr.replace(/\s\s+/g, ' ').trim();
+      })
+      .join('\n')
+      .replace(/\r?\n|\r/g, ' ')
+      .replace(/\s\s+/g, ' ')
+      .trim();
   };
 
   private handleProceed = (): void => {
