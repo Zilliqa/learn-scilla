@@ -45,6 +45,9 @@ class Header extends React.Component<IProps, IStates> {
       history.push(paths.lessonList);
     };
     const login = firebase.login;
+    const { displayName, email } = auth;
+
+    const username = displayName || email;
 
     return (
       <nav className="navbar navbar-expand-md navbar-light bg-pale">
@@ -74,7 +77,7 @@ class Header extends React.Component<IProps, IStates> {
                 t={t}
                 paths={paths}
                 currentPathname={pathname}
-                auth={auth}
+                username={username}
                 logout={logout}
                 navigateToAccount={navigateToAccount}
               />

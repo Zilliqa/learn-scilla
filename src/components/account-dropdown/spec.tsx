@@ -4,7 +4,7 @@ import * as renderer from 'react-test-renderer';
 import { paths } from '../../routes';
 
 const t = (s: string) => s;
-const auth = { displayName: 'noel', email: 'noel@email.address' };
+const username = 'noel';
 const pathname = '/account';
 const logout = () => console.log('logout');
 const navigateToAccount = () => console.log('navigateToAccount');
@@ -16,7 +16,7 @@ it('renders correctly', () => {
         t={t}
         paths={paths}
         currentPathname={pathname}
-        auth={auth}
+        username={username}
         logout={logout}
         navigateToAccount={navigateToAccount}
       />

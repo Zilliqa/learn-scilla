@@ -6,7 +6,7 @@ import DropdownItem from 'reactstrap/lib/DropdownItem';
 
 interface IProps {
   t: (key: string) => string;
-  auth: any;
+  username: string;
   paths: any;
   currentPathname: string;
   navigateToAccount: () => void;
@@ -14,16 +14,15 @@ interface IProps {
 }
 
 const AccountDropdown: React.SFC<IProps> = (props) => {
-  const { t, auth, paths, currentPathname, navigateToAccount, logout } = props;
+  const { t, username, paths, currentPathname, navigateToAccount, logout } = props;
 
-  const { displayName, email } = auth;
   const cursorStyle = { cursor: 'pointer' };
   const isAccountPath = currentPathname === paths.account;
 
   return (
     <UncontrolledDropdown nav={true} inNavbar={true}>
       <DropdownToggle caret={true} nav={true} className={isAccountPath ? 'active' : ''}>
-        {displayName || email}
+        {username}
       </DropdownToggle>
       <DropdownMenu right={true} size="sm">
         <DropdownItem className="text-secondary" style={cursorStyle} onClick={navigateToAccount}>
