@@ -12,75 +12,69 @@ const l2: LessonCodeType = {
 `,
   answerCode: `contract Zealgame
 (* Start typing from the line below. *)
-(owner: ByStr20)
-`
+(owner: ByStr20)`
 };
 
 const l3: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 (* Start typing from the line below. *)
-  `,
+`,
   answerCode: `contract Zealgame
 (owner: ByStr20)
 (* Start typing from the line below. *)
-field player_name : String = “Alice"
-`
+field player_name : String = "Alice"`
 };
 
 const l4: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = “Alice”
+field player_name : String = "Alice”
 
 (* Start typing from the line below *)
 `,
   answerCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = “Alice”
+field player_name : String = "Alice”
 
 (* Start typing from the line below *)
 Transition changeName()
-end
-`
+end`
 };
 
 const l5: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = “Alice”
+field player_name : String = "Alice”
 
 Transition changeName()
 (* Start typing from the line below *)
-end
-`,
+end`,
   answerCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = “Alice”
+field player_name : String = "Alice”
 
 Transition changeName()
 (* Start typing from the line below *)
 newname=”Bob”
-end
-`
+end`
 };
 
 const l6: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = “Alice”
+field player_name : String = "Alice”
 
 Transition changeName()
 (* Now that we’ll be having another line, don’t forget to include a semicolon at the end of this line *)
-Newname = “Bob”
+Newname = "Bob”
 
 (* Start typing from the line below.  *)
 
-end
-`,
+end`,
   answerCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = “Alice”
+field player_name : String = "Alice”
 
 
 Transition changeName()
@@ -90,14 +84,13 @@ newname = ”Bob”;
 (* Start typing from the line below.  *)
 Player_name := newname
 
-end
-`
+end`
 };
 
 const l7: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = “Alice”
+field player_name : String = "Alice”
 
 (* Start typing in the parentheses below *)
 Transition changeName()
@@ -106,19 +99,18 @@ end
 `,
   answerCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = “Alice”
+field player_name : String = "Alice”
 
 (* Start typing in the parentheses below *)
 Transition changeName(newname: String)
 player_name := newname
-end
-`
+end`
 };
 
 const l8: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = “Alice”
+field player_name : String = "Alice”
 (* Declare the two new immutable variables below. You don’t need to use any semicolons to separate the lines outside the transitions *)
 
 Transition changeName(newname: String)
@@ -129,7 +121,7 @@ end
 `,
   answerCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = “Alice”
+field player_name : String = "Alice”
 (* Declare the two new immutable variables below. You don’t need to use any semicolons to separate the lines outside the transitions *)
 field player_address : ByStr20 = 0x1234567890123456789012345678901234567890
 field player_zeal: Uint128 = Uint128 0
@@ -141,14 +133,13 @@ player_name := newname;
 player_address := _sender;
 player_zeal := _amount
 
-end
-`
+end`
 };
 
 const l9: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = “Alice”
+field player_name : String = "Alice”
 field player_address : ByStr20 = 0x1234567890123456789012345678901234567890
 field player_zeal: Uint128 = Uint128 0
 
@@ -162,7 +153,7 @@ end
 `,
   answerCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = “Alice”
+field player_name : String = "Alice”
 field player_address : ByStr20 = 0x1234567890123456789012345678901234567890
 field player_zeal: Uint128 = Uint128 0
 
@@ -172,8 +163,7 @@ player_name := newname;
 player_address := _sender;
 player_zeal := _amount
 
-end
-`
+end`
 };
 
 const chapter1: ChapterCodeType = [l1, l2, l3, l4, l5, l6, l7, l8, l9];
