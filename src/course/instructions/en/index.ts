@@ -1,7 +1,7 @@
 import { CourseInstructionType } from '../../../typings';
 
-import lesson1 from './lesson1';
+import chapter1 from './chapter1';
 
-const en: CourseInstructionType = [lesson1];
+const en: CourseInstructionType = [chapter1];
 
 export default en;

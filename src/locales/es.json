@@ -1,17 +1,17 @@
 {
-  "lesson": {
-    "lesson": "Lección",
+  "chapter": {
+    "chapter": "Capítulo",
     "goodjob": "¡Enhorabuena",
     "listTitle": "Scilla Tutorial",
-    "chapterCompleteMessage": "¡Has completado esta capítulo",
-    "lessonCompleteMessage": "¡Has completado esta lección.",
-    "nextLesson": "Pasar a la siguiente lección"
+    "lessonCompleteMessage": "¡Has completado esta Lección",
+    "chapterCompleteMessage": "¡Has completado esta Capítulo."
   },
-  "chapter":{
-    "chapter": "Capítulo",
+  "lesson":{
+    "lesson": "Lección",
     "back": "Anterior",
     "skip": "Siguiente",
-    "openChat": "Abrir el chat"
+    "openChat": "Abrir el chat",
+    "nextLesson": "Pasar a la siguiente lección"
   },
   "editor" : {
     "hint": "pistas",

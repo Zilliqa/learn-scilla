@@ -1,12 +1,12 @@
-import { ChapterCodeType, LessonCodeType } from '../../../typings';
+import { LessonCodeType, ChapterCodeType } from '../../../typings';
 
-const ch1: ChapterCodeType = {
+const l1: LessonCodeType = {
   initialCode: `(* Start typing from the line below. *)`,
   answerCode: `(* Start typing from the line below. *)
 contract Zealgame`
 };
 
-const ch2: ChapterCodeType = {
+const l2: LessonCodeType = {
   initialCode: `contract Zealgame
 (* Start typing from the line below. *)
 `,
@@ -16,7 +16,7 @@ const ch2: ChapterCodeType = {
 `
 };
 
-const ch3: ChapterCodeType = {
+const l3: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 (* Start typing from the line below. *)
@@ -28,7 +28,7 @@ field player_name : String = “Alice"
 `
 };
 
-const ch4: ChapterCodeType = {
+const l4: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 field player_name : String = “Alice”
@@ -45,7 +45,7 @@ end
 `
 };
 
-const ch5: ChapterCodeType = {
+const l5: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 field player_name : String = “Alice”
@@ -65,7 +65,7 @@ end
 `
 };
 
-const ch6: ChapterCodeType = {
+const l6: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 field player_name : String = “Alice”
@@ -94,7 +94,7 @@ end
 `
 };
 
-const ch7: ChapterCodeType = {
+const l7: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 field player_name : String = “Alice”
@@ -115,7 +115,7 @@ end
 `
 };
 
-const ch8: ChapterCodeType = {
+const l8: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 field player_name : String = “Alice”
@@ -145,7 +145,7 @@ end
 `
 };
 
-const ch9: ChapterCodeType = {
+const l9: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 field player_name : String = “Alice”
@@ -176,6 +176,6 @@ end
 `
 };
 
-const lesson1: LessonCodeType = [ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8, ch9];
+const chapter1: ChapterCodeType = [l1, l2, l3, l4, l5, l6, l7, l8, l9];
 
-export default lesson1;
+export default chapter1;

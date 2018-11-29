@@ -17,18 +17,18 @@ interface IProps {
   codes: CourseCodeType;
 }
 
-class LessonContainer extends React.Component<IProps, {}> {
+class ChapterContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
     const { location, history, match, t, codes } = this.props;
     const routeParams = match.params;
 
-    const currentLessonNum: number = parseInt(routeParams.lesson, 10);
-    const numOfTotalLesson = codes.length;
+    const currentChapterNum: number = parseInt(routeParams.chapter, 10);
+    const numOfTotalChapter = codes.length;
 
-    const isLast: boolean = numOfTotalLesson === currentLessonNum;
-    const documentTitle = `LearnScilla - Lesson ${currentLessonNum} Complete`;
+    const isLast: boolean = numOfTotalChapter === currentChapterNum;
+    const documentTitle = `LearnScilla - Chapter ${currentChapterNum} Complete`;
 
-    const nextLessonPath = `/lesson/${currentLessonNum + 1}/chapter/1`;
+    const nextLessonPath = `/chapter/${currentChapterNum + 1}/lesson/1`;
     return (
       <Layout>
         <Helmet>
@@ -39,8 +39,8 @@ class LessonContainer extends React.Component<IProps, {}> {
             <div className="col-sm-10 col-md-8 col-lg-5 mr-auto ml-auto text-center">
               <div className="card card-body border-secondary">
                 <div className="py-5 text-secondary">
-                  <h3>{t('lesson.goodjob')}!</h3>
-                  <p>{t('lesson.lessonCompleteMessage')}</p>
+                  <h3>{t('chapter.goodjob')}!</h3>
+                  <p>{t('chapter.chapterCompleteMessage')}</p>
                   <br />
 
                   {isLast ? null : (
@@ -49,7 +49,7 @@ class LessonContainer extends React.Component<IProps, {}> {
                     </Link>
                   )}
 
-                  <Link className="btn btn-outline-secondary btn-block" to={paths.lessonList}>
+                  <Link className="btn btn-outline-secondary btn-block" to={paths.chapterList}>
                     {t('link.tableOfContents')}
                   </Link>
                 </div>
@@ -63,7 +63,7 @@ class LessonContainer extends React.Component<IProps, {}> {
 }
 
 // @ts-ignore
-const WithTranslation = withNamespaces()(LessonContainer);
+const WithTranslation = withNamespaces()(ChapterContainer);
 // @ts-check
 const mapStateToProps = (state) => ({
   codes: state.course.courseCodes

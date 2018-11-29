@@ -4,7 +4,7 @@ import { withNamespaces } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import * as H from 'history';
 import { CourseInstructionType } from '../../typings';
-import LessonList from '../../components/lesson-list';
+import ChapterList from '../../components/chapter-list';
 import Spinner from '../../components/spinner';
 import Layout from '../../components/layout';
 
@@ -19,7 +19,7 @@ interface IProps {
   instructions: CourseInstructionType;
 }
 
-class LessonContainer extends React.Component<IProps, {}> {
+class ChapterContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
     const { instructions, i18n, t } = this.props;
     const lang: string = i18n.language;
@@ -39,9 +39,9 @@ class LessonContainer extends React.Component<IProps, {}> {
           <div style={{ paddingTop: 30, paddingBottom: 100 }}>
             <div className="row py-5">
               <div className="col-sm-10 col-md-8 col-lg-5 mr-auto ml-auto text-center">
-                <h3>{t('lesson.listTitle')}</h3>
+                <h3>{t('chapter.listTitle')}</h3>
                 <br />
-                <LessonList lessonList={intructionsLocalized} t={t} />
+                <ChapterList chapterList={intructionsLocalized} t={t} />
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@ class LessonContainer extends React.Component<IProps, {}> {
 }
 
 // @ts-ignore
-const WithTranslation = withNamespaces()(LessonContainer);
+const WithTranslation = withNamespaces()(ChapterContainer);
 // @ts-check
 const mapStateToProps = (state) => ({
   instructions: state.course.courseInstructions

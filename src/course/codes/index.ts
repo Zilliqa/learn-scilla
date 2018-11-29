@@ -1,6 +1,6 @@
 import { CourseCodeType } from '../../typings';
-import lesson1 from './lesson1';
+import chapter1 from './chapter1';
 
-const course: CourseCodeType = [lesson1];
+const course: CourseCodeType = [chapter1];
 
 export default course;

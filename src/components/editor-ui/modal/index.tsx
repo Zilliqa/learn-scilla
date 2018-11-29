@@ -16,9 +16,9 @@ const CodeModal: React.SFC<IProps> = (props) => {
     <div>
       <Modal isOpen={isModalVisible} fade={false} toggle={closeModal}>
         <ModalHeader toggle={closeModal} className="text-secondary">
-          <FaMedal /> {t('lesson.goodjob')}
+          <FaMedal /> {t('chapter.goodjob')}
         </ModalHeader>
-        <div className="modal-body">{t('lesson.chapterCompleteMessage')}</div>
+        <div className="modal-body">{t('chapter.lessonCompleteMessage')}</div>
         <div className="modal-footer">
           <button className="btn btn-primary" onClick={onSubmit}>
             {t('lesson.nextLesson')}

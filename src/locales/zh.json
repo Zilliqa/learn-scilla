@@ -1,17 +1,17 @@
 {
-  "lesson": {
-    "lesson": "Lesson",
+  "chapter": {
+    "chapter": "Chapter",
     "goodjob": "太棒啦",
     "listTitle": "Scilla Tutorial",
-    "chapterCompleteMessage": "你已经完成了这一章.",
     "lessonCompleteMessage": "你已经完成了这一课.",
-    "nextLesson": "去下一个课程"
+    "chapterCompleteMessage": "你已经完成了这一章."
   },
-  "chapter":{
-    "chapter": "Chapter",
+  "lesson":{
+    "lesson": "Lesson",
     "back": "上一章",
     "skip": "下一章",
-    "openChat": "加入群聊"
+    "openChat": "加入群聊",
+    "nextLesson": "去下一个课程"
   },
   "editor" : {
     "hint": "提示",
