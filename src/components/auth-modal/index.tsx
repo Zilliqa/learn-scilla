@@ -1,16 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { withFirebase } from 'react-redux-firebase';
 import Modal from 'reactstrap/lib/Modal';
 import Spinner from '../../components/spinner';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
 
 interface IProps {
   t: (key: string) => string;
-  firebase: any; // TODO: specify type
-  auth: any; // TODO: specify type
+  login: (params) => void;
+  isLoaded: boolean;
 }
 
 interface IState {
@@ -24,9 +21,8 @@ class AuthModal extends React.Component<IProps, IState> {
     isAuthPending: false
   };
   public render(): React.ReactNode {
-    const { t, auth } = this.props;
+    const { t, isLoaded } = this.props;
     const { isAuthPending } = this.state;
-    const { isLoaded } = auth;
     const cursorStyle = { cursor: 'pointer' };
     return (
       <li className="nav-item">
@@ -66,10 +62,10 @@ class AuthModal extends React.Component<IProps, IState> {
   };
 
   private signIn = async (provider: string) => {
-    const { firebase } = this.props;
+    const { login } = this.props;
     try {
       this.setState({ isAuthPending: true });
-      await firebase.login({ provider, type: 'popup' });
+      await login({ provider, type: 'popup' });
     } catch (error) {
       this.setState({ isAuthPending: false });
       console.log(error);
@@ -77,11 +73,4 @@ class AuthModal extends React.Component<IProps, IState> {
   };
 }
 
-const mapStateToProps = (state: any) => ({
-  auth: state.firebase.auth
-});
-
-export default compose(
-  withFirebase,
-  connect(mapStateToProps)
-)(AuthModal);
+export default AuthModal;
