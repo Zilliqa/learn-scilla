@@ -10,10 +10,10 @@ exports[`renders correctly 1`] = `
   }
 >
   <div
-    aria-valuemax={100}
+    aria-valuemax={10}
     aria-valuemin={0}
-    aria-valuenow={50}
-    className="progress-bar "
+    aria-valuenow={5}
+    className="progress-bar bg-secondary"
     role="progressbar"
     style={
       Object {
