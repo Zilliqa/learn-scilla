@@ -1,17 +1,17 @@
 {
-  "lesson": {
-    "lesson": "レッスン",
+  "chapter": {
+    "chapter": "チャプター",
     "goodjob": "よくやった",
     "listTitle": "Scilla Tutorial",
-    "chapterCompleteMessage": "あなたはこのチャプターを修了した.",
     "lessonCompleteMessage": "あなたはこのレッスンを修了した.",
-    "nextLesson": "次のレッスンへ進む"
+    "chapterCompleteMessage": "あなたはこのチャプターを修了した."
   },
-  "chapter":{
-    "chapter": "チャプター",
+  "lesson":{
+    "lesson": "レッスン",
     "back": "バック",
     "skip": "スキップ",
-    "openChat": "チャットに参加"
+    "openChat": "チャットに参加",
+    "nextLesson": "次のレッスンへ進む"
   },
   "editor" : {
     "hint": "ヒント",

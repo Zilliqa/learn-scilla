@@ -110,7 +110,7 @@ class AccountContainer extends React.Component<IProps, {}> {
       await user.reauthenticateAndRetrieveDataWithCredential(credential);
       await user.delete();
       alert('Your account has been deleted');
-      return history.push(paths.lessonList);
+      return history.push(paths.chapterList);
     } catch (error) {
       console.log(error);
       alert(error.message);

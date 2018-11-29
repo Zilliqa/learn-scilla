@@ -1,17 +1,17 @@
 {
-  "lesson": {
-    "lesson": "Lesson",
+  "chapter": {
+    "chapter": "Chapter",
     "goodjob": "Good job",
     "listTitle": "Scilla Tutorial",
-    "chapterCompleteMessage": "You have completed this chapter.",
     "lessonCompleteMessage": "You have completed this lesson.",
-    "nextLesson": "Proceed to Next Lesson"
+    "chapterCompleteMessage": "You have completed this chapter."
   },
-  "chapter":{
-    "chapter": "Chapter",
+  "lesson":{
+    "lesson": "Lesson",
     "back": "Back",
     "skip": "Skip",
-    "openChat": "Open Chat"
+    "openChat": "Open Chat",
+    "nextLesson": "Proceed to Next Lesson"
   },
   "editor" : {
     "hint": "Hint",

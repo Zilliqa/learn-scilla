@@ -28,14 +28,14 @@ exports[`renders correctly while loading 1`] = `
       />
     </svg>
      
-    chapter.back
+    lesson.back
   </button>
   <button
     className="btn btn-outline-secondary btn-sm"
     disabled={false}
     onClick={[Function]}
   >
-    chapter.skip
+    lesson.skip
      
     <svg
       fill="currentColor"

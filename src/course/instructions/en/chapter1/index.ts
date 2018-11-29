@@ -1,7 +1,7 @@
-import { LessonInstructionType } from '../../../../typings';
+import { ChapterInstructionType } from '../../../../typings';
 
-const ch1 = `
-## Chapter 1: Contract declaration \n
+const l1 = `
+## Lesson 1: Contract declaration \n
 Let’s begin from the basics.
 The contract that you’ll be deploying to the blockchain has to have a name by which it could later be identified.
 The format for specifying is simply
@@ -15,8 +15,8 @@ Note: The contract name has to start with a capital letter.
 
 Declare a contract called Zealgame. It should have one immutable variable ‘owner’ of type ByStr20
 `;
-const ch2 = `
-## Chapter 2: Immutable variables \n
+const l2 = `
+## Lesson 2: Immutable variables \n
 
 Any contract deployed on the blockchain is immutable.
 In other words, that code can’t be changed
@@ -48,14 +48,14 @@ ByStr20 is a datatype used to represent account addresses. A detailed list will 
 Task:
 Declare a contract called Zealgame. It should have one immutable variable ‘owner’ of type ByStr20
 `;
-const ch3 = `
-## Chapter 3: Mutable variables\n
+const l3 = `
+## Lesson 3: Mutable variables\n
 
 For any program, we usually need to have variables whose value will be changed through various operations conducted in the contract.
 These variables, whose value will be stored in the blockchain are known as the mutable variables.
 To declare a mutable variable, we need to pay attention to three things:-
 Variable name: This is the identifier of the variable to be used by various operators later in the contract.
-Variable type: There are many types of variables available, as we have seen in the list in the earlier lesson.
+Variable type: There are many types of variables available, as we have seen in the list in the earlier chapter.
 Variable value: We may choose to declare a variable with or without an initial value.
 
 Format, depending on the variable type and variable value, the format for declaration might slightly vary.
@@ -77,8 +77,8 @@ Variable type: String
 Variable value: Alice
 `;
 
-const ch4 = `
-## Chapter 4: Transition \n
+const l4 = `
+## Lesson 4: Transition \n
 The smart contract code on blockchain needs some interfaces so that the commands,
 information or tokens can be sent to the smart contract or be requested from it.
 Transitions are similar to functions or methods in other languages.
@@ -105,8 +105,8 @@ We’ll fill it in later. For now, just declare an empty transition named “cha
 and close it by using the keyword “end”
 `;
 
-const ch5 = `
-## Chapter 5: Declaring a temporary variable \n
+const l5 = `
+## Lesson 5: Declaring a temporary variable \n
 
 We can also declare variables with a transition.
 Do note that these variables are not immutable variables nor are they mutable variables
@@ -143,15 +143,15 @@ Task:
 We want to replace the original player name declared in mutable variable “player_name” in this transition. To do that, we will need a new name.
 Declare a new variable with the name “newname” and type “String” and give it a value “Bob”;
 `;
-const ch6 = `
-## Chapter 6: Changing a mutable field \n
+const l6 = `
+## Lesson 6: Changing a mutable field \n
 As stated earlier, the variable declared in the transition is a temporary variable that isn’t stored in the blockchain
 and exists for the duration that the transition is called.
 In order to ensure that the value is stored in the blockchain,
 it has to be transferred to a mutable variable.
 Changing a mutable variable is a significant operation and if done in a wrong manner,
 it could lead to security issues for the smart contract.
-We’ll explore this in more detail in the later chapters.
+We’ll explore this in more detail in the later lessons.
 At the moment, we simply need to assign the value of the temporary variable to the mutable variable.
 The format of such an assignment is:
 
@@ -164,9 +164,9 @@ Task:
 
 Update the mutable variable “player_name” with the value of the temporary variable “newname” in the body of the transition.
 `;
-const ch7 = `
-## Chapter 7: Getting values \n
-You’ll notice the issue with the previous lesson that the new player is always changed to a fixed value each time that the transition is called.
+const l7 = `
+## Lesson 7: Getting values \n
+You’ll notice the issue with the previous chapter that the new player is always changed to a fixed value each time that the transition is called.
 Ideally, we’ll like to have options other than “Bob” about the new name which is updated. This can be done by letting the user pass on a value to the transition whenever she’s calling it.
 Similar to how we could have passed variables to the contract while creating it, we could also pass variables to a transition while calling it.
 The format for declaring these temporary variables- that have to be sent by a user when she calls the transition- is as follows:
@@ -193,8 +193,8 @@ We want to change the name of the player ‘Alice’ that we’ve earlier stored
 In order to make the change more flexible, we’ll also need the new name each time the transition is called. So, we’ll delete the old variable declaration in the body of the transition.
 Now, include the parameter with name “newname” and variable type “String” in the declaration of the transition so that a user has to send a new name for the player each time she wishes to change the old value.
 `;
-const ch8 = `
-## Chapter 8: Implicit variables \n
+const l8 = `
+## Lesson 8: Implicit variables \n
 In addition to parameters that are explicitly declared in the definition, each transition has available to it, the following implicit parameters:
 _sender : ByStr20 : The account address that triggered this transition. In case, the transition was called by a contract account instead of a user account, then _sender is the contract address.
 _amount : Uint128 : Incoming amount (ZILs) sent by the sender. This amount must be explicitly accepted using the accept statement within the transition. The money transfer does not happen if the transition does not execute accept.
@@ -207,10 +207,10 @@ Then in the transition, assign these variables the value of _sender and _amount 
 As mentioned earlier, you can refer to the variable declaration format of all types in the link below.
 Link: ----------------
 `;
-const ch9 = `
-## Chapter 9: Summary \n
-Lesson Number and title: Summary
-Chapter contents (includes the task at the end)
+const l9 = `
+## Lesson 9: Summary \n
+Chapter Number and title: Summary
+Lesson contents (includes the task at the end)
 Congrats!
 You’ve learned:
 a) how to declare a new contract,
@@ -270,12 +270,12 @@ end
 
 You’ve defined a player which has certain attributes such as name, address and a game specific stat called zeal.
 However, we wouldn’t want to repeat these steps for every single player. We need a way to store and retrieve a bunch of similar data.
-In the next chapter, we’ll see how to use maps to do that.
+In the next lesson, we’ll see how to use maps to do that.
 `;
 
-const lesson1: LessonInstructionType = {
+const chapter1: ChapterInstructionType = {
   title: 'Fundamentals',
-  chapters: [ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8, ch9]
+  lessons: [l1, l2, l3, l4, l5, l6, l7, l8, l9]
 };
 
-export default lesson1;
+export default chapter1;

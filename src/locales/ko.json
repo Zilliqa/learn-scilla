@@ -1,17 +1,17 @@
 {
-  "lesson": {
-    "lesson": "레슨",
+  "chapter": {
+    "chapter": "챕터",
     "goodjob": "아주 잘했어요",
     "listTitle": "Scilla Tutorial",
-    "chapterCompleteMessage": "현재 챕터를 완료하셨습니다.",
     "lessonCompleteMessage": "현재 레슨을 완료하셨습니다.",
-    "nextLesson": "다음 레슨 진행하기"
+    "chapterCompleteMessage": "현재 챕터를 완료하셨습니다."
   },
-  "chapter":{
-    "chapter": "챕터",
+  "lesson":{
+    "lesson": "레슨",
     "back": "뒤로가기",
     "skip": "건너뛰기",
-    "openChat": "오픈 채팅"
+    "openChat": "오픈 채팅",
+    "nextLesson": "다음 레슨 진행하기"
     },
   "editor" : {
     "hint": "힌트",

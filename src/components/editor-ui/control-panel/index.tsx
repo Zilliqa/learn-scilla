@@ -34,7 +34,7 @@ const ControlPanel: React.SFC<IProps> = (props) => {
           href={'https://gitter.im/Zilliqa/SmartContract'}
           target="_blank"
         >
-          <FaRegComments /> {t('chapter.openChat')}
+          <FaRegComments /> {t('lesson.openChat')}
         </a>
       </div>
     </div>

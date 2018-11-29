@@ -38,7 +38,7 @@ export default class EditorUI extends React.Component<IProps, IState> {
     const nextLocation = nextProps.location;
     const currentLocation = this.props.location;
 
-    // if chapter changes, initialize state
+    // if lesson changes, initialize state
     if (nextLocation.pathname !== currentLocation.pathname) {
       const newState = {
         code: nextProps.initialCode,

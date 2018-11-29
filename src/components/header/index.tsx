@@ -42,7 +42,7 @@ class Header extends React.Component<IProps, IStates> {
     const navigateToAccount = () => history.push(paths.account);
     const logout = () => {
       firebase.logout();
-      history.push(paths.lessonList);
+      history.push(paths.chapterList);
     };
     const login = firebase.login;
     const { displayName, email } = auth;
@@ -51,7 +51,7 @@ class Header extends React.Component<IProps, IStates> {
 
     return (
       <nav className="navbar navbar-expand-md navbar-light bg-pale">
-        <Link className="navbar-brand text-secondary" to={paths.lessonList}>
+        <Link className="navbar-brand text-secondary" to={paths.chapterList}>
           {'LearnScilla'}
         </Link>
 
@@ -63,8 +63,8 @@ class Header extends React.Component<IProps, IStates> {
           <ul className="ml-auto navbar-nav">
             <li className="nav-item">
               <Link
-                className={`nav-link ${pathname === paths.lessonList ? 'active' : ''}`}
-                to={paths.lessonList}
+                className={`nav-link ${pathname === paths.chapterList ? 'active' : ''}`}
+                to={paths.chapterList}
               >
                 {t('link.tutorial')}
               </Link>
