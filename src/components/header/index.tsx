@@ -11,6 +11,7 @@ import AuthModal from '../auth-modal';
 import { paths } from '../../routes';
 import I18nDropdown from '../i18n-dropdown';
 import AccountDropdown from '../account-dropdown';
+import { langDictionary } from '../../i18n';
 
 interface IProps {
   history: H.History;
@@ -65,7 +66,7 @@ class Header extends React.Component<IProps, IStates> {
               <AccountDropdown history={history} location={location} t={t} />
             )}
 
-            <I18nDropdown i18n={i18n} t={t} />
+            <I18nDropdown i18n={i18n} langDictionary={langDictionary} />
           </ul>
         </Collapse>
       </nav>
