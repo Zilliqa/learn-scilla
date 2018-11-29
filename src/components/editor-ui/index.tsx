@@ -40,7 +40,14 @@ export default class EditorUI extends React.Component<IProps, IState> {
 
     // if chapter changes, initialize state
     if (nextLocation.pathname !== currentLocation.pathname) {
-      this.initializeState();
+      const newState = {
+        code: nextProps.initialCode,
+        codeForDiff: nextProps.answerCode,
+        isAnswerVisible: false,
+        isModalVisible: false,
+        isHintButtonVisible: false
+      };
+      this.initializeState(newState);
     }
   }
 
@@ -103,20 +110,10 @@ export default class EditorUI extends React.Component<IProps, IState> {
     }
   };
 
-  private initializeState = (): void => {
+  private initializeState = (newState): void => {
     // scroll to top
     const scrollToTop = () => window.scrollTo(0, 0);
-
-    this.setState(
-      {
-        code: this.props.initialCode,
-        codeForDiff: this.props.answerCode,
-        isAnswerVisible: false,
-        isModalVisible: false,
-        isHintButtonVisible: false
-      },
-      scrollToTop
-    );
+    this.setState(newState, scrollToTop);
   };
 
   // Compares code written by user and the answer
@@ -134,7 +131,6 @@ export default class EditorUI extends React.Component<IProps, IState> {
   };
 
   private handleProceed = (): void => {
-    this.initializeState();
     this.props.proceed();
   };
 }
