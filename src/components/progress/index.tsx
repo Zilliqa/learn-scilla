@@ -14,7 +14,7 @@ const Progress: React.SFC<IProps> = (props) => {
     <div className={'progress'} style={{ height: 5 }}>
       <div
         className={`progress-bar ${colorStyle}`}
-        style={{ width: `${percent}%` }}
+        style={{ width: `${percent}%`, backgroundColor: '#3740ff' }}
         role="progressbar"
         aria-valuenow={value}
         aria-valuemin={0}
