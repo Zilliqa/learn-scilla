@@ -6,6 +6,7 @@ exports[`renders correctly while loading 1`] = `
   role="group"
 >
   <button
+    aria-label="back"
     className="btn btn-outline-secondary btn-sm"
     disabled={false}
     onClick={[Function]}
@@ -31,6 +32,7 @@ exports[`renders correctly while loading 1`] = `
     lesson.back
   </button>
   <button
+    aria-label="skip"
     className="btn btn-outline-secondary btn-sm"
     disabled={false}
     onClick={[Function]}
