@@ -37,12 +37,20 @@ class AuthModal extends React.Component<IProps, IState> {
             ) : (
               <div className="py-3 text-center">
                 <div className="py-1">
-                  <button className="btn btn-outline-primary" onClick={() => this.signIn('google')}>
+                  <button
+                    className="btn btn-outline-primary"
+                    onClick={() => this.signIn('google')}
+                    aria-label={'sign in with google'}
+                  >
                     <FaGoogle /> {t('auth.signInWithGoogle')}
                   </button>
                 </div>
                 <div className="py-1">
-                  <button className="btn btn-outline-primary" onClick={() => this.signIn('github')}>
+                  <button
+                    className="btn btn-outline-primary"
+                    onClick={() => this.signIn('github')}
+                    aria-label={'sign in with github'}
+                  >
                     <FaGithub /> {t('auth.signInWithGitHub')}
                   </button>
                 </div>

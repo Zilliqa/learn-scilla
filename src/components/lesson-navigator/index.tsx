@@ -21,6 +21,7 @@ const LessonNavigator: React.SFC<IProps> = (props) => {
         className="btn btn-outline-secondary btn-sm"
         onClick={goBack}
         disabled={isBackButtonDisabled}
+        aria-label={'back'}
       >
         <FaArrowLeft /> {t('lesson.back')}
       </button>
@@ -28,6 +29,7 @@ const LessonNavigator: React.SFC<IProps> = (props) => {
         className="btn btn-outline-secondary btn-sm"
         onClick={goNext}
         disabled={isProceedButtonDisabled}
+        aria-label={'skip'}
       >
         {t('lesson.skip')} <FaArrowRight />
       </button>

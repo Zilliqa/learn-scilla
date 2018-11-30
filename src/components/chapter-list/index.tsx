@@ -33,7 +33,11 @@ const ChapterList: React.SFC<any> = (props) => {
     const startingChapterPath = `/chapter/${chapterNum}/lesson/${lessonToStart}`;
     return (
       <div key={startingChapterPath} style={{ margin: 10 }}>
-        <Link className="btn btn-primary btn-block text-left" to={startingChapterPath}>
+        <Link
+          className="btn btn-primary btn-block text-left"
+          to={startingChapterPath}
+          aria-label={'start chapter'}
+        >
           <small> {`${t('chapter.chapter')} ${chapterNum} :`}</small>
           {` ${item.title} `}
           <small>{progressText}</small>
