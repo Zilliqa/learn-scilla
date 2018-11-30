@@ -24,8 +24,10 @@ exports[`renders correctly 1`] = `
         className="nav-item"
       >
         <a
+          aria-label="zilliqa github"
           className="text-secondary nav-link"
           href="https://github.com/Zilliqa"
+          rel="noreferrer"
           target="_blank"
         >
           <svg
@@ -51,8 +53,10 @@ exports[`renders correctly 1`] = `
         className="nav-item"
       >
         <a
+          aria-label="zilliqa gitter"
           className="text-secondary nav-link"
           href="https://gitter.im/Zilliqa"
+          rel="noreferrer"
           target="_blank"
         >
           <svg
@@ -78,8 +82,10 @@ exports[`renders correctly 1`] = `
         className="nav-item"
       >
         <a
+          aria-label="zilliqa telegram"
           className="text-secondary nav-link"
           href="https://t.me/zilliqachat"
+          rel="noreferrer"
           target="_blank"
         >
           <svg
