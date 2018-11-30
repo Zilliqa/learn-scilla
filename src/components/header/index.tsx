@@ -51,11 +51,11 @@ class Header extends React.Component<IProps, IStates> {
 
     return (
       <nav className="navbar navbar-expand-md navbar-light bg-pale">
-        <Link className="navbar-brand text-secondary" to={paths.chapterList}>
+        <Link className="navbar-brand text-secondary" to={paths.chapterList} aria-label={'brand'}>
           {'LearnScilla'}
         </Link>
 
-        <button className="navbar-toggler" onClick={this.toggle}>
+        <button className="navbar-toggler" onClick={this.toggle} aria-label={'menu'}>
           <span className="navbar-toggler-icon" />
         </button>
 
@@ -65,6 +65,7 @@ class Header extends React.Component<IProps, IStates> {
               <Link
                 className={`nav-link ${pathname === paths.chapterList ? 'active' : ''}`}
                 to={paths.chapterList}
+                aria-label={'tutorial'}
               >
                 {t('link.tutorial')}
               </Link>

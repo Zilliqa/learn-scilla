@@ -20,7 +20,7 @@ const CodeModal: React.SFC<IProps> = (props) => {
         </ModalHeader>
         <div className="modal-body">{t('chapter.lessonCompleteMessage')}</div>
         <div className="modal-footer">
-          <button className="btn btn-primary" onClick={onSubmit}>
+          <button className="btn btn-primary" onClick={onSubmit} aria-label={'next'}>
             {t('lesson.nextLesson')}
           </button>
         </div>

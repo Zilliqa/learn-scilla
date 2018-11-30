@@ -44,6 +44,7 @@ class AccountContainer extends React.Component<IProps, {}> {
                     <button
                       className="btn btn-sm btn-outline-secondary"
                       onClick={this.deleteAccount}
+                      aria-label={'delete account'}
                     >
                       <small>{t('account.deleteAccount')}</small>
                     </button>

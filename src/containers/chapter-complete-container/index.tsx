@@ -44,12 +44,20 @@ class ChapterContainer extends React.Component<IProps, {}> {
                   <br />
 
                   {isLast ? null : (
-                    <Link className="btn btn-primary btn-block" to={nextLessonPath}>
+                    <Link
+                      className="btn btn-primary btn-block"
+                      to={nextLessonPath}
+                      aria-label={'next lesson'}
+                    >
                       {t('lesson.nextLesson')}
                     </Link>
                   )}
 
-                  <Link className="btn btn-outline-secondary btn-block" to={paths.chapterList}>
+                  <Link
+                    className="btn btn-outline-secondary btn-block"
+                    to={paths.chapterList}
+                    aria-label={'table of contents'}
+                  >
                     {t('link.tableOfContents')}
                   </Link>
                 </div>
