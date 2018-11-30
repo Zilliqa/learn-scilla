@@ -22,23 +22,12 @@
 
     <!-- monaco editor setup -->
     <script src="%PUBLIC_URL%/vs/loader.js"></script>
-    <script>
-      require.config({
-        paths: {
-          "vs": "vs"
-        }
-      });
-      window.MonacoEnvironment = {
-        getWorkerUrl: function (workerId, label) {
-          return "%PUBLIC_URL%/vs/base/worker/workerMain.js";
-        }
-      };
-    </script>
+    <script>require.config({paths: {"vs": "vs"}}); window.MonacoEnvironment = {getWorkerUrl: function (workerId, label) {return "%PUBLIC_URL%/vs/base/worker/workerMain.js";}};</script>
     <!-- end monaco editor setup -->
 
-    <style>
-      .spinner{margin:100px auto;width:50px;height:40px;text-align:center;font-size:10px}.spinner>div{background-color:#eee;height:100%;width:6px;display:inline-block;-webkit-animation:sk-stretchdelay 1.2s infinite ease-in-out;animation:sk-stretchdelay 1.2s infinite ease-in-out}.spinner .rect2{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.spinner .rect3{-webkit-animation-delay:-1s;animation-delay:-1s}.spinner .rect4{-webkit-animation-delay:-.9s;animation-delay:-.9s}.spinner .rect5{-webkit-animation-delay:-.8s;animation-delay:-.8s}@-webkit-keyframes sk-stretchdelay{0%,100%,40%{-webkit-transform:scaleY(.4)}20%{-webkit-transform:scaleY(1)}}@keyframes sk-stretchdelay{0%,100%,40%{transform:scaleY(.4);-webkit-transform:scaleY(.4)}20%{transform:scaleY(1);-webkit-transform:scaleY(1)}}
-    </style>
+    <!-- spinner style -->
+    <style>.spinner{margin:100px auto;width:50px;height:40px;text-align:center;font-size:10px}.spinner>div{background-color:#eee;height:100%;width:6px;display:inline-block;-webkit-animation:sk-stretchdelay 1.2s infinite ease-in-out;animation:sk-stretchdelay 1.2s infinite ease-in-out}.spinner .rect2{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.spinner .rect3{-webkit-animation-delay:-1s;animation-delay:-1s}.spinner .rect4{-webkit-animation-delay:-.9s;animation-delay:-.9s}.spinner .rect5{-webkit-animation-delay:-.8s;animation-delay:-.8s}@-webkit-keyframes sk-stretchdelay{0%,100%,40%{-webkit-transform:scaleY(.4)}20%{-webkit-transform:scaleY(1)}}@keyframes sk-stretchdelay{0%,100%,40%{transform:scaleY(.4);-webkit-transform:scaleY(.4)}20%{transform:scaleY(1);-webkit-transform:scaleY(1)}}</style>
+    <!-- end spinner style -->
 
     <title>LearnScilla - An interactive tutorial for people to learn Scilla</title>
     <meta name="description" content="An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process.">
@@ -47,7 +36,6 @@
     <meta property="og:description" content="An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process.">
 
     <meta name="author" content="Noel Yoo">
-    <meta name="robots" content="index,follow">
 
   </head>
   <body>
