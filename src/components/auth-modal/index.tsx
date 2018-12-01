@@ -30,7 +30,7 @@ class AuthModal extends React.Component<IProps, IState> {
           {t('link.signIn')}
         </a>
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} size="md">
-          <ModalHeader toggle={this.toggleModal} />
+          <ModalHeader toggle={this.toggleModal}>{t('link.signIn')}</ModalHeader>
           <div className="modal-body">
             {!isLoaded || isAuthPending ? (
               <Spinner />
