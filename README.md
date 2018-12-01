@@ -16,7 +16,7 @@ An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract l
 We are using Lighthouse to improve the quality of this web app with the [Lighthouse Report](https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=https://learn-scilla.firebaseapp.com). 
 
 ## What is Scilla?
-[Scilla](https://scilla.readthedocs.io/en/latest/) is an intermediate-level smart contract language being developed for [Zilliqa](https://zilliqa.com/). Scilla has been designed as a principled language with smart contract safety in mind. Scilla imposes a structure on smart contracts that will make applications less vulnerable to attacks by eliminating certain known vulnerabilities directly at the language-level.
+[Scilla](https://scilla-lang.org/) is an intermediate-level smart contract language being developed for [Zilliqa](https://zilliqa.com/). Scilla has been designed as a principled language with smart contract safety in mind. Scilla imposes a structure on smart contracts that will make applications less vulnerable to attacks by eliminating certain known vulnerabilities directly at the language-level.
 
 ## Installation and Usage
 
