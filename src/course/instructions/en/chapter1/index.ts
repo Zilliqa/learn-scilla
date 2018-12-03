@@ -6,14 +6,12 @@ Let’s begin from the basics.
 The contract that you’ll be deploying to the blockchain has to have a name by which it could later be identified.
 The format for specifying is simply
 
+\`\`\`
+Contract [Contract Name]
+\`\`\`
 
-Contract {Contract Name}
-
-
-Where you replace the “{Contract Name}” with the actual name for your contract.
+Where you replace the \`[Contract Name]\` with the actual name for your contract.
 Note: The contract name has to start with a capital letter.
-
-Declare a contract called Zealgame. It should have one immutable variable ‘owner’ of type ByStr20
 `;
 const l2 = `
 ## Lesson 2: Immutable variables \n
@@ -28,25 +26,28 @@ These are called Immutable variables.
 For eg. you may want to store a wallet address (which can serve like an identity, just like unique email addresses) as the address of the owner.
 You can then use this immutable variable as a check so that certain functions in the contract can only be carried out by the owner.
 The format for specifying an immutable variable is:
-Contract [Contract Name]
-([variablename1] : [variabletype1])
-
-Where [variablename1] and [variabletype1] can be replaced by the chosen variable name and type.
+\`\`\`
+Contract ContractName
+(variablename1 : variabletype1)
+\`\`\`
+Where \`variablename1\` and \`variabletype1\` can be replaced by the chosen variable name and type.
 
 If there are multiple immutable variables, then you can include them as follows:
-Contract [Contract Name]
-([variablename1] : [variabletype1],
-[variablename2] : [variabletype2],
-[variablename3] : [variabletype3]
+\`\`\`
+Contract ContractName
+(
+  variablename1 : variabletype1,
+  variablename2 : variabletype2,
+  variablename3 : variabletype3
 )
-
+\`\`\`
 Here, multiple immutable variables are declared by separating them with commas.
-The language supports several datatypes, such as  Int32 (to represent 32-bit integers),
-ByStr20 ( a sequence of hexadecimal characters that represents 20 bytes).
-ByStr20 is a datatype used to represent account addresses. A detailed list will be provided later in the tutorial.
+The language supports several datatypes, such as  \`Int32\` (to represent 32-bit integers),
+\`ByStr20\` ( a sequence of hexadecimal characters that represents 20 bytes).
+\`ByStr20\` is a datatype used to represent account addresses. A detailed list will be provided later in the tutorial.
 
 Task:
-Declare a contract called Zealgame. It should have one immutable variable ‘owner’ of type ByStr20
+Declare a contract called Zealgame. It should have one immutable variable ‘owner’ of type \`ByStr20\`
 `;
 const l3 = `
 ## Lesson 3: Mutable variables\n
@@ -59,15 +60,18 @@ Variable type: There are many types of variables available, as we have seen in t
 Variable value: We may choose to declare a variable with or without an initial value.
 
 Format, depending on the variable type and variable value, the format for declaration might slightly vary.
-We’ll see a detailed list of such variations later. For now, let’s look at the format for a simple mutable variable that will contain a text/string value.
+We’ll see a detailed list of such variations later.
+For now, let’s look at the format for a simple mutable variable that will contain a text/string value.
 
-    field [Variable Name] : [Variable type, which is string in this case] = “[Variable Text]”
-
+\`\`\`
+field [Variable Name] : [Variable Type] = “[Variable Text]”
+\`\`\`
 Eg.
 field a : String = "hello"
 
 The important thing to know is that in the smart contract security, changing the value of a mutable variable is a very important step and if done wrong,
-such a change could inadvertently result in major security vulnerabilities. We’ll see later how that issue can be handled in a methodical way in Scilla.
+such a change could inadvertently result in major security vulnerabilities.
+We’ll see later how that issue can be handled in a methodical way in Scilla.
 
 Task:
 Let’s start with having a simple variable that stores the name of a player.
@@ -86,8 +90,10 @@ A transition is declared using the keyword transition. The end of a transition s
 The transition keyword is followed by the transition name. Then follows the input parameters within (). Each input parameter is separated by a , and is declared in the following format: variablename : variabletype
 
 The format is:
+\`\`\`
 transition [transitionname] (variablename : variabletype)
 end
+\`\`\`
 Example:
  transition setHello (msg : String)
 end
