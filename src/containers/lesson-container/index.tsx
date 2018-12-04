@@ -6,7 +6,8 @@ import Layout from '../../components/layout';
 import * as H from 'history';
 
 import LessonProgressbar from '../../components/lesson-progressbar';
-const EditorUI = lazy(() => import('../../components/editor-ui'));
+import EditorUI from '../../components/editor-ui';
+// const EditorUI = lazy(() => import('../../components/editor-ui'));
 
 import InstructionViewer from '../../components/instruction-viewer';
 import LessonNavigator from '../../components/lesson-navigator';
