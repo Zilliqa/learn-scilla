@@ -4,10 +4,9 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import ChapterListContainer from './containers/chapter-list-container';
-import LessonContainer from './containers/lesson-container';
 const ChapterCompleteContainer = lazy(() => import('./containers/chapter-complete-container'));
 const AccountContainer = lazy(() => import('./containers/account-container'));
-
+const LessonContainer = lazy(() => import('./containers/lesson-container'));
 import Spinner from './components/spinner';
 
 export const paths = {
