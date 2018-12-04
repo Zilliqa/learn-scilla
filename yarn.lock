@@ -4314,11 +4314,6 @@ ignore@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
 
-immer@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/immer/-/immer-1.5.0.tgz#1ed9b1b653643fe9276bbc36377613523ea32a39"
-  integrity sha1-HtmxtlNkP+kna7w2N3YTUj6jKjk=
-
 immer@1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/immer/-/immer-1.7.2.tgz#a51e9723c50b27e132f6566facbec1c85fc69547"
@@ -7586,20 +7581,6 @@ recursive-readdir@2.2.2:
   resolved "https://registry.yarnpkg.com/recursive-readdir/-/recursive-readdir-2.2.2.tgz#9946fb3274e1628de6e36b2f6714953b4845094f"
   dependencies:
     minimatch "3.0.4"
-
-reduce-reducers@0.4.3:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.4.3.tgz#8e052618801cd8fc2714b4915adaa8937eb6d66c"
-  integrity sha512-+CNMnI8QhgVMtAt54uQs3kUxC3Sybpa7Y63HR14uGLgI9/QR5ggHvpxwhGGe3wmx5V91YwqQIblN9k5lspAmGw==
-
-redux-firestore@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/redux-firestore/-/redux-firestore-0.6.0.tgz#802c75aae6adece3c49f9d6fccc5f18899aa4caf"
-  integrity sha512-OLT8M+Hkkq/I4UeiNUdWQA22gbs79N4mZ8LRnt+bv015H0IgfXiyk148XZAkwcYOVG97lYci34g5vt/iXdX/xQ==
-  dependencies:
-    immer "1.5.0"
-    lodash "^4.17.11"
-    reduce-reducers "0.4.3"
 
 redux-logger@^3.0.6:
   version "3.0.6"

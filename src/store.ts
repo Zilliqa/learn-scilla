@@ -4,7 +4,6 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/firestore'; // make sure you add this for firestore
 import { reactReduxFirebase } from 'react-redux-firebase';
-import { reduxFirestore } from 'redux-firestore';
 
 import rootReducer from './reducers';
 import { logger } from 'redux-logger';
@@ -43,7 +42,6 @@ export const store = createStore(
   rootReducer,
   // enhancer
   compose(
-    reduxFirestore(firebase),
     reactReduxFirebase(firebase, reactReduxFirebaseConfig),
     applyMiddleware(...middlewares)
   )
