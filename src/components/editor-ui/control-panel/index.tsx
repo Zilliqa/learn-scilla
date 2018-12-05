@@ -1,10 +1,18 @@
 import React from 'react';
-import { FaCheck, FaRegLightbulb, FaRegEye, FaRegEyeSlash, FaRegComments } from 'react-icons/fa';
+import {
+  FaCheck,
+  FaRegLightbulb,
+  FaRegEye,
+  FaRegEyeSlash,
+  FaRegComments,
+  FaTimes
+} from 'react-icons/fa';
 
 interface IProps {
   t: (key: string) => string;
   isAnswerButtonVisible: boolean;
   isAnswerVisible: boolean;
+  showTryAgainMessage: boolean;
 
   handleCheckAnswer: (e) => void;
   hanldleToggle: (e) => void;
@@ -12,18 +20,23 @@ interface IProps {
 }
 
 const ControlPanel: React.SFC<IProps> = (props) => {
-  const { isAnswerButtonVisible, isAnswerVisible, t } = props;
+  const { isAnswerButtonVisible, isAnswerVisible, showTryAgainMessage, t } = props;
   const showAnswerButtonText = t(isAnswerVisible ? 'editor.hideAnswer' : 'editor.showAnswer');
   const showAnswerButtonIcon = isAnswerVisible ? <FaRegEyeSlash /> : <FaRegEye />;
+
+  const checkAnswerButtonText = t(showTryAgainMessage ? 'editor.tryAgain' : 'editor.checkAnswer');
+  const checkAnswerButtonStyle = showTryAgainMessage ? 'btn-danger' : 'btn-primary';
+  const checkAnswerButtonIcon = showTryAgainMessage ? <FaTimes /> : <FaCheck />;
+
   return (
     <div>
       <div className="text-right">
         <button
-          className="btn btn-primary btn-sm"
+          className={`btn ${checkAnswerButtonStyle} btn-sm`}
           onClick={props.handleCheckAnswer}
           aria-label={'check answer'}
         >
-          <FaCheck /> {t('editor.checkAnswer')}
+          {checkAnswerButtonIcon} {checkAnswerButtonText}
         </button>{' '}
         {isAnswerButtonVisible ? (
           <button

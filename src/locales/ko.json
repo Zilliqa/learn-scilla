@@ -18,7 +18,8 @@
     "showHint": "힌트 보기",
     "showAnswer": "정답 보기",
     "hideAnswer": "정답 숨기기",
-    "checkAnswer": "정답 확인"
+    "checkAnswer": "정답 확인",
+    "tryAgain": "다시 시도"
   },
   "account": {
     "account": "계정",
