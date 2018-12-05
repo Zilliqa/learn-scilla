@@ -18,7 +18,8 @@
     "showHint": "Mostrar pistas",
     "showAnswer": "Muéstrame la respuesta",
     "hideAnswer": "Esconde la respuesta",
-    "checkAnswer": "Verificar la respuesta"
+    "checkAnswer": "Verificar la respuesta",
+    "tryAgain": "Probar otra vez"
   },
   "account": {
     "account": "Cuenta",

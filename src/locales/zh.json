@@ -18,7 +18,8 @@
     "showHint": "显示提示",
     "showAnswer": "我要看答案",
     "hideAnswer": "不看答案了",
-    "checkAnswer": "交卷"
+    "checkAnswer": "交卷",
+    "tryAgain": "再查"
   },
   "account": {
     "account": "账目",

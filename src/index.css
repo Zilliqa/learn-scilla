@@ -1,3 +1,11 @@
+/*
+  blue500: #3740ff
+  blue600: #3038e0
+
+  red500: #E2051A
+  red600: #BE032A
+*/
+
 .btn-primary {
   background-color: #3740ff;
 }
@@ -6,6 +14,15 @@
 .btn-primary:active,
 .btn-primary:focus {
   background-color: #3038e0;
+}
+.btn-danger {
+  background-color: #E2051A;
+}
+
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger:focus {
+  background-color: #BE032A;
 }
 
 .spinner {
