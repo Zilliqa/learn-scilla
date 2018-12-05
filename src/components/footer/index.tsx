@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaGitter, FaTelegramPlane } from 'react-icons/fa';
+import { FaGithub, FaGitter, FaTwitter } from 'react-icons/fa';
 import styles from './footer.module.css';
 
 const copyright: string = 'Copyright © LearnScilla 2018';
@@ -34,12 +34,12 @@ const Footer: React.SFC = () => (
         <li className="nav-item">
           <a
             className="text-secondary nav-link"
-            href="https://t.me/zilliqachat"
+            href="https://twitter.com/zilliqa"
             target="_blank"
             rel="noreferrer"
-            aria-label={'zilliqa telegram'}
+            aria-label={'zilliqa twitter'}
           >
-            <FaTelegramPlane />
+            <FaTwitter />
           </a>
         </li>
       </ul>
