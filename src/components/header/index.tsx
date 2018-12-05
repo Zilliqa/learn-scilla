@@ -1,5 +1,5 @@
 import React from 'react';
-import { translate } from 'react-i18next';
+import { withNamespaces } from 'react-i18next';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -11,6 +11,7 @@ import AuthModal from '../auth-modal';
 import { paths } from '../../routes';
 import I18nDropdown from '../i18n-dropdown';
 import AccountDropdown from '../account-dropdown';
+import { langDictionary } from '../../i18n';
 
 interface IProps {
   history: H.History;
@@ -34,28 +35,56 @@ class Header extends React.Component<IProps, IStates> {
   };
 
   public render(): React.ReactNode {
-    const { i18n, t, auth, history } = this.props;
+    const { i18n, t, auth, history, location, firebase } = this.props;
     const { isLoaded, isEmpty } = auth;
+    const { pathname } = location;
+
+    const navigateToAccount = () => history.push(paths.account);
+    const logout = () => {
+      firebase.logout();
+      history.push(paths.chapterList);
+    };
+    const login = firebase.login;
+    const { displayName, email } = auth;
+
+    const username = displayName || email;
 
     return (
       <nav className="navbar navbar-expand-md navbar-light bg-pale">
-        <Link className="navbar-brand text-secondary" to={paths.lessonList}>
+        <Link className="navbar-brand text-secondary" to={paths.chapterList} aria-label={'brand'}>
           {'LearnScilla'}
         </Link>
 
-        <button className="navbar-toggler" onClick={this.toggle}>
+        <button className="navbar-toggler" onClick={this.toggle} aria-label={'menu'}>
           <span className="navbar-toggler-icon" />
         </button>
 
         <Collapse isOpen={this.state.isOpen} navbar={true}>
           <ul className="ml-auto navbar-nav">
-            {!isLoaded ? null : isEmpty ? <AuthModal /> : <AccountDropdown history={history} />}
             <li className="nav-item">
-              <Link className="nav-link" to={paths.lessonList}>
+              <Link
+                className={`nav-link ${pathname === paths.chapterList ? 'active' : ''}`}
+                to={paths.chapterList}
+                aria-label={'tutorial'}
+              >
                 {t('link.tutorial')}
               </Link>
             </li>
-            <I18nDropdown i18n={i18n} t={t} />
+
+            {!isLoaded ? null : isEmpty ? (
+              <AuthModal login={login} isLoaded={isLoaded} t={t} />
+            ) : (
+              <AccountDropdown
+                t={t}
+                paths={paths}
+                currentPathname={pathname}
+                username={username}
+                logout={logout}
+                navigateToAccount={navigateToAccount}
+              />
+            )}
+
+            <I18nDropdown i18n={i18n} langDictionary={langDictionary} />
           </ul>
         </Collapse>
       </nav>
@@ -69,10 +98,11 @@ class Header extends React.Component<IProps, IStates> {
   };
 }
 
-const withTrans = translate('translations')(Header);
+// @ts-ignore
+const withTrans = withNamespaces()(Header);
+// @ts-check
 const HeaderWithRouter = withRouter(withTrans);
-
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state) => ({
   auth: state.firebase.auth
 });
 

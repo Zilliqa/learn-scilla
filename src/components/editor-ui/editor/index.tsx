@@ -1,7 +1,7 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 import ControlPanel from '../control-panel';
-import { language, configuration } from './scilla';
+import { language, configuration } from '../../../scilla';
 import './index.css';
 
 interface IProps {
@@ -9,9 +9,10 @@ interface IProps {
   code: string;
   showHint: (code: string, cb?) => void;
   isAnswerVisible: boolean;
-  isHintButtonVisible: boolean;
-  toggleShowAnswer: () => void;
-  checkAnswer: (code) => void;
+  isAnswerButtonVisible: boolean;
+  showTryAgainMessage: boolean;
+  toggleShowAnswer: (code: string) => void;
+  checkAnswer: (code: string) => void;
 }
 
 interface IState {
@@ -26,7 +27,7 @@ export default class Editor extends React.Component<IProps, IState> {
   };
 
   public render() {
-    const { t, isAnswerVisible, isHintButtonVisible } = this.props;
+    const { t, isAnswerVisible, isAnswerButtonVisible, showTryAgainMessage } = this.props;
     const options = {
       selectOnLineNumbers: true,
       roundedSelection: false,
@@ -54,7 +55,8 @@ export default class Editor extends React.Component<IProps, IState> {
           hanldleToggle={this.hanldleToggle}
           handleCheckAnswer={this.handleCheckAnswer}
           isAnswerVisible={isAnswerVisible}
-          isHintButtonVisible={isHintButtonVisible}
+          isAnswerButtonVisible={isAnswerButtonVisible}
+          showTryAgainMessage={showTryAgainMessage}
         />
       </div>
     );
@@ -85,7 +87,8 @@ export default class Editor extends React.Component<IProps, IState> {
   // Handles event to control the visibility of answer
   private hanldleToggle = (e) => {
     e.preventDefault();
-    this.props.toggleShowAnswer();
+    const code = this.editor.getValue();
+    this.props.toggleShowAnswer(code);
   };
 
   // Handles event to check answer

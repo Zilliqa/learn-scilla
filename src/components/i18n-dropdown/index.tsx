@@ -9,47 +9,35 @@ interface IProps {
     language: string;
     changeLanguage: (lang: string) => void;
   };
-  t: (key: string) => string;
+  langDictionary: object;
 }
 
-export default class I18Dropdown extends React.Component<IProps, {}> {
-  public langDictionary = {
-    en: 'English',
-    ko: '한국어'
-  };
+const I18Dropdown: React.SFC<IProps> = (props) => {
+  const { langDictionary, i18n } = props;
+  const lang: string = i18n.language;
 
-  public render(): React.ReactNode {
-    const i18n = this.props.i18n;
-    const lang: string = i18n.language;
-    return (
-      <UncontrolledDropdown nav={true} inNavbar={true}>
-        <DropdownToggle caret={true} nav={true}>
-          {this.langDictionary[lang]}
-        </DropdownToggle>
-        <DropdownMenu right={true} size="sm">
-          {this.renderItems()}
-        </DropdownMenu>
-      </UncontrolledDropdown>
-    );
-  }
+  const cursorStyle = { cursor: 'pointer' };
+  const keys = Object.keys(langDictionary);
 
-  private renderItems = () => {
-    const cursorStyle = { cursor: 'pointer' };
-    const keys = Object.keys(this.langDictionary);
-    return keys.map((key) => (
-      <DropdownItem
-        key={key}
-        className="text-secondary"
-        style={cursorStyle}
-        onClick={() => this.changeLang(key)}
-      >
-        {this.langDictionary[key]}
-      </DropdownItem>
-    ));
-  };
+  return (
+    <UncontrolledDropdown nav={true} inNavbar={true}>
+      <DropdownToggle caret={true} nav={true}>
+        {langDictionary[lang]}
+      </DropdownToggle>
+      <DropdownMenu right={true} size="sm">
+        {keys.map((key) => (
+          <DropdownItem
+            key={key}
+            className="text-secondary"
+            style={cursorStyle}
+            onClick={() => i18n.changeLanguage(key)}
+          >
+            {langDictionary[key]}
+          </DropdownItem>
+        ))}
+      </DropdownMenu>
+    </UncontrolledDropdown>
+  );
+};
 
-  private changeLang = (lang: string) => {
-    const i18n = this.props.i18n;
-    i18n.changeLanguage(lang);
-  };
-}
+export default I18Dropdown;

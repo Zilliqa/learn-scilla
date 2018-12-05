@@ -1,12 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withNamespaces } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import * as H from 'history';
-import Row from 'reactstrap/lib/Row';
-import Col from 'reactstrap/lib/Col';
 import { CourseInstructionType } from '../../typings';
-import LessonList from '../../components/lesson-list';
+import ChapterList from '../../components/chapter-list';
 import Spinner from '../../components/spinner';
 import Layout from '../../components/layout';
 
@@ -21,11 +19,10 @@ interface IProps {
   instructions: CourseInstructionType;
 }
 
-class LessonContainer extends React.Component<IProps, {}> {
+class ChapterContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
     const { instructions, i18n, t } = this.props;
     const lang: string = i18n.language;
-
     if (instructions === undefined || instructions[lang] === undefined) {
       return <Spinner />;
     }
@@ -40,13 +37,13 @@ class LessonContainer extends React.Component<IProps, {}> {
         </Helmet>
         <div className="container">
           <div style={{ paddingTop: 30, paddingBottom: 100 }}>
-            <Row className="py-5">
-              <Col sm={10} md={8} lg={5} className="mr-auto ml-auto text-center">
-                <h3>{t('lesson.listTitle')}</h3>
+            <div className="row py-5">
+              <div className="col-sm-10 col-md-8 col-lg-5 mr-auto ml-auto text-center">
+                <h3>{t('chapter.listTitle')}</h3>
                 <br />
-                <LessonList lessonList={intructionsLocalized} t={t} />
-              </Col>
-            </Row>
+                <ChapterList chapterList={intructionsLocalized} t={t} />
+              </div>
+            </div>
           </div>
         </div>
       </Layout>
@@ -54,8 +51,9 @@ class LessonContainer extends React.Component<IProps, {}> {
   }
 }
 
-const WithTranslation = translate('translations')(LessonContainer);
-
+// @ts-ignore
+const WithTranslation = withNamespaces()(ChapterContainer);
+// @ts-check
 const mapStateToProps = (state) => ({
   instructions: state.course.courseInstructions
 });

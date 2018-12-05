@@ -1,51 +1,38 @@
 {
-  "lesson": {
-    "lesson": "레슨",
-    "congratulations": "축하합니다.",
-    "listTitle": "Scilla Tutorial",
-    "chapterCompleteMessage": "현재 챕터를 완료하셨습니다.",
-    "lessonCompleteMessage": "현재 레슨을 완료하셨습니다.",
-    "nextLesson": "다음 레슨 진행하기"
-  },
-  "chapter":{
+  "chapter": {
     "chapter": "챕터",
+    "goodjob": "아주 잘했어요",
+    "listTitle": "Scilla Tutorial",
+    "lessonCompleteMessage": "현재 레슨을 완료하셨습니다.",
+    "chapterCompleteMessage": "현재 챕터를 완료하셨습니다."
+  },
+  "lesson":{
+    "lesson": "레슨",
     "back": "뒤로가기",
-    "next": "건너뛰기",
-    "discuss": "논의하기"
+    "skip": "건너뛰기",
+    "openChat": "오픈 채팅",
+    "nextLesson": "다음 레슨 진행하기"
     },
   "editor" : {
     "hint": "힌트",
     "showHint": "힌트 보기",
     "showAnswer": "정답 보기",
-    "hideAnswer": "정답 가리기",
-    "submitAnswer": "정답 확인"
-  },
-  "form": {
-    "submit":"확인",
-    "cancel":"취소"
+    "hideAnswer": "정답 숨기기",
+    "checkAnswer": "정답 확인",
+    "tryAgain": "다시 시도"
   },
   "account": {
-    "account": "내 계정"
+    "account": "계정",
+    "deleteAccount": "계정 삭제"
   },
   "auth": {
-    "signUpTitle":"회원가입",
-    "signInTitle":"로그인",
-
     "signInWithGoogle": "Google으로 로그인",
-    "signInWithGitHub": "GitHub으로 로그인",
-
-    "checkYourEmail": "이메일을 확인해주세요",
-    "email":"Email" ,
-    "emailMessage" : "이메일 주소를 입력해주세요",
-    "emailInvalidMessage":"유효하지 않은 이메일 형식.",
-    "emailValidMessage":"유효한 이메일 형식"
+    "signInWithGitHub": "GitHub으로 로그인"
   },
   "link": {
     "tutorial": "튜토리얼",
-    "contentMenu": "목차",
+    "tableOfContents": "목차",
     "signIn": "로그인",
-    "signUp": "회원가입",
-    "signOut": "로그아웃",
-    "forgotPassword": "패스워드 찾기"
+    "signOut": "로그아웃"
   }
 }

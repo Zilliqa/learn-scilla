@@ -1,19 +1,19 @@
 import React from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 interface IProps {
   t: (key: string) => string;
   goNext: () => void;
   goBack: () => void;
-  chapterNumber: number;
+  lessonNumber: number;
   total: number;
 }
 
-const ChapterNavigator: React.SFC<IProps> = (props) => {
-  const { t, goNext, goBack, chapterNumber, total } = props;
+const LessonNavigator: React.SFC<IProps> = (props) => {
+  const { t, goNext, goBack, lessonNumber, total } = props;
 
-  const isBackButtonDisabled = chapterNumber <= 1;
-  const isProceedButtonDisabled = chapterNumber >= total;
+  const isBackButtonDisabled = lessonNumber <= 1;
+  const isProceedButtonDisabled = lessonNumber >= total;
 
   return (
     <div role="group" className="btn-group">
@@ -21,20 +21,20 @@ const ChapterNavigator: React.SFC<IProps> = (props) => {
         className="btn btn-outline-secondary btn-sm"
         onClick={goBack}
         disabled={isBackButtonDisabled}
+        aria-label={'back'}
       >
-        <FaChevronLeft />
-        {t('chapter.back')}
+        <FaArrowLeft /> {t('lesson.back')}
       </button>
       <button
         className="btn btn-outline-secondary btn-sm"
         onClick={goNext}
         disabled={isProceedButtonDisabled}
+        aria-label={'skip'}
       >
-        {t('chapter.next')}
-        <FaChevronRight />
+        {t('lesson.skip')} <FaArrowRight />
       </button>
     </div>
   );
 };
 
-export default ChapterNavigator;
+export default LessonNavigator;

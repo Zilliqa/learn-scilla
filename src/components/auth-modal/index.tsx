@@ -1,60 +1,57 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { translate } from 'react-i18next';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { withFirebase } from 'react-redux-firebase';
 import Modal from 'reactstrap/lib/Modal';
 import Spinner from '../../components/spinner';
+import ModalHeader from 'reactstrap/lib/ModalHeader';
 
 interface IProps {
   t: (key: string) => string;
-  firebase: any; // TODO: specify type
-  auth: any; // TODO: specify type
+  login: (params) => void;
+  isLoaded: boolean;
 }
 
 interface IState {
   isModalOpen: boolean;
+  isAuthPending: boolean;
 }
-
-const GITHUB_PROVIDER = 'github';
-const GOOGLE_PROVIDER = 'google';
-const POPUP_TYPE = 'popup';
 
 class AuthModal extends React.Component<IProps, IState> {
   public readonly state = {
-    isModalOpen: false
+    isModalOpen: false,
+    isAuthPending: false
   };
   public render(): React.ReactNode {
-    const { t, auth } = this.props;
-    const { isLoaded } = auth;
+    const { t, isLoaded } = this.props;
+    const { isAuthPending } = this.state;
     const cursorStyle = { cursor: 'pointer' };
-
     return (
       <li className="nav-item">
         <a className="nav-link" onClick={this.toggleModal} style={cursorStyle}>
           {t('link.signIn')}
         </a>
-        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} size="sm">
+        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} size="md">
+          <ModalHeader toggle={this.toggleModal}>{t('link.signIn')}</ModalHeader>
           <div className="modal-body">
-            {!isLoaded ? (
+            {!isLoaded || isAuthPending ? (
               <Spinner />
             ) : (
               <div className="py-3 text-center">
                 <div className="py-1">
                   <button
-                    className="btn btn-outline-primary"
-                    onClick={() => this.signIn(GOOGLE_PROVIDER, POPUP_TYPE)}
+                    className="btn btn-primary"
+                    onClick={() => this.signIn('google')}
+                    aria-label={'sign in with google'}
                   >
-                    <FaGoogle /> <small>{t('auth.signInWithGoogle')}</small>
+                    <FaGoogle /> {t('auth.signInWithGoogle')}
                   </button>
                 </div>
                 <div className="py-1">
                   <button
-                    className="btn btn-outline-primary"
-                    onClick={() => this.signIn(GITHUB_PROVIDER, POPUP_TYPE)}
+                    className="btn btn-primary"
+                    onClick={() => this.signIn('github')}
+                    aria-label={'sign in with github'}
                   >
-                    <FaGithub /> <small>{t('auth.signInWithGitHub')}</small>
+                    <FaGithub /> {t('auth.signInWithGitHub')}
                   </button>
                 </div>
               </div>
@@ -67,27 +64,21 @@ class AuthModal extends React.Component<IProps, IState> {
 
   private toggleModal = () => {
     this.setState({
-      isModalOpen: !this.state.isModalOpen
+      isModalOpen: !this.state.isModalOpen,
+      isAuthPending: false
     });
   };
 
-  private signIn = (provider: string, type: string): void => {
-    const { firebase } = this.props;
-    const options = { provider, type };
-    firebase.login(options);
-    this.setState({
-      isModalOpen: false
-    });
+  private signIn = async (provider: string) => {
+    const { login } = this.props;
+    try {
+      this.setState({ isAuthPending: true });
+      await login({ provider, type: 'popup' });
+    } catch (error) {
+      this.setState({ isAuthPending: false });
+      console.log(error);
+    }
   };
 }
 
-const WithTranslation = translate('translations')(AuthModal);
-
-const mapStateToProps = (state: any) => ({
-  auth: state.firebase.auth
-});
-
-export default compose(
-  withFirebase,
-  connect(mapStateToProps)
-)(WithTranslation);
+export default AuthModal;

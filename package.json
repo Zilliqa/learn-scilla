@@ -27,18 +27,17 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
-    "react-i18next": "^7.11.0",
+    "react-i18next": "^8.3.8",
     "react-icons": "^3.2.2",
     "react-markdown": "^4.0.3",
-    "react-monaco-editor": "^0.20.0",
+    "react-monaco-editor": "^0.22.0",
     "react-redux": "^5.1.1",
-    "react-redux-firebase": "^2.2.2",
+    "react-redux-firebase": "^2.2.3",
     "react-router": "^4.4.0-beta.6",
     "react-router-dom": "^4.4.0-beta.6",
     "react-scripts": "2.1.1",
     "reactstrap": "^6.5.0",
-    "redux": "^4.0.0",
-    "redux-firestore": "^0.6.0"
+    "redux": "^4.0.0"
   },
   "devDependencies": {
     "@types/history": "^4.7.2",

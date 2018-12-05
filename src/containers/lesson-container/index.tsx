@@ -1,22 +1,21 @@
 import React, { lazy, Suspense } from 'react';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withNamespaces } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import Layout from '../../components/layout';
 import * as H from 'history';
 
 import LessonProgressbar from '../../components/lesson-progressbar';
-const EditorUI = lazy(() => import('../../components/editor-ui'));
+import EditorUI from '../../components/editor-ui';
+// const EditorUI = lazy(() => import('../../components/editor-ui'));
 
 import InstructionViewer from '../../components/instruction-viewer';
-import ChapterNavigator from '../../components/chapter-navigator';
+import LessonNavigator from '../../components/lesson-navigator';
 import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 
 import Spinner from '../../components/spinner';
 import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
-import Row from 'reactstrap/lib/Row';
-import Col from 'reactstrap/lib/Col';
 
 interface IProps {
   i18n: {
@@ -38,25 +37,23 @@ interface IState {
   showAnswer: boolean;
 }
 
-class ChapterContainer extends React.Component<IProps, IState> {
+class LessonContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
-    const { codes, location, history, t } = this.props;
+    const { codes, location, t } = this.props;
 
-    const lessonNumber = this.getLessonNumber();
-    const lessonIndex = lessonNumber - 1;
-    const chapterNumber = this.getChatperNumber();
+    const chapterNumber = this.getChapterNumber();
     const chapterIndex = chapterNumber - 1;
-
+    const lessonNumber = this.getChatperNumber();
+    const lessonIndex = lessonNumber - 1;
     const instruction = this.getInstruction();
 
-    const codeChapterList = codes[lessonIndex] || [];
-    const total: number = codeChapterList.length || 0;
+    const codeLessonList = codes[chapterIndex] || [];
+    const total: number = codeLessonList.length || 0;
 
-    const code = codeChapterList[chapterIndex] || {};
+    const code = codeLessonList[lessonIndex] || {};
     const { initialCode, answerCode } = code;
-
     const documentTitle = `LearnScilla -
-    ${t('lesson.lesson')} ${lessonNumber} ${t('chapter.chapter')} ${chapterNumber}
+    ${t('chapter.chapter')} ${chapterNumber} ${t('lesson.lesson')} ${lessonNumber}
     `;
 
     return (
@@ -65,13 +62,13 @@ class ChapterContainer extends React.Component<IProps, IState> {
           <title>{documentTitle}</title>
         </Helmet>
         <div>
-          <LessonProgressbar current={chapterIndex} total={total} />
+          <LessonProgressbar current={lessonIndex} total={total} />
           <br />
-          <Row>
-            <Col xs={12} sm={12} md={12} lg={5}>
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <InstructionViewer instruction={instruction} />
-            </Col>
-            <Col xs={12} sm={12} md={12} lg={7}>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <Suspense fallback={<Spinner />}>
                 <EditorUI
                   initialCode={initialCode}
@@ -81,14 +78,14 @@ class ChapterContainer extends React.Component<IProps, IState> {
                   location={location}
                 />
               </Suspense>
-            </Col>
-          </Row>
+            </div>
+          </div>
           <br />
           <div className="text-right">
-            <ChapterNavigator
+            <LessonNavigator
               goBack={this.goBack}
               goNext={this.goNext}
-              chapterNumber={chapterNumber}
+              lessonNumber={lessonNumber}
               total={total}
               t={t}
             />
@@ -104,95 +101,96 @@ class ChapterContainer extends React.Component<IProps, IState> {
     if (codes === undefined) {
       return;
     }
-    const lessonNumber: number = this.getLessonNumber();
-    const chapterNumber: number = this.getChatperNumber();
+    const chapterNumber: number = this.getChapterNumber();
+    const lessonNumber: number = this.getChatperNumber();
 
-    this.updateProgress(lessonNumber, chapterNumber);
-    this.navigateToNextChapter(lessonNumber, chapterNumber);
+    this.updateProgress(chapterNumber, lessonNumber);
+    this.navigateToNextLesson(chapterNumber, lessonNumber);
   };
 
   private goBack = (): void => {
     const { history } = this.props;
-    const lessonNumber: number = this.getLessonNumber();
-    const chapterNumber: number = this.getChatperNumber();
-    const previousChapterPath = `/lesson/${lessonNumber}/chapter/${chapterNumber - 1}`;
-    history.push(previousChapterPath);
+    const chapterNumber: number = this.getChapterNumber();
+    const lessonNumber: number = this.getChatperNumber();
+    const previousLessonPath = `/chapter/${chapterNumber}/lesson/${lessonNumber - 1}`;
+    history.push(previousLessonPath);
   };
 
-  private updateProgress = (currentLesson: number, currentChapter: number) => {
+  private updateProgress = (currentChapter: number, currentLesson: number) => {
     const { firebase, profile } = this.props;
 
     // get progress data from db
     const progressProfile = profile.progress || {};
-    const lessonKey: string = `lesson${currentLesson}`;
-    const progress = { [lessonKey]: currentChapter };
+    const chapterKey: string = `chapter${currentChapter}`;
+    const progress = { [chapterKey]: currentLesson };
 
     const isAuth: boolean = !profile.isEmpty;
-    const lessonProgressNum: number = progressProfile[lessonKey] || 0;
+    const chapterProgressNum: number = progressProfile[chapterKey] || 0;
 
-    // Update if progress is less than current chapter
-    if (isAuth && lessonProgressNum < currentChapter) {
-      // Update lesson progress
+    // Update if progress is less than current lesson
+    if (isAuth && chapterProgressNum < currentLesson) {
+      // Update chapter progress
       firebase.updateProfile({ progress });
     }
   };
 
-  private navigateToNextChapter = (currentLesson: number, currentChapter: number) => {
+  private navigateToNextLesson = (currentChapter: number, currentLesson: number) => {
     const { history, codes } = this.props;
     // Check if code is undefined
     if (codes === undefined) {
       return;
     }
-    const lessonIndex = currentLesson - 1;
-    const codeChapterList = codes[lessonIndex] || [];
+    const chapterIndex = currentChapter - 1;
+    const codeLessonList = codes[chapterIndex] || [];
 
     // Calculate total
-    const total = codeChapterList.length;
+    const total = codeLessonList.length;
 
-    // Check if the current chapter is the end of this lesson.
-    const isLastChapter = currentChapter === total;
-    // If the last chapter, go to lesson complete page
-    const nextChapterPath = isLastChapter
-      ? `/lesson-complete/${currentLesson}`
-      : `/lesson/${currentLesson}/chapter/${currentChapter + 1}`;
+    // Check if the current lesson is the end of this chapter.
+    const isLastLesson = currentLesson === total;
+    // If the last lesson, go to chapter complete page
+    const nextLessonPath = isLastLesson
+      ? `/chapter-complete/${currentChapter}`
+      : `/chapter/${currentChapter}/lesson/${currentLesson + 1}`;
 
-    // Navigate to next chapter
-    history.push(nextChapterPath);
+    // Navigate to next lesson
+    history.push(nextLessonPath);
   };
 
   private getInstruction = () => {
     const { instructions, i18n } = this.props;
     const lang: string = i18n.language;
 
-    const lessonNumber = this.getLessonNumber();
-    const lessonIndex = lessonNumber - 1;
-    const chapterNumber = this.getChatperNumber();
+    const chapterNumber = this.getChapterNumber();
     const chapterIndex = chapterNumber - 1;
+    const lessonNumber = this.getChatperNumber();
+    const lessonIndex = lessonNumber - 1;
 
     const intructionsLocalized = instructions[lang];
-    const lesson = intructionsLocalized[lessonIndex] || {};
+    const chapter = intructionsLocalized[chapterIndex] || {};
 
-    const instructionChapterList = lesson.chapters || [];
-    const instruction = instructionChapterList[chapterIndex] || {};
+    const instructionLessonList = chapter.lessons || [];
+    const instruction = instructionLessonList[lessonIndex] || {};
 
     return instruction;
   };
 
-  private getLessonNumber = (): number => {
+  private getChapterNumber = (): number => {
     const { match } = this.props;
     const routeParams = match.params;
-    return parseInt(routeParams.lesson, 10);
+    return parseInt(routeParams.chapter, 10);
   };
 
   private getChatperNumber = (): number => {
     const { match } = this.props;
     const routeParams = match.params;
-    return parseInt(routeParams.chapter, 10);
+    return parseInt(routeParams.lesson, 10);
   };
 }
 
-const WithTranslation = translate('translations')(ChapterContainer);
-
+// @ts-ignore
+const WithTranslation = withNamespaces()(LessonContainer);
+// @ts-check
 const mapStateToProps = (state) => ({
   instructions: state.course.courseInstructions,
   codes: state.course.courseCodes,

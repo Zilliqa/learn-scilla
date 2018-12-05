@@ -1,67 +1,39 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { translate } from 'react-i18next';
-import { withFirebase } from 'react-redux-firebase';
 import { UncontrolledDropdown } from 'reactstrap/lib/Uncontrolled';
 import DropdownToggle from 'reactstrap/lib/DropdownToggle';
 import DropdownMenu from 'reactstrap/lib/DropdownMenu';
 import DropdownItem from 'reactstrap/lib/DropdownItem';
-import * as H from 'history';
-import { paths } from '../../routes';
 
 interface IProps {
   t: (key: string) => string;
-  history: H.History;
-  firebase: any;
-  auth: any;
+  username: string;
+  paths: any;
+  currentPathname: string;
+  navigateToAccount: () => void;
+  logout: () => void;
 }
 
-class AccountDropdown extends React.Component<IProps, {}> {
-  public render(): React.ReactNode {
-    const { t, auth } = this.props;
-    const { displayName, email } = auth;
-    const cursorStyle = { cursor: 'pointer' };
-    return (
-      <UncontrolledDropdown nav={true} inNavbar={true}>
-        <DropdownToggle caret={true} nav={true}>
-          {displayName || email}
-        </DropdownToggle>
-        <DropdownMenu right={true} size="sm">
-          <DropdownItem
-            className="text-secondary"
-            style={cursorStyle}
-            onClick={this.navigateToAccount}
-          >
-            {t('account.account')}
-          </DropdownItem>
-          <DropdownItem className="text-secondary" style={cursorStyle} onClick={this.logout}>
-            {t('link.signOut')}
-          </DropdownItem>
-        </DropdownMenu>
-      </UncontrolledDropdown>
-    );
-  }
+const AccountDropdown: React.SFC<IProps> = (props) => {
+  const { t, username, paths, currentPathname, navigateToAccount, logout } = props;
 
-  private logout = () => {
-    const { firebase, history } = this.props;
-    firebase.logout();
-    history.push(paths.lessonList);
-  };
+  const cursorStyle = { cursor: 'pointer' };
+  const isAccountPath = currentPathname === paths.account;
 
-  private navigateToAccount = () => {
-    const { history } = this.props;
-    history.push(paths.account);
-  };
-}
+  return (
+    <UncontrolledDropdown nav={true} inNavbar={true}>
+      <DropdownToggle caret={true} nav={true} className={isAccountPath ? 'active' : ''}>
+        {username}
+      </DropdownToggle>
+      <DropdownMenu right={true} size="sm">
+        <DropdownItem className="text-secondary" style={cursorStyle} onClick={navigateToAccount}>
+          {t('account.account')}
+        </DropdownItem>
+        <DropdownItem className="text-secondary" style={cursorStyle} onClick={logout}>
+          {t('link.signOut')}
+        </DropdownItem>
+      </DropdownMenu>
+    </UncontrolledDropdown>
+  );
+};
 
-const WithTranslation = translate('translations')(AccountDropdown);
-
-const mapStateToProps = (state: any) => ({
-  auth: state.firebase.auth
-});
-
-export default compose(
-  withFirebase,
-  connect(mapStateToProps)
-)(WithTranslation);
+export default AccountDropdown;

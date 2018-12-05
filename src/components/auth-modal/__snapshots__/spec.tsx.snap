@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly after loaded 1`] = `
+<li
+  className="nav-item"
+>
+  <a
+    className="nav-link"
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    link.signIn
+  </a>
+</li>
+`;
+
+exports[`renders correctly while loading 1`] = `
+<li
+  className="nav-item"
+>
+  <a
+    className="nav-link"
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    link.signIn
+  </a>
+</li>
+`;

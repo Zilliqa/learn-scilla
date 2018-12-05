@@ -16,18 +16,22 @@ interface IProps {
 interface IState {
   code: string;
   codeForDiff: string;
+  isCorrect: boolean;
   isAnswerVisible: boolean;
   isModalVisible: boolean;
-  isHintButtonVisible: boolean;
+  isAnswerButtonVisible: boolean;
+  showTryAgainMessage: boolean;
 }
 
 export default class EditorUI extends React.Component<IProps, IState> {
-  public readonly state = {
+  public readonly state: IState = {
     code: '',
     codeForDiff: this.props.answerCode,
+    isCorrect: false,
     isAnswerVisible: false,
     isModalVisible: false,
-    isHintButtonVisible: false
+    isAnswerButtonVisible: false,
+    showTryAgainMessage: false
   };
 
   public componentDidMount() {
@@ -38,15 +42,33 @@ export default class EditorUI extends React.Component<IProps, IState> {
     const nextLocation = nextProps.location;
     const currentLocation = this.props.location;
 
-    // if chapter changes, initialize state
+    // if lesson changes, initialize state
     if (nextLocation.pathname !== currentLocation.pathname) {
-      this.initializeState();
+      const newState = {
+        code: nextProps.initialCode,
+        codeForDiff: nextProps.answerCode,
+        isAnswerVisible: false,
+        isModalVisible: false,
+        isAnswerButtonVisible: false,
+        isCorrect: false,
+        showTryAgainMessage: false
+      };
+      this.initializeState(newState);
     }
   }
 
   public render(): React.ReactNode {
     const { t, answerCode } = this.props;
-    const { code, codeForDiff, isAnswerVisible, isHintButtonVisible, isModalVisible } = this.state;
+    const {
+      code,
+      codeForDiff,
+      isAnswerVisible,
+      isAnswerButtonVisible,
+      isModalVisible,
+      isCorrect,
+      showTryAgainMessage
+    } = this.state;
+
     return (
       <div>
         <Modal
@@ -59,14 +81,15 @@ export default class EditorUI extends React.Component<IProps, IState> {
           code={code}
           checkAnswer={this.checkAnswer}
           showHint={this.showHint}
-          isHintButtonVisible={isHintButtonVisible}
+          isAnswerButtonVisible={isAnswerButtonVisible}
           toggleShowAnswer={this.toggleShowAnswer}
           isAnswerVisible={isAnswerVisible}
+          showTryAgainMessage={showTryAgainMessage}
           t={t}
         >
           <DiffViewer
             codeForDiff={codeForDiff}
-            answerCode={answerCode}
+            answerCode={isCorrect ? code : answerCode}
             isAnswerVisible={isAnswerVisible}
             t={t}
           />
@@ -76,13 +99,13 @@ export default class EditorUI extends React.Component<IProps, IState> {
   }
 
   // Controls the visibility of answer code
-  public toggleShowAnswer = (): void => {
-    this.setState({ isAnswerVisible: !this.state.isAnswerVisible });
+  public toggleShowAnswer = (code: string): void => {
+    this.setState({ isAnswerVisible: !this.state.isAnswerVisible, code });
   };
 
   // Updates code for hint
   public showHint = (codeForDiff: string, cb): void => {
-    this.setState({ isHintButtonVisible: true, code: codeForDiff, codeForDiff }, cb);
+    this.setState({ isAnswerButtonVisible: true, code: codeForDiff, codeForDiff }, cb);
   };
 
   // Checks the code written by user if it's correct
@@ -93,24 +116,30 @@ export default class EditorUI extends React.Component<IProps, IState> {
       code,
       codeForDiff: code
     };
+
     if (isCorrect) {
       this.setState({
         isModalVisible: true,
+        isCorrect: true,
+        showTryAgainMessage: false,
         ...newState
       });
     } else {
-      this.setState({ ...newState });
+      const cb = () => setTimeout(() => this.setState({ showTryAgainMessage: false }), 1000);
+      this.setState(
+        {
+          showTryAgainMessage: true,
+          ...newState
+        },
+        cb
+      );
     }
   };
 
-  private initializeState = (): void => {
-    this.setState({
-      code: this.props.initialCode,
-      codeForDiff: this.props.answerCode,
-      isAnswerVisible: false,
-      isModalVisible: false,
-      isHintButtonVisible: false
-    });
+  private initializeState = (newState): void => {
+    // scroll to top
+    const scrollToTop = () => window.scrollTo(0, 0);
+    this.setState(newState, scrollToTop);
   };
 
   // Compares code written by user and the answer
@@ -123,12 +152,22 @@ export default class EditorUI extends React.Component<IProps, IState> {
   private formatCode = (code: string): string => {
     return code
       .split('\n')
-      .map((line) => line.replace(/\s\s+/g, ' ').trim())
-      .join('\n');
+      .map((line) => {
+        let lineStr: string = line;
+        if (lineStr.includes('(*') && lineStr.includes('*)')) {
+          const former = lineStr.slice(0, lineStr.lastIndexOf('(*'));
+          const latter = lineStr.slice(lineStr.lastIndexOf('*)') + 2, lineStr.length);
+          lineStr = former + latter;
+        }
+        return lineStr.replace(/\s\s+/g, ' ').trim();
+      })
+      .join('\n')
+      .replace(/\r?\n|\r/g, ' ')
+      .replace(/\s\s+/g, ' ')
+      .trim();
   };
 
   private handleProceed = (): void => {
-    this.initializeState();
     this.props.proceed();
   };
 }

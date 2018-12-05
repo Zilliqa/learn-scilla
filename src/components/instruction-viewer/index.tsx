@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import './index.css';
+import CodeBlock from './code-block';
+import CodeInline from './code-inline';
 
 interface IProps {
   instruction: string;
@@ -8,7 +10,11 @@ interface IProps {
 
 const InstructionViewer: React.SFC<IProps> = (props) => (
   <div className="code-instruction-container">
-    <ReactMarkdown source={props.instruction} />
+    <ReactMarkdown
+      className="result"
+      source={props.instruction}
+      renderers={{ code: CodeBlock, inlineCode: CodeInline }}
+    />
   </div>
 );
 

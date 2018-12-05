@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<li
+  className="dropdown nav-item"
+  onKeyDown={[Function]}
+>
+  <a
+    aria-expanded={false}
+    aria-haspopup={true}
+    className="dropdown-toggle nav-link"
+    href="#"
+    onClick={[Function]}
+  >
+    English [en]
+  </a>
+  <div
+    aria-hidden={true}
+    className="dropdown-menu dropdown-menu-right"
+    role="menu"
+    size="sm"
+    tabIndex="-1"
+  >
+    <button
+      className="text-secondary dropdown-item"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+      tabIndex="0"
+      type="button"
+    >
+      English [en]
+    </button>
+    <button
+      className="text-secondary dropdown-item"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+      tabIndex="0"
+      type="button"
+    >
+      Español [es]
+    </button>
+    <button
+      className="text-secondary dropdown-item"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+      tabIndex="0"
+      type="button"
+    >
+      日本語 [ja]
+    </button>
+    <button
+      className="text-secondary dropdown-item"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+      tabIndex="0"
+      type="button"
+    >
+      한국어 [ko]
+    </button>
+    <button
+      className="text-secondary dropdown-item"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+      tabIndex="0"
+      type="button"
+    >
+      中文 [zh]
+    </button>
+  </div>
+</li>
+`;

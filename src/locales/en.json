@@ -1,52 +1,38 @@
 {
-  "lesson": {
-    "lesson": "Lesson",
-    "congratulations": "Congratulations",
-    "listTitle": "Scilla Tutorial",
-    "chapterCompleteMessage": "You have completed this chapter.",
-    "lessonCompleteMessage": "You have completed this lesson.",
-    "nextLesson": "Proceed to Next Lesson"
-  },
-  "chapter":{
+  "chapter": {
     "chapter": "Chapter",
+    "goodjob": "Good Job",
+    "listTitle": "Scilla Tutorial",
+    "lessonCompleteMessage": "You have completed this lesson.",
+    "chapterCompleteMessage": "You have completed this chapter."
+  },
+  "lesson":{
+    "lesson": "Lesson",
     "back": "Back",
-    "next": "Skip",
-    "discuss": "Discuss"
+    "skip": "Skip",
+    "openChat": "Open Chat",
+    "nextLesson": "Proceed to Next Lesson"
   },
   "editor" : {
     "hint": "Hint",
     "showHint": "Show Hint",
     "showAnswer": "Show Answer",
     "hideAnswer": "Hide Answer",
-    "submitAnswer": "Check Answer"
-  },
-  "form": {
-    "submit":"Submit",
-    "cancel":"Cancel"
+    "checkAnswer": "Check Answer",
+    "tryAgain": "Try Again"
   },
   "account": {
-    "account": "Account"
+    "account": "Account",
+    "deleteAccount": "Delete Account"
   },
   "auth": {
-    "signUpTitle":"Sign Up",
-    "signInTitle":"Login",
-
     "signInWithGoogle": "Sign in with Google",
-    "signInWithGitHub": "Sign in with GitHub",
-
-    "checkYourEmail": "Check your email",
-    "email":"Email" ,
-    "emailMessage" : "email address required",
-    "emailInvalidMessage":"Invalid email",
-    "emailValidMessage":"Valid email"
-
+    "signInWithGitHub": "Sign in with GitHub"
   },
   "link": {
     "tutorial": "Tutorial",
-    "contentMenu": "Content Menu",
+    "tableOfContents": "Table of Contents",
     "signIn": "Login",
-    "signUp": "Sign up",
-    "signOut": "Logout",
-    "forgotPassword": "Forgot password"
+    "signOut": "Logout"
   }
 }

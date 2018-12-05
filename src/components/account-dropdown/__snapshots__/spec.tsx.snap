@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<li
+  className="dropdown nav-item"
+  onKeyDown={[Function]}
+>
+  <a
+    aria-expanded={false}
+    aria-haspopup={true}
+    className="active dropdown-toggle nav-link"
+    href="#"
+    onClick={[Function]}
+  >
+    noel
+  </a>
+  <div
+    aria-hidden={true}
+    className="dropdown-menu dropdown-menu-right"
+    role="menu"
+    size="sm"
+    tabIndex="-1"
+  >
+    <button
+      className="text-secondary dropdown-item"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+      tabIndex="0"
+      type="button"
+    >
+      account.account
+    </button>
+    <button
+      className="text-secondary dropdown-item"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+      tabIndex="0"
+      type="button"
+    >
+      link.signOut
+    </button>
+  </div>
+</li>
+`;

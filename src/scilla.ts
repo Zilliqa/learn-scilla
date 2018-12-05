@@ -236,10 +236,10 @@ export const language = {
     ],
 
     comment: [
-      [/[^\/*]+/, 'comment'],
-      [/\/\*/, 'comment', '@push'], // nested comment
-      ['\\*/', 'comment', '@pop'],
-      [/[\/*]/, 'comment']
+      [/[^\(*]+/, 'comment'],
+      [/\(\*/, 'comment', '@push'], // nested comment
+      [/\*\)/, 'comment', '@pop'],
+      [/[\(*]/, 'comment']
     ],
 
     string: [
@@ -249,6 +249,6 @@ export const language = {
       [/"/, { token: 'string.quote', bracket: '@close', next: '@pop' }]
     ],
 
-    whitespace: [[/[ \t\r\n]+/, 'white'], [/\/\*/, 'comment', '@comment'], [/\/\/.*$/, 'comment']]
+    whitespace: [[/[ \t\r\n]+/, 'white'], [/\(\*/, 'comment', '@comment'], [/\/\/.*$/, 'comment']]
   }
 };
