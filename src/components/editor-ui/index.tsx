@@ -114,8 +114,7 @@ export default class EditorUI extends React.Component<IProps, IState> {
     const isCorrect = this.compareAnswer(code, answerCode);
     const newState = {
       code,
-      codeForDiff: code,
-      showTryAgainMessage: true
+      codeForDiff: code
     };
 
     if (isCorrect) {
@@ -127,7 +126,13 @@ export default class EditorUI extends React.Component<IProps, IState> {
       });
     } else {
       const cb = () => setTimeout(() => this.setState({ showTryAgainMessage: false }), 1000);
-      this.setState({ ...newState }, cb);
+      this.setState(
+        {
+          showTryAgainMessage: true,
+          ...newState
+        },
+        cb
+      );
     }
   };
 
