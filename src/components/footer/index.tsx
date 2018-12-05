@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaGithub, FaGitter, FaTwitter } from 'react-icons/fa';
 import styles from './footer.module.css';
-
+import zilliqaImg from '../../assets/images/zilliqa.png';
 const copyright: string = 'Copyright © LearnScilla 2018';
 
 const Footer: React.SFC = () => (
@@ -12,10 +12,21 @@ const Footer: React.SFC = () => (
         <li className="nav-item">
           <a
             className="text-secondary nav-link"
+            href="https://zilliqa.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label={'Zilliqa Homepage'}
+          >
+            <img style={{ height: 16 }} src={zilliqaImg} alt="Zilliqa Logo" />
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            className="text-secondary nav-link"
             href="https://github.com/Zilliqa"
             target="_blank"
             rel="noreferrer"
-            aria-label={'zilliqa github'}
+            aria-label={'Zilliqa GitHub'}
           >
             <FaGithub />
           </a>
@@ -26,7 +37,7 @@ const Footer: React.SFC = () => (
             href="https://gitter.im/Zilliqa"
             target="_blank"
             rel="noreferrer"
-            aria-label={'zilliqa gitter'}
+            aria-label={'Zilliqa Gitter'}
           >
             <FaGitter />
           </a>
@@ -37,7 +48,7 @@ const Footer: React.SFC = () => (
             href="https://twitter.com/zilliqa"
             target="_blank"
             rel="noreferrer"
-            aria-label={'zilliqa twitter'}
+            aria-label={'Zilliqa Twitter'}
           >
             <FaTwitter />
           </a>
