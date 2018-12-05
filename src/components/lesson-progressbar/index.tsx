@@ -12,6 +12,7 @@ const LessonProgressbar: React.SFC<IProps> = ({ current, total }) => {
   // initialized array with the given total number
   const list = Array.from({ length: total });
   const percent = (1 / total) * 100;
+
   return (
     <Progress multi={true} className="lesson-progress-bar-container">
       {list.map((item, index) => (
@@ -19,11 +20,11 @@ const LessonProgressbar: React.SFC<IProps> = ({ current, total }) => {
           key={index}
           barClassName="lesson-progress-bar"
           bar={true}
-          color={current < index + 1 ? 'secondary' : 'primary'}
+          color={current < index ? 'secondary' : 'primary'}
           value={percent}
           max={total}
         >
-          {`L${index + 1}`}
+          {current === index ? <b>{`L${index + 1}`}</b> : `L${index + 1}`}
         </Progress>
       ))}
     </Progress>
