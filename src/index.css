@@ -6,8 +6,9 @@
   red600: #BE032A
 */
 
+.bg-primary,
 .btn-primary {
-  background-color: #3740ff;
+  background-color: #3740ff !important;
 }
 
 .btn-primary:hover,
