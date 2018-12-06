@@ -23,9 +23,7 @@ const LessonProgressbar: React.SFC<IProps> = ({ current, total }) => {
           color={current < index ? 'secondary' : 'primary'}
           value={percent}
           max={total}
-        >
-          {current === index ? <b>{`L${index + 1}`}</b> : `L${index + 1}`}
-        </Progress>
+        />
       ))}
     </Progress>
   );
