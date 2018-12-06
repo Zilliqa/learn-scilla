@@ -1,4 +1,5 @@
-.code-instruction-container {
+.instruction-viewer-container {
   height: 550px;
   overflow-y: scroll;
+  padding-right: 10px;
 }

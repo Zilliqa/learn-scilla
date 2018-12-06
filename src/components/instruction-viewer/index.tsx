@@ -8,14 +8,25 @@ interface IProps {
   instruction: string;
 }
 
-const InstructionViewer: React.SFC<IProps> = (props) => (
-  <div className="code-instruction-container">
-    <ReactMarkdown
-      className="result"
-      source={props.instruction}
-      renderers={{ code: CodeBlock, inlineCode: CodeInline }}
-    />
-  </div>
-);
+class InstructionViewer extends React.Component<IProps> {
+  private myRef = React.createRef<HTMLDivElement>();
 
+  public componentWillReceiveProps(nextProps) {
+    const node = this.myRef.current;
+    if (node) {
+      node.scrollTop = 0;
+    }
+  }
+
+  public render() {
+    return (
+      <div ref={this.myRef} className="instruction-viewer-container">
+        <ReactMarkdown
+          source={this.props.instruction}
+          renderers={{ code: CodeBlock, inlineCode: CodeInline }}
+        />
+      </div>
+    );
+  }
+}
 export default InstructionViewer;
