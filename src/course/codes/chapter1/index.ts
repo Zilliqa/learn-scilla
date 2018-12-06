@@ -29,13 +29,13 @@ field player_name : String = "Alice"`
 const l4: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = "Alice”
+field player_name : String = "Alice"
 
 (* Start typing from the line below *)
 `,
   answerCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = "Alice”
+field player_name : String = "Alice"
 
 (* Start typing from the line below *)
 Transition changeName()
@@ -45,41 +45,41 @@ end`
 const l5: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = "Alice”
+field player_name : String = "Alice"
 
 Transition changeName()
 (* Start typing from the line below *)
 end`,
   answerCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = "Alice”
+field player_name : String = "Alice"
 
 Transition changeName()
 (* Start typing from the line below *)
-newname=”Bob”
+newname = "Bob"
 end`
 };
 
 const l6: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = "Alice”
+field player_name : String = "Alice"
 
 Transition changeName()
 (* Now that we’ll be having another line, don’t forget to include a semicolon at the end of this line *)
-Newname = "Bob”
+Newname = "Bob"
 
 (* Start typing from the line below.  *)
 
 end`,
   answerCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = "Alice”
+field player_name : String = "Alice"
 
 
 Transition changeName()
 (* Now that we’ll be having another line, don’t forget to include a semicolon at the end of this line *)
-newname = ”Bob”;
+newname = "Bob";
 
 (* Start typing from the line below.  *)
 Player_name := newname
@@ -90,7 +90,7 @@ end`
 const l7: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = "Alice”
+field player_name : String = "Alice"
 
 (* Start typing in the parentheses below *)
 Transition changeName()
@@ -99,7 +99,7 @@ end
 `,
   answerCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = "Alice”
+field player_name : String = "Alice"
 
 (* Start typing in the parentheses below *)
 Transition changeName(newname: String)
@@ -110,7 +110,7 @@ end`
 const l8: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = "Alice”
+field player_name : String = "Alice"
 (* Declare the two new immutable variables below. You don’t need to use any semicolons to separate the lines outside the transitions *)
 
 Transition changeName(newname: String)
@@ -121,7 +121,7 @@ end
 `,
   answerCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = "Alice”
+field player_name : String = "Alice"
 (* Declare the two new immutable variables below. You don’t need to use any semicolons to separate the lines outside the transitions *)
 field player_address : ByStr20 = 0x1234567890123456789012345678901234567890
 field player_zeal: Uint128 = Uint128 0
@@ -139,7 +139,7 @@ end`
 const l9: LessonCodeType = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = "Alice”
+field player_name : String = "Alice"
 field player_address : ByStr20 = 0x1234567890123456789012345678901234567890
 field player_zeal: Uint128 = Uint128 0
 
@@ -153,7 +153,7 @@ end
 `,
   answerCode: `contract Zealgame
 (owner: ByStr20)
-field player_name : String = "Alice”
+field player_name : String = "Alice"
 field player_address : ByStr20 = 0x1234567890123456789012345678901234567890
 field player_zeal: Uint128 = Uint128 0
 
