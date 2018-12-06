@@ -1,7 +1,9 @@
 .lesson-progress-bar-container {
-  max-width: 860px;
+  max-width: 720px;
   margin: auto;
+  height: 5px;
 }
+
 .lesson-progress-bar {
   margin-left: 1px;
   margin-right: 1px;
