@@ -16,6 +16,11 @@
 .btn-primary:focus {
   background-color: #3038e0;
 }
+
+.text-danger {
+  color: #E2051A;
+}
+
 .btn-danger {
   background-color: #E2051A;
 }

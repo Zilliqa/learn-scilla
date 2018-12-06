@@ -10,7 +10,7 @@ interface IProps {
   showHint: (code: string, cb?) => void;
   isAnswerVisible: boolean;
   isAnswerButtonVisible: boolean;
-  showTryAgainMessage: boolean;
+  showTryAgain: boolean;
   toggleShowAnswer: (code: string) => void;
   checkAnswer: (code: string) => void;
 }
@@ -27,7 +27,7 @@ export default class Editor extends React.Component<IProps, IState> {
   };
 
   public render() {
-    const { t, isAnswerVisible, isAnswerButtonVisible, showTryAgainMessage } = this.props;
+    const { t, isAnswerVisible, isAnswerButtonVisible, showTryAgain } = this.props;
     const options = {
       selectOnLineNumbers: true,
       roundedSelection: false,
@@ -56,7 +56,7 @@ export default class Editor extends React.Component<IProps, IState> {
           handleCheckAnswer={this.handleCheckAnswer}
           isAnswerVisible={isAnswerVisible}
           isAnswerButtonVisible={isAnswerButtonVisible}
-          showTryAgainMessage={showTryAgainMessage}
+          showTryAgain={showTryAgain}
         />
       </div>
     );

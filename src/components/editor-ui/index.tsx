@@ -20,7 +20,7 @@ interface IState {
   isAnswerVisible: boolean;
   isModalVisible: boolean;
   isAnswerButtonVisible: boolean;
-  showTryAgainMessage: boolean;
+  showTryAgain: boolean;
 }
 
 export default class EditorUI extends React.Component<IProps, IState> {
@@ -31,7 +31,7 @@ export default class EditorUI extends React.Component<IProps, IState> {
     isAnswerVisible: false,
     isModalVisible: false,
     isAnswerButtonVisible: false,
-    showTryAgainMessage: false
+    showTryAgain: false
   };
 
   public componentDidMount() {
@@ -51,7 +51,7 @@ export default class EditorUI extends React.Component<IProps, IState> {
         isModalVisible: false,
         isAnswerButtonVisible: false,
         isCorrect: false,
-        showTryAgainMessage: false
+        showTryAgain: false
       };
       this.initializeState(newState);
     }
@@ -66,7 +66,7 @@ export default class EditorUI extends React.Component<IProps, IState> {
       isAnswerButtonVisible,
       isModalVisible,
       isCorrect,
-      showTryAgainMessage
+      showTryAgain
     } = this.state;
 
     return (
@@ -84,13 +84,14 @@ export default class EditorUI extends React.Component<IProps, IState> {
           isAnswerButtonVisible={isAnswerButtonVisible}
           toggleShowAnswer={this.toggleShowAnswer}
           isAnswerVisible={isAnswerVisible}
-          showTryAgainMessage={showTryAgainMessage}
+          showTryAgain={showTryAgain}
           t={t}
         >
           <DiffViewer
             codeForDiff={codeForDiff}
             answerCode={isCorrect ? code : answerCode}
             isAnswerVisible={isAnswerVisible}
+            showTryAgain={showTryAgain}
             t={t}
           />
         </Editor>
@@ -121,14 +122,14 @@ export default class EditorUI extends React.Component<IProps, IState> {
       this.setState({
         isModalVisible: true,
         isCorrect: true,
-        showTryAgainMessage: false,
+        showTryAgain: false,
         ...newState
       });
     } else {
-      const cb = () => setTimeout(() => this.setState({ showTryAgainMessage: false }), 1000);
+      const cb = () => setTimeout(() => this.setState({ showTryAgain: false }), 1000);
       this.setState(
         {
-          showTryAgainMessage: true,
+          showTryAgain: true,
           ...newState
         },
         cb
