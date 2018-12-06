@@ -1,5 +1,10 @@
 .instruction-viewer-container {
   height: 550px;
   overflow-y: scroll;
+  padding-top: 10px;
   padding-right: 10px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+
+  /* border-bottom: 1px solid #eaeaea; */
 }
