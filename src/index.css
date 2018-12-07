@@ -14,7 +14,7 @@
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:focus {
-  background-color: #3038e0;
+  background-color: #3038e0 !important;
 }
 
 .text-danger {
