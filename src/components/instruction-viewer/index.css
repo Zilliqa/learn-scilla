@@ -1,4 +1,22 @@
-.code-instruction-container {
+.instruction-viewer-container {
   height: 550px;
   overflow-y: scroll;
+  overflow-x: auto;
+  padding-top: 10px;
+  padding-right: 10px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+div.instruction-viewer-container::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+div.instruction-viewer-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
+}
+
+div.instruction-viewer-container::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
 }

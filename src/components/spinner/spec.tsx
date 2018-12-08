@@ -1,8 +1,21 @@
 import React from 'react';
-import Spinner from '.';
 import * as renderer from 'react-test-renderer';
+import ReactDOM from 'react-dom';
+import Spinner from '.';
 
-it('renders correctly', () => {
-  const tree = renderer.create(<Spinner />).toJSON();
-  expect(tree).toMatchSnapshot();
+describe('Spinner tests', () => {
+  const baseComponent = () => <Spinner />;
+
+  describe('basic tests', () => {
+    it('matches the snapshot', () => {
+      const tree = renderer.create(baseComponent()).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it('renders without crashing', () => {
+      const div = document.createElement('div');
+      ReactDOM.render(baseComponent(), div);
+      ReactDOM.unmountComponentAtNode(div);
+    });
+  });
 });

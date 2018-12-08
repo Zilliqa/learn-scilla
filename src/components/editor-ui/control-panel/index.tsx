@@ -12,7 +12,7 @@ interface IProps {
   t: (key: string) => string;
   isAnswerButtonVisible: boolean;
   isAnswerVisible: boolean;
-  showTryAgainMessage: boolean;
+  showTryAgain: boolean;
 
   handleCheckAnswer: (e) => void;
   hanldleToggle: (e) => void;
@@ -20,13 +20,13 @@ interface IProps {
 }
 
 const ControlPanel: React.SFC<IProps> = (props) => {
-  const { isAnswerButtonVisible, isAnswerVisible, showTryAgainMessage, t } = props;
+  const { isAnswerButtonVisible, isAnswerVisible, showTryAgain, t } = props;
   const showAnswerButtonText = t(isAnswerVisible ? 'editor.hideAnswer' : 'editor.showAnswer');
   const showAnswerButtonIcon = isAnswerVisible ? <FaRegEyeSlash /> : <FaRegEye />;
 
-  const checkAnswerButtonText = t(showTryAgainMessage ? 'editor.tryAgain' : 'editor.checkAnswer');
-  const checkAnswerButtonStyle = showTryAgainMessage ? 'btn-danger' : 'btn-primary';
-  const checkAnswerButtonIcon = showTryAgainMessage ? <FaTimes /> : <FaCheck />;
+  const checkAnswerButtonText = t(showTryAgain ? 'editor.tryAgain' : 'editor.checkAnswer');
+  const checkAnswerButtonStyle = showTryAgain ? 'btn-danger' : 'btn-primary';
+  const checkAnswerButtonIcon = showTryAgain ? <FaTimes /> : <FaCheck />;
 
   return (
     <div>

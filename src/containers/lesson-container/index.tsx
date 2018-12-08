@@ -50,7 +50,7 @@ class LessonContainer extends React.Component<IProps, IState> {
     const codeLessonList = codes[chapterIndex] || [];
     const total: number = codeLessonList.length || 0;
 
-    const code = codeLessonList[lessonIndex] || {};
+    const code = codeLessonList[lessonIndex] || { initialCode: undefined, answerCode: undefined };
     const { initialCode, answerCode } = code;
     const documentTitle = `LearnScilla -
     ${t('chapter.chapter')} ${chapterNumber} ${t('lesson.lesson')} ${lessonNumber}
@@ -65,10 +65,10 @@ class LessonContainer extends React.Component<IProps, IState> {
           <LessonProgressbar current={lessonIndex} total={total} />
           <br />
           <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
               <InstructionViewer instruction={instruction} />
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
               <Suspense fallback={<Spinner />}>
                 <EditorUI
                   initialCode={initialCode}
