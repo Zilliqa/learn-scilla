@@ -6,8 +6,8 @@ exports[`Lesson Navigator tests basic tests matches the snapshot 1`] = `
   role="group"
 >
   <button
-    aria-label="back"
-    className="btn btn-outline-secondary btn-sm"
+    aria-label="Back"
+    className="btn btn-sm btn-outline-secondary undefined"
     disabled={false}
     onClick={[Function]}
   >
@@ -30,13 +30,15 @@ exports[`Lesson Navigator tests basic tests matches the snapshot 1`] = `
     </svg>
      
     lesson.back
+     
   </button>
   <button
-    aria-label="skip"
-    className="btn btn-outline-secondary btn-sm"
+    aria-label="Skip"
+    className="btn btn-sm btn-outline-secondary undefined"
     disabled={false}
     onClick={[Function]}
   >
+     
     lesson.skip
      
     <svg

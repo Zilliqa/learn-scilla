@@ -3,6 +3,7 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 import Modal from 'reactstrap/lib/Modal';
 import Spinner from '../../components/spinner';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
+import Button from '../button';
 
 interface IProps {
   t: (key: string) => string;
@@ -37,22 +38,22 @@ class AuthModal extends React.Component<IProps, IState> {
             ) : (
               <div className="py-3 text-center">
                 <div className="py-1">
-                  <button
-                    className="btn btn-outline-secondary"
+                  <Button
+                    type="secondary"
+                    text={t('auth.signInWithGoogle')}
                     onClick={() => this.signIn('google')}
-                    aria-label={'sign in with google'}
-                  >
-                    <FaGoogle /> {t('auth.signInWithGoogle')}
-                  </button>
+                    ariaLabel={'Login with Google'}
+                    icon={{ image: <FaGoogle />, position: 'before' }}
+                  />
                 </div>
                 <div className="py-1">
-                  <button
-                    className="btn btn-outline-secondary"
+                  <Button
+                    type="secondary"
+                    text={t('auth.signInWithGitHub')}
                     onClick={() => this.signIn('github')}
-                    aria-label={'sign in with github'}
-                  >
-                    <FaGithub /> {t('auth.signInWithGitHub')}
-                  </button>
+                    ariaLabel={'Login with GitHub'}
+                    icon={{ image: <FaGithub />, position: 'before' }}
+                  />
                 </div>
               </div>
             )}

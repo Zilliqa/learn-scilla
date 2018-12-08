@@ -1,10 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import Footer from '.';
+import { FaCheck } from 'react-icons/fa';
+import Button from '.';
 
 describe('Footer tests', () => {
-  const baseComponent = () => <Footer />;
+  const baseComponent = (props?: object) => (
+    <Button
+      type="secondary"
+      text={'ButtonText'}
+      disabled={false}
+      onClick={() => console.log('click')}
+      ariaLabel={'Test Button'}
+      icon={{ image: <FaCheck />, position: 'before' }}
+      size="sm"
+    />
+  );
 
   describe('basic tests', () => {
     it('matches the snapshot', () => {
