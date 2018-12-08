@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly while loading 1`] = `
+exports[`Lesson Navigator tests basic tests matches the snapshot 1`] = `
 <div
   className="btn-group"
   role="group"
