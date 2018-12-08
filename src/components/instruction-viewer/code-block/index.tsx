@@ -1,6 +1,6 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
-import './index.css';
+import './style.css';
 
 interface IProps {
   value: string;
