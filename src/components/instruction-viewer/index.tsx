@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import './index.css';
+import './style.css';
 import CodeBlock from './code-block';
 import CodeInline from './code-inline';
 
