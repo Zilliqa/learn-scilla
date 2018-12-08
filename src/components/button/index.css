@@ -1,0 +1,23 @@
+.btn-primary {
+  background-color: #3740ff !important;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: #3038e0 !important;
+}
+
+.text-danger {
+  color: #E2051A;
+}
+
+.btn-danger {
+  background-color: #E2051A;
+}
+
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger:focus {
+  background-color: #BE032A;
+}

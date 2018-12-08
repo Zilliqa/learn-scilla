@@ -7,6 +7,7 @@ import {
   FaRegComments,
   FaTimes
 } from 'react-icons/fa';
+import Button from '../../button';
 
 interface IProps {
   t: (key: string) => string;
@@ -25,35 +26,38 @@ const ControlPanel: React.SFC<IProps> = (props) => {
   const showAnswerButtonIcon = isAnswerVisible ? <FaRegEyeSlash /> : <FaRegEye />;
 
   const checkAnswerButtonText = t(showTryAgain ? 'editor.tryAgain' : 'editor.checkAnswer');
-  const checkAnswerButtonStyle = showTryAgain ? 'btn-danger' : 'btn-primary';
+  const checkAnswerButtonType = showTryAgain ? 'danger' : 'primary';
   const checkAnswerButtonIcon = showTryAgain ? <FaTimes /> : <FaCheck />;
 
   return (
     <div>
       <div className="text-right">
-        <button
-          className={`btn ${checkAnswerButtonStyle} btn-sm`}
+        <Button
+          type={checkAnswerButtonType}
+          text={checkAnswerButtonText}
+          icon={{ image: checkAnswerButtonIcon, position: 'before' }}
           onClick={props.handleCheckAnswer}
-          aria-label={'check answer'}
-        >
-          {checkAnswerButtonIcon} {checkAnswerButtonText}
-        </button>{' '}
+          ariaLabel={'Check Answer'}
+          size="sm"
+        />{' '}
         {isAnswerButtonVisible ? (
-          <button
-            className="btn btn-outline-secondary btn-sm"
+          <Button
+            type={'secondary'}
+            text={showAnswerButtonText}
+            icon={{ image: showAnswerButtonIcon, position: 'before' }}
             onClick={props.hanldleToggle}
-            aria-label={'show answer'}
-          >
-            {showAnswerButtonIcon} {showAnswerButtonText}
-          </button>
+            ariaLabel={'Show Answer'}
+            size="sm"
+          />
         ) : null}{' '}
-        <button
-          className="btn btn-outline-secondary btn-sm"
+        <Button
+          type={'secondary'}
+          text={t('editor.showHint')}
           onClick={props.handleShowHint}
-          aria-label={'show hint'}
-        >
-          <FaRegLightbulb /> {t('editor.showHint')}
-        </button>{' '}
+          ariaLabel={'Show Answer'}
+          icon={{ image: <FaRegLightbulb />, position: 'before' }}
+          size="sm"
+        />{' '}
         <a
           className="btn btn-outline-secondary btn-sm"
           href={'https://gitter.im/Zilliqa/SmartContract'}
