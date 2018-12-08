@@ -1,8 +1,21 @@
 import React from 'react';
-import ChapterProgressbar from '.';
+import ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
+import ChapterProgressbar from '.';
 
-it('renders correctly', () => {
-  const tree = renderer.create(<ChapterProgressbar current={5} total={10} />).toJSON();
-  expect(tree).toMatchSnapshot();
+describe('Lesson Progressbar tests', () => {
+  const baseComponent = () => <ChapterProgressbar current={5} total={10} />;
+
+  describe('basic tests', () => {
+    it('matches the snapshot', () => {
+      const tree = renderer.create(baseComponent()).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it('renders without crashing', () => {
+      const div = document.createElement('div');
+      ReactDOM.render(baseComponent(), div);
+      ReactDOM.unmountComponentAtNode(div);
+    });
+  });
 });
