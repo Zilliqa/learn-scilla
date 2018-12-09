@@ -7,8 +7,6 @@ import * as H from 'history';
 import ChapterCompleteCard from '../../components/chapter-complete-card';
 import LessonProgressbar from '../../components/lesson-progressbar';
 import EditorUI from '../../components/editor-ui';
-// const EditorUI = lazy(() => import('../../components/editor-ui'));
-
 import InstructionViewer from '../../components/instruction-viewer';
 import LessonNavigator from '../../components/lesson-navigator';
 import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
@@ -90,8 +88,7 @@ class LessonContainer extends React.Component<IProps, IState> {
               )}
             </div>
           </div>
-          <br />
-          <div className="text-right">
+          <div className="text-center py-4">
             <LessonNavigator
               goBack={this.goBack}
               goNext={this.goNext}
