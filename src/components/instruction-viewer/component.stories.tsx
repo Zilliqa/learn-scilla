@@ -2,8 +2,6 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import InstructionViewer from '.';
-import CodeBlock from '../instruction-code-block';
-import CodeInline from '../instruction-code-inline';
 
 const l1 = `
 ## Lesson 1: Contract declaration \n
@@ -20,7 +18,7 @@ Note: The contract name has to start with a capital letter.
 `;
 
 storiesOf('Instruction Viewer', module).add('default', () => (
-  <InstructionViewer instruction={l1} code={CodeBlock} inlineCode={CodeInline} />
+  <InstructionViewer instruction={l1} />
 ));
 // .add('at the first lesson', () => (
 //   <LessonNavigator lessonNumber={0} total={5} goNext={goNext} goBack={goBack} t={t} />

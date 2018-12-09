@@ -14,8 +14,6 @@ import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 import Spinner from '../../components/spinner';
 import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
-import CodeBlock from '../../components/instruction-code-block';
-import CodeInline from '../../components/instruction-code-inline';
 
 interface IProps {
   i18n: {
@@ -72,11 +70,7 @@ class LessonContainer extends React.Component<IProps, IState> {
           <br />
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
-              <InstructionViewer
-                instruction={instruction}
-                code={CodeBlock}
-                inlineCode={CodeInline}
-              />
+              <InstructionViewer instruction={instruction} />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
               {isLastLesson ? (
