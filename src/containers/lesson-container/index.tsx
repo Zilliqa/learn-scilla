@@ -4,7 +4,7 @@ import { withNamespaces } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import Layout from '../../components/layout';
 import * as H from 'history';
-
+import ChapterCompleteCard from '../../components/chapter-complete-card';
 import LessonProgressbar from '../../components/lesson-progressbar';
 import EditorUI from '../../components/editor-ui';
 // const EditorUI = lazy(() => import('../../components/editor-ui'));
@@ -41,18 +41,24 @@ class LessonContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
     const { codes, location, t } = this.props;
 
-    const chapterNumber = this.getChapterNumber();
-    const chapterIndex = chapterNumber - 1;
-    const lessonNumber = this.getChatperNumber();
-    const lessonIndex = lessonNumber - 1;
+    const chapterNumber: number = this.getChapterNumber();
+    const chapterIndex: number = chapterNumber - 1;
+    const lessonNumber: number = this.getChatperNumber();
+    const lessonIndex: number = lessonNumber - 1;
     const instruction = this.getInstruction();
 
     const codeLessonList = codes[chapterIndex] || [];
-    const total: number = codeLessonList.length || 0;
+
+    const numOfTotalChapter: number = codes.length;
+
+    const numOfTotalLesson: number = codeLessonList.length || 0;
+
+    // Check if the current lesson is the end of this chapter.
+    const isLastLesson: boolean = lessonNumber === numOfTotalLesson;
 
     const code = codeLessonList[lessonIndex] || { initialCode: undefined, answerCode: undefined };
     const { initialCode, answerCode } = code;
-    const documentTitle = `LearnScilla -
+    const documentTitle: string = `LearnScilla -
     ${t('chapter.chapter')} ${chapterNumber} ${t('lesson.lesson')} ${lessonNumber}
     `;
 
@@ -62,22 +68,26 @@ class LessonContainer extends React.Component<IProps, IState> {
           <title>{documentTitle}</title>
         </Helmet>
         <div>
-          <LessonProgressbar current={lessonIndex} total={total} />
+          <LessonProgressbar current={lessonIndex} total={numOfTotalLesson} />
           <br />
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
               <InstructionViewer instruction={instruction} />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
-              <Suspense fallback={<Spinner />}>
-                <EditorUI
-                  initialCode={initialCode}
-                  answerCode={answerCode}
-                  t={t}
-                  proceed={this.goNext}
-                  location={location}
-                />
-              </Suspense>
+              {isLastLesson ? (
+                <ChapterCompleteCard t={t} total={numOfTotalChapter} chapter={chapterNumber} />
+              ) : (
+                <Suspense fallback={<Spinner />}>
+                  <EditorUI
+                    initialCode={initialCode}
+                    answerCode={answerCode}
+                    t={t}
+                    proceed={this.goNext}
+                    location={location}
+                  />
+                </Suspense>
+              )}
             </div>
           </div>
           <br />
@@ -86,7 +96,7 @@ class LessonContainer extends React.Component<IProps, IState> {
               goBack={this.goBack}
               goNext={this.goNext}
               lessonNumber={lessonNumber}
-              total={total}
+              total={numOfTotalLesson}
               t={t}
             />
           </div>
@@ -136,22 +146,12 @@ class LessonContainer extends React.Component<IProps, IState> {
 
   private navigateToNextLesson = (currentChapter: number, currentLesson: number) => {
     const { history, codes } = this.props;
+
     // Check if code is undefined
     if (codes === undefined) {
       return;
     }
-    const chapterIndex = currentChapter - 1;
-    const codeLessonList = codes[chapterIndex] || [];
-
-    // Calculate total
-    const total = codeLessonList.length;
-
-    // Check if the current lesson is the end of this chapter.
-    const isLastLesson = currentLesson === total;
-    // If the last lesson, go to chapter complete page
-    const nextLessonPath = isLastLesson
-      ? `/chapter-complete/${currentChapter}`
-      : `/chapter/${currentChapter}/lesson/${currentLesson + 1}`;
+    const nextLessonPath = `/chapter/${currentChapter}/lesson/${currentLesson + 1}`;
 
     // Navigate to next lesson
     history.push(nextLessonPath);
