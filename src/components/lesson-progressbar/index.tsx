@@ -1,6 +1,6 @@
 import React from 'react';
 import { Progress } from 'reactstrap';
-import './index.css';
+import './style.css';
 
 interface IProps {
   current: number;

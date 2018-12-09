@@ -2,7 +2,7 @@ import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 import ControlPanel from '../control-panel';
 import { language, configuration } from '../../../scilla';
-import './index.css';
+import './style.css';
 
 interface IProps {
   t: (key: string) => string;

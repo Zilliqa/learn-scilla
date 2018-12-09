@@ -1,3 +1,7 @@
+.bg-primary {
+  background-color: #3740ff !important;
+}
+
 .lesson-progress-bar-container {
   max-width: 720px;
   margin: auto;

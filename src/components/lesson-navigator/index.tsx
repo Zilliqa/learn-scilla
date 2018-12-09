@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import Button from '../button';
 
 interface IProps {
   t: (key: string) => string;
@@ -17,22 +18,25 @@ const LessonNavigator: React.SFC<IProps> = (props) => {
 
   return (
     <div role="group" className="btn-group">
-      <button
-        className="btn btn-outline-secondary btn-sm"
+      <Button
+        type="secondary"
+        size="sm"
+        text={t('lesson.back')}
         onClick={goBack}
         disabled={isBackButtonDisabled}
-        aria-label={'back'}
-      >
-        <FaArrowLeft /> {t('lesson.back')}
-      </button>
-      <button
-        className="btn btn-outline-secondary btn-sm"
+        ariaLabel={'Back'}
+        icon={{ image: <FaArrowLeft />, position: 'before' }}
+      />
+
+      <Button
+        type="secondary"
+        size="sm"
+        text={t('lesson.skip')}
         onClick={goNext}
         disabled={isProceedButtonDisabled}
-        aria-label={'skip'}
-      >
-        {t('lesson.skip')} <FaArrowRight />
-      </button>
+        ariaLabel={'Skip'}
+        icon={{ image: <FaArrowRight />, position: 'after' }}
+      />
     </div>
   );
 };

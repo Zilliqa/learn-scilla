@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './spinner.module.css';
+import styles from './style.module.css';
 
 // Renders spinner to visualize loading status
 const Spinner: React.SFC = () => (

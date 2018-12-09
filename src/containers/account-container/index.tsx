@@ -9,6 +9,7 @@ import * as H from 'history';
 
 import Spinner from '../../components/spinner';
 import { paths } from '../../routes';
+import Button from '../../components/button';
 
 interface IProps {
   t: (key: string) => string;
@@ -41,13 +42,14 @@ class AccountContainer extends React.Component<IProps, {}> {
                       <p>Since {new Date(parseInt(createdAt, 10)).toLocaleDateString()}</p>
                     )}
                     <br />
-                    <button
-                      className="btn btn-sm btn-outline-secondary"
+
+                    <Button
+                      type="secondary"
+                      size="sm"
+                      text={t('account.deleteAccount')}
                       onClick={this.deleteAccount}
-                      aria-label={'delete account'}
-                    >
-                      <small>{t('account.deleteAccount')}</small>
-                    </button>
+                      ariaLabel={'Delete Account'}
+                    />
                   </div>
                 ) : (
                   <Spinner />

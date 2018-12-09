@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'reactstrap/lib/Modal';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
 import { FaMedal } from 'react-icons/fa';
+import Button from '../../button';
 
 interface IProps {
   t: (key: string) => string;
@@ -20,9 +21,12 @@ const CodeModal: React.SFC<IProps> = (props) => {
         </ModalHeader>
         <div className="modal-body">{t('chapter.lessonCompleteMessage')}</div>
         <div className="modal-footer">
-          <button className="btn btn-primary" onClick={onSubmit} aria-label={'next'}>
-            {t('lesson.nextLesson')}
-          </button>
+          <Button
+            type="primary"
+            text={t('lesson.nextLesson')}
+            onClick={onSubmit}
+            ariaLabel={'Next'}
+          />
         </div>
       </Modal>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MonacoDiffEditor } from 'react-monaco-editor';
-import './index.css';
+import './style.css';
 
 interface IProps {
   isAnswerVisible: boolean;
