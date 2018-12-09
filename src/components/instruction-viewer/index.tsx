@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import './style.css';
-import CodeBlock from './code-block';
-import CodeInline from './code-inline';
 
 interface IProps {
   instruction: string;
+  inlineCode: React.SFC<any>;
+  code: React.SFC<any>;
 }
 
 class InstructionViewer extends React.Component<IProps> {
@@ -19,12 +19,10 @@ class InstructionViewer extends React.Component<IProps> {
   }
 
   public render() {
+    const { code, inlineCode } = this.props;
     return (
       <div ref={this.myRef} className="instruction-viewer-container">
-        <ReactMarkdown
-          source={this.props.instruction}
-          renderers={{ code: CodeBlock, inlineCode: CodeInline }}
-        />
+        <ReactMarkdown source={this.props.instruction} renderers={{ code, inlineCode }} />
       </div>
     );
   }

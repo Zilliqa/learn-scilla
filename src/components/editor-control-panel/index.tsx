@@ -7,7 +7,7 @@ import {
   FaRegComments,
   FaTimes
 } from 'react-icons/fa';
-import Button from '../../button';
+import Button from '../button';
 
 interface IProps {
   t: (key: string) => string;
