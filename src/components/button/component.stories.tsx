@@ -4,7 +4,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import Button from '.';
 
-storiesOf('button', module)
+storiesOf('Button', module)
   .add('type', () => (
     <div>
       <Button

@@ -6,7 +6,7 @@ import Layout from '../../components/layout';
 import * as H from 'history';
 import ChapterCompleteCard from '../../components/chapter-complete-card';
 import LessonProgressbar from '../../components/lesson-progressbar';
-import EditorUI from '../../components/editor-ui';
+import EditorUI from '../../components/editor-wrapper';
 import InstructionViewer from '../../components/instruction-viewer';
 import LessonNavigator from '../../components/lesson-navigator';
 import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
@@ -14,6 +14,8 @@ import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 import Spinner from '../../components/spinner';
 import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
+import CodeBlock from '../../components/instruction-code-block';
+import CodeInline from '../../components/instruction-code-inline';
 
 interface IProps {
   i18n: {
@@ -70,7 +72,11 @@ class LessonContainer extends React.Component<IProps, IState> {
           <br />
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
-              <InstructionViewer instruction={instruction} />
+              <InstructionViewer
+                instruction={instruction}
+                code={CodeBlock}
+                inlineCode={CodeInline}
+              />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
               {isLastLesson ? (
