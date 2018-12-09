@@ -21,7 +21,8 @@
     "ci": "npm run tslint && npm run format && npm run test:ci",
     "deploy": "firebase deploy",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
     "firebase": "^5.5.9",
@@ -42,6 +43,12 @@
     "redux": "^4.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@storybook/addon-actions": "^4.1.0-alpha.11",
+    "@storybook/addon-links": "^4.1.0-alpha.11",
+    "@storybook/addons": "^4.1.0-alpha.11",
+    "@storybook/react": "^4.1.0-alpha.11",
+    "@storybook/storybook-deployer": "^2.8.1",
     "@types/history": "^4.7.2",
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.10",
@@ -54,6 +61,7 @@
     "@types/reactstrap": "^6.4.2",
     "@types/storybook__react": "^4.0.0",
     "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.4",
     "bootstrap": ">=4.1.2",
     "jest": "^23.6.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
@@ -63,13 +71,7 @@
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.16.0",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.2.2",
-    "@babel/core": "^7.2.0",
-    "babel-loader": "^8.0.4",
-    "@storybook/react": "^4.1.0-alpha.11",
-    "@storybook/addon-actions": "^4.1.0-alpha.11",
-    "@storybook/addon-links": "^4.1.0-alpha.11",
-    "@storybook/addons": "^4.1.0-alpha.11"
+    "typescript": "^3.2.2"
   },
   "browserslist": [
     ">0.2%",
