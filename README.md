@@ -1,5 +1,5 @@
 
-[![Build Status](https://travis-ci.com/noelyoo/learn-scilla.svg?branch=master)](https://travis-ci.com/noelyoo/learn-scilla) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/noelyoo/learn-scilla/pulls) [![License](https://img.shields.io/cran/l/devtools.svg)](https://github.com/noelyoo/learn-scilla/blob/master/LICENSE) [![Gitter chat](http://img.shields.io/badge/chat-on%20gitter-077a8f.svg)](https://gitter.im/Zilliqa/SmartContract)
+[![Build Status](https://travis-ci.com/noelyoo/learn-scilla.svg?branch=master)](https://travis-ci.com/noelyoo/learn-scilla) [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![Storybook](https://github.com/storybooks/press/blob/master/badges/storybook.svg)](https://noelyoo.github.io/learn-scilla/) [![License](https://img.shields.io/cran/l/devtools.svg)](https://github.com/noelyoo/learn-scilla/blob/master/LICENSE) [![Gitter chat](http://img.shields.io/badge/chat-on%20gitter-077a8f.svg)](https://gitter.im/Zilliqa/SmartContract) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/noelyoo/learn-scilla/pulls) 
 
 # learn-scilla 
 

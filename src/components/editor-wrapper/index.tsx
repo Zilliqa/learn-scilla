@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Editor from './editor';
-import DiffViewer from './diff-viewer';
-import Modal from './modal';
+import Editor from '../editor';
+import DiffViewer from '../diff-viewer';
+import Modal from '../lesson-complete-modal';
 import * as H from 'history';
 
 interface IProps {

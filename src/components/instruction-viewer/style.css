@@ -9,8 +9,8 @@
 }
 
 div.instruction-viewer-container::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 3px;
+  height: 3px;
 }
 
 div.instruction-viewer-container::-webkit-scrollbar-track {

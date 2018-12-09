@@ -7,10 +7,10 @@ The contract that you’ll be deploying to the blockchain has to have a name by 
 The format for specifying is simply
 
 \`\`\`
-Contract [Contract Name]
+contract [ContractName]
 \`\`\`
 
-Where you replace the \`[Contract Name]\` with the actual name for your contract.
+Where you replace the \`[ContractName]\` with the actual name for your contract.
 Note: The contract name has to start with a capital letter.
 `;
 const l2 = `
@@ -27,14 +27,14 @@ For eg. you may want to store a wallet address (which can serve like an identity
 You can then use this immutable variable as a check so that certain functions in the contract can only be carried out by the owner.
 The format for specifying an immutable variable is:
 \`\`\`
-Contract ContractName
+contract ContractName
 (variablename1 : variabletype1)
 \`\`\`
 Where \`variablename1\` and \`variabletype1\` can be replaced by the chosen variable name and type.
 
 If there are multiple immutable variables, then you can include them as follows:
 \`\`\`
-Contract ContractName
+contract ContractName
 (
   variablename1 : variabletype1,
   variablename2 : variabletype2,

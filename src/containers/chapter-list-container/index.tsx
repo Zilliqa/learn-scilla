@@ -36,7 +36,7 @@ class ChapterContainer extends React.Component<IProps, {}> {
           <title>{documentTitle}</title>
         </Helmet>
         <div className="container">
-          <div style={{ paddingTop: 30, paddingBottom: 100 }}>
+          <div style={{ paddingTop: 80, paddingBottom: 200 }}>
             <div className="row py-5">
               <div className="col-sm-10 col-md-8 col-lg-5 mr-auto ml-auto text-center">
                 <h3>{t('chapter.listTitle')}</h3>
