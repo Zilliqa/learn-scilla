@@ -33,6 +33,10 @@ Builds the app for production to the build folder.
 Runs the test watcher in an interactive mode.
 We use [Jest](https://jestjs.io/) for testing.
 
+## UI components
+
+UI components library can be found on [Storybook](https://noelyoo.github.io/learn-scilla).
+
 ## Style guideline
 
 We use [TSLint](https://palantir.github.io/tslint/) with custom configs to keep our code style consistent. We also use [Prettier](https://prettier.io/) to auto-format our code. Be sure to either add a [text editor integration](https://prettier.io/docs/en/editors.html) to properly format your code changes.
