@@ -1,15 +1,8 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import colors from './colors';
-
-const keyList = Object.keys(colors);
-const getStyle = (key) => ({
-  color: key === 'white' ? 'black' : 'white',
-  backgroundColor: colors[key]
-});
 
 storiesOf('Text', module)
-  .add('Typography', () => (
+  .add('typography', () => (
     <div>
       <h1>h1 Noto Sans</h1>
       <h2>h2 Noto Sans</h2>
@@ -29,5 +22,18 @@ storiesOf('Text', module)
       <br />
       <p>p default</p>
       <p className="text-secondary">p secondary</p>
+    </div>
+  ))
+  .add('font weights', () => (
+    <div>
+      <h1 className="text-secondary" style={{ fontWeight: 300 }}>
+        h1 300 Noto Sans Light
+      </h1>
+      <h1 className="text-secondary" style={{ fontWeight: 400 }}>
+        h1 400 Noto Sans Regular
+      </h1>
+      <h1 className="text-secondary" style={{ fontWeight: 700 }}>
+        h1 700 Noto Sans Bold
+      </h1>
     </div>
   ));
