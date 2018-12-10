@@ -1,10 +1,6 @@
-/*
-  blue500: #3740ff
-  blue600: #3038e0
-
-  red500: #E2051A
-  red600: #BE032A
-*/
+.text-secondary {
+  color: #7c7d8c;
+}
 
 .spinner {
   margin: 100px auto;
