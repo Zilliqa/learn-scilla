@@ -2,12 +2,7 @@
 
 exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
 <div
-  className="card card-body text-center py-5"
-  style={
-    Object {
-      "height": 550,
-    }
-  }
+  className="chapter-complete-card card card-body text-center py-5"
 >
   <div
     className="text-secondary"
