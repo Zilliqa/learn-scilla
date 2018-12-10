@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IChapterInstruction } from '../../typings';
-
+import './style.css';
 interface IProps {
   t: (key: string) => string;
   chapterList: IChapterInstruction[];
@@ -42,7 +42,7 @@ const ChapterList: React.SFC<IProps> = (props) => {
     );
   });
 
-  return <div>{result}</div>;
+  return <div className="chapter-list">{result}</div>;
 };
 
 export default ChapterList;

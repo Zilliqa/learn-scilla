@@ -2,6 +2,10 @@
   background-color: #3740ff !important;
 }
 
+.bg-secondary {
+  background-color: #7c7d8c !important;
+}
+
 .lesson-progress-bar-container {
   max-width: 720px;
   margin: auto;

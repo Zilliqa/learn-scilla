@@ -22,30 +22,22 @@ exports[`Account Dropdown tests basic tests matches the snapshot 1`] = `
     tabIndex="-1"
   >
     <button
-      className="text-secondary dropdown-item"
+      aria-label="account.account"
+      className="btn btn-md btn-transparent btn-block text-left"
       onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
-      tabIndex="0"
-      type="button"
     >
+       
       account.account
+       
     </button>
     <button
-      className="text-secondary dropdown-item"
+      aria-label="link.signOut"
+      className="btn btn-md btn-transparent btn-block text-left"
       onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
-      tabIndex="0"
-      type="button"
     >
+       
       link.signOut
+       
     </button>
   </div>
 </li>

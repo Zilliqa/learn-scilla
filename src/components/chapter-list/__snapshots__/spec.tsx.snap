@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
-<div>
+<div
+  className="chapter-list"
+>
   <div
     className="m-2"
   >
