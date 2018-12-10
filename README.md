@@ -1,4 +1,3 @@
-
 [![Build Status](https://travis-ci.com/noelyoo/learn-scilla.svg?branch=master)](https://travis-ci.com/noelyoo/learn-scilla) [![Storybook](https://github.com/storybooks/press/blob/master/badges/storybook.svg)](https://noelyoo.github.io/learn-scilla/) [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![License](https://img.shields.io/cran/l/devtools.svg)](https://github.com/noelyoo/learn-scilla/blob/master/LICENSE) [![Gitter chat](http://img.shields.io/badge/chat-on%20gitter-077a8f.svg)](https://gitter.im/Zilliqa/SmartContract)
 
 # learn-scilla 
@@ -7,7 +6,7 @@ An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract l
 
 We are using Lighthouse to improve the quality of this web app with the [Lighthouse Report](https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=https://learn-scilla.firebaseapp.com). 
 
-## What is Scilla?
+## About Scilla
 
 <p align="center"><img src="https://scilla.readthedocs.io/en/latest/_images/scilla-logo-color-transparent.png" align="center" width="130px" height="130px"/></p>
 
@@ -15,20 +14,20 @@ We are using Lighthouse to improve the quality of this web app with the [Lightho
 
 ## Installation and Usage
 
-#### `yarn`
+### `yarn`
 
 Installs dependencies.
 
-#### `yarn start`
+### `yarn start`
 
 Runs the app in development mode.
-Open http://localhost:3000 to view it in the browser.
+Open `http://localhost:3000` to view it in the browser.
 
-#### `yarn build`
+### `yarn build`
 
 Builds the app for production to the build folder.
 
-#### `yarn test`
+### `yarn test`
 
 Runs the test watcher in an interactive mode.
 We use [Jest](https://jestjs.io/) for testing.

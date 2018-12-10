@@ -1,4 +1,4 @@
-import { ChapterInstructionType } from '../../../../typings';
+import { IChapterInstruction } from '../../../../typings';
 
 const l1 = `
 ## Lesson 1: Contract declaration \n
@@ -301,7 +301,7 @@ We need a way to store and retrieve a bunch of similar data.
 In the next lesson, we’ll see how to use maps to do that.
 `;
 
-const chapter1: ChapterInstructionType = {
+const chapter1: IChapterInstruction = {
   title: 'Fundamentals',
   lessons: [l1, l2, l3, l4, l5, l6, l7, l8, l9]
 };

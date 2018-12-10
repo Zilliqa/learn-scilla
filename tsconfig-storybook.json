@@ -7,5 +7,5 @@
   ],
   "exclude": [
     "src/**/spec.tsx",
-  ],
+  ]
 }
