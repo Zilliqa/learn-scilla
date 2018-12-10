@@ -13,12 +13,7 @@ exports[`Footer tests basic tests matches the snapshot 1`] = `
       Copyright © LearnScilla 2018
     </span>
     <ul
-      className="nav"
-      style={
-        Object {
-          "justifyContent": "center",
-        }
-      }
+      className="nav justify-content-center"
     >
       <li
         className="nav-item"
@@ -32,12 +27,8 @@ exports[`Footer tests basic tests matches the snapshot 1`] = `
         >
           <img
             alt="Zilliqa Logo"
+            className="zilliqa"
             src="zilliqa.png"
-            style={
-              Object {
-                "height": 16,
-              }
-            }
           />
         </a>
       </li>
