@@ -1,3 +1,13 @@
+.btn-transparent {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.btn-transparent:hover,
+.btn-transparent:active,
+.btn-transparent:focus {
+  color: rgba(0, 0, 0, 0.7);
+}
+
 .btn-primary {
   background-color: #3740ff !important;
 }

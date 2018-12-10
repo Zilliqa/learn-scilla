@@ -14,14 +14,15 @@ interface IProps {
 }
 
 type Size = 'lg' | 'md' | 'sm';
-type Type = 'primary' | 'secondary' | 'danger';
+type Type = 'primary' | 'secondary' | 'danger' | 'transparent';
 
 export default class Button extends React.PureComponent<IProps, {}> {
   public static displayName = 'Button';
 
   public static defaultProps = {
     text: '',
-    size: 'md'
+    size: 'md',
+    className: ''
   };
 
   public render() {
@@ -37,6 +38,9 @@ export default class Button extends React.PureComponent<IProps, {}> {
         break;
       case 'danger':
         bsStyle = `danger`;
+        break;
+      case 'transparent':
+        bsStyle = `transparent`;
         break;
     }
 
