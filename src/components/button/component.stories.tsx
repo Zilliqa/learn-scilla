@@ -24,6 +24,12 @@ storiesOf('Button', module)
         text={'danger'}
         onClick={() => console.log('click')}
         ariaLabel={'danger button'}
+      />{' '}
+      <Button
+        type="transparent"
+        text={'transparent'}
+        onClick={() => console.log('click')}
+        ariaLabel={'transparent button'}
       />
     </div>
   ))
@@ -48,6 +54,13 @@ storiesOf('Button', module)
         text={'button'}
         onClick={() => console.log('click')}
         ariaLabel={'disabled danger button'}
+        disabled={true}
+      />{' '}
+      <Button
+        type="transparent"
+        text={'transparent'}
+        onClick={() => console.log('click')}
+        ariaLabel={'transparent button'}
         disabled={true}
       />
     </div>
