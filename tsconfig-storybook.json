@@ -6,6 +6,6 @@
     "stories"
   ],
   "exclude": [
-    "src/**/spec.tsx",
+    "src/**/spec.tsx"
   ]
 }

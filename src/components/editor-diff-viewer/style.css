@@ -1,15 +1,15 @@
 .code-diff-container {
-  margin: 15px 0px 0px 40px;
-}
-
-/* Reveals the answer code */
-.code-diff-container .show-answer .view-line {
-  display: block;
+  margin: 15px 0 0 40px;
 }
 
 /* Hide the answer code by default */
 .code-diff-container .view-line {
   display: none;
+}
+
+/* Reveals the answer code */
+.code-diff-container .show-answer .view-line {
+  display: block;
 }
 
 /* Show hint which highlights line to be deleted */
@@ -32,5 +32,5 @@
 }
 
 .code-diff-border-active {
-  border: 1px solid #E2051A !important;
+  border: 1px solid #e2051a !important;
 }

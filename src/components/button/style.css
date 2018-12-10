@@ -9,15 +9,15 @@
 }
 
 .text-danger {
-  color: #E2051A;
+  color: #e2051a;
 }
 
 .btn-danger {
-  background-color: #E2051A;
+  background-color: #e2051a;
 }
 
 .btn-danger:hover,
 .btn-danger:active,
 .btn-danger:focus {
-  background-color: #BE032A;
+  background-color: #be032a;
 }
