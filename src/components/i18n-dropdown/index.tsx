@@ -35,7 +35,7 @@ class I18Dropdown extends React.Component<IProps, IState> {
           {keys.map((key) => (
             <Button
               key={key}
-              className="btn-block"
+              className="btn-block text-left"
               type="transparent"
               text={langDictionary[key]}
               onClick={() => this.selectLanguage(key)}
