@@ -22,17 +22,11 @@ class ChapterCompleteCard extends React.PureComponent<IProps, {}> {
           <h3>{t('chapter.goodjob')}!</h3>
           <p>{t('chapter.chapterCompleteMessage')}</p>
           <br />
-
           {isLast ? null : (
-            <Link
-              className="btn btn-primary btn-block"
-              to={nextLessonPath}
-              aria-label={'next lesson'}
-            >
+            <Link className="btn btn-primary" to={nextLessonPath} aria-label={'next lesson'}>
               {t('lesson.nextLesson')}
             </Link>
-          )}
-
+          )}{' '}
           <Link
             className={`btn btn-${isLast ? 'primary' : 'outline-secondary'}`}
             to={paths.chapterList}
