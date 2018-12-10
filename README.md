@@ -1,4 +1,5 @@
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a6e1fa5d3e0a4d94a7311f6f4486a701)](https://app.codacy.com/app/noelyoo/learn-scilla?utm_source=github.com&utm_medium=referral&utm_content=noelyoo/learn-scilla&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.com/noelyoo/learn-scilla.svg?branch=master)](https://travis-ci.com/noelyoo/learn-scilla) [![Storybook](https://github.com/storybooks/press/blob/master/badges/storybook.svg)](https://noelyoo.github.io/learn-scilla/) [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![License](https://img.shields.io/cran/l/devtools.svg)](https://github.com/noelyoo/learn-scilla/blob/master/LICENSE) [![Gitter chat](http://img.shields.io/badge/chat-on%20gitter-077a8f.svg)](https://gitter.im/Zilliqa/SmartContract)
 
 # learn-scilla 
