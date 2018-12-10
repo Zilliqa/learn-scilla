@@ -88,7 +88,7 @@ class LessonContainer extends React.Component<IProps, IState> {
               )}
             </div>
           </div>
-          <div className="text-center py-4" style={{ marginLeft: -5 }}>
+          <div className="text-center py-4">
             <LessonNavigator
               goBack={this.goBack}
               goNext={this.goNext}

@@ -8,7 +8,7 @@ const Footer: React.SFC = () => (
   <footer className={style.footer}>
     <div className="text-center">
       <span className={style.copyright}>{copyright}</span>
-      <ul className="nav" style={{ justifyContent: 'center' }}>
+      <ul className="nav justify-content-center">
         <li className="nav-item">
           <a
             className="text-secondary nav-link"
@@ -17,7 +17,7 @@ const Footer: React.SFC = () => (
             rel="noreferrer"
             aria-label={'Zilliqa Homepage'}
           >
-            <img style={{ height: 16 }} src={zilliqaImg} alt="Zilliqa Logo" />
+            <img className={style.zilliqa} src={zilliqaImg} alt="Zilliqa Logo" />
           </a>
         </li>
         <li className="nav-item">
