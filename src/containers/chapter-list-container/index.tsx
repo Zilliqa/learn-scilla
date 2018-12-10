@@ -8,7 +8,8 @@ import ChapterList from '../../components/chapter-list';
 import Spinner from '../../components/spinner';
 import Layout from '../../components/layout';
 import './style.css';
-
+import { compose } from 'redux';
+import { withFirebase } from 'react-redux-firebase';
 interface IProps {
   t: (key: string) => string;
   i18n: {
@@ -18,18 +19,22 @@ interface IProps {
   history: H.History;
   location: H.Location;
   instructions: CourseInstructionType;
+  profile: any;
 }
 
 class ChapterContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
-    const { instructions, i18n, t } = this.props;
+    const { instructions, i18n, t, profile } = this.props;
+    const { isLoaded, isEmpty, progress } = profile;
     const lang: string = i18n.language;
     if (instructions === undefined || instructions[lang] === undefined) {
       return <Spinner />;
     }
 
+    if (!isLoaded) {
+      return <Spinner />;
+    }
     const intructionsLocalized = instructions[lang];
-
     const documentTitle = `LearnScilla - An interactive tutorial for people to learn Scilla`;
     return (
       <Layout>
@@ -42,7 +47,12 @@ class ChapterContainer extends React.Component<IProps, {}> {
               <div className="col-sm-10 col-md-8 col-lg-5 mr-auto ml-auto text-center">
                 <h3>{t('chapter.listTitle')}</h3>
                 <br />
-                <ChapterList chapterList={intructionsLocalized} t={t} />
+                <ChapterList
+                  chapterList={intructionsLocalized}
+                  isAuth={!isEmpty}
+                  progress={progress}
+                  t={t}
+                />
               </div>
             </div>
           </div>
@@ -56,7 +66,11 @@ class ChapterContainer extends React.Component<IProps, {}> {
 const WithTranslation = withNamespaces()(ChapterContainer);
 // @ts-check
 const mapStateToProps = (state) => ({
-  instructions: state.course.courseInstructions
+  instructions: state.course.courseInstructions,
+  profile: state.firebase.profile
 });
 
-export default connect(mapStateToProps)(WithTranslation);
+export default compose(
+  withFirebase,
+  connect(mapStateToProps)
+)(WithTranslation);
