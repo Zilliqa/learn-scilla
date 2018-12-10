@@ -1,12 +1,12 @@
-import { LessonCodeType, ChapterCodeType } from '../../../typings';
+import { ILessonCode, ChapterCodeType } from '../../../typings';
 
-const l1: LessonCodeType = {
+const l1: ILessonCode = {
   initialCode: `(* Start typing from the line below. *)`,
   answerCode: `(* Start typing from the line below. *)
 contract Zealgame`
 };
 
-const l2: LessonCodeType = {
+const l2: ILessonCode = {
   initialCode: `contract Zealgame
 (* Start typing from the line below. *)
 `,
@@ -15,7 +15,7 @@ const l2: LessonCodeType = {
 (owner: ByStr20)`
 };
 
-const l3: LessonCodeType = {
+const l3: ILessonCode = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 (* Start typing from the line below. *)
@@ -26,7 +26,7 @@ const l3: LessonCodeType = {
 field player_name : String = "Alice"`
 };
 
-const l4: LessonCodeType = {
+const l4: ILessonCode = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 field player_name : String = "Alice"
@@ -42,7 +42,7 @@ Transition changeName()
 end`
 };
 
-const l5: LessonCodeType = {
+const l5: ILessonCode = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 field player_name : String = "Alice"
@@ -60,7 +60,7 @@ newname = "Bob"
 end`
 };
 
-const l6: LessonCodeType = {
+const l6: ILessonCode = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 field player_name : String = "Alice"
@@ -87,7 +87,7 @@ Player_name := newname
 end`
 };
 
-const l7: LessonCodeType = {
+const l7: ILessonCode = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 field player_name : String = "Alice"
@@ -107,7 +107,7 @@ player_name := newname
 end`
 };
 
-const l8: LessonCodeType = {
+const l8: ILessonCode = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 field player_name : String = "Alice"
@@ -136,7 +136,7 @@ player_zeal := _amount
 end`
 };
 
-const l9: LessonCodeType = {
+const l9: ILessonCode = {
   initialCode: `contract Zealgame
 (owner: ByStr20)
 field player_name : String = "Alice"
