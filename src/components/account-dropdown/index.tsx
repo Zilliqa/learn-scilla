@@ -1,8 +1,9 @@
 import React from 'react';
-import { UncontrolledDropdown } from 'reactstrap/lib/Uncontrolled';
+
 import DropdownToggle from 'reactstrap/lib/DropdownToggle';
 import DropdownMenu from 'reactstrap/lib/DropdownMenu';
-import DropdownItem from 'reactstrap/lib/DropdownItem';
+import Dropdown from 'reactstrap/lib/Dropdown';
+import Button from '../button';
 
 interface IProps {
   t: (key: string) => string;
@@ -13,27 +14,45 @@ interface IProps {
   logout: () => void;
 }
 
-const AccountDropdown: React.SFC<IProps> = (props) => {
-  const { t, username, paths, currentPathname, navigateToAccount, logout } = props;
+interface IState {
+  dropdownOpen: boolean;
+}
+class AccountDropdown extends React.Component<IProps, IState> {
+  public readonly state: IState = {
+    dropdownOpen: false
+  };
+  public render() {
+    const { t, username, paths, currentPathname, navigateToAccount, logout } = this.props;
 
-  const cursorStyle = { cursor: 'pointer' };
-  const isAccountPath = currentPathname === paths.account;
+    const isAccountPath = currentPathname === paths.account;
 
-  return (
-    <UncontrolledDropdown nav={true} inNavbar={true}>
-      <DropdownToggle caret={true} nav={true} className={isAccountPath ? 'active' : ''}>
-        {username}
-      </DropdownToggle>
-      <DropdownMenu right={true} size="sm">
-        <DropdownItem className="text-secondary" style={cursorStyle} onClick={navigateToAccount}>
-          {t('account.account')}
-        </DropdownItem>
-        <DropdownItem className="text-secondary" style={cursorStyle} onClick={logout}>
-          {t('link.signOut')}
-        </DropdownItem>
-      </DropdownMenu>
-    </UncontrolledDropdown>
-  );
-};
+    return (
+      <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} nav={true} inNavbar={true}>
+        <DropdownToggle caret={true} nav={true} className={isAccountPath ? 'active' : ''}>
+          {username}
+        </DropdownToggle>
+        <DropdownMenu right={true} size="sm">
+          <Button
+            type="transparent"
+            className="btn-block text-left"
+            text={t('account.account')}
+            onClick={navigateToAccount}
+            ariaLabel={t('account.account')}
+          />
+          <Button
+            type="transparent"
+            className="btn-block text-left"
+            text={t('link.signOut')}
+            onClick={logout}
+            ariaLabel={t('link.signOut')}
+          />
+        </DropdownMenu>
+      </Dropdown>
+    );
+  }
+  private toggle = () => {
+    this.setState({ dropdownOpen: !this.state.dropdownOpen });
+  };
+}
 
 export default AccountDropdown;

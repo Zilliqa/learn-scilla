@@ -26,6 +26,6 @@ const baseComponent = (props) => (
 storiesOf('Account Dropdown', module).add('default', () =>
   baseComponent({
     username: 'noel',
-    pathname: '/account'
+    pathname: '/path'
   })
 );
