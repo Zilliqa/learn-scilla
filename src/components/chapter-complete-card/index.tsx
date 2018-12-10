@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { paths } from '../../routes';
+import './style.css';
 
 interface IProps {
   t: (key: string) => string;
@@ -17,7 +18,7 @@ class ChapterCompleteCard extends React.PureComponent<IProps, {}> {
 
     const nextLessonPath = `/chapter/${chapter + 1}/lesson/1`;
     return (
-      <div className="card card-body text-center py-5" style={{ height: 550 }}>
+      <div className="chapter-complete-card card card-body text-center py-5">
         <div className="text-secondary">
           <h3>{t('chapter.goodjob')}!</h3>
           <p>{t('chapter.chapterCompleteMessage')}</p>

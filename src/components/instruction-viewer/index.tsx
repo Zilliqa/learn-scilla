@@ -54,7 +54,7 @@ class InstructionViewer extends React.Component<IProps> {
     // This className decide code visibility
 
     return (
-      <div style={{ marginBottom: '1rem' }}>
+      <div className="instruction-code-block">
         <MonacoEditor
           height={props.value.split('\n').length * 18}
           language="scilla"
