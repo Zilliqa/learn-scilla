@@ -1,22 +1,17 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Editor from '.';
+import EditorWrapper from '.';
 
-const checkAnswer = () => console.log('checkAnswer');
-const toggleShowAnswer = () => console.log('toggleShowAnswer');
 const t = (s: string) => s;
-const showHint = (code) => console.log(code);
-
+const proceed = () => console.log('proceed');
+const pathname = 'path';
 storiesOf('Editor', module).add('default', () => (
-  <Editor
+  <EditorWrapper
+    initialCode={'contract Xealgame'}
+    answerCode={'contract Zealgame'}
     t={t}
-    code="contract Zealgame"
-    isAnswerVisible={false}
-    isAnswerButtonVisible={false}
-    showTryAgain={false}
-    showHint={showHint}
-    checkAnswer={checkAnswer}
-    toggleShowAnswer={toggleShowAnswer}
+    proceed={proceed}
+    pathname={pathname}
   />
 ));

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
+<div
+  className="card card-body text-center py-5"
+  style={
+    Object {
+      "height": 550,
+    }
+  }
+>
+  <div
+    className="text-secondary"
+  >
+    <h3>
+      chapter.goodjob
+      !
+    </h3>
+    <p>
+      chapter.chapterCompleteMessage
+    </p>
+    <br />
+    <a
+      aria-label="next lesson"
+      className="btn btn-primary"
+      href="/chapter/2/lesson/1"
+      onClick={[Function]}
+    >
+      lesson.nextLesson
+    </a>
+     
+    <a
+      aria-label="table of contents"
+      className="btn btn-outline-secondary"
+      href="/"
+      onClick={[Function]}
+    >
+      link.tableOfContents
+    </a>
+  </div>
+</div>
+`;

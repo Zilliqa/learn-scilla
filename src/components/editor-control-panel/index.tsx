@@ -31,43 +31,41 @@ const ControlPanel: React.SFC<IProps> = (props) => {
 
   return (
     <div>
-      <div className="text-right">
-        <Button
-          type={checkAnswerButtonType}
-          text={checkAnswerButtonText}
-          icon={{ image: checkAnswerButtonIcon, position: 'before' }}
-          onClick={props.handleCheckAnswer}
-          ariaLabel={'Check Answer'}
-          size="sm"
-        />{' '}
-        {isAnswerButtonVisible ? (
-          <Button
-            type={'secondary'}
-            text={showAnswerButtonText}
-            icon={{ image: showAnswerButtonIcon, position: 'before' }}
-            onClick={props.hanldleToggle}
-            ariaLabel={'Show Answer'}
-            size="sm"
-          />
-        ) : null}{' '}
+      <Button
+        type={checkAnswerButtonType}
+        text={checkAnswerButtonText}
+        icon={{ image: checkAnswerButtonIcon, position: 'before' }}
+        onClick={props.handleCheckAnswer}
+        ariaLabel={'Check Answer'}
+        size="sm"
+      />{' '}
+      {isAnswerButtonVisible ? (
         <Button
           type={'secondary'}
-          text={t('editor.showHint')}
-          onClick={props.handleShowHint}
+          text={showAnswerButtonText}
+          icon={{ image: showAnswerButtonIcon, position: 'before' }}
+          onClick={props.hanldleToggle}
           ariaLabel={'Show Answer'}
-          icon={{ image: <FaRegLightbulb />, position: 'before' }}
           size="sm"
-        />{' '}
-        <a
-          className="btn btn-outline-secondary btn-sm"
-          href={'https://gitter.im/Zilliqa/SmartContract'}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={'open chat'}
-        >
-          <FaRegComments /> {t('lesson.openChat')}
-        </a>
-      </div>
+        />
+      ) : null}{' '}
+      <Button
+        type={'secondary'}
+        text={t('editor.showHint')}
+        onClick={props.handleShowHint}
+        ariaLabel={'Show Answer'}
+        icon={{ image: <FaRegLightbulb />, position: 'before' }}
+        size="sm"
+      />{' '}
+      <a
+        className="btn btn-outline-secondary btn-sm"
+        href={'https://gitter.im/Zilliqa/SmartContract'}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={'open chat'}
+      >
+        <FaRegComments /> {t('lesson.openChat')}
+      </a>
     </div>
   );
 };

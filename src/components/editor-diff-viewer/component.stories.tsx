@@ -5,7 +5,7 @@ import DiffViewer from '.';
 
 const t = (s) => s;
 
-storiesOf('Diff Viewer', module)
+storiesOf('Editor Diff Viewer', module)
   .add('default', () => (
     <DiffViewer
       t={t}

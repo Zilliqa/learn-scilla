@@ -6,7 +6,7 @@ import Layout from '../../components/layout';
 import * as H from 'history';
 import ChapterCompleteCard from '../../components/chapter-complete-card';
 import LessonProgressbar from '../../components/lesson-progressbar';
-import EditorUI from '../../components/editor-wrapper';
+import Editor from '../../components/editor';
 import InstructionViewer from '../../components/instruction-viewer';
 import LessonNavigator from '../../components/lesson-navigator';
 import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
@@ -59,7 +59,7 @@ class LessonContainer extends React.Component<IProps, IState> {
     const documentTitle: string = `LearnScilla -
     ${t('chapter.chapter')} ${chapterNumber} ${t('lesson.lesson')} ${lessonNumber}
     `;
-
+    const { pathname } = location;
     return (
       <Layout>
         <Helmet>
@@ -77,12 +77,12 @@ class LessonContainer extends React.Component<IProps, IState> {
                 <ChapterCompleteCard t={t} total={numOfTotalChapter} chapter={chapterNumber} />
               ) : (
                 <Suspense fallback={<Spinner />}>
-                  <EditorUI
+                  <Editor
                     initialCode={initialCode}
                     answerCode={answerCode}
                     t={t}
                     proceed={this.goNext}
-                    location={location}
+                    pathname={pathname}
                   />
                 </Suspense>
               )}
