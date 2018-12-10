@@ -7,7 +7,7 @@ exports[`Lesson Navigator tests basic tests matches the snapshot 1`] = `
 >
   <button
     aria-label="Back"
-    className="btn btn-sm btn-outline-secondary undefined"
+    className="btn btn-sm btn-outline-secondary "
     disabled={false}
     onClick={[Function]}
   >
@@ -34,7 +34,7 @@ exports[`Lesson Navigator tests basic tests matches the snapshot 1`] = `
   </button>
   <button
     aria-label="Skip"
-    className="btn btn-sm btn-outline-secondary undefined"
+    className="btn btn-sm btn-outline-secondary "
     disabled={false}
     onClick={[Function]}
   >

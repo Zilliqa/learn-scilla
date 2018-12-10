@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
+<div>
+  <div
+    className="m-2"
+  >
+    <a
+      aria-label="start chapter"
+      className="btn btn-primary btn-block text-left"
+      href="/chapter/1/lesson/4"
+      onClick={[Function]}
+    >
+      <small>
+         
+        chapter.chapter 1 :
+      </small>
+       Fundamentals 
+      <small>
+        (3/9)
+      </small>
+    </a>
+  </div>
+</div>
+`;

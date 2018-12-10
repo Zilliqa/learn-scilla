@@ -3,7 +3,7 @@
 exports[`Footer tests basic tests matches the snapshot 1`] = `
 <button
   aria-label="Test Button"
-  className="btn btn-sm btn-outline-secondary undefined"
+  className="btn btn-sm btn-outline-secondary "
   disabled={false}
   onClick={[Function]}
 >

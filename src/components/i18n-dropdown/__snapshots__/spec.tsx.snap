@@ -22,69 +22,49 @@ exports[`i18n Dropdown tests basic tests matches the snapshot 1`] = `
     tabIndex="-1"
   >
     <button
-      className="text-secondary dropdown-item"
+      aria-label="English [en]"
+      className="btn btn-md btn-transparent btn-block"
       onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
-      tabIndex="0"
-      type="button"
     >
+       
       English [en]
+       
     </button>
     <button
-      className="text-secondary dropdown-item"
+      aria-label="Español [es]"
+      className="btn btn-md btn-transparent btn-block"
       onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
-      tabIndex="0"
-      type="button"
     >
+       
       Español [es]
+       
     </button>
     <button
-      className="text-secondary dropdown-item"
+      aria-label="日本語 [ja]"
+      className="btn btn-md btn-transparent btn-block"
       onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
-      tabIndex="0"
-      type="button"
     >
+       
       日本語 [ja]
+       
     </button>
     <button
-      className="text-secondary dropdown-item"
+      aria-label="한국어 [ko]"
+      className="btn btn-md btn-transparent btn-block"
       onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
-      tabIndex="0"
-      type="button"
     >
+       
       한국어 [ko]
+       
     </button>
     <button
-      className="text-secondary dropdown-item"
+      aria-label="中文 [zh]"
+      className="btn btn-md btn-transparent btn-block"
       onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
-      tabIndex="0"
-      type="button"
     >
+       
       中文 [zh]
+       
     </button>
   </div>
 </li>
