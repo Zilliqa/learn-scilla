@@ -8,7 +8,7 @@ const getStyle = (key) => ({
   backgroundColor: colors[key]
 });
 
-storiesOf('Colors', module).add('All Colors', () => (
+storiesOf('Color', module).add('All Colors', () => (
   <div>
     {keyList.map((key) => {
       return (
