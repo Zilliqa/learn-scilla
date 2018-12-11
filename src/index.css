@@ -2,22 +2,22 @@
 @font-face {
   font-family: 'Noto Sans';
   font-weight: 300;
-  font-display: auto;
-  src: url("./assets/fonts/NotoSans-Light.ttf") format("truetype");
+  font-display: block;
+  src: local('Noto Sans Light'), local('NotoSans-Light'), url("./assets/fonts/NotoSans-Light.ttf") format("truetype");
 }
 
 @font-face {
   font-family: 'Noto Sans';
   font-weight: 400;
-  font-display: auto;
-  src: url("./assets/fonts/NotoSans-Regular.ttf") format("truetype");
+  font-display: block;
+  src: local('Noto Sans Regular'), local('NotoSans-Regular'), url("./assets/fonts/NotoSans-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: 'Noto Sans';
   font-weight: 700;
-  font-display: auto;
-  src: url("./assets/fonts/NotoSans-Bold.ttf") format("truetype");
+  font-display: block;
+  src: local('Noto Sans Bold'), local('NotoSans-Bold'), url("./assets/fonts/NotoSans-Bold.ttf") format("truetype");
 }
 
 body {
