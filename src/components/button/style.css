@@ -22,6 +22,7 @@
 .btn-outline-secondary:active,
 .btn-outline-secondary:focus {
   border-color: #585968 !important;
+  color: #fff !important;
 }
 
 .btn-outline-secondary.disabled,
