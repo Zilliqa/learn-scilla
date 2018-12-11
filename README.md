@@ -38,7 +38,10 @@ UI components library can be found on [Storybook](https://noelyoo.github.io/lear
 
 ## Style guideline
 
-We use [TSLint](https://palantir.github.io/tslint/) with custom configs to keep our code style consistent. We also use [Prettier](https://prettier.io/) to auto-format our code. Be sure to either add a [text editor integration](https://prettier.io/docs/en/editors.html) to properly format your code changes.
+We use the followings to keep our code style consistent:
+* [TSLint](https://palantir.github.io/tslint/)
+* [Prettier](https://prettier.io/)
+* [stylelint](https://stylelint.io/)
 
 ## License
 
