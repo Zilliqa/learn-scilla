@@ -1,6 +1,8 @@
-[![Build Status](https://travis-ci.com/noelyoo/learn-scilla.svg?branch=master)](https://travis-ci.com/noelyoo/learn-scilla) [![codecov](https://codecov.io/gh/noelyoo/learn-scilla/branch/master/graph/badge.svg)](https://codecov.io/gh/noelyoo/learn-scilla) [![Storybook](https://github.com/storybooks/press/blob/master/badges/storybook.svg)](https://noelyoo.github.io/learn-scilla/) [![Gitter chat](http://img.shields.io/badge/chat-on%20gitter-077a8f.svg)](https://gitter.im/Zilliqa/SmartContract) [![License](https://img.shields.io/cran/l/devtools.svg)](https://github.com/noelyoo/learn-scilla/blob/master/LICENSE) 
+[![Build Status][travis-svg]][travis-url] [![codecov][codecov-svg]][codecov-url] [![dependency status][deps-svg]][deps-url] [![dev dependency status][dev-deps-svg]][dev-deps-url]
+[![Gitter chat][gitter-svg]][gitter-url] [![License][license-svg]][license-url]
 
 # learn-scilla 
+[![Storybook][storybook-svg]][storybook-url]
 
 An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process. This is one of the [Zilliqa Ecosystem Grant Projects](https://blog.zilliqa.com/announcing-the-second-wave-of-zilliqa-ecosystem-grant-awardees-6e03edadcc0d). 
 
@@ -46,3 +48,20 @@ We use the followings to keep our code style consistent:
 ## License
 
 This project is open source software licensed as [GPL-3.0](https://github.com/noelyoo/learn-scilla/blob/develop/LICENSE).
+
+
+
+[travis-svg]: https://travis-ci.com/noelyoo/learn-scilla.svg?branch=master
+[travis-url]: https://travis-ci.com/noelyoo/learn-scilla
+[codecov-svg]: https://codecov.io/gh/noelyoo/learn-scilla/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/noelyoo/learn-scilla
+[storybook-svg]: https://github.com/storybooks/press/blob/master/badges/storybook.svg
+[storybook-url]: https://noelyoo.github.io/learn-scilla/
+[deps-svg]: https://david-dm.org/noelyoo/learn-scilla/status.svg
+[deps-url]: https://david-dm.org/noelyoo/learn-scilla
+[dev-deps-svg]: https://david-dm.org/noelyoo/learn-scilla/dev-status.svg
+[dev-deps-url]: https://david-dm.org/noelyoo/learn-scilla?type=dev
+[license-svg]: https://img.shields.io/cran/l/devtools.svg
+[license-url]: https://github.com/noelyoo/learn-scilla/blob/master/LICENSE
+[gitter-svg]: http://img.shields.io/badge/chat-on%20gitter-077a8f.svg
+[gitter-url]: https://gitter.im/Zilliqa/SmartContract
