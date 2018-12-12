@@ -10,20 +10,26 @@
   "repository": "https://github.com/noelyoo/learn-scilla",
   "author": "Noel Yoo <innovation.noel@gmail.com>",
   "license": "GPL-3.0",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/components/**/*.{ts,tsx}",
+      "!src/components/**/*.stories.tsx"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "CI=true react-scripts test",
+    "test": "CI=true react-scripts test --coverage --updateSnapshot --forceExit --detectOpenHandles",
     "eject": "react-scripts eject",
     "tslint": "tslint --project tsconfig.json --format stylish",
     "stylelint": "stylelint ./src/**/*.css --fix",
     "format": "prettier --write '**/*.{ts,tsx,js}' --config .prettierrc",
-    "test:ci": "CI=true react-scripts test --updateSnapshot --forceExit --detectOpenHandles",
-    "ci": "yarn tslint && yarn stylelint && yarn format && yarn test:ci",
+    "ci": "yarn tslint && yarn stylelint && yarn format && yarn test",
     "deploy": "firebase deploy",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "storybook-to-ghpages",
+    "codecov": "codecov -f coverage/*.json"
   },
   "dependencies": {
     "firebase": "^5.5.9",
@@ -64,6 +70,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.4",
     "bootstrap": ">=4.1.2",
+    "codecov": "^3.1.0",
     "jest": "^23.6.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-test-renderer": "^16.6.3",
