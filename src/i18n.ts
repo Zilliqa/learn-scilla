@@ -2,14 +2,12 @@ import i18next from 'i18next';
 
 import en from './locales/en.json';
 import ja from './locales/ja.json';
-import ko from './locales/ko.json';
 import zh from './locales/zh.json';
 
 export const langDictionary = {
   en: 'English [en]',
-  ja: '日本語 [ja]',
-  ko: '한국어 [ko]',
-  zh: '中文 [zh]'
+  zh: '中文 [zh]',
+  ja: '日本語 [ja]'
 };
 
 const isDev: boolean = process.env.NODE_ENV === 'development';
@@ -31,9 +29,8 @@ i18next.init({
 
   resources: {
     en: { translations: en },
-    ja: { translations: ja },
-    ko: { translations: ko },
-    zh: { translations: zh }
+    zh: { translations: zh },
+    ja: { translations: ja }
   }
 });
 
