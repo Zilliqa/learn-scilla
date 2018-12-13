@@ -19,8 +19,7 @@
 }
 
 .btn-outline-secondary:hover,
-.btn-outline-secondary:active,
-.btn-outline-secondary:focus {
+.btn-outline-secondary:active {
   border-color: #585968 !important;
   color: #fff !important;
 }
