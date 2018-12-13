@@ -51,12 +51,14 @@
 
 .btn-transparent {
   color: #7c7d8c !important;
+  background-color: #fff !important;
 }
 
 .btn-transparent:hover,
 .btn-transparent:active,
 .btn-transparent:focus {
   color: #585968 !important;
+  background-color: #fff !important;
 }
 
 .btn-transparent.disabled,
