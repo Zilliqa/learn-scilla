@@ -16,9 +16,9 @@ jobs:
     - stage: release
       node_js: "8"
       script:
-      - if [[ $TRAVIS_BRANCH == "8" && $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then
+      - if [[ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then
         npm run deploy-storybook -- --ci;
-      fi
+        fi
 
       deploy:
         provider: firebase
