@@ -1,8 +1,7 @@
-[![Build Status][travis-svg]][travis-url] [![codecov][codecov-svg]][codecov-url] [![dependency status][deps-svg]][deps-url] [![dev dependency status][dev-deps-svg]][dev-deps-url]
-[![Gitter chat][gitter-svg]][gitter-url] [![License][license-svg]][license-url]
+[![Build Status][travis-svg]][travis-url] [![codecov][codecov-svg]][codecov-url] [![dependency status][deps-svg]][deps-url] [![dev dependency status][dev-deps-svg]][dev-deps-url] [![License][license-svg]][license-url]
 
 # learn-scilla 
-[![Storybook][storybook-svg]][storybook-url]
+[![Storybook][storybook-svg]][storybook-url] [![Gitter chat][gitter-svg]][gitter-url]
 
 An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process. This is one of the [Zilliqa Ecosystem Grant Projects](https://blog.zilliqa.com/announcing-the-second-wave-of-zilliqa-ecosystem-grant-awardees-6e03edadcc0d). 
 
@@ -25,10 +24,6 @@ Installs dependencies.
 Runs the app in development mode.
 Open `http://localhost:3000` to view it in the browser.
 
-### `yarn build`
-
-Builds the app for production to the build folder.
-
 ### `yarn test`
 
 Runs the test watcher in an interactive mode.
@@ -48,8 +43,6 @@ We use the followings to keep our code style consistent:
 ## License
 
 This project is open source software licensed as [GPL-3.0](https://github.com/noelyoo/learn-scilla/blob/develop/LICENSE).
-
-
 
 [travis-svg]: https://travis-ci.com/noelyoo/learn-scilla.svg?branch=master
 [travis-url]: https://travis-ci.com/noelyoo/learn-scilla
