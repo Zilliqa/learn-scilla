@@ -4,11 +4,20 @@ node_js:
   # - "6" # ends April 2019
   - "8" # ends December 2019
   - "10" # ends April 2021
-
 sudo: false
 
 script:
-  - yarn ci
+- yarn ci
 
 after_success:
-  - yarn codecov
+- yarn codecov
+
+jobs:
+  include:
+    if: (NOT type IN (pull_request)) AND (branch = master)
+    - stage: release-storybook
+      node_js: "8"
+      script:
+      - if [ $TRAVIS_PULL_REQUEST == "false" ]]; then
+        npm run deploy-storybook -- --ci;
+        fi
