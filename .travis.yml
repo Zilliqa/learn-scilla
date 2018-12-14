@@ -10,13 +10,19 @@ script:
 
 after_success:
 - yarn codecov
-- if [[ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then
-    npm run deploy-storybook -- --ci;
-  fi
 
-deploy:
-  provider: firebase
-  token:
-    secure: gOesN6EVYxi2CfoTLLesxuLikUDMfkQdSLNIEKyI8wsKXxJC/T7cX4woJmucCpYWyVjOndM7sOpCGV002xW4qzw/jOsj5oh6hwIUrjclx9NaFtcxmhj0QAmqsQteRaxHtluiq/eWMi0yrLN61IIWszY8WpMoBzIPToJDj9NuVroGz1HeR9OHAaw4pgxSpPeF66By89BDBYSOVhQpnWvW4VWThBzNdJRA+yuWNgZ0Ype1WjMnbx1Uq4e0dA5JU5uOn2oYb5ItZEGRrHthPhIV7RpVKVYstfbrey07jCAldsqZjBGlcP+3blr5CRcTCjCO0CldMB05MCiKYz/Cheo3cza/RqthdkgydoKagKrA/2tSU3sF93rUFMGd9Ogor7PBDNf4RcnvUQHeBpZLjz78gwEDmmuR4yrowiaJDkVRSCQX09FEce3rZ1gnhyE6CjStwFczxtk85iF3lVFBHk2RmDDH7KN0O7crifa08w+ZJuhmD2F+zbfN6pml9AE4j1VBbb/8vV1f1fPhcLpGiiOunU4MUk9RFzV/c+BPggASo8NDxYvI1CfmqOUBsX81fIFV8SNZ5U3iebzdryiWL8sdGo7YyJuwpUkHQxWuncyckGwHzr0db+XILux71LbmldpWTnndkKjBapWpk5GH3aeAf3y+oApXk1jfPzX/ALL0++g=
-  on:
-    branch: master
+jobs:
+  include:
+    - stage: release
+      node_js: "8"
+      script:
+      - if [[ $TRAVIS_BRANCH == "8" && $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then
+        npm run deploy-storybook -- --ci;
+      fi
+
+      deploy:
+        provider: firebase
+        token:
+          secure: gOesN6EVYxi2CfoTLLesxuLikUDMfkQdSLNIEKyI8wsKXxJC/T7cX4woJmucCpYWyVjOndM7sOpCGV002xW4qzw/jOsj5oh6hwIUrjclx9NaFtcxmhj0QAmqsQteRaxHtluiq/eWMi0yrLN61IIWszY8WpMoBzIPToJDj9NuVroGz1HeR9OHAaw4pgxSpPeF66By89BDBYSOVhQpnWvW4VWThBzNdJRA+yuWNgZ0Ype1WjMnbx1Uq4e0dA5JU5uOn2oYb5ItZEGRrHthPhIV7RpVKVYstfbrey07jCAldsqZjBGlcP+3blr5CRcTCjCO0CldMB05MCiKYz/Cheo3cza/RqthdkgydoKagKrA/2tSU3sF93rUFMGd9Ogor7PBDNf4RcnvUQHeBpZLjz78gwEDmmuR4yrowiaJDkVRSCQX09FEce3rZ1gnhyE6CjStwFczxtk85iF3lVFBHk2RmDDH7KN0O7crifa08w+ZJuhmD2F+zbfN6pml9AE4j1VBbb/8vV1f1fPhcLpGiiOunU4MUk9RFzV/c+BPggASo8NDxYvI1CfmqOUBsX81fIFV8SNZ5U3iebzdryiWL8sdGo7YyJuwpUkHQxWuncyckGwHzr0db+XILux71LbmldpWTnndkKjBapWpk5GH3aeAf3y+oApXk1jfPzX/ALL0++g=
+        on:
+          branch: master
