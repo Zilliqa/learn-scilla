@@ -3,12 +3,15 @@ node_js:
   # https://github.com/nodejs/LTS
   # - "6" # ends April 2019
   - "8" # ends December 2019
-  - "10" # ends April 2021
+  # - "10" # ends April 2021
 
 sudo: false
 
 script:
-  - yarn ci
+- yarn ci
 
 after_success:
-  - yarn codecov
+- yarn codecov
+- if [[ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then
+    npm run deploy-storybook -- --ci;
+  fi
