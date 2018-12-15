@@ -4,8 +4,10 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/firestore'; // make sure you add this for firestore
 import { reactReduxFirebase } from 'react-redux-firebase';
+import { persistStore, persistReducer } from 'redux-persist';
+import localStorage from 'redux-persist/lib/storage'; // defaults to localStorage for web and AsyncStorage for react-native
 
-import rootReducer from './reducers';
+import rootReducer from './rootReducer';
 import { logger } from 'redux-logger';
 
 /*
@@ -20,6 +22,14 @@ export const firebaseConfig = {
   storageBucket: 'learn-scilla.appspot.com',
   messagingSenderId: '825204243213'
 };
+
+const persistConfig = {
+  key: 'root',
+  storage: localStorage,
+  whitelist: ['persist']
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // Initialize Firebase with config
 firebase.initializeApp(firebaseConfig);
@@ -39,10 +49,12 @@ const reactReduxFirebaseConfig = {
 
 export const store = createStore(
   // reducer
-  rootReducer,
+  persistedReducer,
   // enhancer
   compose(
     reactReduxFirebase(firebase, reactReduxFirebaseConfig),
     applyMiddleware(...middlewares)
   )
 );
+
+export const persistor = persistStore(store);
