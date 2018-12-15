@@ -24,6 +24,10 @@ body {
   font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .text-secondary {
   color: #7c7d8c;
 }
