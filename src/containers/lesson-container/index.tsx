@@ -1,8 +1,9 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { withNamespaces } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import Layout from '../../components/layout';
+import { setCh1Progress } from '../../redux/persist/index';
 import * as H from 'history';
 import ChapterCompleteCard from '../../components/chapter-complete-card';
 import LessonProgressbar from '../../components/lesson-progressbar';
@@ -11,11 +12,11 @@ import InstructionViewer from '../../components/instruction-viewer';
 import LessonNavigator from '../../components/lesson-navigator';
 import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 
-import Spinner from '../../components/spinner';
 import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
 
 interface IProps {
+  setCh1Progress: (progress: number) => void;
   i18n: {
     language: string;
     changeLanguage: (lang: string) => void;
@@ -28,6 +29,7 @@ interface IProps {
   codes: CourseCodeType;
   firebase: any;
   profile: any;
+  ch1Progress: number;
 }
 interface IState {
   code: string;
@@ -76,15 +78,13 @@ class LessonContainer extends React.Component<IProps, IState> {
               {isLastLesson ? (
                 <ChapterCompleteCard t={t} total={numOfTotalChapter} chapter={chapterNumber} />
               ) : (
-                <Suspense fallback={<Spinner />}>
-                  <Editor
-                    initialCode={initialCode}
-                    answerCode={answerCode}
-                    t={t}
-                    proceed={this.goNext}
-                    pathname={pathname}
-                  />
-                </Suspense>
+                <Editor
+                  initialCode={initialCode}
+                  answerCode={answerCode}
+                  t={t}
+                  proceed={this.goNext}
+                  pathname={pathname}
+                />
               )}
             </div>
           </div>
@@ -133,6 +133,10 @@ class LessonContainer extends React.Component<IProps, IState> {
 
     const isAuth: boolean = !profile.isEmpty;
     const chapterProgressNum: number = progressProfile[chapterKey] || 0;
+
+    if (currentChapter === 1) {
+      this.props.setCh1Progress(currentLesson);
+    }
 
     // Update if progress is less than current lesson
     if (isAuth && chapterProgressNum < currentLesson) {
@@ -191,10 +195,18 @@ const WithTranslation = withNamespaces()(LessonContainer);
 const mapStateToProps = (state) => ({
   instructions: state.course.courseInstructions,
   codes: state.course.courseCodes,
+  ch1Progress: state.persist.ch1Progress,
   profile: state.firebase.profile
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setCh1Progress: (localProgress) => dispatch(setCh1Progress(localProgress))
 });
 
 export default compose(
   withFirebase,
-  connect(mapStateToProps)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )
 )(WithTranslation);

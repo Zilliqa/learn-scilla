@@ -1,17 +1,16 @@
-export const SET_PROGRESS: string = 'SET_PROGRESS';
-export const setProgress = (progress) => ({
-  type: SET_PROGRESS,
-  payload: { progress }
+export const SET_CH1_PROGRESS: string = 'SET_LOCAL_PROGRESS';
+export const setCh1Progress = (ch1Progress) => ({
+  type: SET_CH1_PROGRESS,
+  payload: { ch1Progress }
 });
 
-export default function courseReducer(state = {}, action) {
+export default function persistReducer(state = {}, action) {
   switch (action.type) {
-    case SET_PROGRESS:
+    case SET_CH1_PROGRESS:
       return {
         ...state,
-        progress: action.payload.progress
+        ch1Progress: action.payload.ch1Progress
       };
-
     default:
       return state;
   }
