@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
-import ChapterProgressbar from '.';
+import LessonProgressbar from '.';
+
+const navigate = (chapterNum, lessonNum) => {
+  console.log(`navigate to: /chapter/${chapterNum}/lesson/${lessonNum}`);
+};
 
 describe('Lesson Progressbar tests', () => {
-  const baseComponent = () => <ChapterProgressbar current={5} total={10} />;
+  const baseComponent = () => (
+    <LessonProgressbar navigate={navigate} chapterNumber={1} lessonNumber={5} total={10} />
+  );
 
   describe('basic tests', () => {
     it('matches the snapshot', () => {

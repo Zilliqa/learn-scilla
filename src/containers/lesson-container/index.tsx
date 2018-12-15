@@ -39,7 +39,7 @@ interface IState {
 
 class LessonContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
-    const { codes, location, t } = this.props;
+    const { codes, location, t, history } = this.props;
 
     const chapterNumber: number = this.getChapterNumber();
     const chapterIndex: number = chapterNumber - 1;
@@ -62,13 +62,23 @@ class LessonContainer extends React.Component<IProps, IState> {
     ${t('chapter.chapter')} ${chapterNumber} ${t('lesson.lesson')} ${lessonNumber}
     `;
     const { pathname } = location;
+
+    const navigate = (chapterNum, lessonNum) => {
+      history.push(`/chapter/${chapterNum}/lesson/${lessonNum}`);
+    };
+
     return (
       <Layout>
         <Helmet>
           <title>{documentTitle}</title>
         </Helmet>
         <div>
-          <LessonProgressbar current={lessonIndex} total={numOfTotalLesson} />
+          <LessonProgressbar
+            navigate={navigate}
+            chapterNumber={chapterNumber}
+            lessonNumber={lessonNumber}
+            total={numOfTotalLesson}
+          />
           <br />
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
