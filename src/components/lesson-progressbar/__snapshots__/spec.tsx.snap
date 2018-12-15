@@ -6,9 +6,10 @@ exports[`Lesson Progressbar tests basic tests matches the snapshot 1`] = `
 >
   <div
     aria-valuemax={10}
-    aria-valuemin="0"
+    aria-valuemin={0}
     aria-valuenow={10}
-    className="progress-bar lesson-progress-bar bg-primary"
+    className="progress-bar lesson-progress-bar cursor-pointer bg-primary"
+    onClick={[Function]}
     role="progressbar"
     style={
       Object {
@@ -18,9 +19,10 @@ exports[`Lesson Progressbar tests basic tests matches the snapshot 1`] = `
   />
   <div
     aria-valuemax={10}
-    aria-valuemin="0"
+    aria-valuemin={0}
     aria-valuenow={10}
-    className="progress-bar lesson-progress-bar bg-primary"
+    className="progress-bar lesson-progress-bar cursor-pointer bg-primary"
+    onClick={[Function]}
     role="progressbar"
     style={
       Object {
@@ -30,9 +32,10 @@ exports[`Lesson Progressbar tests basic tests matches the snapshot 1`] = `
   />
   <div
     aria-valuemax={10}
-    aria-valuemin="0"
+    aria-valuemin={0}
     aria-valuenow={10}
-    className="progress-bar lesson-progress-bar bg-primary"
+    className="progress-bar lesson-progress-bar cursor-pointer bg-primary"
+    onClick={[Function]}
     role="progressbar"
     style={
       Object {
@@ -42,9 +45,10 @@ exports[`Lesson Progressbar tests basic tests matches the snapshot 1`] = `
   />
   <div
     aria-valuemax={10}
-    aria-valuemin="0"
+    aria-valuemin={0}
     aria-valuenow={10}
-    className="progress-bar lesson-progress-bar bg-primary"
+    className="progress-bar lesson-progress-bar cursor-pointer bg-primary"
+    onClick={[Function]}
     role="progressbar"
     style={
       Object {
@@ -54,9 +58,10 @@ exports[`Lesson Progressbar tests basic tests matches the snapshot 1`] = `
   />
   <div
     aria-valuemax={10}
-    aria-valuemin="0"
+    aria-valuemin={0}
     aria-valuenow={10}
-    className="progress-bar lesson-progress-bar bg-primary"
+    className="progress-bar lesson-progress-bar cursor-pointer bg-primary"
+    onClick={[Function]}
     role="progressbar"
     style={
       Object {
@@ -66,9 +71,10 @@ exports[`Lesson Progressbar tests basic tests matches the snapshot 1`] = `
   />
   <div
     aria-valuemax={10}
-    aria-valuemin="0"
+    aria-valuemin={0}
     aria-valuenow={10}
-    className="progress-bar lesson-progress-bar bg-primary"
+    className="progress-bar lesson-progress-bar cursor-pointer bg-secondary"
+    onClick={[Function]}
     role="progressbar"
     style={
       Object {
@@ -78,9 +84,10 @@ exports[`Lesson Progressbar tests basic tests matches the snapshot 1`] = `
   />
   <div
     aria-valuemax={10}
-    aria-valuemin="0"
+    aria-valuemin={0}
     aria-valuenow={10}
-    className="progress-bar lesson-progress-bar bg-secondary"
+    className="progress-bar lesson-progress-bar cursor-pointer bg-secondary"
+    onClick={[Function]}
     role="progressbar"
     style={
       Object {
@@ -90,9 +97,10 @@ exports[`Lesson Progressbar tests basic tests matches the snapshot 1`] = `
   />
   <div
     aria-valuemax={10}
-    aria-valuemin="0"
+    aria-valuemin={0}
     aria-valuenow={10}
-    className="progress-bar lesson-progress-bar bg-secondary"
+    className="progress-bar lesson-progress-bar cursor-pointer bg-secondary"
+    onClick={[Function]}
     role="progressbar"
     style={
       Object {
@@ -102,9 +110,10 @@ exports[`Lesson Progressbar tests basic tests matches the snapshot 1`] = `
   />
   <div
     aria-valuemax={10}
-    aria-valuemin="0"
+    aria-valuemin={0}
     aria-valuenow={10}
-    className="progress-bar lesson-progress-bar bg-secondary"
+    className="progress-bar lesson-progress-bar cursor-pointer bg-secondary"
+    onClick={[Function]}
     role="progressbar"
     style={
       Object {
@@ -114,9 +123,10 @@ exports[`Lesson Progressbar tests basic tests matches the snapshot 1`] = `
   />
   <div
     aria-valuemax={10}
-    aria-valuemin="0"
+    aria-valuemin={0}
     aria-valuenow={10}
-    className="progress-bar lesson-progress-bar bg-secondary"
+    className="progress-bar lesson-progress-bar cursor-pointer bg-secondary"
+    onClick={[Function]}
     role="progressbar"
     style={
       Object {
