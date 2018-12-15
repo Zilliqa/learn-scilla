@@ -5,12 +5,13 @@ import './style.css';
 interface IProps {
   t: (key: string) => string;
   chapterList: IChapterInstruction[];
+  ch1Progress: number;
   progress?: any;
   isAuth: boolean;
 }
 
 const ChapterList: React.SFC<IProps> = (props) => {
-  const { t, isAuth, chapterList, progress } = props;
+  const { t, isAuth, chapterList, progress, ch1Progress } = props;
   const list = chapterList || [];
 
   const result = list.map((item, index) => {
@@ -18,12 +19,16 @@ const ChapterList: React.SFC<IProps> = (props) => {
     const chapterKey: string = `chapter${chapterNum}`;
 
     const progressProfile = progress || {};
-    const chapterProgressNum: number = progressProfile[chapterKey] || 0;
+    let chapterProgressNum: number = ch1Progress || 0;
+    if (isAuth) {
+      chapterProgressNum = progressProfile[chapterKey];
+    }
 
     const lessons: string[] = item.lessons || [];
     const totalNum: number = lessons.length;
 
-    const progressText = isAuth ? `(${chapterProgressNum}/${totalNum})` : '';
+    const progressText = `(${chapterProgressNum}/${totalNum})`;
+
     const lessonToStart = totalNum <= chapterProgressNum ? totalNum : chapterProgressNum + 1;
 
     const startingChapterPath = `/chapter/${chapterNum}/lesson/${lessonToStart}`;

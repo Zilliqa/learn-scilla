@@ -20,11 +20,12 @@ interface IProps {
   location: H.Location;
   instructions: CourseInstructionType;
   profile: any;
+  ch1Progress?: number;
 }
 
 class ChapterContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
-    const { instructions, i18n, t, profile } = this.props;
+    const { instructions, i18n, t, profile, ch1Progress = 0 } = this.props;
     const { isLoaded, isEmpty, progress } = profile;
     const lang: string = i18n.language;
     if (instructions === undefined || instructions[lang] === undefined) {
@@ -36,6 +37,7 @@ class ChapterContainer extends React.Component<IProps, {}> {
     }
     const intructionsLocalized = instructions[lang];
     const documentTitle = `LearnScilla - An interactive tutorial for people to learn Scilla`;
+
     return (
       <Layout>
         <Helmet>
@@ -51,6 +53,7 @@ class ChapterContainer extends React.Component<IProps, {}> {
                   chapterList={intructionsLocalized}
                   isAuth={!isEmpty}
                   progress={progress}
+                  ch1Progress={ch1Progress}
                   t={t}
                 />
               </div>
@@ -67,7 +70,8 @@ const WithTranslation = withNamespaces()(ChapterContainer);
 // @ts-check
 const mapStateToProps = (state) => ({
   instructions: state.course.courseInstructions,
-  profile: state.firebase.profile
+  profile: state.firebase.profile,
+  ch1Progress: state.persist.ch1Progress
 });
 
 export default compose(
