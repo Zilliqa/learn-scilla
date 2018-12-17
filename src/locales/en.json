@@ -11,7 +11,8 @@
     "back": "Back",
     "skip": "Skip",
     "openChat": "Open Chat",
-    "nextLesson": "Proceed to Next Lesson"
+    "nextLesson": "Proceed to Next Lesson",
+    "cheatSheet": "cheat Sheet"
   },
   "editor" : {
     "hint": "Hint",
