@@ -11,7 +11,8 @@
     "back": "バック",
     "skip": "スキップ",
     "openChat": "チャットに参加",
-    "nextLesson": "次のレッスンへ進む"
+    "nextLesson": "次のレッスンへ進む",
+    "cheatSheet": "カンニングペーパー"
   },
   "editor" : {
     "hint": "ヒント",

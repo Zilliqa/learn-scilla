@@ -1,0 +1,16 @@
+.cheat-sheet-table {
+  overflow-x: scroll;
+  word-break: keep-all;
+}
+
+.cheat-sheet-table .table th {
+  font-size: 12px;
+}
+
+.cheat-sheet-table .table td {
+  font-size: 12px;
+}
+
+.cheat-sheet-table .wide {
+  min-width: 350px;
+}
