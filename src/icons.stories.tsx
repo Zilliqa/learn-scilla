@@ -14,7 +14,8 @@ import {
   FaTimes,
   FaGitter,
   FaTwitter,
-  FaMedal
+  FaMedal,
+  FaCode
 } from 'react-icons/fa';
 
 const icons = {
@@ -30,7 +31,8 @@ const icons = {
   FaRegEyeSlash: <FaRegEyeSlash />,
   FaRegComments: <FaRegComments />,
   FaTimes: <FaTimes />,
-  FaMedal: <FaMedal />
+  FaMedal: <FaMedal />,
+  FaCode: <FaCode />
 };
 const keyList = Object.keys(icons);
 

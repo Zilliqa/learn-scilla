@@ -8,7 +8,7 @@ import {
   FaTimes
 } from 'react-icons/fa';
 import Button from '../button';
-
+import CheatSheetModal from '../cheat-sheet-modal';
 interface IProps {
   t: (key: string) => string;
   isAnswerButtonVisible: boolean;
@@ -57,6 +57,7 @@ const ControlPanel: React.SFC<IProps> = (props) => {
         icon={{ image: <FaRegLightbulb />, position: 'before' }}
         size="sm"
       />{' '}
+      <CheatSheetModal t={t} />{' '}
       <a
         className="btn btn-outline-secondary btn-sm"
         href={'https://gitter.im/Zilliqa/SmartContract'}
@@ -65,7 +66,7 @@ const ControlPanel: React.SFC<IProps> = (props) => {
         aria-label={'open chat'}
       >
         <FaRegComments /> {t('lesson.openChat')}
-      </a>
+      </a>{' '}
     </div>
   );
 };
