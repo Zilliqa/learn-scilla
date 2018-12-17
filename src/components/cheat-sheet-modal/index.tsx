@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'reactstrap/lib/Modal';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
 import Button from '../button';
-import { FaLaptopCode } from 'react-icons/fa';
+import { FaCode } from 'react-icons/fa';
 import './style.css';
 
 interface IProps {
@@ -20,26 +20,15 @@ class AuthModal extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
     const { t } = this.props;
 
-    const signIntegerTable = {
-      catogory: 'Signed Integer',
-      row: [
-        'IntX (Where X can be 32, 64, 128, or 256) eg. Int32',
-        'field a: Option Int32 = None {Int32}',
-        'field a: Int32 = Int32 5',
-        'a = Int32 5',
-        'let a= Int32 5'
-      ]
-    };
-
     return (
-      <div className="container-fluid">
+      <span>
         <Button
           onClick={this.toggleModal}
           type="secondary"
           size="sm"
           text={t('lesson.cheatSheet')}
           ariaLabel={t('lesson.cheatSheet')}
-          icon={{ image: <FaLaptopCode />, position: 'before' }}
+          icon={{ image: <FaCode />, position: 'before' }}
         />
         <Modal fade={false} isOpen={this.state.isModalOpen} toggle={this.toggleModal} size="lg">
           <ModalHeader toggle={this.toggleModal}>{t('lesson.cheatSheet')}</ModalHeader>
@@ -298,7 +287,7 @@ class AuthModal extends React.Component<IProps, IState> {
             </table>
           </div>
         </Modal>
-      </div>
+      </span>
     );
   }
 
