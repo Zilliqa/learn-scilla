@@ -11,7 +11,8 @@
     "back": "上一章",
     "skip": "下一章",
     "openChat": "加入群聊",
-    "nextLesson": "去下一个课程"
+    "nextLesson": "去下一个课程",
+    "cheatSheet": "备忘单"
   },
   "editor" : {
     "hint": "提示",
