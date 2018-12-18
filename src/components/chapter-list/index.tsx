@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { IChapterInstruction } from '../../typings';
+import { CourseInstructionType } from '../../typings';
 import './style.css';
 interface IProps {
   t: (key: string) => string;
-  chapterList: IChapterInstruction[];
+  chapterList: CourseInstructionType;
   ch1Progress: number;
   progress?: any;
   isAuth: boolean;
