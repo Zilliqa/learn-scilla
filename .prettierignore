@@ -8,5 +8,5 @@ build/
 dist/
 node_modules/
 *.compiled.*
-
+coverage
 public
