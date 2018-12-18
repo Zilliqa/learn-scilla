@@ -4,9 +4,11 @@ import ModalHeader from 'reactstrap/lib/ModalHeader';
 import Button from '../button';
 import { FaCode } from 'react-icons/fa';
 import './style.css';
+import { ButtonType } from '../button';
 
 interface IProps {
   t: (key: string) => string;
+  buttonType?: ButtonType;
 }
 
 interface IState {
@@ -18,13 +20,13 @@ class AuthModal extends React.Component<IProps, IState> {
     isModalOpen: false
   };
   public render(): React.ReactNode {
-    const { t } = this.props;
+    const { t, buttonType = 'secondary' } = this.props;
 
     return (
       <span>
         <Button
           onClick={this.toggleModal}
-          type="secondary"
+          type={buttonType}
           size="sm"
           text={t('lesson.cheatSheet')}
           ariaLabel={t('lesson.cheatSheet')}

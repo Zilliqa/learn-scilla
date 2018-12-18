@@ -20,6 +20,12 @@ storiesOf('Button', module)
         ariaLabel={'secondary button'}
       />{' '}
       <Button
+        type="warning"
+        text={'warning'}
+        onClick={() => console.log('click')}
+        ariaLabel={'warning button'}
+      />{' '}
+      <Button
         type="danger"
         text={'danger'}
         onClick={() => console.log('click')}
@@ -47,6 +53,13 @@ storiesOf('Button', module)
         text={'button'}
         onClick={() => console.log('click')}
         ariaLabel={'disabled secondary button'}
+        disabled={true}
+      />{' '}
+      <Button
+        type="warning"
+        text={'warning'}
+        onClick={() => console.log('click')}
+        ariaLabel={'disabled warning button'}
         disabled={true}
       />{' '}
       <Button

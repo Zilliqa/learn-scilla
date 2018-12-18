@@ -2,7 +2,7 @@ import * as React from 'react';
 import './style.css';
 
 interface IProps {
-  type: Type;
+  type: ButtonType;
   ariaLabel: string;
   size?: Size;
   text?: string;
@@ -14,7 +14,7 @@ interface IProps {
 }
 
 type Size = 'lg' | 'md' | 'sm';
-type Type = 'primary' | 'secondary' | 'danger' | 'transparent';
+export type ButtonType = 'primary' | 'secondary' | 'warning' | 'danger' | 'transparent';
 
 export default class Button extends React.PureComponent<IProps, {}> {
   public static displayName = 'Button';
@@ -35,6 +35,9 @@ export default class Button extends React.PureComponent<IProps, {}> {
         break;
       case 'secondary':
         bsStyle = `outline-secondary`;
+        break;
+      case 'warning':
+        bsStyle = `outline-warning`;
         break;
       case 'danger':
         bsStyle = `danger`;

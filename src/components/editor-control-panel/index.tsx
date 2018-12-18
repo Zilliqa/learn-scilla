@@ -29,6 +29,8 @@ const ControlPanel: React.SFC<IProps> = (props) => {
   const checkAnswerButtonType = showTryAgain ? 'danger' : 'primary';
   const checkAnswerButtonIcon = showTryAgain ? <FaTimes /> : <FaCheck />;
 
+  const warnableButtonType = showTryAgain ? 'warning' : 'secondary';
+
   return (
     <div>
       <Button
@@ -50,16 +52,16 @@ const ControlPanel: React.SFC<IProps> = (props) => {
         />
       ) : null}{' '}
       <Button
-        type={'secondary'}
+        type={warnableButtonType}
         text={t('editor.showHint')}
         onClick={props.handleShowHint}
         ariaLabel={'Show Answer'}
         icon={{ image: <FaRegLightbulb />, position: 'before' }}
         size="sm"
       />{' '}
-      <CheatSheetModal t={t} />{' '}
+      <CheatSheetModal t={t} buttonType={'secondary'} />{' '}
       <a
-        className="btn btn-outline-secondary btn-sm"
+        className={`btn btn-outline-${warnableButtonType} btn-sm`}
         href={'https://gitter.im/Zilliqa/SmartContract'}
         target="_blank"
         rel="noreferrer"

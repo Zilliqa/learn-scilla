@@ -30,8 +30,21 @@
   color: #7c7d8c !important;
 }
 
-.text-danger {
-  color: #e2051a !important;
+.btn-outline-warning {
+  border-color: #e9ab18 !important;
+  color: #e9ab18 !important;
+}
+
+.btn-outline-warning:hover,
+.btn-outline-warning:active {
+  border-color: #d19200 !important;
+  color: #fff !important;
+}
+
+.btn-outline-warning.disabled,
+.btn-outline-warning:disabled {
+  border-color: #e9ab18 !important;
+  color: #e9ab18 !important;
 }
 
 .btn-danger {

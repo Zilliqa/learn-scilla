@@ -32,6 +32,10 @@ body {
   color: #7c7d8c;
 }
 
+.text-danger {
+  color: #e2051a !important;
+}
+
 .spinner {
   margin: 100px auto;
   width: 50px;
