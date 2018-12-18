@@ -1,5 +1,5 @@
-import courseInstructions from '../../course/instructions';
-import courseCodes from '../../course/codes';
+import courseInstructions from '../../locales/instructions';
+import courseCodes from '../../course-codes';
 
 const initialState = { courseCodes, courseInstructions };
 

@@ -1,4 +1,4 @@
-import { ILessonCode, ChapterCodeType } from '../../../typings';
+import { ILessonCode, ChapterCodeType } from '../../typings';
 
 const l1: ILessonCode = {
   initialCode: `(* Start typing from the line below. *)`,
@@ -166,6 +166,6 @@ player_zeal := _amount
 end`
 };
 
-const chapter1: ChapterCodeType = [l1, l2, l3, l4, l5, l6, l7, l8, l9];
+const chapter2: ChapterCodeType = [l1, l2, l3, l4, l5, l6, l7, l8, l9];
 
-export default chapter1;
+export default chapter2;

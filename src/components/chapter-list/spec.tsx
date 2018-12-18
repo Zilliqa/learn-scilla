@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router';
-import intructionsLocalized from '../../course/instructions/en/index';
+import intructionsLocalized from '../../locales/instructions/en/index';
 import ChapterList from '.';
 
 const t = (s: string) => s;
