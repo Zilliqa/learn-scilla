@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import intructionsLocalized from '../../course/instructions/en/index';
+import intructionsLocalized from '../../locales/instructions/en/index';
 import { MemoryRouter } from 'react-router';
 import ChapterList from '.';
 

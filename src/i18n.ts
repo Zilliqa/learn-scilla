@@ -1,8 +1,8 @@
 import i18next from 'i18next';
 
-import en from './locales/en.json';
-import ja from './locales/ja.json';
-import zh from './locales/zh.json';
+import en from './locales/ui/en.json';
+import ja from './locales/ui/ja.json';
+import zh from './locales/ui/zh.json';
 
 export const langDictionary = {
   en: 'English [en]',
