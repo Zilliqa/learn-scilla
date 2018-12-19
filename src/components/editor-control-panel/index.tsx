@@ -8,7 +8,6 @@ import {
   FaTimes
 } from 'react-icons/fa';
 import Button from '../button';
-import CheatSheetModal from '../cheat-sheet-modal';
 interface IProps {
   t: (key: string) => string;
   isAnswerButtonVisible: boolean;
@@ -59,7 +58,6 @@ const ControlPanel: React.SFC<IProps> = (props) => {
         icon={{ image: <FaRegLightbulb />, position: 'before' }}
         size="sm"
       />{' '}
-      <CheatSheetModal t={t} buttonType={'secondary'} />{' '}
       <a
         className={`btn btn-outline-${warnableButtonType} btn-sm`}
         href={'https://gitter.im/Zilliqa/SmartContract'}
