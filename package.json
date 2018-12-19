@@ -20,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:cov": "react-scripts test --coverage",
     "test:ci": "CI=true react-scripts test --coverage --updateSnapshot --forceExit --detectOpenHandles",
     "eject": "react-scripts eject",
     "tslint": "tslint --project tsconfig.json --format stylish",
@@ -76,6 +77,7 @@
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "jest": "^23.6.0",
+    "pre-push": "^0.1.1",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-test-renderer": "^16.6.3",
     "redux-logger": "^3.0.6",
@@ -86,6 +88,14 @@
     "tslint-config-prettier": "^1.16.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.2.2"
+  },
+  "pre-push": {
+    "run": [
+      "tslint",
+      "stylelint",
+      "format",
+      "test:cov"
+    ]
   },
   "browserslist": [
     ">0.2%",
