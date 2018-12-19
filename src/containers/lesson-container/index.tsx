@@ -11,7 +11,7 @@ import Editor from '../../components/editor';
 import InstructionViewer from '../../components/instruction-viewer';
 import LessonNavigator from '../../components/lesson-navigator';
 import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
-
+import CheatSheetModal from '../../components/cheat-sheet-modal';
 import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
 
@@ -98,7 +98,11 @@ class LessonContainer extends React.Component<IProps, IState> {
               )}
             </div>
           </div>
-          <div className="text-center py-4">
+          <div className="text-center">
+            <div className="py-4">
+              <CheatSheetModal t={t} buttonType={'secondary'} />
+            </div>
+
             <LessonNavigator
               goBack={this.goBack}
               goNext={this.goNext}
