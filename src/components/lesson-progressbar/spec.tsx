@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import LessonProgressbar from '.';
 
 const navigate = (chapterNum, lessonNum) => {
@@ -18,10 +18,10 @@ describe('Lesson Progressbar tests', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(baseComponent(), div);
-      ReactDOM.unmountComponentAtNode(div);
+    it('renders the component', () => {
+      const wrapper = shallow(baseComponent());
+      const assertion = wrapper.find('[data-test-id="lesson-progressbar"]').length;
+      expect(assertion).toBe(1);
     });
   });
 });

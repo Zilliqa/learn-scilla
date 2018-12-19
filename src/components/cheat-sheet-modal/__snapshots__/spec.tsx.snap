@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Cheat Sheet Modal tests basic tests matches the snapshot 1`] = `
-<span>
+<span
+  data-test-id="cheat-sheet-modal"
+>
   <button
     aria-label="lesson.cheatSheet"
     className="btn btn-sm btn-outline-secondary "

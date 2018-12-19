@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
 import CheatSheetModal from '.';
+import { shallow } from 'enzyme';
 
 const t = (s: string) => s;
 
@@ -14,10 +14,23 @@ describe('Cheat Sheet Modal tests', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(baseComponent(), div);
-      ReactDOM.unmountComponentAtNode(div);
+    it('renders the component', () => {
+      const wrapper = shallow(baseComponent());
+      const assertion = wrapper.find('[data-test-id="cheat-sheet-modal"]').length;
+      expect(assertion).toBe(1);
+    });
+  });
+
+  describe('component behavior', () => {
+    it('check modal closed', () => {
+      const wrapper = shallow(baseComponent());
+      expect(wrapper.state('isOpen')).toEqual(false);
+    });
+
+    it('check modal opened after toggle', () => {
+      const wrapper = shallow(baseComponent());
+      wrapper.find('[data-test-id="toggle"]').simulate('click');
+      expect(wrapper.state('isOpen')).toEqual(true);
     });
   });
 });

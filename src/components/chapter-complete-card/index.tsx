@@ -18,7 +18,10 @@ class ChapterCompleteCard extends React.PureComponent<IProps, {}> {
 
     const nextLessonPath = `/chapter/${chapter + 1}/lesson/1`;
     return (
-      <div className="chapter-complete-card card card-body text-center py-5">
+      <div
+        className="chapter-complete-card card card-body text-center py-5"
+        data-test-id="chapter-complete-card"
+      >
         <div className="text-secondary">
           <h3>{t('chapter.goodjob')}!</h3>
           <p>{t('chapter.chapterCompleteMessage')}</p>

@@ -3,6 +3,7 @@
 exports[`Spinner tests basic tests matches the snapshot 1`] = `
 <div
   className="py-5 text-center"
+  data-test-id="spinner"
 >
   <div
     className="spinner"

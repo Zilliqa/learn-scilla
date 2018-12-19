@@ -27,7 +27,13 @@ class AccountDropdown extends React.Component<IProps, IState> {
     const isAccountPath = currentPathname === paths.account;
 
     return (
-      <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} nav={true} inNavbar={true}>
+      <Dropdown
+        isOpen={this.state.dropdownOpen}
+        toggle={this.toggle}
+        nav={true}
+        inNavbar={true}
+        data-test-id="account-dropdown"
+      >
         <DropdownToggle caret={true} nav={true} className={isAccountPath ? 'active' : ''}>
           {username}
         </DropdownToggle>

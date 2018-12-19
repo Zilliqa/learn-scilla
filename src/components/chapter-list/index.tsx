@@ -47,7 +47,11 @@ const ChapterList: React.SFC<IProps> = (props) => {
     );
   });
 
-  return <div className="chapter-list">{result}</div>;
+  return (
+    <div className="chapter-list" data-test-id="chapter-list">
+      {result}
+    </div>
+  );
 };
 
 export default ChapterList;

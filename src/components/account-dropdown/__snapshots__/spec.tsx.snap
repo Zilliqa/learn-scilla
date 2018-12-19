@@ -3,6 +3,7 @@
 exports[`Account Dropdown tests basic tests matches the snapshot 1`] = `
 <li
   className="dropdown nav-item"
+  data-test-id="account-dropdown"
   onKeyDown={[Function]}
 >
   <a

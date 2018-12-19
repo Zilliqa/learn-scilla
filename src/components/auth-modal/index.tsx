@@ -12,13 +12,13 @@ interface IProps {
 }
 
 interface IState {
-  isModalOpen: boolean;
+  isOpen: boolean;
   isAuthPending: boolean;
 }
 
 class AuthModal extends React.Component<IProps, IState> {
   public readonly state = {
-    isModalOpen: false,
+    isOpen: false,
     isAuthPending: false
   };
   public render(): React.ReactNode {
@@ -26,11 +26,16 @@ class AuthModal extends React.Component<IProps, IState> {
     const { isAuthPending } = this.state;
     const cursorStyle = { cursor: 'pointer' };
     return (
-      <li className="nav-item">
-        <a className="nav-link" onClick={this.toggleModal} style={cursorStyle}>
+      <li className="nav-item" data-test-id="auth-modal">
+        <a
+          className="nav-link"
+          onClick={this.toggleModal}
+          style={cursorStyle}
+          data-test-id="toggle"
+        >
           {t('link.signIn')}
         </a>
-        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} size="md">
+        <Modal isOpen={this.state.isOpen} toggle={this.toggleModal} size="md">
           <ModalHeader toggle={this.toggleModal}>{t('link.signIn')}</ModalHeader>
           <div className="modal-body">
             {!isLoaded || isAuthPending ? (
@@ -65,7 +70,7 @@ class AuthModal extends React.Component<IProps, IState> {
 
   private toggleModal = () => {
     this.setState({
-      isModalOpen: !this.state.isModalOpen,
+      isOpen: !this.state.isOpen,
       isAuthPending: false
     });
   };

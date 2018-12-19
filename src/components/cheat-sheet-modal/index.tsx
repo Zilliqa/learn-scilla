@@ -12,27 +12,28 @@ interface IProps {
 }
 
 interface IState {
-  isModalOpen: boolean;
+  isOpen: boolean;
 }
 
-class AuthModal extends React.Component<IProps, IState> {
+class CheatSheetModal extends React.Component<IProps, IState> {
   public readonly state = {
-    isModalOpen: false
+    isOpen: false
   };
   public render(): React.ReactNode {
     const { t, buttonType = 'secondary' } = this.props;
 
     return (
-      <span>
+      <span data-test-id="cheat-sheet-modal">
         <Button
           onClick={this.toggleModal}
           type={buttonType}
+          data-test-id="toggle"
           size="sm"
           text={t('lesson.cheatSheet')}
           ariaLabel={t('lesson.cheatSheet')}
           icon={{ image: <FaCode />, position: 'before' }}
         />
-        <Modal fade={false} isOpen={this.state.isModalOpen} toggle={this.toggleModal} size="lg">
+        <Modal fade={false} isOpen={this.state.isOpen} toggle={this.toggleModal} size="lg">
           <ModalHeader toggle={this.toggleModal}>{t('lesson.cheatSheet')}</ModalHeader>
           <div className="modal-body cheat-sheet-table">
             <table className="table table-hover table-fixed">
@@ -295,9 +296,9 @@ class AuthModal extends React.Component<IProps, IState> {
 
   private toggleModal = () => {
     this.setState({
-      isModalOpen: !this.state.isModalOpen
+      isOpen: !this.state.isOpen
     });
   };
 }
 
-export default AuthModal;
+export default CheatSheetModal;

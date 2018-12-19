@@ -17,7 +17,7 @@ const LessonNavigator: React.SFC<IProps> = (props) => {
   const isProceedButtonDisabled = lessonNumber >= total;
 
   return (
-    <div role="group" className="btn-group">
+    <div role="group" className="btn-group" data-test-id="lesson-navigator">
       <Button
         type="secondary"
         size="sm"

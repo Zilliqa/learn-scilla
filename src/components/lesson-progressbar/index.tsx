@@ -17,7 +17,11 @@ const LessonProgressbar: React.SFC<IProps> = ({ navigate, chapterNumber, lessonN
   const percent = (1 / total) * 100;
 
   return (
-    <Progress multi={true} className="lesson-progress-bar-container">
+    <Progress
+      multi={true}
+      className="lesson-progress-bar-container"
+      data-test-id="lesson-progressbar"
+    >
       {list.map((item, index) => {
         const isLocked = lessonNumber <= index;
         const color = isLocked ? 'secondary' : 'primary';
