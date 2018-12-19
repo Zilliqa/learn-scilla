@@ -13,12 +13,12 @@ interface IProps {
 }
 
 interface IState {
-  dropdownOpen: boolean;
+  isOpen: boolean;
 }
 
 class I18Dropdown extends React.Component<IProps, IState> {
   public readonly state: IState = {
-    dropdownOpen: false
+    isOpen: false
   };
 
   public render() {
@@ -27,34 +27,36 @@ class I18Dropdown extends React.Component<IProps, IState> {
     const keys = Object.keys(langDictionary);
 
     return (
-      <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} nav={true} inNavbar={true}>
-        <DropdownToggle caret={true} nav={true}>
-          {langDictionary[lang]}
-        </DropdownToggle>
-        <DropdownMenu right={true} size="sm">
-          {keys.map((key) => (
-            <Button
-              key={key}
-              className="btn-block text-left"
-              type="transparent"
-              text={langDictionary[key]}
-              onClick={() => this.selectLanguage(key)}
-              ariaLabel={langDictionary[key]}
-            />
-          ))}
-        </DropdownMenu>
-      </Dropdown>
+      <span data-test-id="i18n-dropdown-container">
+        <Dropdown isOpen={this.state.isOpen} toggle={this.toggle} nav={true} inNavbar={true}>
+          <DropdownToggle caret={true} nav={true}>
+            {langDictionary[lang]}
+          </DropdownToggle>
+          <DropdownMenu right={true} size="sm">
+            {keys.map((key) => (
+              <Button
+                key={key}
+                className="btn-block text-left"
+                type="transparent"
+                text={langDictionary[key]}
+                onClick={() => this.selectLanguage(key)}
+                ariaLabel={langDictionary[key]}
+              />
+            ))}
+          </DropdownMenu>
+        </Dropdown>
+      </span>
     );
   }
   private toggle = () => {
-    this.setState({ dropdownOpen: !this.state.dropdownOpen });
+    this.setState({ isOpen: !this.state.isOpen });
   };
 
   private selectLanguage = (key) => {
     const { i18n } = this.props;
 
     i18n.changeLanguage(key);
-    this.setState({ dropdownOpen: false });
+    this.setState({ isOpen: false });
   };
 }
 

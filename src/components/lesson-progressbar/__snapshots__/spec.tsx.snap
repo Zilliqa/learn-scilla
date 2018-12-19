@@ -3,6 +3,7 @@
 exports[`Lesson Progressbar tests basic tests matches the snapshot 1`] = `
 <div
   className="lesson-progress-bar-container progress"
+  data-test-id="lesson-progressbar"
 >
   <div
     aria-valuemax={10}

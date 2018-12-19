@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
 import AuthModal from '.';
+import { shallow } from 'enzyme';
 
 const login = () => setTimeout(() => console.log('login'), 500);
 const t = (s: string) => s;
@@ -15,16 +15,29 @@ describe('Auth Modal tests', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it('renders without crashing while loading', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(baseComponent({ isLoaded: true }), div);
-      ReactDOM.unmountComponentAtNode(div);
+    it('renders the component while loading', () => {
+      const wrapper = shallow(baseComponent({ isLoaded: false }));
+      const assertion = wrapper.find('[data-test-id="auth-modal"]').length;
+      expect(assertion).toBe(1);
     });
 
-    it('renders without crashing after loaded', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(baseComponent({ isLoaded: false }), div);
-      ReactDOM.unmountComponentAtNode(div);
+    it('renders the component after loaded', () => {
+      const wrapper = shallow(baseComponent({ isLoaded: false }));
+      const assertion = wrapper.find('[data-test-id="auth-modal"]').length;
+      expect(assertion).toBe(1);
+    });
+  });
+
+  describe('component behavior', () => {
+    it('check modal closed', () => {
+      const wrapper = shallow(baseComponent({ isLoaded: true }));
+      expect(wrapper.state('isOpen')).toEqual(false);
+    });
+
+    it('check modal opened after toggle', () => {
+      const wrapper = shallow(baseComponent({ isLoaded: true }));
+      wrapper.find('[data-test-id="toggle"]').simulate('click');
+      expect(wrapper.state('isOpen')).toEqual(true);
     });
   });
 });

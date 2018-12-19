@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Cheat Sheet Modal tests basic tests matches the snapshot 1`] = `<div />`;
+exports[`Cheat Sheet Modal tests basic tests matches the snapshot 1`] = `
+<div
+  data-test-id="lesson-complete-modal"
+/>
+`;

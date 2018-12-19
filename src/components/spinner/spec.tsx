@@ -1,6 +1,6 @@
 import React from 'react';
 import * as renderer from 'react-test-renderer';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import Spinner from '.';
 
 describe('Spinner tests', () => {
@@ -12,10 +12,10 @@ describe('Spinner tests', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(baseComponent(), div);
-      ReactDOM.unmountComponentAtNode(div);
+    it('renders the component', () => {
+      const wrapper = shallow(baseComponent());
+      const assertion = wrapper.find('[data-test-id="spinner"]').length;
+      expect(assertion).toBe(1);
     });
   });
 });

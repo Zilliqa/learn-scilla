@@ -3,6 +3,7 @@
 exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
 <div
   className="chapter-list"
+  data-test-id="chapter-list"
 >
   <div
     className="m-2"

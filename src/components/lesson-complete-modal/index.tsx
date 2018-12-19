@@ -11,10 +11,10 @@ interface IProps {
   isModalVisible: boolean;
 }
 
-const CodeModal: React.SFC<IProps> = (props) => {
+const LessonCompleteModal: React.SFC<IProps> = (props) => {
   const { isModalVisible, t, closeModal, onSubmit } = props;
   return (
-    <div>
+    <div data-test-id="lesson-complete-modal">
       <Modal isOpen={isModalVisible} fade={false} toggle={closeModal}>
         <ModalHeader toggle={closeModal} className="text-secondary">
           <FaMedal /> {t('chapter.goodjob')}
@@ -33,4 +33,4 @@ const CodeModal: React.SFC<IProps> = (props) => {
   );
 };
 
-export default CodeModal;
+export default LessonCompleteModal;

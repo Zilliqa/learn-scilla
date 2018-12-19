@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import * as renderer from 'react-test-renderer';
 
 import LessonCompleteModal from '.';
@@ -18,10 +18,10 @@ describe('Cheat Sheet Modal tests', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(baseComponent(), div);
-      ReactDOM.unmountComponentAtNode(div);
+    it('renders the component', () => {
+      const wrapper = shallow(baseComponent());
+      const assertion = wrapper.find('[data-test-id="lesson-complete-modal"]').length;
+      expect(assertion).toBe(1);
     });
   });
 });

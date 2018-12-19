@@ -3,9 +3,11 @@
 exports[`Auth Modal tests basic tests matches the snapshot 1`] = `
 <li
   className="nav-item"
+  data-test-id="auth-modal"
 >
   <a
     className="nav-link"
+    data-test-id="toggle"
     onClick={[Function]}
     style={
       Object {

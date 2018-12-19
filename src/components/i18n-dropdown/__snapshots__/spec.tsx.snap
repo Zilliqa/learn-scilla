@@ -1,53 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`i18n Dropdown tests basic tests matches the snapshot 1`] = `
-<li
-  className="dropdown nav-item"
-  onKeyDown={[Function]}
+<span
+  data-test-id="i18n-dropdown-container"
 >
-  <a
-    aria-expanded={false}
-    aria-haspopup={true}
-    className="dropdown-toggle nav-link"
-    href="#"
-    onClick={[Function]}
+  <li
+    className="dropdown nav-item"
+    onKeyDown={[Function]}
   >
-    English [en]
-  </a>
-  <div
-    aria-hidden={true}
-    className="dropdown-menu dropdown-menu-right"
-    role="menu"
-    size="sm"
-    tabIndex="-1"
-  >
-    <button
-      aria-label="English [en]"
-      className="btn btn-md btn-transparent btn-block text-left"
+    <a
+      aria-expanded={false}
+      aria-haspopup={true}
+      className="dropdown-toggle nav-link"
+      href="#"
       onClick={[Function]}
     >
-       
       English [en]
-       
-    </button>
-    <button
-      aria-label="中文 [zh]"
-      className="btn btn-md btn-transparent btn-block text-left"
-      onClick={[Function]}
+    </a>
+    <div
+      aria-hidden={true}
+      className="dropdown-menu dropdown-menu-right"
+      role="menu"
+      size="sm"
+      tabIndex="-1"
     >
-       
-      中文 [zh]
-       
-    </button>
-    <button
-      aria-label="日本語 [ja]"
-      className="btn btn-md btn-transparent btn-block text-left"
-      onClick={[Function]}
-    >
-       
-      日本語 [ja]
-       
-    </button>
-  </div>
-</li>
+      <button
+        aria-label="English [en]"
+        className="btn btn-md btn-transparent btn-block text-left"
+        onClick={[Function]}
+      >
+         
+        English [en]
+         
+      </button>
+      <button
+        aria-label="中文 [zh]"
+        className="btn btn-md btn-transparent btn-block text-left"
+        onClick={[Function]}
+      >
+         
+        中文 [zh]
+         
+      </button>
+      <button
+        aria-label="日本語 [ja]"
+        className="btn btn-md btn-transparent btn-block text-left"
+        onClick={[Function]}
+      >
+         
+        日本語 [ja]
+         
+      </button>
+    </div>
+  </li>
+</span>
 `;
