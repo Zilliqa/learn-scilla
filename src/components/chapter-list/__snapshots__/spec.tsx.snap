@@ -30,7 +30,7 @@ exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
     <a
       aria-label="start chapter"
       className="btn btn-primary btn-block text-left"
-      href="/chapter/2/lesson/NaN"
+      href="/chapter/2/lesson/1"
       onClick={[Function]}
     >
       <small>
@@ -39,7 +39,7 @@ exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
       </small>
        Intermediate 
       <small>
-        (undefined/9)
+        (0/9)
       </small>
     </a>
   </div>
