@@ -43,14 +43,14 @@ storiesOf('Button', module)
     <div>
       <Button
         type="primary"
-        text={'button'}
+        text={'primary'}
         onClick={() => console.log('click')}
         ariaLabel={'disabled primary button'}
         disabled={true}
       />{' '}
       <Button
         type="secondary"
-        text={'button'}
+        text={'secondary'}
         onClick={() => console.log('click')}
         ariaLabel={'disabled secondary button'}
         disabled={true}
@@ -64,7 +64,7 @@ storiesOf('Button', module)
       />{' '}
       <Button
         type="danger"
-        text={'button'}
+        text={'danger'}
         onClick={() => console.log('click')}
         ariaLabel={'disabled danger button'}
         disabled={true}
