@@ -104,7 +104,7 @@ storiesOf('Button', module)
       />
     </div>
   ))
-  .add('with icons', () => (
+  .add('position', () => (
     <div>
       <Button
         before={<FaArrowLeft />}
