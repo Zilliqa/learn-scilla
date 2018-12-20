@@ -43,13 +43,15 @@ describe('Auth Modal tests', () => {
     it('google login', () => {
       const wrapper = shallow(baseComponent({ isLoaded: true }));
       wrapper.find('[data-test-id="google-login-button"]').simulate('click');
-      expect(login).toHaveBeenCalled();
+      expect(login.mock.calls[0][0]).toBe('google');
+      expect(login.mock.calls.length).toBe(1);
     });
 
     it('github login', () => {
       const wrapper = shallow(baseComponent({ isLoaded: true }));
       wrapper.find('[data-test-id="github-login-button"]').simulate('click');
-      expect(login).toHaveBeenCalled();
+      expect(login.mock.calls[1][0]).toBe('github');
+      expect(login.mock.calls.length).toBe(2);
     });
   });
 });
