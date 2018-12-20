@@ -2,8 +2,8 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 
 const getFontWeight = (fontWeight) => ({ fontWeight });
-storiesOf('Text', module)
-  .add('typography', () => (
+storiesOf('Typography', module)
+  .add('levels', () => (
     <div>
       <h1>h1 Noto Sans</h1>
       <h2>h2 Noto Sans</h2>
