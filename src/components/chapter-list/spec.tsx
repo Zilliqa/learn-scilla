@@ -7,7 +7,7 @@ import ChapterList from '.';
 const t = (s: string) => s;
 const navigate = (chapterNum, lessonNum) => console.log('navigate', chapterNum, lessonNum);
 
-describe('Chapter Complete Card tests', () => {
+describe('Chapter List tests', () => {
   const baseComponent = (props) => (
     <ChapterList
       ch1Progress={props.ch1Progress}
