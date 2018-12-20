@@ -15,9 +15,11 @@ import { IMatch, CourseCodeType, CourseInstructionType } from '../../typings';
 import CheatSheetModal from '../../components/cheat-sheet-modal';
 import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
+import { openAuthModal } from '../../redux/auth';
 
 interface IProps {
   setCh1Progress: (progress: number) => void;
+  openAuthModal: () => void;
   i18n: {
     language: string;
     changeLanguage: (lang: string) => void;
@@ -63,11 +65,6 @@ class LessonContainer extends React.Component<IProps, IState> {
     ${t('chapter.chapter')} ${chapterNumber} ${t('lesson.lesson')} ${lessonNumber}
     `;
     const { pathname } = location;
-
-    const navigate = (chapterNum, lessonNum) => {
-      history.push(`/chapter/${chapterNum}/lesson/${lessonNum}`);
-    };
-
     return (
       <div>
         <Header />
@@ -76,7 +73,7 @@ class LessonContainer extends React.Component<IProps, IState> {
         </Helmet>
         <div className="container">
           <LessonProgressbar
-            navigate={navigate}
+            navigate={this.navigate}
             chapterNumber={chapterNumber}
             lessonNumber={lessonNumber}
             total={numOfTotalLesson}
@@ -89,7 +86,7 @@ class LessonContainer extends React.Component<IProps, IState> {
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
               {isLastLesson ? (
                 <ChapterCompleteCard
-                  navigate={navigate}
+                  navigate={this.navigate}
                   t={t}
                   total={numOfTotalChapter}
                   chapter={chapterNumber}
@@ -174,10 +171,19 @@ class LessonContainer extends React.Component<IProps, IState> {
     if (codes === undefined) {
       return;
     }
-    const nextLessonPath = `/chapter/${currentChapter}/lesson/${currentLesson + 1}`;
 
-    // Navigate to next lesson
-    history.push(nextLessonPath);
+    this.navigate(currentChapter, currentLesson + 1);
+  };
+
+  private navigate = (chapterNum, lessonNum) => {
+    const { profile, history } = this.props;
+    const { isEmpty } = profile;
+    const isAuth = !isEmpty;
+
+    if (!isAuth && chapterNum > 1) {
+      return this.props.openAuthModal();
+    }
+    history.push(`/chapter/${chapterNum}/lesson/${lessonNum}`);
   };
 
   private getInstruction = () => {
@@ -222,7 +228,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setCh1Progress: (localProgress) => dispatch(setCh1Progress(localProgress))
+  setCh1Progress: (localProgress) => dispatch(setCh1Progress(localProgress)),
+  openAuthModal: () => dispatch(openAuthModal())
 });
 
 export default compose(
