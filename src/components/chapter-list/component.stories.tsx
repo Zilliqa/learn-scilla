@@ -5,6 +5,7 @@ import { MemoryRouter } from 'react-router';
 import ChapterList from '.';
 
 const t = (s: string) => s;
+const navigate = (chapterNum, lessonNum) => console.log('navigate', chapterNum, lessonNum);
 
 const baseComponent = (props) => (
   <ChapterList
@@ -12,6 +13,7 @@ const baseComponent = (props) => (
     chapterList={intructionsLocalized}
     isAuth={props.isAuth}
     progress={props.progress}
+    navigate={navigate}
     t={t}
   />
 );

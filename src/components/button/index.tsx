@@ -9,7 +9,8 @@ interface IProps {
   onClick: (e?) => void;
   id?: string;
   disabled?: boolean;
-  icon?: { image: React.ReactNode; position: 'before' | 'after' };
+  before?: React.ReactNode;
+  after?: React.ReactNode;
   className?: string;
 }
 
@@ -26,7 +27,7 @@ export default class Button extends React.PureComponent<IProps, {}> {
   };
 
   public render() {
-    const { disabled, className, onClick, icon, text, size, ariaLabel } = this.props;
+    const { disabled, className, onClick, before, after, text, size, ariaLabel } = this.props;
 
     let bsStyle;
     switch (this.props.type) {
@@ -47,17 +48,6 @@ export default class Button extends React.PureComponent<IProps, {}> {
         break;
     }
 
-    let position = 'before';
-
-    if (icon && icon.position) {
-      position = icon.position;
-    }
-    let image;
-    if (icon && icon.image) {
-      image = icon.image ? icon.image : null;
-    }
-    const isBefore = position === 'before';
-
     return (
       <button
         className={`btn btn-${size} btn-${bsStyle} ${className}`}
@@ -65,7 +55,7 @@ export default class Button extends React.PureComponent<IProps, {}> {
         aria-label={ariaLabel}
         disabled={disabled}
       >
-        {isBefore ? image : null} {text} {isBefore ? null : image}
+        {before ? before : null} {text} {after ? after : null}
       </button>
     );
   }

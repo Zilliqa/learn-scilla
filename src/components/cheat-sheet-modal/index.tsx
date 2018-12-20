@@ -31,7 +31,7 @@ class CheatSheetModal extends React.Component<IProps, IState> {
           size="sm"
           text={t('lesson.cheatSheet')}
           ariaLabel={t('lesson.cheatSheet')}
-          icon={{ image: <FaCode />, position: 'before' }}
+          before={<FaCode />}
         />
         <Modal fade={false} isOpen={this.state.isOpen} toggle={this.toggleModal} size="lg">
           <ModalHeader toggle={this.toggleModal}>{t('lesson.cheatSheet')}</ModalHeader>

@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withNamespaces } from 'react-i18next';
 import { Helmet } from 'react-helmet';
-import Layout from '../../components/layout';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 import { setCh1Progress } from '../../redux/persist/index';
 import * as H from 'history';
 import ChapterCompleteCard from '../../components/chapter-complete-card';
@@ -68,11 +69,12 @@ class LessonContainer extends React.Component<IProps, IState> {
     };
 
     return (
-      <Layout>
+      <div>
+        <Header />
         <Helmet>
           <title>{documentTitle}</title>
         </Helmet>
-        <div>
+        <div className="container">
           <LessonProgressbar
             navigate={navigate}
             chapterNumber={chapterNumber}
@@ -86,7 +88,12 @@ class LessonContainer extends React.Component<IProps, IState> {
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
               {isLastLesson ? (
-                <ChapterCompleteCard t={t} total={numOfTotalChapter} chapter={chapterNumber} />
+                <ChapterCompleteCard
+                  navigate={navigate}
+                  t={t}
+                  total={numOfTotalChapter}
+                  chapter={chapterNumber}
+                />
               ) : (
                 <Editor
                   initialCode={initialCode}
@@ -112,7 +119,8 @@ class LessonContainer extends React.Component<IProps, IState> {
             />
           </div>
         </div>
-      </Layout>
+        <Footer />
+      </div>
     );
   }
 

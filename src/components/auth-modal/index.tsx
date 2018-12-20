@@ -8,83 +8,58 @@ import Button from '../button';
 interface IProps {
   t: (key: string) => string;
   login: (params) => void;
+  toggleAuthModal: () => void;
   isLoaded: boolean;
-}
-
-interface IState {
-  isOpen: boolean;
+  isAuthModalOpen: boolean;
   isAuthPending: boolean;
 }
 
-class AuthModal extends React.Component<IProps, IState> {
-  public readonly state = {
-    isOpen: false,
-    isAuthPending: false
-  };
-  public render(): React.ReactNode {
-    const { t, isLoaded } = this.props;
-    const { isAuthPending } = this.state;
-    const cursorStyle = { cursor: 'pointer' };
-    return (
-      <li className="nav-item" data-test-id="auth-modal">
-        <a
-          className="nav-link"
-          onClick={this.toggleModal}
-          style={cursorStyle}
-          data-test-id="toggle"
-        >
-          {t('link.signIn')}
-        </a>
-        <Modal isOpen={this.state.isOpen} toggle={this.toggleModal} size="md">
-          <ModalHeader toggle={this.toggleModal}>{t('link.signIn')}</ModalHeader>
-          <div className="modal-body">
-            {!isLoaded || isAuthPending ? (
-              <Spinner />
-            ) : (
-              <div className="py-3 text-center">
-                <div className="py-1">
-                  <Button
-                    type="secondary"
-                    text={t('auth.signInWithGoogle')}
-                    onClick={() => this.signIn('google')}
-                    ariaLabel={'Login with Google'}
-                    icon={{ image: <FaGoogle />, position: 'before' }}
-                  />
-                </div>
-                <div className="py-1">
-                  <Button
-                    type="secondary"
-                    text={t('auth.signInWithGitHub')}
-                    onClick={() => this.signIn('github')}
-                    ariaLabel={'Login with GitHub'}
-                    icon={{ image: <FaGithub />, position: 'before' }}
-                  />
-                </div>
+const AuthModal: React.SFC<IProps> = ({
+  t,
+  isLoaded,
+  isAuthModalOpen,
+  isAuthPending,
+  toggleAuthModal,
+  login
+}) => {
+  return (
+    <li className="nav-item" data-test-id="auth-modal">
+      <a className="nav-link cursor-pointer" onClick={toggleAuthModal} data-test-id="toggle">
+        {t('link.signIn')}
+      </a>
+      <Modal isOpen={isAuthModalOpen} toggle={toggleAuthModal} size="md">
+        <ModalHeader toggle={toggleAuthModal}>{t('link.signIn')}</ModalHeader>
+        <div className="modal-body">
+          {!isLoaded || isAuthPending ? (
+            <Spinner />
+          ) : (
+            <div className="py-3 text-center">
+              <div className="py-1">
+                <Button
+                  data-test-id="google-login-button"
+                  type="secondary"
+                  text={t('auth.signInWithGoogle')}
+                  onClick={() => login('google')}
+                  ariaLabel={'Login with Google'}
+                  before={<FaGoogle />}
+                />
               </div>
-            )}
-          </div>
-        </Modal>
-      </li>
-    );
-  }
-
-  private toggleModal = () => {
-    this.setState({
-      isOpen: !this.state.isOpen,
-      isAuthPending: false
-    });
-  };
-
-  private signIn = async (provider: string) => {
-    const { login } = this.props;
-    try {
-      this.setState({ isAuthPending: true });
-      await login({ provider, type: 'popup' });
-    } catch (error) {
-      this.setState({ isAuthPending: false });
-      console.log(error);
-    }
-  };
-}
+              <div className="py-1">
+                <Button
+                  data-test-id="github-login-button"
+                  type="secondary"
+                  text={t('auth.signInWithGitHub')}
+                  onClick={() => login('github')}
+                  ariaLabel={'Login with GitHub'}
+                  before={<FaGithub />}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      </Modal>
+    </li>
+  );
+};
 
 export default AuthModal;

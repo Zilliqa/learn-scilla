@@ -5,11 +5,12 @@ import { MemoryRouter } from 'react-router';
 import ChapterCompleteCard from '.';
 
 const t = (s: string) => s;
+const navigate = (chapterNum, lessonNum) => console.log('navigate', chapterNum, lessonNum);
 
 describe('Chapter Complete Card tests', () => {
   const baseComponent = (props) => (
     <MemoryRouter initialEntries={['/']}>
-      <ChapterCompleteCard t={t} total={props.total} chapter={props.chapter} />
+      <ChapterCompleteCard navigate={navigate} t={t} total={props.total} chapter={props.chapter} />
     </MemoryRouter>
   );
 

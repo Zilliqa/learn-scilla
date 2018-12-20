@@ -6,14 +6,9 @@ exports[`Auth Modal tests basic tests matches the snapshot 1`] = `
   data-test-id="auth-modal"
 >
   <a
-    className="nav-link"
+    className="nav-link cursor-pointer"
     data-test-id="toggle"
     onClick={[Function]}
-    style={
-      Object {
-        "cursor": "pointer",
-      }
-    }
   >
     link.signIn
   </a>

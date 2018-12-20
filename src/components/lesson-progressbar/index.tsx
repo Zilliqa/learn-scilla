@@ -27,6 +27,7 @@ const LessonProgressbar: React.SFC<IProps> = ({ navigate, chapterNumber, lessonN
         const color = isLocked ? 'secondary' : 'primary';
         return (
           <Progress
+            data-test-id={`lesson-progressbar-block${index}`}
             key={index}
             onClick={() => navigate(chapterNumber, index + 1)}
             barClassName={`lesson-progress-bar cursor-pointer`}
