@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer tests basic tests matches the snapshot 1`] = `
+exports[`Button tests basic tests matches the snapshot 1`] = `
 <button
   aria-label="Test Button"
   className="btn btn-md btn-outline-secondary "

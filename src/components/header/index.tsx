@@ -12,6 +12,7 @@ import { paths } from '../../routes';
 import I18nDropdown from '../i18n-dropdown';
 import AccountDropdown from '../account-dropdown';
 import { langDictionary } from '../../i18n';
+import { toggleAuthModal, openAuthModal } from '../../redux/auth';
 
 interface IProps {
   history: H.History;
@@ -23,28 +24,31 @@ interface IProps {
   };
   firebase: any;
   auth: any;
+  isAuthModalOpen: boolean;
+  toggleAuthModal: () => void;
 }
 
 interface IStates {
-  isOpen: boolean;
+  isTogglerOpen: boolean;
+  isAuthPending: boolean;
 }
 
 class Header extends React.Component<IProps, IStates> {
   public readonly state: IStates = {
-    isOpen: false
+    isTogglerOpen: false,
+    isAuthPending: false
   };
 
   public render(): React.ReactNode {
-    const { i18n, t, auth, history, location, firebase } = this.props;
+    const { i18n, t, auth, history, location, firebase, isAuthModalOpen } = this.props;
     const { isLoaded, isEmpty } = auth;
     const { pathname } = location;
-
+    const { isAuthPending } = this.state;
     const navigateToAccount = () => history.push(paths.account);
     const logout = () => {
       firebase.logout();
       history.push(paths.chapterList);
     };
-    const login = firebase.login;
     const { displayName, email } = auth;
 
     const username = displayName || email;
@@ -59,7 +63,7 @@ class Header extends React.Component<IProps, IStates> {
           <span className="navbar-toggler-icon" />
         </button>
 
-        <Collapse isOpen={this.state.isOpen} navbar={true}>
+        <Collapse isOpen={this.state.isTogglerOpen} navbar={true}>
           <ul className="ml-auto navbar-nav">
             <li className="nav-item">
               <Link
@@ -72,7 +76,14 @@ class Header extends React.Component<IProps, IStates> {
             </li>
 
             {!isLoaded ? null : isEmpty ? (
-              <AuthModal login={login} isLoaded={isLoaded} t={t} />
+              <AuthModal
+                login={this.signIn}
+                toggleAuthModal={this.toggleAuthModal}
+                isLoaded={isLoaded}
+                isAuthModalOpen={isAuthModalOpen}
+                isAuthPending={isAuthPending}
+                t={t}
+              />
             ) : (
               <AccountDropdown
                 t={t}
@@ -93,8 +104,28 @@ class Header extends React.Component<IProps, IStates> {
 
   private toggle = () => {
     this.setState({
-      isOpen: !this.state.isOpen
+      isTogglerOpen: !this.state.isTogglerOpen
     });
+  };
+
+  private toggleAuthModal = () => {
+    this.setState({
+      isAuthPending: false
+    });
+    this.props.toggleAuthModal();
+  };
+
+  private signIn = async (provider: string) => {
+    const { firebase } = this.props;
+    const login = firebase.login;
+
+    try {
+      this.setState({ isAuthPending: true });
+      await login({ provider, type: 'popup' });
+    } catch (error) {
+      this.setState({ isAuthPending: false });
+      console.log(error);
+    }
   };
 }
 
@@ -102,11 +133,20 @@ class Header extends React.Component<IProps, IStates> {
 const withTrans = withNamespaces()(Header);
 // @ts-check
 const HeaderWithRouter = withRouter(withTrans);
+
 const mapStateToProps = (state) => ({
-  auth: state.firebase.auth
+  auth: state.firebase.auth,
+  isAuthModalOpen: state.auth.isAuthModalOpen
+});
+const mapDispatchToProps = (dispatch) => ({
+  toggleAuthModal: () => dispatch(toggleAuthModal()),
+  openAuthModal: () => dispatch(openAuthModal())
 });
 
 export default compose(
   withFirebase,
-  connect(mapStateToProps)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )
 )(HeaderWithRouter);

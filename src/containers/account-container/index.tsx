@@ -4,7 +4,8 @@ import { Helmet } from 'react-helmet';
 import { compose } from 'redux';
 import { withNamespaces } from 'react-i18next';
 import { withFirebase } from 'react-redux-firebase';
-import Layout from '../../components/layout';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 import * as H from 'history';
 
 import Spinner from '../../components/spinner';
@@ -26,7 +27,8 @@ class AccountContainer extends React.Component<IProps, {}> {
     const documentTitle = `LearnScilla - Account`;
 
     return (
-      <Layout>
+      <div>
+        <Header />
         <Helmet>
           <title>{documentTitle}</title>
         </Helmet>
@@ -58,7 +60,8 @@ class AccountContainer extends React.Component<IProps, {}> {
             </div>
           </div>
         </div>
-      </Layout>
+        <Footer />
+      </div>
     );
   }
 

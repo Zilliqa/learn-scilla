@@ -8,40 +8,42 @@ exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
   <div
     className="m-2"
   >
-    <a
+    <button
       aria-label="start chapter"
-      className="btn btn-primary btn-block text-left"
-      href="/chapter/1/lesson/4"
+      className="btn btn-md btn-primary btn-block text-left"
       onClick={[Function]}
     >
       <small>
          
         chapter.chapter 1 :
       </small>
+       
        Elementary 
+       
       <small>
         (3/9)
       </small>
-    </a>
+    </button>
   </div>
   <div
     className="m-2"
   >
-    <a
+    <button
       aria-label="start chapter"
-      className="btn btn-primary btn-block text-left"
-      href="/chapter/2/lesson/1"
+      className="btn btn-md btn-primary btn-block text-left"
       onClick={[Function]}
     >
       <small>
          
         chapter.chapter 2 :
       </small>
+       
        Intermediate 
+       
       <small>
         (0/9)
       </small>
-    </a>
+    </button>
   </div>
 </div>
 `;

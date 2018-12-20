@@ -16,14 +16,15 @@ exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
       chapter.chapterCompleteMessage
     </p>
     <br />
-    <a
+    <button
       aria-label="next lesson"
-      className="btn btn-primary"
-      href="/chapter/2/lesson/1"
+      className="btn btn-md btn-primary "
       onClick={[Function]}
     >
+       
       lesson.nextLesson
-    </a>
+       
+    </button>
      
     <a
       aria-label="table of contents"

@@ -35,7 +35,7 @@ const ControlPanel: React.SFC<IProps> = (props) => {
       <Button
         type={checkAnswerButtonType}
         text={checkAnswerButtonText}
-        icon={{ image: checkAnswerButtonIcon, position: 'before' }}
+        before={checkAnswerButtonIcon}
         onClick={props.handleCheckAnswer}
         ariaLabel={'Check Answer'}
         size="sm"
@@ -44,7 +44,7 @@ const ControlPanel: React.SFC<IProps> = (props) => {
         <Button
           type={'secondary'}
           text={showAnswerButtonText}
-          icon={{ image: showAnswerButtonIcon, position: 'before' }}
+          before={showAnswerButtonIcon}
           onClick={props.hanldleToggle}
           ariaLabel={'Show Answer'}
           size="sm"
@@ -55,7 +55,7 @@ const ControlPanel: React.SFC<IProps> = (props) => {
         text={t('editor.showHint')}
         onClick={props.handleShowHint}
         ariaLabel={'Show Answer'}
-        icon={{ image: <FaRegLightbulb />, position: 'before' }}
+        before={<FaRegLightbulb />}
         size="sm"
       />{' '}
       <a

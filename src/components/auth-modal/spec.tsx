@@ -3,11 +3,22 @@ import * as renderer from 'react-test-renderer';
 import AuthModal from '.';
 import { shallow } from 'enzyme';
 
-const login = () => setTimeout(() => console.log('login'), 500);
+const login = jest.fn();
+
+const toggleAuthModal = () => console.log('toggle');
 const t = (s: string) => s;
 
 describe('Auth Modal tests', () => {
-  const baseComponent = (props) => <AuthModal login={login} isLoaded={props.isLoaded} t={t} />;
+  const baseComponent = (props) => (
+    <AuthModal
+      toggleAuthModal={toggleAuthModal}
+      login={login}
+      isAuthModalOpen={false}
+      isAuthPending={false}
+      isLoaded={props.isLoaded}
+      t={t}
+    />
+  );
 
   describe('basic tests', () => {
     it('matches the snapshot', () => {
@@ -22,22 +33,23 @@ describe('Auth Modal tests', () => {
     });
 
     it('renders the component after loaded', () => {
-      const wrapper = shallow(baseComponent({ isLoaded: false }));
+      const wrapper = shallow(baseComponent({ isLoaded: true }));
       const assertion = wrapper.find('[data-test-id="auth-modal"]').length;
       expect(assertion).toBe(1);
     });
   });
 
   describe('component behavior', () => {
-    it('check modal closed', () => {
+    it('google login', () => {
       const wrapper = shallow(baseComponent({ isLoaded: true }));
-      expect(wrapper.state('isOpen')).toEqual(false);
+      wrapper.find('[data-test-id="google-login-button"]').simulate('click');
+      expect(login).toHaveBeenCalled();
     });
 
-    it('check modal opened after toggle', () => {
+    it('github login', () => {
       const wrapper = shallow(baseComponent({ isLoaded: true }));
-      wrapper.find('[data-test-id="toggle"]').simulate('click');
-      expect(wrapper.state('isOpen')).toEqual(true);
+      wrapper.find('[data-test-id="github-login-button"]').simulate('click');
+      expect(login).toHaveBeenCalled();
     });
   });
 });

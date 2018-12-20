@@ -3,9 +3,7 @@ import * as renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import LessonProgressbar from '.';
 
-const navigate = (chapterNum, lessonNum) => {
-  console.log(`navigate to: /chapter/${chapterNum}/lesson/${lessonNum}`);
-};
+const navigate = jest.fn();
 
 describe('Lesson Progressbar tests', () => {
   const baseComponent = () => (
@@ -22,6 +20,14 @@ describe('Lesson Progressbar tests', () => {
       const wrapper = shallow(baseComponent());
       const assertion = wrapper.find('[data-test-id="lesson-progressbar"]').length;
       expect(assertion).toBe(1);
+    });
+  });
+
+  describe('component behavior', () => {
+    it('google login', () => {
+      const wrapper = shallow(baseComponent());
+      wrapper.find('[data-test-id="lesson-progressbar-block1"]').simulate('click');
+      expect(navigate).toHaveBeenCalled();
     });
   });
 });

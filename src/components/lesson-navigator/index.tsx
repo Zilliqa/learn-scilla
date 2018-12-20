@@ -25,7 +25,7 @@ const LessonNavigator: React.SFC<IProps> = (props) => {
         onClick={goBack}
         disabled={isBackButtonDisabled}
         ariaLabel={'Back'}
-        icon={{ image: <FaArrowLeft />, position: 'before' }}
+        before={<FaArrowLeft />}
       />
 
       <Button
@@ -35,7 +35,7 @@ const LessonNavigator: React.SFC<IProps> = (props) => {
         onClick={goNext}
         disabled={isProceedButtonDisabled}
         ariaLabel={'Skip'}
-        icon={{ image: <FaArrowRight />, position: 'after' }}
+        after={<FaArrowRight />}
       />
     </div>
   );

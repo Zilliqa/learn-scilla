@@ -107,18 +107,26 @@ storiesOf('Button', module)
   .add('with icons', () => (
     <div>
       <Button
-        icon={{ image: <FaArrowLeft />, position: 'before' }}
+        before={<FaArrowLeft />}
         type="secondary"
         text={'before'}
         onClick={() => console.log('click')}
         ariaLabel={'icon before Button'}
       />{' '}
       <Button
-        icon={{ image: <FaArrowRight />, position: 'after' }}
+        after={<FaArrowRight />}
         type="secondary"
         text={'after'}
         onClick={() => console.log('click')}
         ariaLabel={'icon after Button'}
+      />{' '}
+      <Button
+        before={<FaArrowLeft />}
+        after={<FaArrowRight />}
+        type="secondary"
+        text={'before and after'}
+        onClick={() => console.log('click')}
+        ariaLabel={'icon before and after Button'}
       />{' '}
     </div>
   ));

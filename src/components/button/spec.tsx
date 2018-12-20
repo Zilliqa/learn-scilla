@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { FaCheck } from 'react-icons/fa';
 import Button from '.';
 
-describe('Footer tests', () => {
+describe('Button tests', () => {
   const baseComponent = (props) => (
     <Button
       type={props.type}
@@ -12,7 +12,7 @@ describe('Footer tests', () => {
       disabled={false}
       onClick={() => console.log('click')}
       ariaLabel={'Test Button'}
-      icon={{ image: <FaCheck />, position: 'before' }}
+      before={<FaCheck />}
       size={'md'}
     />
   );
