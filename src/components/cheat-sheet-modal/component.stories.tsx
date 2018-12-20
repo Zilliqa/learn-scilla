@@ -8,7 +8,7 @@ const t = (s: string) => s;
 const baseComponent = () => (
   <nav className="navbar navbar-expand-md navbar-light bg-pale">
     <ul className="ml-auto navbar-nav">
-      <CheatSheetModal t={t} />
+      <CheatSheetModal buttonType="secondary" t={t} />
     </ul>
   </nav>
 );
