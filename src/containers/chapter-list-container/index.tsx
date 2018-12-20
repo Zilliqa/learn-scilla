@@ -23,13 +23,13 @@ interface IProps {
   location: H.Location;
   instructions: CourseInstructionType;
   profile: any;
-  ch1Progress?: number;
+  ch1Progress: number;
   openAuthModal: () => void;
 }
 
 class ChapterContainer extends React.Component<IProps, {}> {
   public render(): React.ReactNode {
-    const { instructions, i18n, t, profile, ch1Progress = 0 } = this.props;
+    const { instructions, i18n, t, profile, ch1Progress } = this.props;
     const { isLoaded, isEmpty, progress } = profile;
     const lang: string = i18n.language;
     if (instructions === undefined || instructions[lang] === undefined) {

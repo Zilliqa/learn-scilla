@@ -8,7 +8,7 @@ import { ButtonType } from '../button';
 
 interface IProps {
   t: (key: string) => string;
-  buttonType?: ButtonType;
+  buttonType: ButtonType;
 }
 
 interface IState {
@@ -19,8 +19,9 @@ class CheatSheetModal extends React.Component<IProps, IState> {
   public readonly state = {
     isOpen: false
   };
+
   public render(): React.ReactNode {
-    const { t, buttonType = 'secondary' } = this.props;
+    const { t, buttonType } = this.props;
 
     return (
       <span data-test-id="cheat-sheet-modal">
