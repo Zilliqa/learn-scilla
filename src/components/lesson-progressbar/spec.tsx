@@ -3,6 +3,7 @@ import * as renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import LessonProgressbar from '.';
 
+const t = (s) => s;
 const navigate = jest.fn();
 const chapterNumber = 1;
 describe('Lesson Progressbar tests', () => {
@@ -12,6 +13,7 @@ describe('Lesson Progressbar tests', () => {
       chapterNumber={chapterNumber}
       lessonNumber={5}
       total={10}
+      t={t}
     />
   );
 

@@ -7,38 +7,50 @@ interface IProps {
   lessonNumber: number;
   chapterNumber: number;
   total: number;
+  t: (key: string) => string;
   navigate: (chapterNum: number, lessonNum: number) => void;
 }
 
 // Renders step progressbar dynamically
-const LessonProgressbar: React.SFC<IProps> = ({ navigate, chapterNumber, lessonNumber, total }) => {
+const LessonProgressbar: React.SFC<IProps> = ({
+  t,
+  navigate,
+  chapterNumber,
+  lessonNumber,
+  total
+}) => {
   // initialized array with the given total number
   const list = Array.from({ length: total });
   const percent = (1 / total) * 100;
-
+  const currentChapterText = `${t('chapter.chapter')} ${chapterNumber}`;
   return (
-    <Progress
-      multi={true}
-      className="lesson-progress-bar-container"
-      data-test-id="lesson-progressbar"
-    >
-      {list.map((item, index) => {
-        const isLocked = lessonNumber <= index;
-        const color = isLocked ? 'secondary' : 'primary';
-        return (
-          <Progress
-            data-test-id={`lesson-progressbar-block${index}`}
-            key={index}
-            onClick={() => navigate(chapterNumber, index + 1)}
-            barClassName={`lesson-progress-bar cursor-pointer`}
-            bar={true}
-            color={color}
-            value={percent}
-            max={total}
-          />
-        );
-      })}
-    </Progress>
+    <div className="text-center">
+      <div className="py-2">
+        <span>{currentChapterText}</span>
+      </div>
+      <Progress
+        multi={true}
+        className="lesson-progress-bar-container"
+        data-test-id="lesson-progressbar"
+      >
+        {list.map((item, index) => {
+          const isLocked = lessonNumber <= index;
+          const color = isLocked ? 'secondary' : 'primary';
+          return (
+            <Progress
+              data-test-id={`lesson-progressbar-block${index}`}
+              key={index}
+              onClick={() => navigate(chapterNumber, index + 1)}
+              barClassName={`lesson-progress-bar cursor-pointer`}
+              bar={true}
+              color={color}
+              value={percent}
+              max={total}
+            />
+          );
+        })}
+      </Progress>
+    </div>
   );
 };
 

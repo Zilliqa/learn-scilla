@@ -61,9 +61,11 @@ class LessonContainer extends React.Component<IProps, IState> {
 
     const code = codeLessonList[lessonIndex] || { initialCode: undefined, answerCode: undefined };
     const { initialCode, answerCode } = code;
-    const documentTitle: string = `LearnScilla -
-    ${t('chapter.chapter')} ${chapterNumber} ${t('lesson.lesson')} ${lessonNumber}
-    `;
+
+    const currentChapterText = `${t('chapter.chapter')} ${chapterNumber}`;
+    const currentLessonText = `${t('lesson.lesson')} ${lessonNumber}`;
+    const documentTitle: string = `LearnScilla - ${currentChapterText} ${currentLessonText}`;
+
     const { pathname } = location;
     return (
       <div>
@@ -77,8 +79,10 @@ class LessonContainer extends React.Component<IProps, IState> {
             chapterNumber={chapterNumber}
             lessonNumber={lessonNumber}
             total={numOfTotalLesson}
+            t={t}
           />
           <br />
+
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
               <InstructionViewer instruction={instruction} />
@@ -104,16 +108,15 @@ class LessonContainer extends React.Component<IProps, IState> {
           </div>
           <div className="text-center">
             <div className="py-4">
-              <CheatSheetModal t={t} buttonType={'secondary'} />
+              <LessonNavigator
+                goBack={this.goBack}
+                goNext={this.goNext}
+                lessonNumber={lessonNumber}
+                total={numOfTotalLesson}
+                t={t}
+              />
             </div>
-
-            <LessonNavigator
-              goBack={this.goBack}
-              goNext={this.goNext}
-              lessonNumber={lessonNumber}
-              total={numOfTotalLesson}
-              t={t}
-            />
+            <CheatSheetModal t={t} buttonType={'secondary'} />
           </div>
         </div>
         <Footer />

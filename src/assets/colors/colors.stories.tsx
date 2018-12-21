@@ -4,7 +4,7 @@ import colors from './colors';
 
 const keyList = Object.keys(colors);
 const getStyle = (key) => ({
-  color: key === 'white' || key === 'grey200' ? 'black' : 'white',
+  color: key === 'white' || key === 'gray200' ? 'black' : 'white',
   backgroundColor: colors[key]
 });
 
