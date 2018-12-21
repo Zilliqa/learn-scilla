@@ -96,7 +96,7 @@ storiesOf('component.Button', module)
       },
       {
         title: 'Sizes of button',
-        info: '3 sizes: small, medium, and large.',
+        info: '3 sizes: sm, md, and lg.',
         sections: [
           {
             options,
@@ -104,14 +104,14 @@ storiesOf('component.Button', module)
               <div>
                 <Button
                   type="secondary"
-                  text={'small'}
+                  text={'sm'}
                   size="sm"
                   onClick={() => console.log('click')}
                   ariaLabel={'small button'}
                 />{' '}
                 <Button
                   type="secondary"
-                  text={'medium'}
+                  text={'md'}
                   size="md"
                   disabled={false}
                   onClick={() => console.log('click')}
@@ -119,7 +119,7 @@ storiesOf('component.Button', module)
                 />{' '}
                 <Button
                   type="secondary"
-                  text={'large'}
+                  text={'lg'}
                   size="lg"
                   onClick={() => console.log('click')}
                   ariaLabel={'large button'}
@@ -130,8 +130,8 @@ storiesOf('component.Button', module)
         ]
       },
       {
-        subtitle: 'Compositions.',
-        info: '3 possible compositions: after, before, and both',
+        title: 'Composition',
+        info: '3 possible compositions: before, after, and both',
         sections: [
           {
             options,
