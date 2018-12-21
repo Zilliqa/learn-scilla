@@ -39,14 +39,14 @@ class AccountDropdown extends React.Component<IProps, IState> {
         </DropdownToggle>
         <DropdownMenu right={true} size="sm">
           <Button
-            type="transparent"
+            type="tertiary"
             className="btn-block text-left"
             text={t('account.account')}
             onClick={navigateToAccount}
             ariaLabel={t('account.account')}
           />
           <Button
-            type="transparent"
+            type="tertiary"
             className="btn-block text-left"
             text={t('link.signOut')}
             onClick={logout}

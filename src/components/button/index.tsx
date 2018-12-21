@@ -15,7 +15,7 @@ interface IProps {
 }
 
 type Size = 'lg' | 'md' | 'sm';
-export type ButtonType = 'primary' | 'secondary' | 'warning' | 'danger' | 'transparent';
+export type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'warning' | 'danger';
 
 export default class Button extends React.PureComponent<IProps, {}> {
   public static displayName = 'Button';
@@ -37,14 +37,14 @@ export default class Button extends React.PureComponent<IProps, {}> {
       case 'secondary':
         bsStyle = `outline-secondary`;
         break;
+      case 'tertiary':
+        bsStyle = `tertiary`;
+        break;
       case 'warning':
         bsStyle = `outline-warning`;
         break;
       case 'danger':
         bsStyle = `danger`;
-        break;
-      case 'transparent':
-        bsStyle = `transparent`;
         break;
     }
 

@@ -18,7 +18,7 @@ storiesOf('component.Button', module)
     chapters: [
       {
         title: 'Types of button',
-        info: '5 types: primary, secondary, warning, danger, and transparent.',
+        info: '5 types: primary, secondary, tertiary, warning, and danger.',
         sections: [
           {
             options,
@@ -51,6 +51,19 @@ storiesOf('component.Button', module)
                   disabled={true}
                 />{' '}
                 <Button
+                  type="tertiary"
+                  text={'tertiary'}
+                  onClick={() => console.log('click')}
+                  ariaLabel={'tertiary button'}
+                />{' '}
+                <Button
+                  type="tertiary"
+                  text={'tertiary'}
+                  onClick={() => console.log('click')}
+                  ariaLabel={'tertiary button'}
+                  disabled={true}
+                />{' '}
+                <Button
                   type="warning"
                   text={'warning'}
                   onClick={() => console.log('click')}
@@ -76,19 +89,6 @@ storiesOf('component.Button', module)
                   ariaLabel={'disabled danger button'}
                   disabled={true}
                 />{' '}
-                <Button
-                  type="transparent"
-                  text={'transparent'}
-                  onClick={() => console.log('click')}
-                  ariaLabel={'transparent button'}
-                />{' '}
-                <Button
-                  type="transparent"
-                  text={'transparent'}
-                  onClick={() => console.log('click')}
-                  ariaLabel={'transparent button'}
-                  disabled={true}
-                />
               </div>
             )
           }

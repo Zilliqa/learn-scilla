@@ -37,7 +37,7 @@ class I18Dropdown extends React.Component<IProps, IState> {
               <Button
                 key={key}
                 className="btn-block text-left"
-                type="transparent"
+                type="tertiary"
                 text={langDictionary[key]}
                 onClick={() => this.selectLanguage(key)}
                 ariaLabel={langDictionary[key]}
