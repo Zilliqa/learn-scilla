@@ -7,8 +7,8 @@ const navigate = (chapterNum, lessonNum) => {
   console.log(`navigate to: /chapter/${chapterNum}/lesson/${lessonNum}`);
 };
 
-storiesOf('Lesson Progressbar', module)
-  .add('default', () => (
+storiesOf('component.LessonProgressbar', module)
+  .add('Lesson Progressbar', () => (
     <LessonProgressbar t={t} navigate={navigate} chapterNumber={1} lessonNumber={3} total={5} />
   ))
   .add('min', () => (

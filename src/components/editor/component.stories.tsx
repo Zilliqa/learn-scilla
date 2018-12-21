@@ -6,7 +6,7 @@ import EditorWrapper from '.';
 const t = (s: string) => s;
 const proceed = () => console.log('proceed');
 const pathname = 'path';
-storiesOf('Editor', module).add('default', () => (
+storiesOf('component.Editor', module).add('Editor', () => (
   <EditorWrapper
     initialCode={'contract Xealgame'}
     answerCode={'contract Zealgame'}

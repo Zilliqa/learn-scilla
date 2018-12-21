@@ -8,7 +8,7 @@ const checkAnswer = () => console.log('checkAnswer');
 const toggleShowAnswer = () => console.log('toggleShowAnswer');
 const showHint = (code) => console.log(code);
 
-storiesOf('Editor Input', module).add('default', () => (
+storiesOf('component.EditorInput', module).add('Editor Input', () => (
   <Editor
     t={t}
     code="contract Xealgame"

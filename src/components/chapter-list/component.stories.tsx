@@ -18,7 +18,7 @@ const baseComponent = (props) => (
   />
 );
 
-storiesOf('Chapter List', module)
+storiesOf('component.ChapterList', module)
   .addDecorator((story) => <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>)
   .add('auth: false (local storage)', () =>
     baseComponent({

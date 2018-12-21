@@ -7,8 +7,8 @@ const goNext = () => console.log('goNext');
 const goBack = () => console.log('goBack');
 const t = (s: string) => s;
 
-storiesOf('Lesson Navigator', module)
-  .add('default', () => (
+storiesOf('component.LessonNavigator', module)
+  .add('Lesson Navigator', () => (
     <LessonNavigator lessonNumber={2} total={5} goNext={goNext} goBack={goBack} t={t} />
   ))
   .add('at the first lesson', () => (

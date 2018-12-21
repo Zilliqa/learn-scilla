@@ -5,8 +5,8 @@ import DiffViewer from '.';
 
 const t = (s) => s;
 
-storiesOf('Editor Diff Viewer', module)
-  .add('default', () => (
+storiesOf('component.EditorDiffViewer', module)
+  .add('Editor Diff Viewer', () => (
     <DiffViewer
       t={t}
       answerCode={'contract Zealgame'}

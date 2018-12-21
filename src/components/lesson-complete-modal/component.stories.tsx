@@ -6,6 +6,6 @@ const t = (s) => s;
 const submit = () => console.log('submit');
 const closeModal = () => console.log('close modal');
 
-storiesOf('Lesson Complete Modal', module).add('default', () => (
+storiesOf('component.LessonCompleteModal', module).add('Lesson Complete Modal', () => (
   <LessonCompleteModal t={t} onSubmit={submit} isModalVisible={true} closeModal={closeModal} />
 ));

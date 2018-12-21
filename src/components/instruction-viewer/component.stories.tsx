@@ -17,7 +17,7 @@ Where you replace the \`[ContractName]\` with the actual name for your contract.
 Note: The contract name has to start with a capital letter.
 `;
 
-storiesOf('Instruction Viewer', module).add('default', () => (
+storiesOf('component.InstructionViewer', module).add('Instruction Viewer', () => (
   <InstructionViewer instruction={l1} />
 ));
 // .add('at the first lesson', () => (

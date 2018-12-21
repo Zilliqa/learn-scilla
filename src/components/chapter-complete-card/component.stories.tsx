@@ -7,9 +7,11 @@ const navigate = (chapterNum, lessonNum) => console.log('navigate', chapterNum, 
 
 const t = (s) => s;
 
-storiesOf('Chapter Complete Card', module)
+storiesOf('component.ChapterCompleteCard', module)
   .addDecorator((story) => <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>)
-  .add('default', () => <ChapterCompleteCard navigate={navigate} t={t} total={2} chapter={1} />)
-  .add('with the last chapter', () => (
+  .add('last chapter: true', () => (
+    <ChapterCompleteCard navigate={navigate} t={t} total={2} chapter={1} />
+  ))
+  .add('last chapter: false', () => (
     <ChapterCompleteCard navigate={navigate} t={t} total={1} chapter={1} />
   ));

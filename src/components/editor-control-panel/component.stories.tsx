@@ -8,8 +8,8 @@ const handleShowHint = () => console.log('handleShowHint');
 const hanldleToggle = () => console.log('hanldleToggle');
 const handleCheckAnswer = () => console.log('handleCheckAnswer');
 
-storiesOf('Editor Control Panel', module)
-  .add('default', () => (
+storiesOf('component.EditorControlPanel', module)
+  .add('Editor Control Panel', () => (
     <ControlPanel
       t={t}
       handleShowHint={handleShowHint}

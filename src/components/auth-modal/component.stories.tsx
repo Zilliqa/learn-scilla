@@ -1,7 +1,14 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
+import { storiesOf, setAddon } from '@storybook/react';
+import chaptersAddon from 'react-storybook-addon-chapters';
 
 import AuthModal from '.';
+
+const options = {
+  showSource: false,
+  showPropTables: false,
+  allowPropTablesToggling: false
+};
 
 const login = () => setTimeout(() => console.log('login'), 500);
 const toggleAuthModal = () => console.log('toggle');
@@ -22,6 +29,15 @@ const baseComponent = (props) => (
   </nav>
 );
 
-storiesOf('Auth Modal', module)
-  .add('loaded', () => baseComponent({ isLoaded: true }))
-  .add('loading', () => baseComponent({ isLoaded: false }));
+setAddon(chaptersAddon);
+storiesOf('component.AuthModal', module)
+  .add('Auth Modal (loaded)', () =>
+    baseComponent({
+      isLoaded: true
+    })
+  )
+  .add('Auth Modal (loading)', () =>
+    baseComponent({
+      isLoaded: false
+    })
+  );

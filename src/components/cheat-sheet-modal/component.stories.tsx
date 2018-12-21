@@ -13,4 +13,4 @@ const baseComponent = () => (
   </nav>
 );
 
-storiesOf('Cheat Sheet Modal', module).add('default', () => baseComponent());
+storiesOf('component.CheatSheetModal', module).add('Cheat Sheet Modal', () => baseComponent());
