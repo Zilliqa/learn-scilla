@@ -32,7 +32,6 @@ interface IProps {
   codes: CourseCodeType;
   firebase: any;
   profile: any;
-  ch1Progress: number;
 }
 interface IState {
   code: string;
@@ -223,7 +222,6 @@ const WithTranslation = withNamespaces()(LessonContainer);
 const mapStateToProps = (state) => ({
   instructions: state.course.courseInstructions,
   codes: state.course.courseCodes,
-  ch1Progress: state.persist.ch1Progress,
   profile: state.firebase.profile
 });
 

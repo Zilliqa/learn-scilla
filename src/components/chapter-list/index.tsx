@@ -21,8 +21,10 @@ const ChapterList: React.SFC<IProps> = (props) => {
     const chapterKey: string = `chapter${chapterNum}`;
 
     const progressProfile = progress || {};
-    let chapterProgressNum: number = ch1Progress || 0;
-
+    let chapterProgressNum = 0;
+    if (chapterNum === 1) {
+      chapterProgressNum = ch1Progress;
+    }
     if (isAuth) {
       chapterProgressNum = progressProfile[chapterKey] || 0;
     }
