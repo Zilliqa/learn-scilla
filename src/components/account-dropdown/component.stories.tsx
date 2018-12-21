@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
+import { storiesOf, setAddon } from '@storybook/react';
+import chaptersAddon from 'react-storybook-addon-chapters';
 
 import AccountDropdown from '.';
 import { paths } from '../../routes';
@@ -7,6 +8,12 @@ import { paths } from '../../routes';
 const t = (s: string) => s;
 const logout = () => console.log('logout');
 const navigateToAccount = () => console.log('navigateToAccount');
+
+const options = {
+  showSource: false,
+  showPropTables: false,
+  allowPropTablesToggling: false
+};
 
 const baseComponent = (props) => (
   <nav className="navbar navbar-expand-md navbar-light bg-pale">
@@ -23,9 +30,23 @@ const baseComponent = (props) => (
   </nav>
 );
 
-storiesOf('Account Dropdown', module).add('default', () =>
-  baseComponent({
-    username: 'noel',
-    pathname: '/path'
-  })
-);
+setAddon(chaptersAddon);
+storiesOf('Account Dropdown', module)
+  // @ts-ignore
+  .addWithChapters('Account Dropdown', {
+    chapters: [
+      {
+        info: 'account dropdown',
+        sections: [
+          {
+            options,
+            sectionFn: () =>
+              baseComponent({
+                username: 'noel',
+                pathname: '/path'
+              })
+          }
+        ]
+      }
+    ]
+  });
