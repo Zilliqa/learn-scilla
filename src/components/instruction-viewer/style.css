@@ -1,5 +1,8 @@
+@value colors: "../../assets/colors/colors.css";
+@value --white, gray300 from colors;
+
 .instruction-viewer-container .monaco-editor .margin {
-  background-color: #fff !important;
+  background-color: --white !important;
 }
 
 .instruction-viewer-container {
@@ -8,8 +11,8 @@
   overflow-x: auto;
   padding-top: 10px;
   padding-right: 10px;
-  border-top: 1px solid #eaeaea;
-  border-bottom: 1px solid #eaeaea;
+  border-top: 1px solid gray300;
+  border-bottom: 1px solid gray300;
 }
 
 div.instruction-viewer-container::-webkit-scrollbar {

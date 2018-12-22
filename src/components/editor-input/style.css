@@ -1,3 +1,6 @@
+@value colors: "../../assets/colors/colors.css";
+@value gray300 from colors;
+
 .code-editor-container {
-  border: 1px solid #eaeaea;
+  border: 1px solid gray300;
 }
