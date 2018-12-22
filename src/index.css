@@ -1,3 +1,5 @@
+@value colors: "./assets/colors/colors.css";
+@value blue500, gray500, red500 from colors;
 
 @font-face {
   font-family: 'Noto Sans';
@@ -28,12 +30,20 @@ body {
   cursor: pointer;
 }
 
+.bg-primary {
+  background-color: blue500 !important;
+}
+
+.bg-secondary {
+  background-color: gray500 !important;
+}
+
 .text-secondary {
-  color: #7c7d8c;
+  color: gray500;
 }
 
 .text-danger {
-  color: #e2051a !important;
+  color: red500 !important;
 }
 
 .spinner {

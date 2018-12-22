@@ -1,80 +1,83 @@
+@value colors: "../../assets/colors/colors.css";
+@value --white, gray500 ,gray700, blue500, blue700, yellow500, red500, red700 from colors;
+
 .btn-primary {
-  background-color: #3740ff !important;
+  background-color: blue500 !important;
 }
 
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:focus {
-  background-color: #2d23a5 !important;
+  background-color: blue700 !important;
 }
 
 .btn-primary.disabled,
 .btn-primary:disabled {
-  background-color: #3740ff !important;
+  background-color: blue500 !important;
 }
 
 .btn-outline-secondary {
-  border-color: #7c7d8c !important;
-  color: #7c7d8c !important;
+  border-color: gray500 !important;
+  color: gray500 !important;
 }
 
 .btn-outline-secondary:hover,
 .btn-outline-secondary:active {
-  border-color: #7c7d8c !important;
-  color: #fff !important;
+  border-color: gray500 !important;
+  color: --white !important;
 }
 
 .btn-outline-secondary.disabled,
 .btn-outline-secondary:disabled {
-  border-color: #7c7d8c !important;
-  color: #7c7d8c !important;
+  border-color: gray500 !important;
+  color: gray500 !important;
 }
 
 .btn-tertiary {
-  color: #7c7d8c !important;
+  color: gray500 !important;
   background-color: transparent !important;
 }
 
 .btn-tertiary:hover,
 .btn-tertiary:active,
 .btn-tertiary:focus {
-  color: #353545 !important;
+  color: gray700 !important;
   background-color: transparent !important;
 }
 
 .btn-tertiary.disabled,
 .btn-tertiary:disabled {
-  color: #7c7d8c !important;
+  color: gray500 !important;
 }
 
 .btn-outline-warning {
-  border-color: #e9ab18 !important;
-  color: #e9ab18 !important;
+  border-color: yellow500 !important;
+  color: yellow500 !important;
 }
 
 .btn-outline-warning:hover,
 .btn-outline-warning:active {
-  border-color: #e9ab18 !important;
-  color: #fff !important;
+  border-color: yellow500 !important;
+  color: --white !important;
 }
 
 .btn-outline-warning.disabled,
 .btn-outline-warning:disabled {
-  color: #e9ab18 !important;
-  border-color: #e9ab18 !important;
+  color: yellow500 !important;
+  border-color: yellow500 !important;
 }
 
 .btn-danger {
-  background-color: #e2051a !important;
+  background-color: red500 !important;
 }
 
 .btn-danger:hover,
 .btn-danger:active,
 .btn-danger:focus {
-  background-color: #be032a !important;
+  background-color: red700 !important;
 }
 
 .btn-danger.disabled,
 .btn-danger:disabled {
-  background-color: #e2051a !important;
+  background-color: red500 !important;
 }

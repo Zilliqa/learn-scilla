@@ -24,6 +24,7 @@ storiesOf('Colors', module)
   .addWithChapters('All colors', {
     chapters: [
       {
+        info: 'Use color variables. Kindly avoid using directly.',
         sections: [
           {
             sectionFn: () => (

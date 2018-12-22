@@ -1,3 +1,6 @@
+@value colors: "../../assets/colors/colors.css";
+@value gray300, red500 from colors;
+
 .code-diff-container {
   margin: 15px 0 0 40px;
 }
@@ -28,9 +31,9 @@
 }
 
 .code-diff-border {
-  border: 1px solid #eaeaea;
+  border: 1px solid gray300;
 }
 
 .code-diff-border-active {
-  border: 1px solid #e2051a !important;
+  border: 1px solid red500 !important;
 }
