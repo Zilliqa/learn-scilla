@@ -114,7 +114,7 @@ class CheatSheetModal extends React.Component<IProps, IState> {
                   <td>{'String'}</td>
                   <td>{'field a : String = ""'}</td>
                   <td>{'field a : String = "hello"'}</td>
-                  <td>{'a = "hello";'}</td>
+                  <td>{'a = "hello"'}</td>
                   <td>{'let a = "xyz"'}</td>
                 </tr>
                 <tr>
