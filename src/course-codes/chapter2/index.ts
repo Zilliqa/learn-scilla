@@ -1,18 +1,45 @@
 import { ILessonCode, ChapterCodeType } from '../../typings';
 
 const l1: ILessonCode = {
-  initialCode: `(* Start typing from the line below. *)`,
-  answerCode: `(* Start typing from the line below. *)
-contract Zealgame`
+  initialCode: `contract Zealgame
+
+(owner: ByStr20)
+(*Start typing from the line below.*)
+
+Transition changeName(newname: String)
+
+end`,
+  answerCode: `contract Zealgame
+
+(owner: ByStr20)
+(*Start typing from the line below.*)
+field map_Name : Map Address String = Emp Address String
+
+Transition changeName(newname: String)
+
+end`
 };
 
 const l2: ILessonCode = {
   initialCode: `contract Zealgame
-(* Start typing from the line below. *)
-`,
+(owner: ByStr20)
+field map_Name : Map Address String = Emp Address String (*Address map to a playerName*)
+
+Transition changeName(newname: String)
+
+(*Start typing from the line below.*)
+
+end`,
   answerCode: `contract Zealgame
-(* Start typing from the line below. *)
-(owner: ByStr20)`
+(owner: ByStr20)
+field map_Name : Map Address String = Emp Address String (*Address map to a playerName*)
+
+Transition changeName(newname: String)
+
+(*Start typing from the line below.*)
+r <- map_Name
+
+end`
 };
 
 const l3: ILessonCode = {

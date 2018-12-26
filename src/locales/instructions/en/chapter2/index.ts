@@ -1,85 +1,90 @@
 import { IChapterInstruction } from '../../../../typings';
 
 const l1 = `
-## Lesson 1: Contract declaration \n
-Let’s begin from the basics.
-The contract that you’ll be deploying to the blockchain has to have a name by which it could later be identified.
-The format for specifying is simply
+## Lesson 1: Map1- Declaration\n
+In the last chapter, we learned how to declare some variables associated with the player and then change them as required.
+However, we were still storing the details of a single player. For any actual game, we’ll usually need to store the details of many players.
+In order to do this, we’ll be using ‘Maps’.
+\`Map\` values provide key-value store.
+Which means that you can store the value against a particular key value which should be unique. Then, you can later provide the key and request to retrieve the value stored against it.
+ Keys can have types \`IntX\`, \`UintX\`, \`String\`, \`ByStr32\` or \`ByStr20\`. Values can be of any type.
 
+Largely, there are three types of operations that we’ll be performing with maps:
+1. Declaring a map
+2. Modifying the values within a map
+3. Retrieving value from a map
+
+We’ll go through these operations step by step to build a database for storing the details of the players.
+
+The first thing to decide while declaring a map is what should be the key-pair value for the map.
+Here, we first want to store the name of the player who calls the function. To do so, we’ve to store it against a key which is unique in value.
+It will be ideal to use ‘Wallet address’ as the key in this case, since each wallet address is unique, and by doing this we can ensure that one wallet doesn’t create more than one players.
+
+So the key will be of type \`ByStr20\` and value will be of type \`String\`
+The format for declaration of a map can vary depending upon the type of key and value chosen, the part of the contract where it’s declared and also depending on the initial values being fixed or empty.
+(Full list of Scilla variable declaration formats can be found [here](https://docs.google.com/spreadsheets/d/17h6q3QJi_tDUsakzzNpKKXaAGJs5Ctg5tlR1y7i5o64/edit#gid=0)
+
+
+For this case, let’s start with declaring a map  that’s empty, i.e. it’s initialized without values.
+The format for that is:
 \`\`\`
-contract [ContractName]
+field a: Map [variabletype1] [variabletype2] = Emp [variabletype1] [variabletype2]
 \`\`\`
 
-Where you replace the \`[ContractName]\` with the actual name for your contract.
-Note: The contract name has to start with a capital letter.
-`;
-const l2 = `
-## Lesson 2: Immutable variables \n
-
-Any contract deployed on the blockchain is immutable.
-In other words, that code can’t be changed
-(this is one of the main reasons why security of smart contracts is a fundamental concern from the very start of the coding stage, or perhaps even before that.)
-
-While deploying the contract on the blockchain, you can also initiate certain parameters which will be permanently fixed at their initial values.
-These are called Immutable variables.
-
-For eg. you may want to store a wallet address (which can serve like an identity, just like unique email addresses) as the address of the owner.
-You can then use this immutable variable as a check so that certain functions in the contract can only be carried out by the owner.
-The format for specifying an immutable variable is:
-\`\`\`
-contract ContractName
-(variablename1 : variabletype1)
-\`\`\`
-Where \`variablename1\` and \`variabletype1\` can be replaced by the chosen variable name and type.
-
-If there are multiple immutable variables, then you can include them as follows:
-\`\`\`
-contract ContractName
-(
-  variablename1 : variabletype1,
-  variablename2 : variabletype2,
-  variablename3 : variabletype3
-)
-\`\`\`
-Here, multiple immutable variables are declared by separating them with commas.
-The language supports several datatypes, such as  \`Int32\` (to represent 32-bit integers),
-\`ByStr20\` ( a sequence of hexadecimal characters that represents 20 bytes).
-\`ByStr20\` is a datatype used to represent account addresses. A detailed list will be provided later in the tutorial.
-
-Task:
-Declare a contract called Zealgame. It should have one immutable variable ‘owner’ of type \`ByStr20\`
-`;
-const l3 = `
-## Lesson 3: Mutable variables\n
-
-For any program, we usually need to have variables whose value will be changed through various operations conducted in the contract.
-These variables, whose value will be stored in the blockchain are known as the mutable variables.
-To declare a mutable variable, we need to pay attention to three things:-
-Variable name: This is the identifier of the variable to be used by various operators later in the contract.
-Variable type: There are many types of variables available, as we have seen in the list in the earlier chapter.
-Variable value: We may choose to declare a variable with or without an initial value.
-
-Format, depending on the variable type and variable value, the format for declaration might slightly vary.
-We’ll see a detailed list of such variations later.
-For now, let’s look at the format for a simple mutable variable that will contain a text/string value.
-
-\`\`\`
-field [Variable Name] : [Variable Type] = "[Variable Text]"
-\`\`\`
 Eg.
 \`\`\`
-field a : String = "hello"
+field a: Map Int32 Uint32 = Emp Int32 Uint32
 \`\`\`
-The important thing to know is that in the smart contract security, changing the value of a mutable variable is a very important step and if done wrong,
-such a change could inadvertently result in major security vulnerabilities.
-We’ll see later how that issue can be handled in a methodical way in Scilla.
 
-Task:
-Let’s start with having a simple variable that stores the name of a player.
-Declare a variable with following details:
-Variable name: player_name
-Variable type: String
-Variable value: Alice
+**Task:**
+
+Declare the map in the main body of the contract that’s empty and has a key of type \`ByStr20\` and value of type \`String\`.
+`;
+const l2 = `
+## Lesson 2: Reading map value in a temporary variable \n
+
+Now that we’ve declared an empty map, we’ll need to populate it with data.
+As mentioned earlier, adding a value to a map is done in multiple steps.
+Before we make any changes, we ensure that the map’s value is stored in another variable as a safety measure. It can be done in the following format within a transition:
+
+
+\`x <- f\` : Read from a mutable field \`f\` into \`x\`
+
+
+Do notice that there is no variable type involved in such declaration. The new variable that is created will be of the same type as the variable that it reads from.
+
+
+**Task:**
+
+Create a variable “r” that reads the existing value of the map “map_Name”
+
+`;
+const l3 = `
+## Map 3: \`Put\`\n
+Our objective is to add a new key value pair to the map that we have created.
+In order to do so, in the last chapter we got one of the variables to store the ‘value’ of the map.
+Now this allows us to securely do any operations on the original value.
+
+We have to add a new value to the map, the format to do so is:
+
+
+[New Variable] = builtin put [Map Variable] [New Key] [New Value]
+
+Let’s look at the various parts of this format:
+builtin
+We can have two types of functions, one that are pre-defined and one that are defined by the user in the library of the contract.
+To distinguish them, we use ‘builtin’ before any other keywords used for pure operations.
+Finally, the expression of “put [Map Name] [New Key] [New Value]” returns a new map with the newly inserted key/value in addition to the key/value pairs contained earlier. Since this returns a new map, it has to be stored in a variable and we can do it as shown in the format above.
+An example will be:
+tempvar1 = builtin put map1 keyvar valuevar
+Where tempvar1 need not be declared, it will be the same type of map as map1 which is a mutable variable.
+Do note that keyvar and valuevar need to be variables which have been defined before either in the main body or in the transition. We can’t use direct values in this expression. So rather than directly putting a value of 5 against a key, we will need to first store the value 5 in a variable, say valuevar, and then assign it here in the expression.
+
+**Task:**
+
+We want to store the name that we receive from the user in the map. The unique id of the user is his wallet.
+So, put the value of “newname” received from the user when the transition is called, against the key “_sender” which is an implicit variable included in the call, in the map “map_Name”.
+Store the new map obtained  it in a variable r1.
 `;
 
 const l4 = `
