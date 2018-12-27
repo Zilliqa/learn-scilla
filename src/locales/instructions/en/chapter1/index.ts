@@ -1,7 +1,7 @@
 import { IChapterInstruction } from '../../../../typings';
 
 const l1 = `
-## Lesson 1: Contract declaration \n
+## Lesson 1: Contract declaration
 
 **Declaring a contract:**
 
@@ -23,7 +23,7 @@ Declare a contract called \`Zealgame\`.
 
 `;
 const l2 = `
-## Lesson 2: Immutable variables \n
+## Lesson 2: Immutable variables
 
 Any contract deployed on the blockchain is immutable.
 In other words, that code can’t be changed
@@ -68,7 +68,7 @@ Declare a contract called \`Zealgame\`. It should have one immutable variable wi
 
 `;
 const l3 = `
-## Lesson 3: Mutable variables\n
+## Lesson 3: Mutable variables
 
 Any program is usually divided into three parts, the first is taking some input, the second is doing some operations based on the input and other data in its memory or code and the third is providing some result as an output.
 
@@ -111,7 +111,8 @@ Declare a variable with following details:
 `;
 
 const l4 = `
-## Lesson 4: Transition \n
+## Lesson 4: Transition
+
 The smart contract code on blockchain needs some interfaces so that the commands,
 information or tokens can be sent to the smart contract or be requested from it.
 Transitions are similar to functions or methods in other languages.
@@ -145,7 +146,7 @@ and close it by using the keyword \`end\`
 `;
 
 const l5 = `
-## Lesson 5: Declaring a temporary variable \n
+## Lesson 5: Declaring a temporary variable
 
 We can also declare variables with a transition.
 Do note that these variables are not immutable variables nor are they mutable variables
@@ -192,7 +193,8 @@ Declare a new variable with the name \`newname\` and type \`String\` and give it
 
 `;
 const l6 = `
-## Lesson 6: Changing a mutable field \n
+## Lesson 6: Changing a mutable field
+
 As stated earlier, the variable declared in the transition is a temporary variable that isn’t stored in the blockchain
 and exists for the duration that the transition is called.
 In order to ensure that the value is stored in the blockchain,
@@ -216,7 +218,8 @@ Update the mutable variable \`player_name\` with the value of the temporary vari
 
 `;
 const l7 = `
-## Lesson 7: Getting values \n
+## Lesson 7: Getting values
+
 You’ll notice the issue with the previous chapter that the new player is always changed to a fixed value each time that the transition is called.
 Ideally, we’ll like to have options other than "Bob" about the new name which is updated. This can be done by letting the user pass on a value to the transition whenever she’s calling it.
 Similar to how we could have passed variables to the contract while creating it, we could also pass variables to a transition while calling it.
@@ -257,7 +260,8 @@ In order to make the change more flexible, we’ll also need the new name each t
 Now, include the parameter with name \`newname\` and variable type \`String\` in the declaration of the transition so that a user has to send a new name for the player each time she wishes to change the old value.
 `;
 const l8 = `
-## Lesson 8: Implicit variables \n
+## Lesson 8: Implicit variables
+
 In addition to parameters that are explicitly declared in the definition, each transition has available to it, the following implicit parameters:
 
 The account address that triggered this transition. In case, the transition was called by a contract account instead of a user account, then _sender is the contract address.
@@ -281,7 +285,8 @@ Then in the transition, assign these variables the value of \`_sender\` and \`_a
 As mentioned earlier, you can refer to the variable declaration format of all types in the link below. [Link]
 `;
 const l9 = `
-## Lesson 9: Summary \n
+## Lesson 9: Summary
+
 Chapter Number and title: Summary
 Lesson contents (includes the task at the end)
 Congrats!
