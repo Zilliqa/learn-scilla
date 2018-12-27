@@ -24,8 +24,9 @@ exports[`Account Dropdown tests basic tests matches the snapshot 1`] = `
   >
     <button
       aria-label="account.account"
-      className="btn btn-md btn-tertiary btn-block text-left"
+      className="btn btn-md type-tertiary btn-block text-left"
       onClick={[Function]}
+      type="button"
     >
        
       account.account
@@ -33,8 +34,9 @@ exports[`Account Dropdown tests basic tests matches the snapshot 1`] = `
     </button>
     <button
       aria-label="link.signOut"
-      className="btn btn-md btn-tertiary btn-block text-left"
+      className="btn btn-md type-tertiary btn-block text-left"
       onClick={[Function]}
+      type="button"
     >
        
       link.signOut

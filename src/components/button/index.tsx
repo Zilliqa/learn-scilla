@@ -12,6 +12,7 @@ interface IProps {
   before?: React.ReactNode;
   after?: React.ReactNode;
   className?: string;
+  IsSubmitButton?: boolean;
 }
 
 type Size = 'lg' | 'md' | 'sm';
@@ -23,37 +24,30 @@ export default class Button extends React.PureComponent<IProps, {}> {
   public static defaultProps = {
     text: '',
     size: 'md',
-    className: ''
+    className: '',
+    IsSubmitButton: false
   };
 
   public render() {
-    const { disabled, className, onClick, before, after, text, size, ariaLabel } = this.props;
-
-    let bsStyle;
-    switch (this.props.type) {
-      case 'primary':
-        bsStyle = `primary`;
-        break;
-      case 'secondary':
-        bsStyle = `outline-secondary`;
-        break;
-      case 'tertiary':
-        bsStyle = `tertiary`;
-        break;
-      case 'warning':
-        bsStyle = `outline-warning`;
-        break;
-      case 'danger':
-        bsStyle = `danger`;
-        break;
-    }
-
+    const {
+      type,
+      disabled,
+      className,
+      onClick,
+      before,
+      after,
+      text,
+      size,
+      ariaLabel,
+      IsSubmitButton
+    } = this.props;
     return (
       <button
-        className={`btn btn-${size} btn-${bsStyle} ${className}`}
+        className={`btn btn-${size} type-${type} ${className}`}
         onClick={onClick}
         aria-label={ariaLabel}
         disabled={disabled}
+        type={IsSubmitButton ? 'submit' : 'button'}
       >
         {before ? before : null} {text} {after ? after : null}
       </button>

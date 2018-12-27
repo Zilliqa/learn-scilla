@@ -10,8 +10,9 @@ exports[`Chapter List tests basic tests matches the snapshot 1`] = `
   >
     <button
       aria-label="start chapter"
-      className="btn btn-md btn-primary btn-block text-left"
+      className="btn btn-md type-primary btn-block text-left"
       onClick={[Function]}
+      type="button"
     >
       <small>
          
@@ -30,8 +31,9 @@ exports[`Chapter List tests basic tests matches the snapshot 1`] = `
   >
     <button
       aria-label="start chapter"
-      className="btn btn-md btn-primary btn-block text-left"
+      className="btn btn-md type-primary btn-block text-left"
       onClick={[Function]}
+      type="button"
     >
       <small>
          
