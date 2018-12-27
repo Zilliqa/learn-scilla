@@ -72,7 +72,7 @@ class LessonContainer extends React.Component<IProps, IState> {
         <Helmet>
           <title>{documentTitle}</title>
         </Helmet>
-        <div className="container">
+        <div className="container px-0">
           <LessonProgressbar
             navigate={this.navigate}
             chapterNumber={chapterNumber}
@@ -80,8 +80,16 @@ class LessonContainer extends React.Component<IProps, IState> {
             total={numOfTotalLesson}
             t={t}
           />
-          <br />
 
+          <div className="d-flex py-3 justify-content-center" style={{ marginLeft: -3 }}>
+            <LessonNavigator
+              goBack={this.goBack}
+              goNext={this.goNext}
+              lessonNumber={lessonNumber}
+              total={numOfTotalLesson}
+              t={t}
+            />
+          </div>
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 px-0">
               <InstructionViewer instruction={instruction} />
@@ -106,16 +114,9 @@ class LessonContainer extends React.Component<IProps, IState> {
             </div>
           </div>
           <div className="text-center">
-            <div className="py-4">
-              <LessonNavigator
-                goBack={this.goBack}
-                goNext={this.goNext}
-                lessonNumber={lessonNumber}
-                total={numOfTotalLesson}
-                t={t}
-              />
+            <div className="py-3">
+              <CheatSheetModal t={t} buttonType={'secondary'} />
             </div>
-            <CheatSheetModal t={t} buttonType={'secondary'} />
           </div>
         </div>
         <Footer />
