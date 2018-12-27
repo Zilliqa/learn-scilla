@@ -1,15 +1,31 @@
 import * as React from 'react';
 import { storiesOf, setAddon } from '@storybook/react';
-import colors from './colors';
 import chaptersAddon from 'react-storybook-addon-chapters';
+
+const colors = {
+  white: '#ffffff',
+  gray300: '#e9e9f4',
+  gray500: '#7c7d8c',
+  gray700: '#353545',
+  black: '#131520',
+
+  blue500: '#3740ff',
+  blue700: '#2d23a5',
+
+  yellow500: '#e9ab18',
+  yellow700: '#d19200',
+
+  red500: '#e2051a',
+  red700: '#be032a'
+};
 
 const keyList = Object.keys(colors);
 const getStyle = (key) => ({
-  color: key === 'white' || key === 'gray300' ? 'black' : 'white',
   backgroundColor: colors[key],
-  width: 100,
-  height: 50,
-  borderColor: 'black'
+  width: 80,
+  height: 80,
+  borderRadius: 50,
+  margin: 10
 });
 
 const sectionOptionsNoProps = {
@@ -21,7 +37,7 @@ const sectionOptionsNoProps = {
 setAddon(chaptersAddon);
 storiesOf('Colors', module)
   // @ts-ignore
-  .addWithChapters('All colors', {
+  .addWithChapters('Palette', {
     chapters: [
       {
         info: 'Use color variables. Kindly avoid using directly.',
@@ -31,10 +47,13 @@ storiesOf('Colors', module)
               <div className="d-flex text-center">
                 {keyList.map((key) => {
                   return (
-                    <div key={key} style={getStyle(key)}>
-                      {key}
+                    <div key={key} style={{ margin: 15 }}>
+                      <div style={getStyle(key)} />
+                      <b>{key}</b>
                       <br />
-                      <small>{colors[key]}</small>
+                      <small>
+                        <b>{colors[key]}</b>
+                      </small>
                     </div>
                   );
                 })}
