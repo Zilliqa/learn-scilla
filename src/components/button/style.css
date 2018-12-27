@@ -19,13 +19,14 @@
 }
 
 .type-secondary {
-  border-color: gray500;
+  border-color: gray500 !important;
   color: gray500;
+  background-color: transparent;
 }
 
 .type-secondary:hover,
 .type-secondary:active {
-  border-color: gray500;
+  border-color: gray500 !important;
   color: --white;
   background-color: gray500;
 }
@@ -56,8 +57,9 @@
 }
 
 .type-warning {
-  border-color: yellow500;
+  border-color: yellow500 !important;
   color: yellow500;
+  background-color: transparent;
 }
 
 .type-warning:hover,

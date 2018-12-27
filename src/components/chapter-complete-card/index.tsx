@@ -36,7 +36,7 @@ class ChapterCompleteCard extends React.PureComponent<IProps, {}> {
             />
           )}{' '}
           <Link
-            className={`btn btn-${isLast ? 'primary' : 'outline-secondary'}`}
+            className={`btn type-${isLast ? 'primary' : 'secondary'}`}
             to={paths.chapterList}
             aria-label={'table of contents'}
           >
