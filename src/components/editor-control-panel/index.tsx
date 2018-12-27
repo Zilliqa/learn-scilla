@@ -59,7 +59,7 @@ const ControlPanel: React.SFC<IProps> = (props) => {
         size="sm"
       />{' '}
       <a
-        className={`btn btn-outline-${warnableButtonType} btn-sm`}
+        className={`btn btn-sm type-${warnableButtonType}`}
         href={'https://gitter.im/Zilliqa/SmartContract'}
         target="_blank"
         rel="noreferrer"
