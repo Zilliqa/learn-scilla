@@ -3,9 +3,10 @@
 exports[`Button tests basic tests matches the snapshot 1`] = `
 <button
   aria-label="Test Button"
-  className="btn btn-md btn-outline-secondary "
+  className="btn btn-md type-secondary "
   disabled={false}
   onClick={[Function]}
+  type="button"
 >
   <svg
     fill="currentColor"

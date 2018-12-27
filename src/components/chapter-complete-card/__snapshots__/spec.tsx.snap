@@ -18,8 +18,9 @@ exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
     <br />
     <button
       aria-label="next lesson"
-      className="btn btn-md btn-primary "
+      className="btn btn-md type-primary "
       onClick={[Function]}
+      type="button"
     >
        
       lesson.nextLesson

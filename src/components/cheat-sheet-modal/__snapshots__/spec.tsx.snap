@@ -6,8 +6,9 @@ exports[`Cheat Sheet Modal tests basic tests matches the snapshot 1`] = `
 >
   <button
     aria-label="lesson.cheatSheet"
-    className="btn btn-sm btn-outline-secondary "
+    className="btn btn-sm type-secondary "
     onClick={[Function]}
+    type="button"
   >
     <svg
       fill="currentColor"
