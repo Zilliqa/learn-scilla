@@ -1,83 +1,93 @@
 @value colors: "../../assets/colors/colors.css";
 @value --white, gray500 ,gray700, blue500, blue700, yellow500, red500, red700 from colors;
 
-.btn-primary {
-  background-color: blue500 !important;
+.type-primary {
+  background-color: blue500;
+  color: --white;
 }
 
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus {
-  background-color: blue700 !important;
+.type-primary:hover,
+.type-primary:active,
+.type-primary:focus {
+  background-color: blue700;
 }
 
-.btn-primary.disabled,
-.btn-primary:disabled {
-  background-color: blue500 !important;
+.type-primary.disabled,
+.type-primary:disabled {
+  background-color: blue500;
+  cursor: not-allowed;
 }
 
-.btn-outline-secondary {
-  border-color: gray500 !important;
-  color: gray500 !important;
+.type-secondary {
+  border-color: gray500;
+  color: gray500;
 }
 
-.btn-outline-secondary:hover,
-.btn-outline-secondary:active {
-  border-color: gray500 !important;
-  color: --white !important;
+.type-secondary:hover,
+.type-secondary:active {
+  border-color: gray500;
+  color: --white;
+  background-color: gray500;
 }
 
-.btn-outline-secondary.disabled,
-.btn-outline-secondary:disabled {
-  border-color: gray500 !important;
-  color: gray500 !important;
+.type-secondary.disabled,
+.type-secondary:disabled {
+  color: gray500;
+  cursor: not-allowed;
+  background-color: transparent;
 }
 
-.btn-tertiary {
-  color: gray500 !important;
-  background-color: transparent !important;
+.type-tertiary {
+  color: gray500;
+  background-color: transparent;
 }
 
-.btn-tertiary:hover,
-.btn-tertiary:active,
-.btn-tertiary:focus {
-  color: gray700 !important;
-  background-color: transparent !important;
+.type-tertiary:hover,
+.type-tertiary:active,
+.type-tertiary:focus {
+  color: gray700;
+  background-color: transparent;
 }
 
-.btn-tertiary.disabled,
-.btn-tertiary:disabled {
-  color: gray500 !important;
+.type-tertiary.disabled,
+.type-tertiary:disabled {
+  color: gray500;
+  cursor: not-allowed;
 }
 
-.btn-outline-warning {
-  border-color: yellow500 !important;
-  color: yellow500 !important;
+.type-warning {
+  border-color: yellow500;
+  color: yellow500;
 }
 
-.btn-outline-warning:hover,
-.btn-outline-warning:active {
-  border-color: yellow500 !important;
-  color: --white !important;
+.type-warning:hover,
+.type-warning:active {
+  background-color: yellow500;
+  color: --white;
 }
 
-.btn-outline-warning.disabled,
-.btn-outline-warning:disabled {
-  color: yellow500 !important;
-  border-color: yellow500 !important;
+.type-warning.disabled,
+.type-warning:disabled {
+  background-color: --white;
+  color: yellow500;
+  cursor: not-allowed;
 }
 
-.btn-danger {
-  background-color: red500 !important;
+.type-danger {
+  background-color: red500;
+  color: --white;
 }
 
-.btn-danger:hover,
-.btn-danger:active,
-.btn-danger:focus {
-  background-color: red700 !important;
+.type-danger:hover,
+.type-danger:active,
+.type-danger:focus {
+  background-color: red700;
+  color: --white;
 }
 
-.btn-danger.disabled,
-.btn-danger:disabled {
-  background-color: red500 !important;
+.type-danger.disabled,
+.type-danger:disabled {
+  background-color: red500;
+  cursor: not-allowed;
+  color: --white;
 }
