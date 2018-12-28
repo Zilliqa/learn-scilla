@@ -11,8 +11,8 @@
   overflow-x: auto;
   padding-top: 10px;
   padding-right: 10px;
-  border-top: 1px solid gray300;
-  border-bottom: 1px solid gray300;
+  border: 1px solid gray300;
+  border-left: none;
 }
 
 div.instruction-viewer-container::-webkit-scrollbar {
@@ -21,11 +21,11 @@ div.instruction-viewer-container::-webkit-scrollbar {
 }
 
 div.instruction-viewer-container::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 div.instruction-viewer-container::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .instruction-code-block {

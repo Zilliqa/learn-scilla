@@ -3,4 +3,5 @@
 
 .code-editor-container {
   border: 1px solid gray300;
+  border-left: none;
 }
