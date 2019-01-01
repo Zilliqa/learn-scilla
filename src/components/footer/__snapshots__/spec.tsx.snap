@@ -10,7 +10,7 @@ exports[`Footer tests basic tests matches the snapshot 1`] = `
     <span
       className="copyright"
     >
-      Copyright © LearnScilla 2018
+      Copyright © Zilliqa 2019
     </span>
     <ul
       className="nav justify-content-center"
