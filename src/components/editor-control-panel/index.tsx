@@ -31,7 +31,7 @@ const ControlPanel: React.SFC<IProps> = (props) => {
   const warnableButtonType = showTryAgain ? 'warning' : 'secondary';
 
   return (
-    <div>
+    <div className="py-2">
       <Button
         type={checkAnswerButtonType}
         text={checkAnswerButtonText}

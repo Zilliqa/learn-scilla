@@ -66,7 +66,6 @@ class EditorInput extends React.Component<IProps, IState> {
           isAnswerVisible={isAnswerVisible}
           showTryAgain={showTryAgain}
         />
-        <br />
         <div className="text-right">
           <ControlPanel
             t={t}
