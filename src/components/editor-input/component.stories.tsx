@@ -15,7 +15,6 @@ storiesOf('component.EditorInput', module).add('Editor Input', () => (
     codeForDiff="contract Xealgame"
     answerCode="contract Zealgame"
     isAnswerVisible={false}
-    isAnswerButtonVisible={false}
     showTryAgain={false}
     showHint={showHint}
     checkAnswer={checkAnswer}

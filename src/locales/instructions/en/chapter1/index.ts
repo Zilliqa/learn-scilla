@@ -17,7 +17,7 @@ Where you replace the \`[ContractName]\` with the actual name for your contract.
 
 Do note that the contract name has to start with a capital letter.
 
-**Task:**
+## Task
 
 Declare a contract called \`Zealgame\`.
 
@@ -62,7 +62,7 @@ As Robin Milner once said: *"Well typed programs don’t go wrong"*
 We’ll only be introducing some of the data types through these tutorials.
 For a detailed list of all the types, kindly refer to the 'cheat sheet' in the navigation menu above.
 
-**Task:**
+## Task
 
 Declare a contract called \`Zealgame\`. It should have one immutable variable with the name \`owner\` and should be of type \`ByStr20\`
 
@@ -101,7 +101,7 @@ such a change could inadvertently result in major security vulnerabilities.
 We’ll see later how that issue can be handled in a methodical way in Scilla.
 
 
-**Task:**
+## Task
 
 Let’s start with having a simple variable that stores the name of a player.
 Declare a variable with following details:
@@ -132,7 +132,7 @@ end
 In order to use a smart contract, a transition within the smart contract will have to be called.
 It can be called directly or by another program or smart contract.
 
-**Task:**
+## Task
 
 So far, we have a fixed value for our playername variable, which is "Alice".
 Let’s have an option that the name could be changed. To change a mutable variable, we’ll need a transition.
@@ -185,7 +185,7 @@ The format of the declaration of a String variable is different from the format 
 You can find the full list of the declaration format of all the major variable types (in the main body of the contract, and in the transition) in the link below:
 Link: -------------
 
-**Task:**
+## Task
 
 We want to replace the original player name declared in mutable variable \`player_name\` in this transition. To do that, we will need a new name.
 
@@ -212,7 +212,7 @@ Eg.
 mutvar1 := tempvar1
 \`\`\`
 
-**Task:**
+## Task
 
 Update the mutable variable \`player_name\` with the value of the temporary variable \`newname\` in the body of the transition.
 
@@ -253,7 +253,7 @@ Transition foo (
 end
 \`\`\`
 
-**Task:**
+## Task
 
 We want to change the name of the player ‘Alice’ that we’ve earlier stored in the mutable variable \`player_name\`. To do this, we created the transition \`changeName\` and assigned a fixed value variable declared there to \`player_name\`.
 In order to make the change more flexible, we’ll also need the new name each time the transition is called. So, we’ll delete the old variable declaration in the body of the transition.
@@ -274,7 +274,7 @@ Incoming amount (ZILs) sent by the sender. This amount must be explicitly accept
 _amount : Uint128
   \`\`\`
 
-**Task:**
+## Task
 
 Declare two new mutable variables in the contract:
 * \`player_address\` of type \`ByStr20\` with value \`0x1234567890123456789012345678901234567890\`
