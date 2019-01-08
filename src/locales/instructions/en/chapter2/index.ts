@@ -39,7 +39,7 @@ Eg.
 field a: Map Int32 Uint32 = Emp Int32 Uint32
 \`\`\`
 
-**Task:**
+## Task
 
 Declare the map in the main body of the contract that's empty and has a key of type \`ByStr20\` and value of type \`String\`.
 `;
@@ -55,7 +55,7 @@ Before we make any changes, we ensure that the map's value is stored in another 
 Do notice that there is no variable type involved in such declaration.
 The new variable that is created will be of the same type as the variable that it reads from.
 
-**Task:**
+## Task
 
 Create a variable "r" that reads the existing value of the map "map_Name"
 
@@ -89,7 +89,7 @@ Do note that keyvar and valuevar need to be variables which have been defined be
 We can't use direct values in this expression.
 So rather than directly putting a value of 5 against a key, we will need to first store the value 5 in a variable, say valuevar, and then assign it here in the expression.
 
-**Task:**
+## Task
 
 We want to store the name that we receive from the user in the map. The unique id of the user is his wallet.
 So, put the value of "newname" received from the user when the transition is called, against the key "_sender" which is an implicit variable included in the call, in the map "map_Name".
@@ -110,7 +110,7 @@ We can do this in the same way that we've been updating the other mutable fields
 m := variable1
 \`\`\`
 
-**Task:**
+## Task
 
 Update the desired state of the map stored in \`r1\` in the original map \`map_Name\`
 
@@ -143,7 +143,7 @@ a = contains m k
 
 The variable \`a\` will now contain \`True\` or \`False\` based on whether the key \`k\` exists in the map \`m\` or not.
 
-**Task:**
+## Task
 Use \`contains\` to check whether the wallet address of the message sender ( stored in the implicit variable \`_sender\`) exists in the map map_name.
 Store the value in a temporary variable t1.
 
@@ -188,7 +188,7 @@ end
 Here, if check1 variable is true, we fix the value of the variable \`a\` equal to variable \`b\` or else if it's false, then we fix it to be equal to be variable \`c\`.
 (Assuming that variables check1, a, b and c have all been previously defined.)
 
-**Task:**
+## Task
 
 In the last exercise, we used t1 variable to check whether the sender's address alredy exists in the map or not.
 
@@ -286,7 +286,7 @@ I.e. you can do something like this:
 This can continue recursively.
 However, our problem is relatively simple, so we don’t need to use such a degree of recursion.
 
-**Task:**
+## Task
 
 We’ve gone ahead and already updated the map_atk map as shown
 * Follow similar steps to update \`map_def\` in a temporary variable \`r4\`.
