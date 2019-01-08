@@ -1,26 +1,17 @@
 import React from 'react';
-import {
-  FaCheck,
-  FaRegLightbulb,
-  FaRegEye,
-  FaRegEyeSlash,
-  FaRegComments,
-  FaTimes
-} from 'react-icons/fa';
+import { FaCheck, FaRegEye, FaRegEyeSlash, FaRegComments, FaTimes } from 'react-icons/fa';
 import Button from '../button';
 interface IProps {
   t: (key: string) => string;
-  isAnswerButtonVisible: boolean;
   isAnswerVisible: boolean;
   showTryAgain: boolean;
 
   handleCheckAnswer: (e) => void;
   hanldleToggle: (e) => void;
-  handleShowHint: (e) => void;
 }
 
 const ControlPanel: React.SFC<IProps> = (props) => {
-  const { isAnswerButtonVisible, isAnswerVisible, showTryAgain, t } = props;
+  const { isAnswerVisible, showTryAgain, t } = props;
   const showAnswerButtonText = t(isAnswerVisible ? 'editor.hideAnswer' : 'editor.showAnswer');
   const showAnswerButtonIcon = isAnswerVisible ? <FaRegEyeSlash /> : <FaRegEye />;
 
@@ -40,22 +31,12 @@ const ControlPanel: React.SFC<IProps> = (props) => {
         ariaLabel={'Check Answer'}
         size="sm"
       />{' '}
-      {isAnswerButtonVisible ? (
-        <Button
-          type={'secondary'}
-          text={showAnswerButtonText}
-          before={showAnswerButtonIcon}
-          onClick={props.hanldleToggle}
-          ariaLabel={'Show Answer'}
-          size="sm"
-        />
-      ) : null}{' '}
       <Button
-        type={warnableButtonType}
-        text={t('editor.showHint')}
-        onClick={props.handleShowHint}
+        type={'secondary'}
+        text={showAnswerButtonText}
+        before={showAnswerButtonIcon}
+        onClick={props.hanldleToggle}
         ariaLabel={'Show Answer'}
-        before={<FaRegLightbulb />}
         size="sm"
       />{' '}
       <a

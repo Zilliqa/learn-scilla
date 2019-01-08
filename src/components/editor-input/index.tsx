@@ -12,7 +12,6 @@ interface IProps {
   answerCode: string;
   showHint: (code: string, cb?) => void;
   isAnswerVisible: boolean;
-  isAnswerButtonVisible: boolean;
   showTryAgain: boolean;
   toggleShowAnswer: (code: string) => void;
   checkAnswer: (code: string) => void;
@@ -30,14 +29,7 @@ class EditorInput extends React.Component<IProps, IState> {
   };
 
   public render() {
-    const {
-      t,
-      codeForDiff,
-      answerCode,
-      isAnswerVisible,
-      isAnswerButtonVisible,
-      showTryAgain
-    } = this.props;
+    const { t, codeForDiff, answerCode, isAnswerVisible, showTryAgain } = this.props;
 
     const options = {
       selectOnLineNumbers: true,
@@ -69,11 +61,9 @@ class EditorInput extends React.Component<IProps, IState> {
         <div className="text-right">
           <ControlPanel
             t={t}
-            handleShowHint={this.handleShowHint}
             hanldleToggle={this.hanldleToggle}
             handleCheckAnswer={this.handleCheckAnswer}
             isAnswerVisible={isAnswerVisible}
-            isAnswerButtonVisible={isAnswerButtonVisible}
             showTryAgain={showTryAgain}
           />
         </div>

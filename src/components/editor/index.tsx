@@ -17,7 +17,6 @@ interface IState {
   isCorrect: boolean;
   isAnswerVisible: boolean;
   isModalVisible: boolean;
-  isAnswerButtonVisible: boolean;
   showTryAgain: boolean;
 }
 
@@ -28,7 +27,6 @@ export default class EditorUI extends React.Component<IProps, IState> {
     isCorrect: false,
     isAnswerVisible: false,
     isModalVisible: false,
-    isAnswerButtonVisible: false,
     showTryAgain: false
   };
 
@@ -47,7 +45,6 @@ export default class EditorUI extends React.Component<IProps, IState> {
         codeForDiff: nextProps.answerCode,
         isAnswerVisible: false,
         isModalVisible: false,
-        isAnswerButtonVisible: false,
         isCorrect: false,
         showTryAgain: false
       };
@@ -61,7 +58,6 @@ export default class EditorUI extends React.Component<IProps, IState> {
       code,
       codeForDiff,
       isAnswerVisible,
-      isAnswerButtonVisible,
       isModalVisible,
       isCorrect,
       showTryAgain
@@ -81,7 +77,6 @@ export default class EditorUI extends React.Component<IProps, IState> {
           codeForDiff={codeForDiff}
           checkAnswer={this.checkAnswer}
           showHint={this.showHint}
-          isAnswerButtonVisible={isAnswerButtonVisible}
           toggleShowAnswer={this.toggleShowAnswer}
           isAnswerVisible={isAnswerVisible}
           showTryAgain={showTryAgain}
@@ -98,7 +93,7 @@ export default class EditorUI extends React.Component<IProps, IState> {
 
   // Updates code for hint
   public showHint = (codeForDiff: string, cb): void => {
-    this.setState({ isAnswerButtonVisible: true, code: codeForDiff, codeForDiff }, cb);
+    this.setState({ code: codeForDiff, codeForDiff }, cb);
   };
 
   // Checks the code written by user if it's correct
