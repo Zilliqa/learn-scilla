@@ -15,7 +15,7 @@ const LessonCompleteModal: React.SFC<IProps> = (props) => {
   const { isModalVisible, t, closeModal, onSubmit } = props;
   return (
     <div data-test-id="lesson-complete-modal">
-      <Modal isOpen={isModalVisible} fade={false} toggle={closeModal}>
+      <Modal isOpen={isModalVisible} toggle={closeModal}>
         <ModalHeader toggle={closeModal} className="text-secondary">
           <FaMedal /> {t('chapter.goodjob')}
         </ModalHeader>
