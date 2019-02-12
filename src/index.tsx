@@ -4,15 +4,15 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import { I18nextProvider } from 'react-i18next';
-import i18n from './i18n';
-import { RouterNode } from './routes';
-import * as serviceWorker from './serviceWorker';
-
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
+
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
+import { RouterNode } from './routes';
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <Provider store={store}>

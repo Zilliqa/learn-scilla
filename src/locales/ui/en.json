@@ -31,6 +31,7 @@
     "signInWithGitHub": "Sign in with GitHub"
   },
   "link": {
+    "home": "Home",
     "tutorial": "Tutorial",
     "tableOfContents": "Table of Contents",
     "signIn": "Login",

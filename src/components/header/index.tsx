@@ -9,9 +9,9 @@ import * as H from 'history';
 import Collapse from 'reactstrap/lib/Collapse';
 import AuthModal from '../auth-modal';
 import { paths } from '../../routes';
-import I18nDropdown from '../i18n-dropdown';
+// import I18nDropdown from '../i18n-dropdown';
+// import { langDictionary } from '../../i18n';
 import AccountDropdown from '../account-dropdown';
-import { langDictionary } from '../../i18n';
 import { toggleAuthModal, openAuthModal } from '../../redux/auth';
 
 interface IProps {
@@ -54,8 +54,13 @@ class Header extends React.Component<IProps, IStates> {
     const username = displayName || email;
 
     return (
-      <nav className="navbar navbar-expand-md navbar-light bg-pale">
-        <Link className="navbar-brand text-secondary" to={paths.chapterList} aria-label={'brand'}>
+      <nav
+        className={`navbar navbar-expand-md navbar-dark ${
+          pathname === paths.home ? 'fixed-top' : ''
+        }`}
+        style={{ backgroundColor: '#162255' }}
+      >
+        <Link className="navbar-brand" to={paths.home} aria-label={'brand'}>
           {'LearnScilla'}
         </Link>
 
@@ -65,7 +70,17 @@ class Header extends React.Component<IProps, IStates> {
 
         <Collapse isOpen={this.state.isTogglerOpen} navbar={true}>
           <ul className="ml-auto navbar-nav">
-            <li className="nav-item">
+            <li className="nav-item pr-3">
+              <Link
+                className={`nav-link ${pathname === paths.home ? 'active' : ''}`}
+                to={paths.home}
+                aria-label={'home'}
+              >
+                {t('link.home')}
+              </Link>
+            </li>
+
+            <li className="nav-item pr-3">
               <Link
                 className={`nav-link ${pathname === paths.chapterList ? 'active' : ''}`}
                 to={paths.chapterList}
@@ -95,7 +110,7 @@ class Header extends React.Component<IProps, IStates> {
               />
             )}
 
-            <I18nDropdown i18n={i18n} langDictionary={langDictionary} />
+            {/* <I18nDropdown i18n={i18n} langDictionary={langDictionary} /> */}
           </ul>
         </Collapse>
       </nav>

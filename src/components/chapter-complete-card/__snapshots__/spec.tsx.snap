@@ -30,7 +30,7 @@ exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
     <a
       aria-label="table of contents"
       className="btn type-secondary"
-      href="/"
+      href="/chapters"
       onClick={[Function]}
     >
       link.tableOfContents

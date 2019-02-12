@@ -34,26 +34,6 @@ exports[`i18n Dropdown tests basic tests matches the snapshot 1`] = `
         English [en]
          
       </button>
-      <button
-        aria-label="中文 [zh]"
-        className="btn btn-md type-tertiary btn-block text-left"
-        onClick={[Function]}
-        type="button"
-      >
-         
-        中文 [zh]
-         
-      </button>
-      <button
-        aria-label="日本語 [ja]"
-        className="btn btn-md type-tertiary btn-block text-left"
-        onClick={[Function]}
-        type="button"
-      >
-         
-        日本語 [ja]
-         
-      </button>
     </div>
   </li>
 </span>

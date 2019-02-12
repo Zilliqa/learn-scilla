@@ -37,7 +37,7 @@ const ChapterList: React.SFC<IProps> = (props) => {
     return (
       <div key={chapterNum} className="m-2">
         <Button
-          type="primary"
+          type="secondary"
           className="btn-block text-left"
           text={` ${item.title} `}
           onClick={() => navigate(chapterNum, lessonNum)}

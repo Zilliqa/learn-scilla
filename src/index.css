@@ -3,27 +3,27 @@
 
 @font-face {
   font-family: 'Noto Sans';
-  font-weight: 300;
-  font-display: block;
-  src: local('Noto Sans Light'), local('NotoSans-Light'), url("./assets/fonts/NotoSans-Light.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: 'Noto Sans';
-  font-weight: 400;
   font-display: block;
   src: local('Noto Sans Regular'), local('NotoSans-Regular'), url("./assets/fonts/NotoSans-Regular.ttf") format("truetype");
 }
 
-@font-face {
-  font-family: 'Noto Sans';
-  font-weight: 700;
-  font-display: block;
-  src: local('Noto Sans Bold'), local('NotoSans-Bold'), url("./assets/fonts/NotoSans-Bold.ttf") format("truetype");
-}
-
 body {
-  font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:
+    "Noto Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: scroll;
 }
 
 .cursor-pointer {
@@ -101,5 +101,23 @@ body {
   20% {
     transform: scaleY(1);
     -webkit-transform: scaleY(1);
+  }
+}
+
+@media only screen and (min-width: 1081px) {
+  .banner-rounded-bg {
+    position: absolute;
+    left: 580px;
+    top: 80px;
+    width: 100%;
+    height: 795px;
+    border-radius: 700px 222px 0 0;
+    -webkit-transform: rotate(-10deg) skew(10deg);
+    transform: rotate(0deg) skew(-12deg);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    overflow: hidden;
+    background-color: #213b6b;
+    opacity: 0.1;
   }
 }

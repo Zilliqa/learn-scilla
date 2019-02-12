@@ -68,7 +68,7 @@
     "@types/react-redux": "^6.0.10",
     "@types/react-router": "^4.4.1",
     "@types/react-router-dom": "^4.3.1",
-    "@types/react-test-renderer": "^16.8.1",
+    "@types/react-test-renderer": "^16.8.0",
     "@types/reactstrap": "^6.4.2",
     "@types/storybook__react": "^4.0.0",
     "awesome-typescript-loader": "^5.2.1",
