@@ -10,6 +10,7 @@
 .type-primary:active,
 .type-primary:focus {
   background-color: blue700;
+  color: --white;
 }
 
 .type-primary.disabled,
