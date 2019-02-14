@@ -54,7 +54,7 @@ This project is open source software licensed as [GPL-3.0](https://github.com/no
 [deps-url]: https://david-dm.org/noelyoo/learn-scilla
 [dev-deps-svg]: https://david-dm.org/noelyoo/learn-scilla/dev-status.svg
 [dev-deps-url]: https://david-dm.org/noelyoo/learn-scilla?type=dev
-[license-svg]: https://img.shields.io/cran/l/devtools.svg
+[license-svg]: https://img.shields.io/badge/License-GPLv3-blue.svg
 [license-url]: https://github.com/noelyoo/learn-scilla/blob/master/LICENSE
 [gitter-svg]: http://img.shields.io/badge/chat-on%20gitter-077a8f.svg
 [gitter-url]: https://gitter.im/Zilliqa/SmartContract
