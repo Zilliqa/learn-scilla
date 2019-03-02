@@ -58,7 +58,6 @@ const Home: React.SFC = () => {
               </div>
             </Col>
           </Row>
-          <div className="banner-rounded-bg" />
         </div>
       </section>
 
