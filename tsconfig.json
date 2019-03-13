@@ -14,7 +14,12 @@
     "noImplicitAny": false,
     "strict": true,
     "downlevelIteration": true,
-    "skipLibCheck": true // workaround for monaco-editor with "const enum"
+    "skipLibCheck": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ]
   },
   "include": [
     "src"
