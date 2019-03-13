@@ -48,7 +48,7 @@ This project is open source software licensed as [GPL-3.0](https://github.com/no
 [travis-url]: https://travis-ci.com/noelyoo/learn-scilla
 [codecov-svg]: https://codecov.io/gh/noelyoo/learn-scilla/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/noelyoo/learn-scilla
-[storybook-svg]: https://github.com/storybooks/press/blob/master/badges/storybook.svg
+[storybook-svg]: https://github.com/storybooks/brand/blob/master/badge/badge-storybook.svg
 [storybook-url]: https://noelyoo.github.io/learn-scilla/
 [deps-svg]: https://david-dm.org/noelyoo/learn-scilla/status.svg
 [deps-url]: https://david-dm.org/noelyoo/learn-scilla
