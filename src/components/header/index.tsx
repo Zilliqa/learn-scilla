@@ -24,6 +24,7 @@ interface IProps {
   };
   firebase: any;
   auth: any;
+  ch1Progress: number;
   isAuthModalOpen: boolean;
   toggleAuthModal: () => void;
 }
@@ -40,7 +41,7 @@ class Header extends React.Component<IProps, IStates> {
   };
 
   public render(): React.ReactNode {
-    const { i18n, t, auth, history, location, firebase, isAuthModalOpen } = this.props;
+    const { t, auth, history, location, firebase, isAuthModalOpen } = this.props;
     const { isLoaded, isEmpty } = auth;
     const { pathname } = location;
     const { isAuthPending } = this.state;
@@ -131,12 +132,16 @@ class Header extends React.Component<IProps, IStates> {
   };
 
   private signIn = async (provider: string) => {
-    const { firebase } = this.props;
+    const { firebase, ch1Progress } = this.props;
     const login = firebase.login;
 
     try {
       this.setState({ isAuthPending: true });
       await login({ provider, type: 'popup' });
+
+      // sync progress between localstorage and firestore
+      const progress = { chapter1: ch1Progress };
+      firebase.updateProfile({ progress });
     } catch (error) {
       this.setState({ isAuthPending: false });
       console.log(error);
@@ -151,7 +156,8 @@ const HeaderWithRouter = withRouter(withTrans);
 
 const mapStateToProps = (state) => ({
   auth: state.firebase.auth,
-  isAuthModalOpen: state.auth.isAuthModalOpen
+  isAuthModalOpen: state.auth.isAuthModalOpen,
+  ch1Progress: state.persist.ch1Progress
 });
 const mapDispatchToProps = (dispatch) => ({
   toggleAuthModal: () => dispatch(toggleAuthModal()),
