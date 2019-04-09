@@ -3,130 +3,149 @@ import { ILessonCode, ChapterCodeType } from '../../typings';
 const l1: ILessonCode = {
   initialCode: `(* Start typing from the line below. *)`,
   answerCode: `(* Start typing from the line below. *)
-contract Zealgame`
+scilla_version 0
+
+contract SocialMediaPayment`
 };
 
 const l2: ILessonCode = {
-  initialCode: `contract Zealgame
-(* Start typing from the line below. *)
+  initialCode: `scilla_version 0
+
+(* Insert the immutable variable declaration in parantheses after the contract name below *)
+contract SocialMediaPayment
+
 `,
-  answerCode: `contract Zealgame
-(* Start typing from the line below. *)
-(owner: ByStr20)`
+  answerCode: `scilla_version 0
+(* Insert the immutable variable declaration in parantheses after the contract name below *)
+contract SocialMediaPayment (owner: ByStr20)`
 };
 
 const l3: ILessonCode = {
-  initialCode: `contract Zealgame
-(owner: ByStr20)
+  initialCode: `scilla_version 0
+
+contract SocialMediaPayment (owner: ByStr20)
 (* Start typing from the line below. *)
 `,
-  answerCode: `contract Zealgame
-(owner: ByStr20)
+  answerCode: `scilla_version 0
+
+contract SocialMediaPayment (owner: ByStr20)
 (* Start typing from the line below. *)
-field player_name : String = "Alice"`
+field username : String = "Alice"`
 };
 
 const l4: ILessonCode = {
-  initialCode: `contract Zealgame
-(owner: ByStr20)
-field player_name : String = "Alice"
+  initialCode: `scilla_version 0
+
+contract SocialMediaPayment (owner: ByStr20)
+field username : String = "Alice"
 
 (* Start typing from the line below *)
 `,
-  answerCode: `contract Zealgame
-(owner: ByStr20)
-field player_name : String = "Alice"
+  answerCode: `scilla_version 0
+
+contract SocialMediaPayment (owner: ByStr20)
+field username : String = "Alice"
 
 (* Start typing from the line below *)
-Transition changeName()
+transition changeName()
 end`
 };
 
 const l5: ILessonCode = {
-  initialCode: `contract Zealgame
-(owner: ByStr20)
-field player_name : String = "Alice"
+  initialCode: `scilla_version 0
 
-Transition changeName()
+contract SocialMediaPayment (owner: ByStr20)
+field username : String = "Alice"
+
+transition changeName()
     (* Start typing from the line below *)
 end`,
-  answerCode: `contract Zealgame
-(owner: ByStr20)
-field player_name : String = "Alice"
+  answerCode: `scilla_version 0
 
-Transition changeName()
+contract SocialMediaPayment (owner: ByStr20)
+field username : String = "Alice"
+
+transition changeName()
     (* Start typing from the line below *)
     newname = "Bob"
 end`
 };
 
 const l6: ILessonCode = {
-  initialCode: `contract Zealgame
-(owner: ByStr20)
-field player_name : String = "Alice"
+  initialCode: `scilla_version 0
 
-Transition changeName()
-    (* Now that we’ll be having another line, don’t forget to include a semicolon at the end of this line *)
-    newname = "Bob"
-    (* Start typing from the line below.  *)
+contract SocialMediaPayment (owner: ByStr20)
+field username : String = "Alice"
 
+transition changeName()
+     newname = "Bob" (*Now that we’ll be having another line, don’t forget to include a semicolon at the end of of the previous line, i.e. after "Bob" *)
+    (* Start typing from the line below *)
 end`,
-  answerCode: `contract Zealgame
-(owner: ByStr20)
-field player_name : String = "Alice"
+  answerCode: `scilla_version 0
 
-Transition changeName()
-    (* Now that we’ll be having another line, don’t forget to include a semicolon at the end of this line *)
-    newname = "Bob";
-    (* Start typing from the line below.  *)
-    Player_name := newname
+contract SocialMediaPayment (owner: ByStr20)
+field username : String = "Alice"
 
+transition changeName()
+     newname = "Bob"; (*Now that we’ll be having another line, don’t forget to include a semicolon at the end of the previous line, i.e. after "Bob" *)
+    (* Start typing from the line below *)
+    username := newname
 end`
 };
 
 const l7: ILessonCode = {
-  initialCode: `contract Zealgame
-(owner: ByStr20)
-field player_name : String = "Alice"
+  initialCode: `scilla_version 0
+
+contract SocialMediaPayment (owner: ByStr20)
+field username : String = "Alice"
+
 
 (* Start typing in the parentheses below *)
-Transition changeName()
-    player_name := newname
+transition changeName()
+   username := newname 
 end
 `,
-  answerCode: `contract Zealgame
-(owner: ByStr20)
-field player_name : String = "Alice"
+  answerCode: `scilla_version 0
+
+contract SocialMediaPayment (owner: ByStr20)
+field username : String = "Alice"
 
 (* Start typing in the parentheses below *)
-Transition changeName(newname: String)
-    player_name := newname
+transition changeName(newname: String)
+    username := newname
 end`
 };
 
 const l8: ILessonCode = {
-  initialCode: `contract Zealgame
-(owner: ByStr20)
-field player_name : String = "Alice"
-(* Declare the two new immutable variables below. You don’t need to use any semicolons to separate the lines outside the transitions *)
+  initialCode: `scilla_version 0
 
-Transition changeName(newname: String)
-    player_name := newname
-    (* Assign the value of the implicit variables to the new immutable variables in the lines below. You’ll need to separate the lines in the transition by the use of semicolons *)
+contract SocialMediaPayment (owner: ByStr20)
+field username : String = "Alice"
+(*Declare the two new mutable variables below. You don’t need to use any semicolons to separate the lines outside the transitions*)
+
+transition changeName(newname: String)
+    username := newname
+    (*Use ‘accept’ command in the line below which will accept the amount sent to this transition.*)
+
+    (*Assign the value of the implicit variables to the new mutable variables in the lines below. You’ll need to use the semicolons to separate the lines in the transition*)
+
 end
 `,
-  answerCode: `contract Zealgame
-(owner: ByStr20)
-field player_name : String = "Alice"
-(* Declare the two new immutable variables below. You don’t need to use any semicolons to separate the lines outside the transitions *)
-field player_address : ByStr20 = 0x1234567890123456789012345678901234567890
-field player_zeal: Uint128 = Uint128 0
+  answerCode: `scilla_version 0
 
-Transition changeName(newname: String)
-    player_name := newname;
-    (* Assign the value of the implicit variables to the new immutable variables in the lines below. You’ll need to separate the lines in the transition by the use of semicolons *)
-    player_address := _sender;
-    player_zeal := _amount
+contract SocialMediaPayment (owner: ByStr20)
+field username : String = "Alice"
+field user_address : ByStr20 = 0x1234567890123456789012345678901234567890
+field  user_tokens: Uint128 = Uint128 0
+
+transition changeName(newname: String)
+    username := newname;
+    (*Use ‘accept’ command in the line below which will accept the amount sent to this transition.*)
+    accept; 
+    (*Assign the value of the implicit variables to the new mutable variables in the lines below. You’ll need to use the semicolons to separate the lines in the transition*)
+    user_address := _sender;
+    user_tokens := _amount
+
 end`
 };
 
