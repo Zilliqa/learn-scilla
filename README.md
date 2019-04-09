@@ -1,4 +1,4 @@
-[![Build Status][travis-svg]][travis-url] [![codecov][codecov-svg]][codecov-url] [![dependency status][deps-svg]][deps-url] [![dev dependency status][dev-deps-svg]][dev-deps-url] [![License][license-svg]][license-url]
+[![Build Status][travis-svg]][travis-url] [![dependency status][deps-svg]][deps-url] [![dev dependency status][dev-deps-svg]][dev-deps-url] [![License][license-svg]][license-url]
 
 # learn-scilla 
 [![Storybook][storybook-svg]][storybook-url] [![Gitter chat][gitter-svg]][gitter-url]
@@ -33,12 +33,11 @@ We use [Jest](https://jestjs.io/) for testing.
 
 UI components library can be found on [Storybook](https://noelyoo.github.io/learn-scilla).
 
-## Style guideline
+## Contributing
 
-We use the followings to keep our code style consistent:
-* [TSLint](https://palantir.github.io/tslint/)
-* [Prettier](https://prettier.io/)
-* [stylelint](https://stylelint.io/)
+We recommend the community help us make improvements. To report bugs please create an issue in this repository.
+
+#### Read our [contribution guidelines](./CONTRIBUTING.md).
 
 ## License
 
@@ -46,8 +45,6 @@ This project is open source software licensed as [GPL-3.0](https://github.com/no
 
 [travis-svg]: https://travis-ci.com/noelyoo/learn-scilla.svg?branch=master
 [travis-url]: https://travis-ci.com/noelyoo/learn-scilla
-[codecov-svg]: https://codecov.io/gh/noelyoo/learn-scilla/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/noelyoo/learn-scilla
 [storybook-svg]: https://github.com/storybooks/brand/blob/master/badge/badge-storybook.svg
 [storybook-url]: https://noelyoo.github.io/learn-scilla/
 [deps-svg]: https://david-dm.org/noelyoo/learn-scilla/status.svg
