@@ -43,7 +43,7 @@ end`
 
 const l3: ILessonCode = {
   initialCode: `scilla_version 0
-  import BoolUtils
+import BoolUtils
 
 contract SocialMediaPayment(owner: ByStr20)
 
@@ -68,7 +68,7 @@ end`
 
 const l4: ILessonCode = {
   initialCode: `scilla_version 0
-  import BoolUtils
+import BoolUtils
 
 contract SocialMediaPayment(owner: ByStr20)
 
@@ -79,7 +79,7 @@ sender_is_owner = builtin eq _sender owner
 end
 `,
   answerCode: `scilla_version 0
-  import BoolUtils
+import BoolUtils
 
 contract SocialMediaPayment(owner: ByStr20)
 
@@ -97,13 +97,13 @@ end`
 
 const l5: ILessonCode = {
   initialCode: `scilla_version 0
-  import BoolUtils
-  (*Start typing from the line below. First define the library*)
-  
-  (*Now define the variable zero for Uint128 0*)
+import BoolUtils
+(*Start typing from the line below. First define the library*)
+
+(*Now define the variable zero for Uint128 0*)
 
 
-  (*Now, in the line below, define the variable not_owner_code of type Uint32 and value 1*)
+(*Now, in the line below, define the variable not_owner_code of type Uint32 and value 1*)
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -118,18 +118,17 @@ match sender_is_owner with
      end
 end
 `,
-  answerCode: `
-  scilla_version 0
-  import BoolUtils
-  (*Start typing from the line below. First define the library*)
-  library SocialMediaPayment
-  
-  (*Now define the variable zero for Uint128 0*)
-  let zero = Uint128 0
+  answerCode: `scilla_version 0
+import BoolUtils
+(*Start typing from the line below. First define the library*)
+library SocialMediaPayment
+
+(*Now define the variable zero for Uint128 0*)
+let zero = Uint128 0
 
 
-  (*Now, in the line below, define the variable not_owner_code of type Uint32 and value 1*)
-  let not_owner_code = Uint32 1
+(*Now, in the line below, define the variable not_owner_code of type Uint32 and value 1*)
+let not_owner_code = Uint32 1
 
 contract SocialMediaPayment(owner: ByStr20)
 
@@ -145,16 +144,15 @@ end`
 };
 
 const l6: ILessonCode = {
-  initialCode: `
-  scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  (*Start typing from the line below. Copy paste the code given in the first task below to define the variable one_msg*)
-  
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
+  initialCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+(*Start typing from the line below. Copy paste the code given in the first task below to define the variable one_msg*)
+
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
 
 contract SocialMediaPayment(owner: ByStr20)
 
@@ -173,19 +171,18 @@ match sender_is_owner with
      end
 end
 `,
-  answerCode: `
-  scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  (*Start typing from the line below. Copy paste the code given in the first task below to define the variable one_msg*)
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
+  answerCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+(*Start typing from the line below. Copy paste the code given in the first task below to define the variable one_msg*)
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
 
 contract SocialMediaPayment(owner: ByStr20)
 
@@ -211,19 +208,18 @@ end
 };
 
 const l7: ILessonCode = {
-  initialCode: `
-    scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
+  initialCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
 (*Start typing from the line below. declare a Uint32 type of variable with variable name “accepted_code” and value “0” *)
 
 
@@ -249,21 +245,20 @@ match sender_is_owner with
      end
 end
 `,
-  answerCode: `
- scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-    (*Start typing from the line below. declare a Uint32 type of variable with variable name “accepted_code” and value “0” *)
-  let accepted_code = Uint32 0
+  answerCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+  (*Start typing from the line below. declare a Uint32 type of variable with variable name “accepted_code” and value “0” *)
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -296,19 +291,18 @@ end
 };
 
 const l8: ILessonCode = {
-  initialCode: `
-    scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
+  initialCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
 (*Start typing from the line below. declare a Uint32 type of variable with variable name “accepted_code” and value “0” *)
 
 
@@ -334,21 +328,20 @@ match sender_is_owner with
      end
 end
 `,
-  answerCode: `
- scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-    (*Start typing from the line below. declare a Uint32 type of variable with variable name “accepted_code” and value “0” *)
-  let accepted_code = Uint32 0
+  answerCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+  (*Start typing from the line below. declare a Uint32 type of variable with variable name “accepted_code” and value “0” *)
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)

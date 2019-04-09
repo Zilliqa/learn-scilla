@@ -1,20 +1,19 @@
 import { ILessonCode, ChapterCodeType } from '../../typings';
 
 const l1: ILessonCode = {
-  initialCode: `
-  scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
+  initialCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -46,20 +45,19 @@ end
 (*Start typing from the line below*)
 
 `,
-  answerCode: `
-  scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
+  answerCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -100,20 +98,19 @@ end
 };
 
 const l2: ILessonCode = {
-  initialCode: `
-  scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
+  initialCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -149,21 +146,19 @@ transition register_user ()
 end
 
 `,
-  answerCode: `
-  
-  scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
+  answerCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -202,21 +197,19 @@ end
 };
 
 const l3: ILessonCode = {
-  initialCode: `
-  
-scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
+  initialCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -255,20 +248,19 @@ transition register_user (user_address: ByStr20, twitter_username: String)
 end
   
 `,
-  answerCode: `
-  scilla_version 0
-  import BoolUtils
+  answerCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
   
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -315,21 +307,19 @@ end
 };
 
 const l4: ILessonCode = {
-  initialCode: `
-  
-scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
+  initialCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -374,20 +364,19 @@ end
 
 
 `,
-  answerCode: `
-  scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
+  answerCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -434,21 +423,19 @@ end
 };
 
 const l5: ILessonCode = {
-  initialCode: `
-  
-scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
+  initialCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -498,21 +485,19 @@ end
 
 
 `,
-  answerCode: `
-    
-scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
+  answerCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -564,20 +549,19 @@ end
 };
 
 const l6: ILessonCode = {
-  initialCode: `
-  scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
+  initialCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -625,21 +609,19 @@ end
 
 
 `,
-  answerCode: `
-    
-  scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
+  answerCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
 
 
 contract SocialMediaPayment(owner: ByStr20)
@@ -699,22 +681,20 @@ end
 };
 
 const l7: ILessonCode = {
-  initialCode: `
-  
-scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
-    (*Start typing from the line below to define the variable ‘user_exists_code’ of type Uint32 and value ‘2’*)
+  initialCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
+  (*Start typing from the line below to define the variable ‘user_exists_code’ of type Uint32 and value ‘2’*)
 
 contract SocialMediaPayment(owner: ByStr20)
 
@@ -769,23 +749,21 @@ end
   
 
 `,
-  answerCode: `
-    
- scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
-    (*Start typing from the line below to define the variable ‘user_exists_code’ of type Uint32 and value ‘2’*)
-  let user_exists_code = Uint32 2
+  answerCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
+  (*Start typing from the line below to define the variable ‘user_exists_code’ of type Uint32 and value ‘2’*)
+let user_exists_code = Uint32 2
   
 contract SocialMediaPayment(owner: ByStr20)
 
@@ -846,25 +824,22 @@ end
 };
 
 const l8: ILessonCode = {
-  initialCode: `
+  initialCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
+let user_exists_code = Uint32 2
   
-    
- scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
-  let user_exists_code = Uint32 2
-  
-  (*Start typing from the line below definition of a boolean  variable true ‘let true =True’ *)
+(*Start typing from the line below definition of a boolean  variable true ‘let true =True’ *)
   
   
 contract SocialMediaPayment(owner: ByStr20)
@@ -923,25 +898,23 @@ transition register_user (user_address: ByStr20, twitter_username: String)
 end
 
 `,
-  answerCode: `
- 
- scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
-  let user_exists_code = Uint32 2
-  
-  (*Start typing from the line below definition of a boolean  variable true ‘let true =True’ *)
-  let true = True
+  answerCode: `scilla_version 0
+import BoolUtils
+
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
+let user_exists_code = Uint32 2
+
+(*Start typing from the line below definition of a boolean  variable true ‘let true =True’ *)
+let true = True
   
 contract SocialMediaPayment(owner: ByStr20)
 
@@ -1004,24 +977,22 @@ end
 };
 
 const l9: ILessonCode = {
-  initialCode: `
-  
-   scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
-  let user_exists_code = Uint32 2
+  initialCode: `scilla_version 0
+import BoolUtils
 
-  let true = True
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
+let user_exists_code = Uint32 2
+
+let true = True
   
 contract SocialMediaPayment(owner: ByStr20)
 
@@ -1083,24 +1054,22 @@ end
 
 
 `,
-  answerCode: `
- 
-    scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
-  let user_exists_code = Uint32 2
+  answerCode: `scilla_version 0
+import BoolUtils
 
-  let true = True
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
+let user_exists_code = Uint32 2
+
+let true = True
   
 contract SocialMediaPayment(owner: ByStr20)
 
@@ -1168,24 +1137,22 @@ end
 };
 
 const l10: ILessonCode = {
-  initialCode: `
-  
-   scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
-  let user_exists_code = Uint32 2
+  initialCode: `scilla_version 0
+import BoolUtils
 
-  let true = True
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
+let user_exists_code = Uint32 2
+
+let true = True
   
 contract SocialMediaPayment(owner: ByStr20)
 
@@ -1247,24 +1214,22 @@ end
 
 
 `,
-  answerCode: `
- 
-    scilla_version 0
-  import BoolUtils
-  
-  library SocialMediaPayment
-  
-  let one_msg = 
-    fun (msg : Message) => 
-    let nil_msg = Nil {Message} in
-    Cons {Message} msg nil_msg
-  
-  let zero = Uint128 0
-  let not_owner_code = Uint32 1
-  let accepted_code = Uint32 0
-  let user_exists_code = Uint32 2
+  answerCode: `scilla_version 0
+import BoolUtils
 
-  let true = True
+library SocialMediaPayment
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+let zero = Uint128 0
+let not_owner_code = Uint32 1
+let accepted_code = Uint32 0
+let user_exists_code = Uint32 2
+
+let true = True
   
 contract SocialMediaPayment(owner: ByStr20)
 
