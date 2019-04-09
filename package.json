@@ -30,8 +30,7 @@
     "deploy": "firebase deploy",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "deploy-storybook": "storybook-to-ghpages",
-    "codecov": "codecov -f coverage/*.json"
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
     "firebase": "^5.5.9",
@@ -74,7 +73,6 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
     "bootstrap": "^4.3.1",
-    "codecov": "^3.1.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "jest": "^23.6.0",

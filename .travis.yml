@@ -5,13 +5,19 @@ node_js:
   - "8" # ends December 2019
   # - "10" # ends April 2021
 
-sudo: false
+sudo: required
 
 script:
-- yarn ci
+  - yarn install
+  - yarn ci
+  - if [[ $TRAVIS_REPO_SLUG == "noelyoo/learn-scilla" && $TRAVIS_BRANCH = "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then
+      yarn build;
+      yarn global add firebase-tools typescript tslint;
+      firebase use default;
+      firebase deploy --token $FIREBASE_TOKEN --non-interactive;
+    fi
 
 after_success:
-- yarn codecov
-- if [[ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then
-    npm run deploy-storybook -- --ci;
-  fi
+  - if [[ $TRAVIS_REPO_SLUG == "noelyoo/learn-scilla" && $TRAVIS_BRANCH = "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then
+      npm run deploy-storybook -- --ci;
+    fi
