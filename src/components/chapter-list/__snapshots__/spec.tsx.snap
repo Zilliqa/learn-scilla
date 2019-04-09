@@ -22,7 +22,7 @@ exports[`Chapter List tests basic tests matches the snapshot 1`] = `
        Elementary 
        
       <small>
-        (3/9)
+        (4/9)
       </small>
     </button>
   </div>
@@ -43,7 +43,7 @@ exports[`Chapter List tests basic tests matches the snapshot 1`] = `
        Intermediate - A 
        
       <small>
-        (0/8)
+        (1/8)
       </small>
     </button>
   </div>
@@ -64,7 +64,7 @@ exports[`Chapter List tests basic tests matches the snapshot 1`] = `
        Intermediate - B 
        
       <small>
-        (0/9)
+        (1/10)
       </small>
     </button>
   </div>

@@ -31,9 +31,13 @@ const ChapterList: React.SFC<IProps> = (props) => {
 
     const lessons: string[] = item.lessons || [];
     const totalNum: number = lessons.length;
-
-    const progressText = `(${chapterProgressNum}/${totalNum})`;
     const lessonNum = totalNum <= chapterProgressNum ? totalNum : chapterProgressNum + 1;
+    let progressText = `(${lessonNum}/${totalNum})`;
+
+    if (!isAuth && chapterNum !== 1) {
+      progressText = '';
+    }
+
     return (
       <div key={chapterNum} className="m-2">
         <Button
