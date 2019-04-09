@@ -40,10 +40,31 @@ exports[`Chapter List tests basic tests matches the snapshot 1`] = `
         chapter.chapter 2 :
       </small>
        
-       Intermediate 
+       Intermediate - A 
        
       <small>
         (0/8)
+      </small>
+    </button>
+  </div>
+  <div
+    className="m-2"
+  >
+    <button
+      aria-label="start chapter"
+      className="btn btn-md type-secondary btn-block text-left"
+      onClick={[Function]}
+      type="button"
+    >
+      <small>
+         
+        chapter.chapter 3 :
+      </small>
+       
+       Intermediate - B 
+       
+      <small>
+        (0/9)
       </small>
     </button>
   </div>

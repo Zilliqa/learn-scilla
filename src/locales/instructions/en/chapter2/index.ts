@@ -325,7 +325,7 @@ In the next chapter, we'll learn about maps and events. We'll also learn working
 `;
 
 const chapter2: IChapterInstruction = {
-  title: 'Intermediate',
+  title: 'Intermediate - A',
   lessons: [l1, l2, l3, l4, l5, l6, l7, l8]
 };
 
