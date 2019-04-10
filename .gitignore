@@ -13,9 +13,6 @@ functions/node_modules
 # production
 /build
 
-# storybook build
-out9206
-
 # misc
 .DS_Store
 .env.local
