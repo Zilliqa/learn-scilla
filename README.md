@@ -1,7 +1,6 @@
-[![Build Status][travis-svg]][travis-url] [![dependency status][deps-svg]][deps-url] [![dev dependency status][dev-deps-svg]][dev-deps-url] [![License][license-svg]][license-url]
+[![Build Status][travis-svg]][travis-url] [![dependency status][deps-svg]][deps-url] [![dev dependency status][dev-deps-svg]][dev-deps-url] [![License][license-svg]][license-url] [![Gitter chat][gitter-svg]][gitter-url]
 
 # learn-scilla 
-[![Storybook][storybook-svg]][storybook-url] [![Gitter chat][gitter-svg]][gitter-url]
 
 An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process. This is one of the [Zilliqa Ecosystem Grant Projects](https://blog.zilliqa.com/announcing-the-second-wave-of-zilliqa-ecosystem-grant-awardees-6e03edadcc0d). 
 
@@ -29,10 +28,6 @@ Open `http://localhost:3000` to view it in the browser.
 Runs the test watcher in an interactive mode.
 We use [Jest](https://jestjs.io/) for testing.
 
-## UI components
-
-UI components library can be found on [Storybook](https://noelyoo.github.io/learn-scilla).
-
 ## Contributing
 
 We recommend the community help us make improvements. To report bugs please create an issue in this repository.
@@ -45,8 +40,6 @@ This project is open source software licensed as [GPL-3.0](https://github.com/no
 
 [travis-svg]: https://travis-ci.com/noelyoo/learn-scilla.svg?branch=master
 [travis-url]: https://travis-ci.com/noelyoo/learn-scilla
-[storybook-svg]: https://github.com/storybooks/brand/blob/master/badge/badge-storybook.svg
-[storybook-url]: https://noelyoo.github.io/learn-scilla/
 [deps-svg]: https://david-dm.org/noelyoo/learn-scilla/status.svg
 [deps-url]: https://david-dm.org/noelyoo/learn-scilla
 [dev-deps-svg]: https://david-dm.org/noelyoo/learn-scilla/dev-status.svg
