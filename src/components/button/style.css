@@ -1,96 +1,93 @@
-@value colors: "../../assets/colors/colors.css";
-@value --white, gray500 ,gray700, blue500, blue700, yellow500, red500, red700 from colors;
-
 .type-primary {
-  background-color: blue500;
-  color: --white;
+  background-color: var(--blue500);
+  color: var(--white);
 }
 
 .type-primary:hover,
 .type-primary:active,
 .type-primary:focus {
-  background-color: blue700;
-  color: --white;
+  background-color: var(--blue700);
+  color: var(--white);
 }
 
 .type-primary.disabled,
 .type-primary:disabled {
-  background-color: blue500;
+  background-color: var(--blue500);
   cursor: not-allowed;
 }
 
 .type-secondary {
-  border-color: gray500 !important;
-  color: gray500;
+  border-color: var(--gray500) !important;
+  color: var(--gray500);
   background-color: transparent;
 }
 
 .type-secondary:hover,
 .type-secondary:active {
-  border-color: gray500 !important;
-  color: --white;
-  background-color: gray500;
+  border-color: var(--gray500) !important;
+  color: var(--white);
+  background-color: var(--gray500);
 }
 
 .type-secondary.disabled,
 .type-secondary:disabled {
-  color: gray500;
+  color: var(--gray500);
   cursor: not-allowed;
   background-color: transparent;
 }
 
 .type-tertiary {
-  color: gray500;
+  color: var(--gray500);
   background-color: transparent;
 }
 
 .type-tertiary:hover,
 .type-tertiary:active,
 .type-tertiary:focus {
-  color: gray700;
+  color: var(--gray700);
   background-color: transparent;
 }
 
 .type-tertiary.disabled,
 .type-tertiary:disabled {
-  color: gray500;
+  color: var(--gray500);
   cursor: not-allowed;
 }
 
 .type-warning {
-  border-color: yellow500 !important;
-  color: yellow500;
+  border-color: var(--yellow500) !important;
+  color: var(--yellow500);
   background-color: transparent;
 }
 
 .type-warning:hover,
 .type-warning:active {
-  background-color: yellow500;
-  color: --white;
+  background-color: var(--yellow500);
+  color: var(--white);
 }
 
 .type-warning.disabled,
 .type-warning:disabled {
-  background-color: --white;
-  color: yellow500;
+  background-color: var(--white);
+  color: var(--yellow500);
   cursor: not-allowed;
 }
 
 .type-danger {
-  background-color: red500;
-  color: --white;
+  background-color: var(--red500);
+  color: var(--white);
 }
 
 .type-danger:hover,
 .type-danger:active,
 .type-danger:focus {
-  background-color: red700;
-  color: --white;
+  background-color: var(--red700);
+  color: var(--white);
 }
 
 .type-danger.disabled,
 .type-danger:disabled {
-  background-color: red500;
+  background-color: var(--red500);
   cursor: not-allowed;
-  color: --white;
+  color: var(--white);
 }

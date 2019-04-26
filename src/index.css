@@ -1,5 +1,47 @@
-@value colors: "./assets/colors/colors.css";
-@value blue500, gray500, red500 from colors;
+:root {
+  --white: #fff;
+  --black: #131520;
+  --gray100: #f9f9fd;
+  --gray200: #e9e9f4;
+  --gray300: #c5c5d3;
+  --gray400: #a0a1b2;
+  --gray500: #7c7d8c;
+  --gray600: #585968;
+  --gray700: #343546;
+  --gray800: #242536;
+  --blue100: #d9ddfe;
+  --blue200: #aaafef;
+  --blue300: #7b82e1;
+  --blue400: #4c54d2;
+  --blue500: #392dd1;
+  --blue600: #2d23a7;
+  --blue700: #21197d;
+  --blue800: #213b6b;
+  --green100: #d3f2e2;
+  --green200: #96dfba;
+  --green300: #58cd92;
+  --green400: #1bba6a;
+  --green500: #148e50;
+  --green600: #0d6137;
+  --green700: #06351d;
+  --green800: #0d2521;
+  --red100: #f5acb8;
+  --red200: #f18295;
+  --red300: #ec5871;
+  --red400: #e72f4e;
+  --red500: #e2052a;
+  --red600: #be032d;
+  --red700: #99022f;
+  --red800: #750032;
+  --yellow100: #f9ebd0;
+  --yellow200: #f5dba2;
+  --yellow300: #f1cb74;
+  --yellow400: #edbb46;
+  --yellow500: #e9ab18;
+  --yellow600: #d19200;
+  --yellow700: #9d6e00;
+  --yellow800: #694900;
+}
 
 @font-face {
   font-family: 'Noto Sans';
@@ -31,19 +73,19 @@ body {
 }
 
 .bg-primary {
-  background-color: blue500 !important;
+  background-color: var(--blue500) !important;
 }
 
 .bg-secondary {
-  background-color: gray500 !important;
+  background-color: var(--gray500) !important;
 }
 
 .text-secondary {
-  color: gray500;
+  color: var(--gray500);
 }
 
 .text-danger {
-  color: red500 !important;
+  color: var(--red500) !important;
 }
 
 .spinner {
@@ -55,7 +97,7 @@ body {
 }
 
 .spinner > div {
-  background-color: #eee;
+  background-color: var(--gray200);
   height: 100%;
   width: 6px;
   display: inline-block;
@@ -117,7 +159,7 @@ body {
     -webkit-transform-origin: top left;
     transform-origin: top left;
     overflow: hidden;
-    background-color: #213b6b;
+    background-color: var(--blue800);
     opacity: 0.1;
   }
 }

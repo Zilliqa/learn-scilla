@@ -1,6 +1,3 @@
-@value colors: "../../assets/colors/colors.css";
-@value blue500, blue700 from colors;
-
 .cheat-sheet-table {
   overflow-x: scroll;
   word-break: keep-all;
@@ -17,11 +14,11 @@
 
 .cheat-sheet-table .table tbody th a {
   text-decoration: underline;
-  color: blue500;
+  color: var(--blue500);
 }
 
 .cheat-sheet-table .table tbody th a:hover {
-  color: blue700;
+  color: var(--blue700);
 }
 
 .cheat-sheet-table .table td {
