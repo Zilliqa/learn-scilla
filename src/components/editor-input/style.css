@@ -1,7 +1,4 @@
-@value colors: "../../assets/colors/colors.css";
-@value gray300 from colors;
-
 .code-editor-container {
-  border: 1px solid gray300;
+  border: 1px solid var(--gray300);
   border-left: none;
 }
