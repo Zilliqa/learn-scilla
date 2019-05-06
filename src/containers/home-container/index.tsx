@@ -34,7 +34,7 @@ const Home = (props) => {
           <Row>
             <Col xs={12} sm={12} md={12} lg={4}>
               <div className="my-5">
-                <h1 style={{ maxWidth: 700, marginTop: 120 }}>
+                <h1 style={{ marginTop: 120 }}>
                   <b>LEARN TO SAFELY CODE ON BLOCKCHAIN</b>
                 </h1>
 
@@ -54,7 +54,7 @@ const Home = (props) => {
                   className="img-fluid mx-auto"
                   src={A}
                   alt="asset a"
-                  style={{ maxWidth: 700, marginTop: 50 }}
+                  style={{ marginTop: 50 }}
                 />
               </div>
             </Col>
