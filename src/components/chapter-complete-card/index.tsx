@@ -21,7 +21,7 @@ class ChapterCompleteCard extends React.PureComponent<IProps, {}> {
     return (
       <div
         className="chapter-complete-card card card-body text-center py-5"
-        data-test-id="chapter-complete-card"
+        data-testid="chapter-complete-card"
       >
         <div className="text-secondary">
           <h3>{t('chapter.goodjob')}!</h3>

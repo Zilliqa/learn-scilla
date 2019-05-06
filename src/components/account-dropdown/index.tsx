@@ -32,7 +32,7 @@ class AccountDropdown extends React.Component<IProps, IState> {
         toggle={this.toggle}
         nav={true}
         inNavbar={true}
-        data-test-id="account-dropdown"
+        data-testid="account-dropdown"
       >
         <DropdownToggle caret={true} nav={true} className={isAccountPath ? 'active' : ''}>
           {username}

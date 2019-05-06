@@ -3,7 +3,7 @@
 exports[`Lesson Navigator tests basic tests matches the snapshot 1`] = `
 <div
   className="btn-group"
-  data-test-id="lesson-navigator"
+  data-testid="lesson-navigator"
   role="group"
 >
   <button

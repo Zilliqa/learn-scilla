@@ -24,11 +24,11 @@ class CheatSheetModal extends React.Component<IProps, IState> {
     const { t, buttonType } = this.props;
 
     return (
-      <span data-test-id="cheat-sheet-modal">
+      <span data-testid="cheat-sheet-modal">
         <Button
           onClick={this.toggleModal}
           type={buttonType}
-          data-test-id="toggle"
+          data-testid="toggle"
           size="sm"
           text={t('lesson.cheatSheet')}
           ariaLabel={t('lesson.cheatSheet')}

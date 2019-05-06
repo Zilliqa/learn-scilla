@@ -16,7 +16,7 @@ describe('Cheat Sheet Modal tests', () => {
 
     it('renders the component', () => {
       const wrapper = shallow(baseComponent());
-      const assertion = wrapper.find('[data-test-id="cheat-sheet-modal"]').length;
+      const assertion = wrapper.find('[data-testid="cheat-sheet-modal"]').length;
       expect(assertion).toBe(1);
     });
   });
@@ -29,7 +29,7 @@ describe('Cheat Sheet Modal tests', () => {
 
     it('check modal opened after toggle', () => {
       const wrapper = shallow(baseComponent());
-      wrapper.find('[data-test-id="toggle"]').simulate('click');
+      wrapper.find('[data-testid="toggle"]').simulate('click');
       expect(wrapper.state('isOpen')).toEqual(true);
     });
   });

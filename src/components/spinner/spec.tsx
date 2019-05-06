@@ -14,7 +14,7 @@ describe('Spinner tests', () => {
 
     it('renders the component', () => {
       const wrapper = shallow(baseComponent());
-      const assertion = wrapper.find('[data-test-id="spinner"]').length;
+      const assertion = wrapper.find('[data-testid="spinner"]').length;
       expect(assertion).toBe(1);
     });
   });

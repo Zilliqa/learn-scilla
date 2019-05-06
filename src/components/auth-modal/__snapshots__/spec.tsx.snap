@@ -3,11 +3,11 @@
 exports[`Auth Modal tests basic tests matches the snapshot 1`] = `
 <li
   className="nav-item"
-  data-test-id="auth-modal"
+  data-testid="auth-modal"
 >
   <a
     className="nav-link cursor-pointer"
-    data-test-id="toggle"
+    data-testid="toggle"
     onClick={[Function]}
   >
     link.signIn

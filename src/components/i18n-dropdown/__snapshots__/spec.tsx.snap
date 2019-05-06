@@ -2,7 +2,7 @@
 
 exports[`i18n Dropdown tests basic tests matches the snapshot 1`] = `
 <span
-  data-test-id="i18n-dropdown-container"
+  data-testid="i18n-dropdown-container"
 >
   <li
     className="dropdown nav-item"

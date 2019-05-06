@@ -54,7 +54,7 @@ const ChapterList: React.SFC<IProps> = (props) => {
   });
 
   return (
-    <div className="chapter-list" data-test-id="chapter-list">
+    <div className="chapter-list" data-testid="chapter-list">
       {result}
     </div>
   );

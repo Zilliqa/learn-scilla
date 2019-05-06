@@ -14,7 +14,7 @@ interface IProps {
 const LessonCompleteModal: React.SFC<IProps> = (props) => {
   const { isModalVisible, t, closeModal, onSubmit } = props;
   return (
-    <div data-test-id="lesson-complete-modal">
+    <div data-testid="lesson-complete-modal">
       <Modal isOpen={isModalVisible} toggle={closeModal}>
         <ModalHeader toggle={closeModal} className="text-secondary">
           <FaMedal /> {t('chapter.goodjob')}

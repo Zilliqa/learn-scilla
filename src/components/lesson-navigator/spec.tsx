@@ -20,7 +20,7 @@ describe('Lesson Navigator tests', () => {
 
     it('renders the component', () => {
       const wrapper = shallow(baseComponent());
-      const assertion = wrapper.find('[data-test-id="lesson-navigator"]').length;
+      const assertion = wrapper.find('[data-testid="lesson-navigator"]').length;
       expect(assertion).toBe(1);
     });
   });

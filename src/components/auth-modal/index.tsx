@@ -23,8 +23,8 @@ const AuthModal: React.SFC<IProps> = ({
   login
 }) => {
   return (
-    <li className="nav-item" data-test-id="auth-modal">
-      <a className="nav-link cursor-pointer" onClick={toggleAuthModal} data-test-id="toggle">
+    <li className="nav-item" data-testid="auth-modal">
+      <a className="nav-link cursor-pointer" onClick={toggleAuthModal} data-testid="toggle">
         {t('link.signIn')}
       </a>
       <Modal isOpen={isAuthModalOpen} toggle={toggleAuthModal} size="md">
@@ -36,7 +36,7 @@ const AuthModal: React.SFC<IProps> = ({
             <div className="py-3 text-center">
               <div className="py-1">
                 <Button
-                  data-test-id="google-login-button"
+                  data-testid="google-login-button"
                   type="secondary"
                   text={t('auth.signInWithGoogle')}
                   onClick={() => login('google')}
@@ -46,7 +46,7 @@ const AuthModal: React.SFC<IProps> = ({
               </div>
               <div className="py-1">
                 <Button
-                  data-test-id="github-login-button"
+                  data-testid="github-login-button"
                   type="secondary"
                   text={t('auth.signInWithGitHub')}
                   onClick={() => login('github')}

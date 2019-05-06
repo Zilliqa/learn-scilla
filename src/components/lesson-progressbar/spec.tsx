@@ -25,7 +25,7 @@ describe('Lesson Progressbar tests', () => {
 
     it('renders the component', () => {
       const wrapper = shallow(baseComponent());
-      const assertion = wrapper.find('[data-test-id="lesson-progressbar"]').length;
+      const assertion = wrapper.find('[data-testid="lesson-progressbar"]').length;
       expect(assertion).toBe(1);
     });
   });
@@ -34,7 +34,7 @@ describe('Lesson Progressbar tests', () => {
     it('google login', () => {
       const index = 1;
       const wrapper = shallow(baseComponent());
-      wrapper.find(`[data-test-id="lesson-progressbar-block${index}"]`).simulate('click');
+      wrapper.find(`[data-testid="lesson-progressbar-block${index}"]`).simulate('click');
       expect(navigate).toHaveBeenCalled();
 
       expect(navigate.mock.calls[0][0]).toBe(chapterNumber);

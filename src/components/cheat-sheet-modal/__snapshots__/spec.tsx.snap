@@ -2,7 +2,7 @@
 
 exports[`Cheat Sheet Modal tests basic tests matches the snapshot 1`] = `
 <span
-  data-test-id="cheat-sheet-modal"
+  data-testid="cheat-sheet-modal"
 >
   <button
     aria-label="lesson.cheatSheet"

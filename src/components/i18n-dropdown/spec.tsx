@@ -16,7 +16,7 @@ describe('i18n Dropdown tests', () => {
 
     it('renders the component', () => {
       const wrapper = shallow(baseComponent());
-      const assertion = wrapper.find('[data-test-id="i18n-dropdown-container"]').length;
+      const assertion = wrapper.find('[data-testid="i18n-dropdown-container"]').length;
       expect(assertion).toBe(1);
     });
   });

@@ -27,7 +27,7 @@ class I18Dropdown extends React.Component<IProps, IState> {
     const keys = Object.keys(langDictionary);
 
     return (
-      <span data-test-id="i18n-dropdown-container">
+      <span data-testid="i18n-dropdown-container">
         <Dropdown isOpen={this.state.isOpen} toggle={this.toggle} nav={true} inNavbar={true}>
           <DropdownToggle caret={true} nav={true}>
             {langDictionary[lang]}

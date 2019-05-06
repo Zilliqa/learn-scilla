@@ -20,7 +20,7 @@ describe('Cheat Sheet Modal tests', () => {
 
     it('renders the component', () => {
       const wrapper = shallow(baseComponent());
-      const assertion = wrapper.find('[data-test-id="lesson-complete-modal"]').length;
+      const assertion = wrapper.find('[data-testid="lesson-complete-modal"]').length;
       expect(assertion).toBe(1);
     });
   });

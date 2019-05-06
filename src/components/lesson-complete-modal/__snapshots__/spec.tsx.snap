@@ -2,6 +2,6 @@
 
 exports[`Cheat Sheet Modal tests basic tests matches the snapshot 1`] = `
 <div
-  data-test-id="lesson-complete-modal"
+  data-testid="lesson-complete-modal"
 />
 `;
