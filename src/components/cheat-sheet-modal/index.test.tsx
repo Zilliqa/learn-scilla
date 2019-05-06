@@ -1,12 +1,12 @@
 import React from 'react';
 import * as renderer from 'react-test-renderer';
+import CheatSheetModal from '.';
 import { shallow } from 'enzyme';
-import { langDictionary } from '../../i18n';
-import I18nDropdown from '.';
-import i18n from '../../i18n';
 
-describe('i18n Dropdown tests', () => {
-  const baseComponent = () => <I18nDropdown i18n={i18n} langDictionary={langDictionary} />;
+const t = (s: string) => s;
+
+describe('Cheat Sheet Modal tests', () => {
+  const baseComponent = () => <CheatSheetModal t={t} />;
 
   describe('basic tests', () => {
     it('matches the snapshot', () => {
@@ -16,15 +16,21 @@ describe('i18n Dropdown tests', () => {
 
     it('renders the component', () => {
       const wrapper = shallow(baseComponent());
-      const assertion = wrapper.find('[data-test-id="i18n-dropdown-container"]').length;
+      const assertion = wrapper.find('[data-testid="cheat-sheet-modal"]').length;
       expect(assertion).toBe(1);
     });
   });
 
   describe('component behavior', () => {
-    it('check dropdown closed', () => {
+    it('check modal closed', () => {
       const wrapper = shallow(baseComponent());
       expect(wrapper.state('isOpen')).toEqual(false);
+    });
+
+    it('check modal opened after toggle', () => {
+      const wrapper = shallow(baseComponent());
+      wrapper.find('[data-testid="toggle"]').simulate('click');
+      expect(wrapper.state('isOpen')).toEqual(true);
     });
   });
 });

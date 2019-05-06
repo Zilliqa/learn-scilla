@@ -1,6 +1,7 @@
 import React from 'react';
+import { Button } from 'uxd-components';
+
 import { FaCheck, FaRegEye, FaRegEyeSlash, FaRegComments, FaTimes } from 'react-icons/fa';
-import Button from '../button';
 interface IProps {
   t: (key: string) => string;
   isAnswerVisible: boolean;
@@ -24,26 +25,27 @@ const ControlPanel: React.SFC<IProps> = (props) => {
   return (
     <div className="py-2">
       <Button
-        type={checkAnswerButtonType}
+        level="primary"
+        className={`type-${checkAnswerButtonType}`}
         text={checkAnswerButtonText}
         before={checkAnswerButtonIcon}
         onClick={props.handleCheckAnswer}
-        ariaLabel={'Check Answer'}
-        size="sm"
+        size="small"
+        type="button"
       />{' '}
       <Button
-        type={'secondary'}
+        level={'secondary'}
         text={showAnswerButtonText}
         before={showAnswerButtonIcon}
         onClick={props.hanldleToggle}
-        ariaLabel={'Show Answer'}
-        size="sm"
+        size="small"
+        type="button"
       />{' '}
       <a
         className={`btn btn-sm type-${warnableButtonType}`}
         href={'https://gitter.im/Zilliqa/SmartContract'}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         aria-label={'open chat'}
       >
         <FaRegComments /> {t('lesson.openChat')}

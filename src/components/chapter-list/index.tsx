@@ -1,7 +1,7 @@
 import React from 'react';
 import { CourseInstructionType } from '../../typings';
 import './style.css';
-import Button from '../button';
+import { Button } from 'uxd-components';
 
 interface IProps {
   t: (key: string) => string;
@@ -41,20 +41,20 @@ const ChapterList: React.SFC<IProps> = (props) => {
     return (
       <div key={chapterNum} className="m-2">
         <Button
-          type="secondary"
+          level="secondary"
           className="btn-block text-left"
           text={` ${item.title} `}
           onClick={() => navigate(chapterNum, lessonNum)}
-          ariaLabel={'start chapter'}
           before={<small> {`${t('chapter.chapter')} ${chapterNum} :`}</small>}
           after={<small>{progressText}</small>}
+          type="button"
         />
       </div>
     );
   });
 
   return (
-    <div className="chapter-list" data-test-id="chapter-list">
+    <div className="chapter-list" data-testid="chapter-list">
       {result}
     </div>
   );

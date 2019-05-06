@@ -22,7 +22,7 @@ exports[`Footer tests basic tests matches the snapshot 1`] = `
           aria-label="Zilliqa Homepage"
           className="text-secondary nav-link"
           href="https://zilliqa.com/"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank"
         >
           <img
@@ -39,7 +39,7 @@ exports[`Footer tests basic tests matches the snapshot 1`] = `
           aria-label="Zilliqa GitHub"
           className="text-secondary nav-link"
           href="https://github.com/Zilliqa"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank"
         >
           <svg
@@ -69,7 +69,7 @@ exports[`Footer tests basic tests matches the snapshot 1`] = `
           aria-label="Zilliqa Gitter"
           className="text-secondary nav-link"
           href="https://gitter.im/Zilliqa"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank"
         >
           <svg
@@ -99,7 +99,7 @@ exports[`Footer tests basic tests matches the snapshot 1`] = `
           aria-label="Zilliqa Twitter"
           className="text-secondary nav-link"
           href="https://twitter.com/zilliqa"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank"
         >
           <svg

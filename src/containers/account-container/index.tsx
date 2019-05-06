@@ -8,9 +8,8 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import * as H from 'history';
 
-import Spinner from '../../components/spinner';
+import { Spinner, Button } from 'uxd-components';
 import { paths } from '../../routes';
-import Button from '../../components/button';
 
 interface IProps {
   t: (key: string) => string;
@@ -46,15 +45,17 @@ class AccountContainer extends React.Component<IProps, {}> {
                     <br />
 
                     <Button
-                      type="secondary"
-                      size="sm"
+                      level="secondary"
+                      size="small"
                       text={t('account.deleteAccount')}
                       onClick={this.deleteAccount}
-                      ariaLabel={'Delete Account'}
+                      type="button"
                     />
                   </div>
                 ) : (
-                  <Spinner />
+                  <div className="text-center">
+                    <Spinner />
+                  </div>
                 )}
               </div>
             </div>

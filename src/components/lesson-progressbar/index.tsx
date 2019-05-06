@@ -31,14 +31,14 @@ const LessonProgressbar: React.SFC<IProps> = ({
       <Progress
         multi={true}
         className="lesson-progress-bar-container"
-        data-test-id="lesson-progressbar"
+        data-testid="lesson-progressbar"
       >
         {list.map((item, index) => {
           const isLocked = lessonNumber <= index;
           const color = isLocked ? 'secondary' : 'primary';
           return (
             <Progress
-              data-test-id={`lesson-progressbar-block${index}`}
+              data-testid={`lesson-progressbar-block${index}`}
               key={index}
               onClick={() => navigate(chapterNumber, index + 1)}
               barClassName={`lesson-progress-bar cursor-pointer`}

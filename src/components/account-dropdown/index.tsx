@@ -3,7 +3,7 @@ import React from 'react';
 import DropdownToggle from 'reactstrap/lib/DropdownToggle';
 import DropdownMenu from 'reactstrap/lib/DropdownMenu';
 import Dropdown from 'reactstrap/lib/Dropdown';
-import Button from '../button';
+import { Button } from 'uxd-components';
 
 interface IProps {
   t: (key: string) => string;
@@ -32,25 +32,25 @@ class AccountDropdown extends React.Component<IProps, IState> {
         toggle={this.toggle}
         nav={true}
         inNavbar={true}
-        data-test-id="account-dropdown"
+        data-testid="account-dropdown"
       >
         <DropdownToggle caret={true} nav={true} className={isAccountPath ? 'active' : ''}>
           {username}
         </DropdownToggle>
         <DropdownMenu right={true} size="sm">
           <Button
-            type="tertiary"
+            level="tertiary"
             className="btn-block text-left"
             text={t('account.account')}
             onClick={navigateToAccount}
-            ariaLabel={t('account.account')}
+            type="button"
           />
           <Button
-            type="tertiary"
+            level="tertiary"
             className="btn-block text-left"
             text={t('link.signOut')}
             onClick={logout}
-            ariaLabel={t('link.signOut')}
+            type="button"
           />
         </DropdownMenu>
       </Dropdown>

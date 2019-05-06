@@ -46,23 +46,13 @@
 @font-face {
   font-family: 'Noto Sans';
   font-display: block;
-  src: local('Noto Sans Regular'), local('NotoSans-Regular'), url("./assets/fonts/NotoSans-Regular.ttf") format("truetype");
+  src: local('Noto Sans Regular'), local('NotoSans-Regular'),
+    url('./assets/fonts/NotoSans-Regular.ttf') format('truetype');
 }
 
 body {
-  font-family:
-    "Noto Sans",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
-    sans-serif;
+  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: scroll;
@@ -128,8 +118,12 @@ body {
 @-webkit-keyframes sk-stretchdelay {
   0%,
   40%,
-  100% { -webkit-transform: scaleY(0.4); }
-  20% { -webkit-transform: scaleY(1); }
+  100% {
+    -webkit-transform: scaleY(0.4);
+  }
+  20% {
+    -webkit-transform: scaleY(1);
+  }
 }
 
 @keyframes sk-stretchdelay {
@@ -162,4 +156,62 @@ body {
     background-color: var(--blue800);
     opacity: 0.1;
   }
+}
+
+.type-warning {
+  border-color: var(--yellow500) !important;
+  color: var(--yellow500) !important;
+  background-color: transparent !important;
+}
+
+.type-warning:hover,
+.type-warning:active {
+  background-color: var(--yellow500) !important;
+  color: var(--white) !important;
+}
+
+.type-warning.disabled,
+.type-warning:disabled {
+  background-color: var(--white) !important;
+  color: var(--yellow500) !important;
+  cursor: not-allowed !important;
+}
+
+.type-danger {
+  background-color: var(--red500) !important;
+  color: var(--white) !important;
+}
+
+.type-danger:hover,
+.type-danger:active,
+.type-danger:focus {
+  background-color: var(--red700) !important;
+  color: var(--white) !important;
+}
+
+.type-danger.disabled,
+.type-danger:disabled {
+  background-color: var(--red500) !important;
+  cursor: not-allowed !important;
+  color: var(--white) !important;
+}
+
+.type-secondary {
+  border-color: var(--gray700);
+  color: var(--gray700);
+  background-color: transparent !important;
+}
+
+.type-secondary:hover,
+.type-secondary:active {
+  border-color: var(--gray700) !important;
+  color: var(--white) !important;
+  background-color: var(--gray700) !important;
+}
+
+.type-secondary.disabled,
+.type-secondary:disabled {
+  color: var(--gray700) !important;
+  cursor: not-allowed !important;
+  background-color: transparent !important;
 }

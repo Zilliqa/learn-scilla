@@ -28,13 +28,13 @@ describe('Auth Modal tests', () => {
 
     it('renders the component while loading', () => {
       const wrapper = shallow(baseComponent({ isLoaded: false }));
-      const assertion = wrapper.find('[data-test-id="auth-modal"]').length;
+      const assertion = wrapper.find('[data-testid="auth-modal"]').length;
       expect(assertion).toBe(1);
     });
 
     it('renders the component after loaded', () => {
       const wrapper = shallow(baseComponent({ isLoaded: true }));
-      const assertion = wrapper.find('[data-test-id="auth-modal"]').length;
+      const assertion = wrapper.find('[data-testid="auth-modal"]').length;
       expect(assertion).toBe(1);
     });
   });
@@ -42,14 +42,14 @@ describe('Auth Modal tests', () => {
   describe('component behavior', () => {
     it('google login', () => {
       const wrapper = shallow(baseComponent({ isLoaded: true }));
-      wrapper.find('[data-test-id="google-login-button"]').simulate('click');
+      wrapper.find('[data-testid="google-login-button"]').simulate('click');
       expect(login.mock.calls[0][0]).toBe('google');
       expect(login.mock.calls.length).toBe(1);
     });
 
     it('github login', () => {
       const wrapper = shallow(baseComponent({ isLoaded: true }));
-      wrapper.find('[data-test-id="github-login-button"]').simulate('click');
+      wrapper.find('[data-testid="github-login-button"]').simulate('click');
       expect(login.mock.calls[1][0]).toBe('github');
       expect(login.mock.calls.length).toBe(2);
     });

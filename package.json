@@ -1,58 +1,50 @@
 {
   "name": "learn-scilla",
-  "version": "0.1.0",
   "keywords": [
     "scilla",
     "smart contract",
     "zilliqa",
     "blockchain"
   ],
-  "repository": "https://github.com/noelyoo/learn-scilla",
-  "author": "Noel Yoo <innovation.noel@gmail.com>",
-  "license": "GPL-3.0",
-  "jest": {
-    "collectCoverageFrom": [
-      "src/components/**/*.{ts,tsx}",
-      "!src/components/**/*.stories.tsx"
-    ]
-  },
+  "version": "0.1.0",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:cov": "react-scripts test --coverage",
-    "test:ci": "CI=true react-scripts test --coverage --updateSnapshot --forceExit --detectOpenHandles",
+    "test:ci": "CI=true react-scripts test --coverage",
     "eject": "react-scripts eject",
-    "tslint": "tslint --project tsconfig.json --format stylish",
-    "stylelint": "stylelint ./src/**/*.css --fix",
-    "format": "prettier --write '**/*.{ts,tsx,js}' --config .prettierrc",
-    "ci": "yarn tslint && yarn stylelint && yarn format && yarn test:ci",
+    "lint": "tslint --project tsconfig.json --format stylish",
+    "prettier": "prettier \"**/*.+(ts|tsx|css)\"",
+    "format": "npm run prettier -- --write",
+    "validate": "npm run lint && npm run prettier -- --list-different && tsc --noEmit",
+    "ci": "yarn validate && yarn test:ci",
     "deploy": "firebase deploy"
   },
   "dependencies": {
     "firebase": "^5.5.9",
     "i18next": "^12.1.0",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-helmet": "^5.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
     "react-i18next": "^8.3.8",
-    "react-icons": "^3.5.0",
+    "react-icons": "^3.6.1",
     "react-markdown": "^4.0.3",
     "react-monaco-editor": "^0.25.1",
     "react-redux": "^5.1.1",
     "react-redux-firebase": "^2.2.3",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
+    "react-scripts": "^3.0.0",
     "reactstrap": "6.5.0",
     "redux": "^4.0.0",
-    "redux-persist": "^5.10.0"
+    "redux-persist": "^5.10.0",
+    "uxd-components": "^0.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.0",
     "@types/history": "^4.7.2",
     "@types/jest": "^24.0.11",
-    "@types/node": "^11.13.2",
+    "@types/node": "^12.0.0",
     "@types/react": "^16.8.13",
     "@types/react-dom": "^16.8.3",
     "@types/react-redux": "^6.0.10",
@@ -60,33 +52,34 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/react-test-renderer": "^16.8.1",
     "@types/reactstrap": "^6.4.2",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.5",
     "bootstrap": "^4.3.1",
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.7.1",
-    "jest": "^23.6.0",
-    "pre-push": "^0.1.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "husky": "^2.2.0",
     "prettier": "^1.16.4",
-    "react-docgen-typescript-webpack-plugin": "^1.1.0",
-    "react-test-renderer": "^16.8.4",
+    "react-test-renderer": "^16.8.6",
     "redux-logger": "^3.0.6",
-    "stylelint": "^9.10.1",
-    "stylelint-config-standard": "^18.2.0",
-    "ts-jest": "^23.10.5",
-    "tslint": "^5.15.0",
+    "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.0.0",
-    "typescript": "^3.4.2"
+    "typescript": "^3.4.5"
   },
-  "pre-push": {
-    "run": [
-      "tslint",
-      "stylelint",
-      "format",
-      "test:cov"
+  "resolutions": {
+    "babel-jest": "24.7.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/components/**/*.{ts,tsx}"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn validate && yarn test:ci"
+    }
+  },
+  "repository": "https://github.com/noelyoo/learn-scilla",
+  "author": "Noel Yoo <innovation.noel@gmail.com>",
+  "license": "GPL-3.0",
   "browserslist": [
     ">0.2%",
     "not dead",

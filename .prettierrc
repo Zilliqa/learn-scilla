@@ -2,5 +2,13 @@
   "parser": "typescript",
   "printWidth": 100,
   "singleQuote": true,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "overrides": [
+    {
+      "files": "*.css",
+      "options": {
+        "parser": "css"
+      }
+    }
+  ]
 }

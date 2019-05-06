@@ -3,7 +3,7 @@ import React, { Suspense, lazy } from 'react';
 
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
-import Spinner from './components/spinner';
+import { Spinner } from 'uxd-components';
 import HomeContainer from './containers/home-container';
 const ChapterListContainer = lazy(() => import('./containers/chapter-list-container'));
 const AccountContainer = lazy(() => import('./containers/account-container'));
@@ -18,7 +18,13 @@ export const paths = {
 
 export const RouterNode: React.SFC = () => (
   <Router>
-    <Suspense fallback={<Spinner />}>
+    <Suspense
+      fallback={
+        <div className="text-center py-5">
+          <Spinner />
+        </div>
+      }
+    >
       <Switch>
         <Route exact={true} path={paths.home} component={HomeContainer} />
         <Route exact={true} path={paths.chapterList} component={ChapterListContainer} />

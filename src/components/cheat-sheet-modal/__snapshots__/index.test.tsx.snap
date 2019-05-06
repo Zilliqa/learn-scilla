@@ -2,12 +2,14 @@
 
 exports[`Cheat Sheet Modal tests basic tests matches the snapshot 1`] = `
 <span
-  data-test-id="cheat-sheet-modal"
+  data-testid="cheat-sheet-modal"
 >
   <button
     aria-label="lesson.cheatSheet"
-    className="btn btn-sm type-secondary "
+    className="sc-bdVaJa gChmaq"
+    data-testid="toggle"
     onClick={[Function]}
+    size="small"
     type="button"
   >
     <svg

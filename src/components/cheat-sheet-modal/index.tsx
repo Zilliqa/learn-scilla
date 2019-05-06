@@ -1,14 +1,12 @@
 import React from 'react';
 import Modal from 'reactstrap/lib/Modal';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
-import Button from '../button';
+import { Button } from 'uxd-components';
 import { FaCode } from 'react-icons/fa';
 import './style.css';
-import { ButtonType } from '../button';
 
 interface IProps {
   t: (key: string) => string;
-  buttonType: ButtonType;
 }
 
 interface IState {
@@ -21,18 +19,18 @@ class CheatSheetModal extends React.Component<IProps, IState> {
   };
 
   public render(): React.ReactNode {
-    const { t, buttonType } = this.props;
+    const { t } = this.props;
 
     return (
-      <span data-test-id="cheat-sheet-modal">
+      <span data-testid="cheat-sheet-modal">
         <Button
           onClick={this.toggleModal}
-          type={buttonType}
-          data-test-id="toggle"
-          size="sm"
+          level="secondary"
+          data-testid="toggle"
+          size="small"
           text={t('lesson.cheatSheet')}
-          ariaLabel={t('lesson.cheatSheet')}
           before={<FaCode />}
+          type="button"
         />
         <Modal fade={false} isOpen={this.state.isOpen} toggle={this.toggleModal} size="lg">
           <ModalHeader toggle={this.toggleModal}>{t('lesson.cheatSheet')}</ModalHeader>
@@ -63,7 +61,7 @@ class CheatSheetModal extends React.Component<IProps, IState> {
                     <a
                       href={'https://gist.github.com/saibakatar/8310754a24f6ca79535e14340516435b'}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       aria-label={'Signed Integer'}
                     >
                       Signed Integer
@@ -84,7 +82,7 @@ class CheatSheetModal extends React.Component<IProps, IState> {
                     <a
                       href={'https://gist.github.com/saibakatar/3a3959eca79709762ff286d5f9c2913e'}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       aria-label={'Unsigned Integer'}
                     >
                       Unsigned Integer
@@ -105,7 +103,7 @@ class CheatSheetModal extends React.Component<IProps, IState> {
                     <a
                       href={'https://gist.github.com/saibakatar/8310754a24f6ca79535e14340516435b'}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       aria-label={'String'}
                     >
                       String
@@ -122,7 +120,7 @@ class CheatSheetModal extends React.Component<IProps, IState> {
                     <a
                       href={'https://gist.github.com/saibakatar/436c75df6da75c694245e70a23d4785b'}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       aria-label={'Hash'}
                     >
                       Hash
@@ -139,7 +137,7 @@ class CheatSheetModal extends React.Component<IProps, IState> {
                     <a
                       href={'https://gist.github.com/saibakatar/2dd3a8f3d048fa9ee5a70204129f7a49'}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       aria-label={'Address'}
                     >
                       Address
@@ -156,7 +154,7 @@ class CheatSheetModal extends React.Component<IProps, IState> {
                     <a
                       href={'https://gist.github.com/saibakatar/969321353d4b6116b5ccb04233e460c3'}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       aria-label={'Block Number'}
                     >
                       Block Number
@@ -173,7 +171,7 @@ class CheatSheetModal extends React.Component<IProps, IState> {
                     <a
                       href={'https://gist.github.com/saibakatar/77781635267fd5191cc564ae20e38e28'}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       aria-label={'Boolean'}
                     >
                       Boolean
@@ -190,7 +188,7 @@ class CheatSheetModal extends React.Component<IProps, IState> {
                     <a
                       href={'https://gist.github.com/saibakatar/daf7d07f210b288f6495a9e8cbc28803'}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       aria-label={'List'}
                     >
                       List
@@ -213,7 +211,7 @@ class CheatSheetModal extends React.Component<IProps, IState> {
                     <a
                       href={'https://gist.github.com/saibakatar/709b8d33ecc83bc8d205a7821d85601e'}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       aria-label={'Pair'}
                     >
                       Pair
@@ -248,7 +246,7 @@ class CheatSheetModal extends React.Component<IProps, IState> {
                     <a
                       href={'https://gist.github.com/saibakatar/86790f002a696e453f93ed625371ebdc'}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       aria-label={'Map'}
                     >
                       Map

@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-import { Link } from 'react-router-dom';
+import { Button } from 'uxd-components';
 import { paths } from '../../routes';
 import A from '../../assets/images/asset_a.png';
 import B from '../../assets/images/asset_b.png';
@@ -12,7 +12,8 @@ import E from '../../assets/images/asset_e.png';
 import Row from 'reactstrap/lib/Row';
 import Col from 'reactstrap/lib/Col';
 
-const Home: React.SFC = () => {
+const Home = (props) => {
+  const { history } = props;
   const documentTitle = `LearnScilla - Home`;
   return (
     <div>
@@ -38,13 +39,13 @@ const Home: React.SFC = () => {
                 </h1>
 
                 <p className="py-3">Step by step Interactive Tutorial</p>
-                <Link
-                  className="btn px-5 type-secondary"
-                  to={paths.chapterList}
-                  style={{ color: 'white' }}
-                >
-                  Get Started
-                </Link>
+                <Button
+                  className="px-5"
+                  level="secondary"
+                  theme="dark"
+                  onClick={() => history.push(paths.chapterList)}
+                  text="Get Started"
+                />
               </div>
             </Col>
             <Col xs={12} sm={12} md={12} lg={8}>
@@ -176,13 +177,13 @@ const Home: React.SFC = () => {
                 <b>Take the first step to become a programmer on blockchain.</b>
               </p>
               <div className="mt-5">
-                <Link
-                  className="btn px-5 type-secondary"
-                  to={paths.chapterList}
-                  style={{ color: 'white' }}
-                >
-                  Start Now
-                </Link>
+                <Button
+                  className="px-5"
+                  level="secondary"
+                  theme="dark"
+                  onClick={() => history.push(paths.chapterList)}
+                  text="Start Now"
+                />
               </div>
             </Col>
           </Row>

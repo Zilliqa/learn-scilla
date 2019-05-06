@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { paths } from '../../routes';
 import './style.css';
-import Button from '../button';
+import { Button } from 'uxd-components';
 
 interface IProps {
   t: (key: string) => string;
@@ -21,7 +21,7 @@ class ChapterCompleteCard extends React.PureComponent<IProps, {}> {
     return (
       <div
         className="chapter-complete-card card card-body text-center py-5"
-        data-test-id="chapter-complete-card"
+        data-testid="chapter-complete-card"
       >
         <div className="text-secondary">
           <h3>{t('chapter.goodjob')}!</h3>
@@ -29,14 +29,14 @@ class ChapterCompleteCard extends React.PureComponent<IProps, {}> {
           <br />
           {isLast ? null : (
             <Button
-              type="primary"
+              level="primary"
               text={t('lesson.nextLesson')}
-              ariaLabel={'next lesson'}
               onClick={() => navigate(chapter + 1, 1)}
+              type="button"
             />
           )}{' '}
           <Link
-            className={`btn type-${isLast ? 'primary' : 'secondary'}`}
+            className={`btn type-secondary`}
             to={paths.chapterList}
             aria-label={'table of contents'}
           >

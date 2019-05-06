@@ -1,10 +1,16 @@
 import React from 'react';
 import * as renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import Spinner from '.';
+import LessonNavigator from '.';
 
-describe('Spinner tests', () => {
-  const baseComponent = () => <Spinner />;
+const goNext = () => console.log('goNext');
+const goBack = () => console.log('goBack');
+const t = (s: string) => s;
+
+describe('Lesson Navigator tests', () => {
+  const baseComponent = () => (
+    <LessonNavigator lessonNumber={5} total={10} goNext={goNext} goBack={goBack} t={t} />
+  );
 
   describe('basic tests', () => {
     it('matches the snapshot', () => {
@@ -14,7 +20,7 @@ describe('Spinner tests', () => {
 
     it('renders the component', () => {
       const wrapper = shallow(baseComponent());
-      const assertion = wrapper.find('[data-test-id="spinner"]').length;
+      const assertion = wrapper.find('[data-testid="lesson-navigator"]').length;
       expect(assertion).toBe(1);
     });
   });

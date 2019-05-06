@@ -2,7 +2,7 @@ import React from 'react';
 import DropdownToggle from 'reactstrap/lib/DropdownToggle';
 import DropdownMenu from 'reactstrap/lib/DropdownMenu';
 import Dropdown from 'reactstrap/lib/Dropdown';
-import Button from '../button';
+import { Button } from 'uxd-components';
 
 interface IProps {
   i18n: {
@@ -27,7 +27,7 @@ class I18Dropdown extends React.Component<IProps, IState> {
     const keys = Object.keys(langDictionary);
 
     return (
-      <span data-test-id="i18n-dropdown-container">
+      <span data-testid="i18n-dropdown-container">
         <Dropdown isOpen={this.state.isOpen} toggle={this.toggle} nav={true} inNavbar={true}>
           <DropdownToggle caret={true} nav={true}>
             {langDictionary[lang]}
@@ -37,10 +37,10 @@ class I18Dropdown extends React.Component<IProps, IState> {
               <Button
                 key={key}
                 className="btn-block text-left"
-                type="tertiary"
+                level="tertiary"
                 text={langDictionary[key]}
                 onClick={() => this.selectLanguage(key)}
-                ariaLabel={langDictionary[key]}
+                type="button"
               />
             ))}
           </DropdownMenu>

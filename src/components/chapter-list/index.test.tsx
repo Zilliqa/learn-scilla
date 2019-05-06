@@ -31,7 +31,7 @@ describe('Chapter List tests', () => {
       const wrapper = shallow(
         baseComponent({ isAuth: false, ch1Progress: 1, progress: undefined })
       );
-      const assertion = wrapper.find('[data-test-id="chapter-list"]').length;
+      const assertion = wrapper.find('[data-testid="chapter-list"]').length;
       expect(assertion).toBe(1);
     });
 
@@ -39,7 +39,7 @@ describe('Chapter List tests', () => {
       const wrapper = shallow(
         baseComponent({ isAuth: true, ch1Progress: 1, progress: { chapter1: 3 } })
       );
-      const assertion = wrapper.find('[data-test-id="chapter-list"]').length;
+      const assertion = wrapper.find('[data-testid="chapter-list"]').length;
       expect(assertion).toBe(1);
     });
   });
