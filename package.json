@@ -12,8 +12,7 @@
   "license": "GPL-3.0",
   "jest": {
     "collectCoverageFrom": [
-      "src/components/**/*.{ts,tsx}",
-      "!src/components/**/*.stories.tsx"
+      "src/components/**/*.{ts,tsx}"
     ]
   },
   "scripts": {
@@ -23,10 +22,11 @@
     "test:cov": "react-scripts test --coverage",
     "test:ci": "CI=true react-scripts test --coverage --updateSnapshot --forceExit --detectOpenHandles",
     "eject": "react-scripts eject",
-    "tslint": "tslint --project tsconfig.json --format stylish",
-    "stylelint": "stylelint ./src/**/*.css --fix",
-    "format": "prettier --write '**/*.{ts,tsx,js}' --config .prettierrc",
-    "ci": "yarn tslint && yarn stylelint && yarn format && yarn test:ci",
+    "lint": "tslint --project tsconfig.json --format stylish",
+    "prettier": "prettier \"**/*.+(ts|tsx|css)\"",
+    "format": "npm run prettier -- --write",
+    "validate": "npm run lint && npm run prettier -- --list-different && tsc --noEmit",
+    "ci": "yarn validate && yarn test:ci",
     "deploy": "firebase deploy"
   },
   "dependencies": {
@@ -71,8 +71,6 @@
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-test-renderer": "^16.8.4",
     "redux-logger": "^3.0.6",
-    "stylelint": "^9.10.1",
-    "stylelint-config-standard": "^18.2.0",
     "ts-jest": "^23.10.5",
     "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",

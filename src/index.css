@@ -46,23 +46,13 @@
 @font-face {
   font-family: 'Noto Sans';
   font-display: block;
-  src: local('Noto Sans Regular'), local('NotoSans-Regular'), url("./assets/fonts/NotoSans-Regular.ttf") format("truetype");
+  src: local('Noto Sans Regular'), local('NotoSans-Regular'),
+    url('./assets/fonts/NotoSans-Regular.ttf') format('truetype');
 }
 
 body {
-  font-family:
-    "Noto Sans",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
-    sans-serif;
+  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: scroll;
@@ -128,8 +118,12 @@ body {
 @-webkit-keyframes sk-stretchdelay {
   0%,
   40%,
-  100% { -webkit-transform: scaleY(0.4); }
-  20% { -webkit-transform: scaleY(1); }
+  100% {
+    -webkit-transform: scaleY(0.4);
+  }
+  20% {
+    -webkit-transform: scaleY(1);
+  }
 }
 
 @keyframes sk-stretchdelay {
