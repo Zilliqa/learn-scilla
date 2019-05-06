@@ -34,9 +34,6 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 // Initialize Firebase with config
 firebase.initializeApp(firebaseConfig);
 
-// Initialize Firestore with timeshot settings
-firebase.firestore().settings({ timestampsInSnapshots: true });
-
 // Use redux logger only when env is development
 const isDev = process.env.NODE_ENV === 'development';
 const middlewares = isDev ? [logger] : [];
