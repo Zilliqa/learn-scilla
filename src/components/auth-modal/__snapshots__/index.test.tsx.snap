@@ -5,12 +5,17 @@ exports[`Auth Modal tests basic tests matches the snapshot 1`] = `
   className="nav-item"
   data-testid="auth-modal"
 >
-  <a
-    className="nav-link cursor-pointer"
+  <button
+    aria-label="link.signIn"
+    className="nav-link sc-bdVaJa dJKqKy"
     data-testid="toggle"
     onClick={[Function]}
+    size="medium"
+    type="button"
   >
+     
     link.signIn
-  </a>
+     
+  </button>
 </li>
 `;

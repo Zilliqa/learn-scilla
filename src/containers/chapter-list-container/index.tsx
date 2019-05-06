@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import * as H from 'history';
 import { CourseInstructionType } from '../../typings';
 import ChapterList from '../../components/chapter-list';
-import Spinner from '../../components/spinner';
+import { Spinner } from 'uxd-components';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import './style.css';
@@ -32,13 +32,14 @@ class ChapterContainer extends React.Component<IProps, {}> {
     const { instructions, i18n, t, profile, ch1Progress } = this.props;
     const { isLoaded, isEmpty, progress } = profile;
     const lang: string = i18n.language;
-    if (instructions === undefined || instructions[lang] === undefined) {
-      return <Spinner />;
+    if (!isLoaded || instructions === undefined || instructions[lang] === undefined) {
+      return (
+        <div className="text-center py-5">
+          <Spinner />
+        </div>
+      );
     }
 
-    if (!isLoaded) {
-      return <Spinner />;
-    }
     const intructionsLocalized = instructions[lang];
     const documentTitle = `LearnScilla - An interactive tutorial for people to learn Scilla`;
     const isAuth = !isEmpty;

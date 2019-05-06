@@ -41,7 +41,7 @@ interface IState {
 
 class LessonContainer extends React.Component<IProps, IState> {
   public render(): React.ReactNode {
-    const { codes, location, t, history } = this.props;
+    const { codes, location, t } = this.props;
 
     const chapterNumber: number = this.getChapterNumber();
     const chapterIndex: number = chapterNumber - 1;
@@ -107,7 +107,7 @@ class LessonContainer extends React.Component<IProps, IState> {
           </div>
           <div className="text-center">
             <div className="d-flex py-2 justify-content-between">
-              <CheatSheetModal t={t} buttonType={'secondary'} />
+              <CheatSheetModal t={t} />
               <LessonNavigator
                 goBack={this.goBack}
                 goNext={this.goNext}
@@ -168,7 +168,7 @@ class LessonContainer extends React.Component<IProps, IState> {
   };
 
   private navigateToNextLesson = (currentChapter: number, currentLesson: number) => {
-    const { history, codes } = this.props;
+    const { codes } = this.props;
 
     // Check if code is undefined
     if (codes === undefined) {

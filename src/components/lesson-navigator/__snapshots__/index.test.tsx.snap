@@ -7,10 +7,11 @@ exports[`Lesson Navigator tests basic tests matches the snapshot 1`] = `
   role="group"
 >
   <button
-    aria-label="Back"
-    className="btn btn-sm type-secondary "
+    aria-label="lesson.back"
+    className="sc-bdVaJa gChmaq"
     disabled={false}
     onClick={[Function]}
+    size="small"
     type="button"
   >
     <svg
@@ -36,10 +37,11 @@ exports[`Lesson Navigator tests basic tests matches the snapshot 1`] = `
      
   </button>
   <button
-    aria-label="Skip"
-    className="btn btn-sm type-secondary "
+    aria-label="lesson.skip"
+    className="sc-bdVaJa gChmaq"
     disabled={false}
     onClick={[Function]}
+    size="small"
     type="button"
   >
      

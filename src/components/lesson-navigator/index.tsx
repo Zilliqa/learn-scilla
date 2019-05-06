@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import Button from '../button';
+import { Button } from 'uxd-components';
 
 interface IProps {
   t: (key: string) => string;
@@ -19,23 +19,23 @@ const LessonNavigator: React.SFC<IProps> = (props) => {
   return (
     <div role="group" className="btn-group" data-testid="lesson-navigator">
       <Button
-        type="secondary"
-        size="sm"
+        level="secondary"
+        size="small"
         text={t('lesson.back')}
         onClick={goBack}
         disabled={isBackButtonDisabled}
-        ariaLabel={'Back'}
         before={<FaArrowLeft />}
+        type="button"
       />
 
       <Button
-        type="secondary"
-        size="sm"
+        level="secondary"
+        size="small"
         text={t('lesson.skip')}
         onClick={goNext}
         disabled={isProceedButtonDisabled}
-        ariaLabel={'Skip'}
         after={<FaArrowRight />}
+        type="button"
       />
     </div>
   );

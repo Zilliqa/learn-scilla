@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'reactstrap/lib/Modal';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
 import { FaMedal } from 'react-icons/fa';
-import Button from '../button';
+import { Button } from 'uxd-components';
 
 interface IProps {
   t: (key: string) => string;
@@ -21,12 +21,7 @@ const LessonCompleteModal: React.SFC<IProps> = (props) => {
         </ModalHeader>
         <div className="modal-body">{t('chapter.lessonCompleteMessage')}</div>
         <div className="modal-footer">
-          <Button
-            type="primary"
-            text={t('lesson.nextLesson')}
-            onClick={onSubmit}
-            ariaLabel={'Next'}
-          />
+          <Button level="primary" text={t('lesson.nextLesson')} onClick={onSubmit} type="button" />
         </div>
       </Modal>
     </div>

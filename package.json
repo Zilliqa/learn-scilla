@@ -32,12 +32,13 @@
     "react-scripts": "^3.0.0",
     "reactstrap": "6.5.0",
     "redux": "^4.0.0",
-    "redux-persist": "^5.10.0"
+    "redux-persist": "^5.10.0",
+    "uxd-components": "^0.1.2"
   },
   "devDependencies": {
     "@types/history": "^4.7.2",
     "@types/jest": "^24.0.11",
-    "@types/node": "^11.13.2",
+    "@types/node": "^12.0.0",
     "@types/react": "^16.8.13",
     "@types/react-dom": "^16.8.3",
     "@types/react-redux": "^6.0.10",
@@ -52,7 +53,6 @@
     "prettier": "^1.16.4",
     "react-test-renderer": "^16.8.6",
     "redux-logger": "^3.0.6",
-    "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.0.0",

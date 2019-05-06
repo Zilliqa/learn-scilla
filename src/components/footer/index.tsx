@@ -14,7 +14,7 @@ const Footer: React.SFC = () => (
             className="text-secondary nav-link"
             href="https://zilliqa.com/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label={'Zilliqa Homepage'}
           >
             <img className={style.zilliqa} src={zilliqaImg} alt="Zilliqa Logo" />
@@ -25,7 +25,7 @@ const Footer: React.SFC = () => (
             className="text-secondary nav-link"
             href="https://github.com/Zilliqa"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label={'Zilliqa GitHub'}
           >
             <FaGithub />
@@ -36,7 +36,7 @@ const Footer: React.SFC = () => (
             className="text-secondary nav-link"
             href="https://gitter.im/Zilliqa"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label={'Zilliqa Gitter'}
           >
             <FaGitter />
@@ -47,7 +47,7 @@ const Footer: React.SFC = () => (
             className="text-secondary nav-link"
             href="https://twitter.com/zilliqa"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label={'Zilliqa Twitter'}
           >
             <FaTwitter />
