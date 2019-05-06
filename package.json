@@ -1,5 +1,11 @@
 {
   "name": "learn-scilla",
+  "keywords": [
+    "scilla",
+    "smart contract",
+    "zilliqa",
+    "blockchain"
+  ],
   "version": "0.1.0",
   "scripts": {
     "start": "react-scripts start",
@@ -58,12 +64,9 @@
     "tslint-react": "^4.0.0",
     "typescript": "^3.4.5"
   },
-  "keywords": [
-    "scilla",
-    "smart contract",
-    "zilliqa",
-    "blockchain"
-  ],
+  "resolutions": {
+    "babel-jest": "24.7.1"
+  },
   "jest": {
     "collectCoverageFrom": [
       "src/components/**/*.{ts,tsx}"
