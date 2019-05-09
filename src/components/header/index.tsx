@@ -12,7 +12,7 @@ import { paths } from '../../routes';
 // import I18nDropdown from '../i18n-dropdown';
 // import { langDictionary } from '../../i18n';
 import AccountDropdown from '../account-dropdown';
-import { toggleAuthModal, openAuthModal } from '../../redux/auth';
+import { toggleAuthModal, closeAuthModal } from '../../redux/auth';
 
 interface IProps {
   history: H.History;
@@ -27,6 +27,7 @@ interface IProps {
   ch1Progress: number;
   isAuthModalOpen: boolean;
   toggleAuthModal: () => void;
+  closeAuthModal: () => void;
 }
 
 interface IStates {
@@ -142,6 +143,8 @@ class Header extends React.Component<IProps, IStates> {
       // sync progress between localstorage and firestore
       const progress = { chapter1: ch1Progress };
       firebase.updateProfile({ progress });
+
+      this.props.closeAuthModal();
     } catch (error) {
       this.setState({ isAuthPending: false });
       console.log(error);
@@ -161,7 +164,7 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = (dispatch) => ({
   toggleAuthModal: () => dispatch(toggleAuthModal()),
-  openAuthModal: () => dispatch(openAuthModal())
+  closeAuthModal: () => dispatch(closeAuthModal())
 });
 
 export default compose(
