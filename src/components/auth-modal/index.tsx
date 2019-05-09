@@ -6,7 +6,7 @@ import ModalHeader from 'reactstrap/lib/ModalHeader';
 
 interface IProps {
   t: (key: string) => string;
-  login: (params) => void;
+  login: (provider: string) => Promise<void>;
   toggleAuthModal: () => void;
   isLoaded: boolean;
   isAuthModalOpen: boolean;

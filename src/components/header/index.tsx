@@ -131,7 +131,7 @@ class Header extends React.Component<IProps, IStates> {
     this.props.toggleAuthModal();
   };
 
-  private signIn = async (provider: string) => {
+  private signIn = async (provider: string): Promise<void> => {
     const { firebase, ch1Progress } = this.props;
     const login = firebase.login;
 
