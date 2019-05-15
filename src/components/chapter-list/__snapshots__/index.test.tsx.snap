@@ -10,7 +10,7 @@ exports[`Chapter List tests basic tests matches the snapshot 1`] = `
   >
     <button
       aria-label=" Elementary "
-      className="btn-block text-left sc-bdVaJa ksrngI"
+      className="btn-block text-left sc-bdVaJa czURDh"
       onClick={[Function]}
       size="medium"
       type="button"
@@ -32,7 +32,7 @@ exports[`Chapter List tests basic tests matches the snapshot 1`] = `
   >
     <button
       aria-label=" Intermediate - A "
-      className="btn-block text-left sc-bdVaJa ksrngI"
+      className="btn-block text-left sc-bdVaJa czURDh"
       onClick={[Function]}
       size="medium"
       type="button"
@@ -54,7 +54,7 @@ exports[`Chapter List tests basic tests matches the snapshot 1`] = `
   >
     <button
       aria-label=" Intermediate - B "
-      className="btn-block text-left sc-bdVaJa ksrngI"
+      className="btn-block text-left sc-bdVaJa czURDh"
       onClick={[Function]}
       size="medium"
       type="button"

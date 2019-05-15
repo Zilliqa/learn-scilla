@@ -6,7 +6,7 @@ exports[`Cheat Sheet Modal tests basic tests matches the snapshot 1`] = `
 >
   <button
     aria-label="lesson.cheatSheet"
-    className="sc-bdVaJa gChmaq"
+    className="sc-bdVaJa kkzhBH"
     data-testid="toggle"
     onClick={[Function]}
     size="small"

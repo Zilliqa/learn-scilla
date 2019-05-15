@@ -22,6 +22,7 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
+    "accessible-ui": "^1.0.0",
     "firebase": "^5.5.9",
     "i18next": "^12.1.0",
     "react": "^16.8.6",
@@ -38,8 +39,7 @@
     "react-scripts": "^3.0.0",
     "reactstrap": "6.5.0",
     "redux": "^4.0.0",
-    "redux-persist": "^5.10.0",
-    "uxd-components": "^0.1.2"
+    "redux-persist": "^5.10.0"
   },
   "devDependencies": {
     "@types/history": "^4.7.2",

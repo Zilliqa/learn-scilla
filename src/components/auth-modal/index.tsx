@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { Button, Spinner } from 'uxd-components';
+import { Button, Spinner } from 'accessible-ui';
 import Modal from 'reactstrap/lib/Modal';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
 

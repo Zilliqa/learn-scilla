@@ -3,7 +3,7 @@ import React from 'react';
 import DropdownToggle from 'reactstrap/lib/DropdownToggle';
 import DropdownMenu from 'reactstrap/lib/DropdownMenu';
 import Dropdown from 'reactstrap/lib/Dropdown';
-import { Button } from 'uxd-components';
+import { Button } from 'accessible-ui';
 
 interface IProps {
   t: (key: string) => string;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-import { Button } from 'uxd-components';
+import { Button } from 'accessible-ui';
 import { paths } from '../../routes';
 import A from '../../assets/images/asset_a.png';
 import B from '../../assets/images/asset_b.png';

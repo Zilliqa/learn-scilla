@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'reactstrap/lib/Modal';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
-import { Button } from 'uxd-components';
+import { Button } from 'accessible-ui';
 import { FaCode } from 'react-icons/fa';
 import './style.css';
 

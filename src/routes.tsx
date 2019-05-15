@@ -3,7 +3,7 @@ import React, { Suspense, lazy } from 'react';
 
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
-import { Spinner } from 'uxd-components';
+import { Spinner } from 'accessible-ui';
 import HomeContainer from './containers/home-container';
 const ChapterListContainer = lazy(() => import('./containers/chapter-list-container'));
 const AccountContainer = lazy(() => import('./containers/account-container'));

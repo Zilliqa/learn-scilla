@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'reactstrap/lib/Modal';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
 import { FaMedal } from 'react-icons/fa';
-import { Button } from 'uxd-components';
+import { Button } from 'accessible-ui';
 
 interface IProps {
   t: (key: string) => string;

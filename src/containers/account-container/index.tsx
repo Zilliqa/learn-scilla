@@ -8,7 +8,7 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import * as H from 'history';
 
-import { Spinner, Button } from 'uxd-components';
+import { Spinner, Button } from 'accessible-ui';
 import { paths } from '../../routes';
 
 interface IProps {

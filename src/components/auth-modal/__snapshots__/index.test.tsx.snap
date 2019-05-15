@@ -7,7 +7,7 @@ exports[`Auth Modal tests basic tests matches the snapshot 1`] = `
 >
   <button
     aria-label="link.signIn"
-    className="nav-link sc-bdVaJa dJKqKy"
+    className="nav-link sc-bdVaJa gMoiZy"
     data-testid="toggle"
     onClick={[Function]}
     size="medium"

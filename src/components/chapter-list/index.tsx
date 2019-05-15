@@ -1,7 +1,7 @@
 import React from 'react';
 import { CourseInstructionType } from '../../typings';
 import './style.css';
-import { Button } from 'uxd-components';
+import { Button } from 'accessible-ui';
 
 interface IProps {
   t: (key: string) => string;

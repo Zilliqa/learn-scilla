@@ -26,7 +26,7 @@ exports[`i18n Dropdown tests basic tests matches the snapshot 1`] = `
     >
       <button
         aria-label="English [en]"
-        className="btn-block text-left sc-bdVaJa dJKqKy"
+        className="btn-block text-left sc-bdVaJa gMoiZy"
         onClick={[Function]}
         size="medium"
         type="button"

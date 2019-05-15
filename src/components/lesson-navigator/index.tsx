@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { Button } from 'uxd-components';
+import { Button } from 'accessible-ui';
 
 interface IProps {
   t: (key: string) => string;

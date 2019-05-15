@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { paths } from '../../routes';
 import './style.css';
-import { Button } from 'uxd-components';
+import { Button } from 'accessible-ui';
 
 interface IProps {
   t: (key: string) => string;
