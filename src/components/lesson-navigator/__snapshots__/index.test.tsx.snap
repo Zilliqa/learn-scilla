@@ -1,6 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Lesson Navigator tests basic tests matches the snapshot 1`] = `
+.c0 {
+  outline: none;
+  margin: 0;
+  font-family: inherit;
+  overflow: visible;
+  text-transform: none;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+}
+
+.c0::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button;
+}
+
+.c0 [type='button'],
+.c0 [type='reset'],
+.c0 [type='submit'] {
+  -webkit-appearance: button;
+}
+
+.c0:not(:disabled),
+.c0 [type='button']:not(:disabled),
+.c0 [type='reset']:not(:disabled),
+.c0 [type='submit']:not(:disabled) {
+  cursor: pointer;
+}
+
+.c0::-moz-focus-inner,
+.c0 [type='button']::-moz-focus-inner,
+.c0 [type='reset']::-moz-focus-inner,
+.c0 [type='submit']::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+}
+
+.c0 {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}
+
+.c0 {
+  background-color: transparent;
+  color: #343546;
+  border-color: #343546;
+}
+
+.c0:hover,
+.c0:active,
+.c0:focus {
+  background-color: #343546;
+  color: #FFFFFF;
+  border-color: #343546;
+}
+
+.c0:disabled {
+  background-color: transparent;
+  color: #7C7D8C;
+  border-color: #7C7D8C;
+}
+
 <div
   className="btn-group"
   data-testid="lesson-navigator"
@@ -8,7 +88,7 @@ exports[`Lesson Navigator tests basic tests matches the snapshot 1`] = `
 >
   <button
     aria-label="lesson.back"
-    className="sc-bdVaJa kkzhBH"
+    className="c0"
     disabled={false}
     onClick={[Function]}
     size="small"
@@ -38,7 +118,7 @@ exports[`Lesson Navigator tests basic tests matches the snapshot 1`] = `
   </button>
   <button
     aria-label="lesson.skip"
-    className="sc-bdVaJa kkzhBH"
+    className="c0"
     disabled={false}
     onClick={[Function]}
     size="small"
