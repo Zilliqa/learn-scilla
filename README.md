@@ -1,4 +1,4 @@
-[![Build Status][travis-svg]][travis-url] [![dependency status][deps-svg]][deps-url] [![dev dependency status][dev-deps-svg]][dev-deps-url] [![License][license-svg]][license-url] [![Gitter chat][gitter-svg]][gitter-url]
+[![Build Status][travis-svg]][travis-url] [![License][license-svg]][license-url] [![Gitter chat][gitter-svg]][gitter-url]
 
 # learn-scilla 
 
@@ -40,10 +40,6 @@ This project is open source software licensed as [GPL-3.0](https://github.com/no
 
 [travis-svg]: https://travis-ci.com/noelyoo/learn-scilla.svg?branch=master
 [travis-url]: https://travis-ci.com/noelyoo/learn-scilla
-[deps-svg]: https://david-dm.org/noelyoo/learn-scilla/status.svg
-[deps-url]: https://david-dm.org/noelyoo/learn-scilla
-[dev-deps-svg]: https://david-dm.org/noelyoo/learn-scilla/dev-status.svg
-[dev-deps-url]: https://david-dm.org/noelyoo/learn-scilla?type=dev
 [license-svg]: https://img.shields.io/badge/License-GPLv3-blue.svg
 [license-url]: https://github.com/noelyoo/learn-scilla/blob/master/LICENSE
 [gitter-svg]: http://img.shields.io/badge/chat-on%20gitter-077a8f.svg
