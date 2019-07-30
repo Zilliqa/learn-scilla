@@ -14,14 +14,12 @@ exports[`i18n Dropdown tests basic tests matches the snapshot 1`] = `
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
   -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  cursor: pointer;
 }
 
 .c0::-webkit-file-upload-button {
@@ -35,23 +33,12 @@ exports[`i18n Dropdown tests basic tests matches the snapshot 1`] = `
   -webkit-appearance: button;
 }
 
-.c0:not(:disabled),
-.c0 [type='button']:not(:disabled),
-.c0 [type='reset']:not(:disabled),
-.c0 [type='submit']:not(:disabled) {
-  cursor: pointer;
-}
-
 .c0::-moz-focus-inner,
 .c0 [type='button']::-moz-focus-inner,
 .c0 [type='reset']::-moz-focus-inner,
 .c0 [type='submit']::-moz-focus-inner {
   padding: 0;
   border-style: none;
-}
-
-.c0:disabled {
-  cursor: not-allowed;
 }
 
 .c0 {
@@ -63,18 +50,15 @@ exports[`i18n Dropdown tests basic tests matches the snapshot 1`] = `
 
 .c0 {
   background-color: transparent;
-  color: #585968;
+  color: #24292E;
   border-color: transparent;
+  opacity: 0.85;
 }
 
 .c0:hover,
 .c0:active,
 .c0:focus {
-  color: #242536;
-}
-
-.c0:disabled {
-  color: #A0A1B2;
+  opacity: 1;
 }
 
 <span
