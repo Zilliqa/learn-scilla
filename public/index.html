@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>LearnScilla - An interactive tutorial for people to learn Scilla</title>
-    <meta property="og:title" content="LearnScilla - An interactive tutorial for people to learn Scilla">
-    <meta property="og:description" content="An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process.">
-    <meta name="description" content="An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process.">
-    <meta name="author" content="Noel Yoo">
-    <meta name="theme-color" content="#000000">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png">
-    <!--
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>LearnScilla - An interactive tutorial for people to learn Scilla</title>
+  <meta property="og:title" content="LearnScilla - An interactive tutorial for people to learn Scilla">
+  <meta property="og:description"
+    content="An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process.">
+  <meta name="description"
+    content="An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process.">
+  <meta name="author" content="Noel Yoo">
+  <meta name="theme-color" content="#000000">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png">
+  <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -24,28 +27,31 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+</head>
 
-    <div id="root">
-      <div class="spinner">
-        <div class="rect1"></div>&nbsp;<div class="rect2"></div>&nbsp;<div class="rect3"></div>&nbsp;<div class="rect4"></div>&nbsp;<div class="rect5"></div>
-      </div>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+
+  <div id="root">
+    <div class="spinner">
+      <div class="rect1"></div>&nbsp;<div class="rect2"></div>&nbsp;<div class="rect3"></div>&nbsp;<div class="rect4">
+      </div>&nbsp;<div class="rect5"></div>
     </div>
+  </div>
 
-    <!-- monaco editor worker -->
-    <script src="%PUBLIC_URL%/vs/loader.js"></script>
-    <script>
-      require.config({ paths: { vs: 'vs' } });
-      window.MonacoEnvironment = {
-        getWorkerUrl: function(workerId, label) {
-          return '%PUBLIC_URL%/vs/base/worker/workerMain.js';
-        }
-      };
-    </script>
-    <!-- end monaco editor worker -->
-  </body>
+  <!-- monaco editor worker -->
+  <script src="%PUBLIC_URL%/vs/loader.js"></script>
+  <script>
+    require.config({ paths: { vs: 'vs' } });
+    window.MonacoEnvironment = {
+      getWorkerUrl: function (workerId, label) {
+        return '%PUBLIC_URL%/vs/base/worker/workerMain.js';
+      }
+    };
+  </script>
+  <!-- end monaco editor worker -->
+</body>
+
 </html>

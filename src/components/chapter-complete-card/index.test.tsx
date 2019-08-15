@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
-import { MemoryRouter } from 'react-router';
+import { MemoryRouter } from 'react-router-dom';
 import ChapterCompleteCard from '.';
 
 const t = (s: string) => s;

@@ -9,15 +9,13 @@ import B from '../../assets/images/asset_b.png';
 import C from '../../assets/images/asset_c.png';
 import D from '../../assets/images/asset_d.png';
 import E from '../../assets/images/asset_e.png';
-import Row from 'reactstrap/lib/Row';
-import Col from 'reactstrap/lib/Col';
 
 const Home = (props) => {
   const { history } = props;
   const documentTitle = `LearnScilla - Home`;
   return (
     <div>
-      <Header />
+      <Header {...props} />
       <Helmet>
         <title>{documentTitle}</title>
       </Helmet>
@@ -31,8 +29,8 @@ const Home = (props) => {
         }}
       >
         <div className="container d-flex">
-          <Row>
-            <Col xs={12} sm={12} md={12} lg={4}>
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
               <div className="my-5">
                 <h1 style={{ marginTop: 120 }}>
                   <b>LEARN TO SAFELY CODE ON BLOCKCHAIN</b>
@@ -47,8 +45,8 @@ const Home = (props) => {
                   text="Get Started"
                 />
               </div>
-            </Col>
-            <Col xs={12} sm={12} md={12} lg={8}>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-8">
               <div>
                 <img
                   className="img-fluid mx-auto"
@@ -57,15 +55,15 @@ const Home = (props) => {
                   style={{ marginTop: 50 }}
                 />
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </div>
       </section>
 
       <section style={{ paddingTop: 150, paddingBottom: 150 }}>
         <div className="container">
-          <Row>
-            <Col xs={12} sm={12} md={12} lg={6}>
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <h1>What is Blockchain?</h1>
               <br />
               <p>
@@ -81,11 +79,11 @@ const Home = (props) => {
                 The first digital currency that used blockchain technology to maintain a correct
                 database of ownership is bitcoin.
               </p>
-            </Col>
-            <Col xs={12} sm={12} md={12} lg={6}>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <img className="img-fluid mx-auto" src={D} alt="asset d" />
-            </Col>
-          </Row>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -93,11 +91,11 @@ const Home = (props) => {
         style={{ paddingTop: 150, paddingBottom: 150, backgroundColor: '#162255', color: 'white' }}
       >
         <div className="container">
-          <Row>
-            <Col xs={12} sm={12} md={12} lg={6}>
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <img className="img-fluid mx-auto" src={E} alt="asset e" />
-            </Col>
-            <Col xs={12} sm={12} md={12} lg={6}>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <br />
               <h1>What is a Smart Contract</h1>
               <br />
@@ -120,15 +118,15 @@ const Home = (props) => {
                 each other without needing to rely on mutual trust or any arbitration parties such
                 as courts if that trust is perceived to be breached.
               </p>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </div>
       </section>
 
       <section style={{ paddingTop: 150, paddingBottom: 100 }}>
         <div className="container">
-          <Row>
-            <Col xs={12} sm={12} md={12} lg={6}>
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <h1>What is Scilla</h1>
               <br />
               <p>Scilla is a language for writing smart contracts that are safe by design.</p>
@@ -142,12 +140,12 @@ const Home = (props) => {
                 more friendly towards static checks and formal verification which can help
                 programmers make their smart contracts much more secure.
               </p>
-            </Col>
+            </div>
 
-            <Col xs={12} sm={12} md={12} lg={6}>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <img className="img-fluid mx-auto" src={B} alt="asset b" />
-            </Col>
-          </Row>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -155,11 +153,11 @@ const Home = (props) => {
         style={{ paddingTop: 150, paddingBottom: 150, backgroundColor: '#162255', color: 'white' }}
       >
         <div className="container">
-          <Row>
-            <Col xs={12} sm={12} md={12} lg={6}>
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <img className="img-fluid mx-auto px-4" src={C} alt="asset c" />
-            </Col>
-            <Col xs={12} sm={12} md={12} lg={6}>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <br />
               <h3>So, are you ready to learn how to code a smart contract in Scilla?</h3>
               <br />
@@ -185,8 +183,8 @@ const Home = (props) => {
                   text="Start Now"
                 />
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </div>
       </section>
 

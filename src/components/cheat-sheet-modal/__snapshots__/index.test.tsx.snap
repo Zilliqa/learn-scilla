@@ -50,8 +50,8 @@ exports[`Cheat Sheet Modal tests basic tests matches the snapshot 1`] = `
 
 .c0 {
   background-color: transparent;
-  color: #24292E;
-  border-color: #24292E;
+  color: #000000;
+  border-color: #000000;
   opacity: 0.85;
 }
 

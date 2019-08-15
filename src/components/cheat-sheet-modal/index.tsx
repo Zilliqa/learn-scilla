@@ -1,40 +1,26 @@
-import React from 'react';
-import Modal from 'reactstrap/lib/Modal';
-import ModalHeader from 'reactstrap/lib/ModalHeader';
-import { Button } from 'accessible-ui';
+import React, { useState } from 'react';
+import { Button, Modal } from 'accessible-ui';
 import { FaCode } from 'react-icons/fa';
 import './style.css';
 
-interface IProps {
-  t: (key: string) => string;
-}
-
-interface IState {
-  isOpen: boolean;
-}
-
-class CheatSheetModal extends React.Component<IProps, IState> {
-  public readonly state = {
-    isOpen: false
-  };
-
-  public render(): React.ReactNode {
-    const { t } = this.props;
-
-    return (
-      <span data-testid="cheat-sheet-modal">
-        <Button
-          onClick={this.toggleModal}
-          level="secondary"
-          data-testid="toggle"
-          size="small"
-          text={t('lesson.cheatSheet')}
-          before={<FaCode />}
-          type="button"
-        />
-        <Modal fade={false} isOpen={this.state.isOpen} toggle={this.toggleModal} size="lg">
-          <ModalHeader toggle={this.toggleModal}>{t('lesson.cheatSheet')}</ModalHeader>
-          <div className="modal-body cheat-sheet-table">
+const CheatSheetModal = ({ t }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <span data-testid="cheat-sheet-modal">
+      <Button
+        onClick={() => setIsOpen(true)}
+        level="secondary"
+        data-testid="toggle"
+        size="small"
+        text={t('lesson.cheatSheet')}
+        before={<FaCode />}
+        type="button"
+      />
+      {isOpen ? (
+        <Modal onClose={() => setIsOpen(false)}>
+          <h3>{t('lesson.cheatSheet')}</h3>
+          <hr />
+          <div className="cheat-sheet-table" style={{ padding: '2rem 0' }}>
             <table className="table table-hover table-fixed">
               <thead>
                 <tr>
@@ -289,15 +275,9 @@ class CheatSheetModal extends React.Component<IProps, IState> {
             </table>
           </div>
         </Modal>
-      </span>
-    );
-  }
-
-  private toggleModal = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  };
-}
+      ) : null}
+    </span>
+  );
+};
 
 export default CheatSheetModal;

@@ -68,7 +68,7 @@ class LessonContainer extends React.Component<IProps, IState> {
     const { pathname } = location;
     return (
       <div>
-        <Header />
+        <Header {...this.props} />
         <Helmet>
           <title>{documentTitle}</title>
         </Helmet>

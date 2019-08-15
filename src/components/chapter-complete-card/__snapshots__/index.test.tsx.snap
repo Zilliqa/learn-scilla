@@ -49,9 +49,9 @@ exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
 }
 
 .c0 {
-  background-color: #2D23A7;
-  color: #FFFFFF;
-  border-color: 'transparent';
+  background-color: #0000cc;
+  color: #ffffff;
+  border-color: transparent;
   opacity: 0.85;
 }
 
@@ -76,21 +76,22 @@ exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
       chapter.chapterCompleteMessage
     </p>
     <br />
-    <button
-      aria-label="lesson.nextLesson"
-      className="c0"
-      onClick={[Function]}
-      size="medium"
-      type="button"
-    >
-       
-      lesson.nextLesson
-       
-    </button>
-     
+    <div>
+      <button
+        aria-label="lesson.nextLesson"
+        className="c0"
+        onClick={[Function]}
+        size="medium"
+        type="button"
+      >
+         
+        lesson.nextLesson
+         
+      </button>
+    </div>
+    <br />
     <a
       aria-label="table of contents"
-      className="btn type-secondary"
       href="/chapters"
       onClick={[Function]}
     >

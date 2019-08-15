@@ -83,16 +83,6 @@ class EditorInput extends React.Component<IProps, IState> {
     }
   };
 
-  // Handles event to submit current code
-  private handleShowHint = (e) => {
-    e.preventDefault();
-    if (this.editor === undefined) {
-      return;
-    }
-    const value = this.editor.getValue();
-    this.props.showHint(value);
-  };
-
   // Handles event to control the visibility of answer
   private hanldleToggle = (e) => {
     e.preventDefault();

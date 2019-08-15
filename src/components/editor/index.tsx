@@ -1,7 +1,6 @@
 import React from 'react';
 
 import EditorInput from '../editor-input';
-import LessonCompleteModal from '../lesson-complete-modal';
 
 interface IProps {
   t: (key: string) => string;
@@ -54,23 +53,10 @@ export default class EditorUI extends React.Component<IProps, IState> {
 
   public render(): React.ReactNode {
     const { t, answerCode } = this.props;
-    const {
-      code,
-      codeForDiff,
-      isAnswerVisible,
-      isModalVisible,
-      isCorrect,
-      showTryAgain
-    } = this.state;
+    const { code, codeForDiff, isAnswerVisible, isCorrect, showTryAgain } = this.state;
 
     return (
       <div>
-        <LessonCompleteModal
-          t={t}
-          onSubmit={this.handleProceed}
-          isModalVisible={isModalVisible}
-          closeModal={() => this.setState({ isModalVisible: false })}
-        />
         <EditorInput
           code={code}
           answerCode={isCorrect ? code : answerCode}
@@ -153,9 +139,5 @@ export default class EditorUI extends React.Component<IProps, IState> {
       .replace(/\r?\n|\r/g, ' ')
       .replace(/\s\s+/g, ' ')
       .trim();
-  };
-
-  private handleProceed = (): void => {
-    this.props.proceed();
   };
 }

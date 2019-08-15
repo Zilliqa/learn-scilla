@@ -46,7 +46,7 @@ class ChapterContainer extends React.Component<IProps, {}> {
 
     return (
       <div>
-        <Header />
+        <Header {...this.props} />
         <Helmet>
           <title>{documentTitle}</title>
         </Helmet>

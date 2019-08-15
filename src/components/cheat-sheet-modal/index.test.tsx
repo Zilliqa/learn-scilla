@@ -20,17 +20,4 @@ describe('Cheat Sheet Modal tests', () => {
       expect(assertion).toBe(1);
     });
   });
-
-  describe('component behavior', () => {
-    it('check modal closed', () => {
-      const wrapper = shallow(baseComponent());
-      expect(wrapper.state('isOpen')).toEqual(false);
-    });
-
-    it('check modal opened after toggle', () => {
-      const wrapper = shallow(baseComponent());
-      wrapper.find('[data-testid="toggle"]').simulate('click');
-      expect(wrapper.state('isOpen')).toEqual(true);
-    });
-  });
 });
