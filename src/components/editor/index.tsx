@@ -1,6 +1,8 @@
 import React from 'react';
 
 import EditorInput from '../editor-input';
+import { FaMedal } from 'react-icons/fa';
+import { Button, Modal } from 'accessible-ui';
 
 interface IProps {
   t: (key: string) => string;
@@ -53,10 +55,41 @@ export default class EditorUI extends React.Component<IProps, IState> {
 
   public render(): React.ReactNode {
     const { t, answerCode } = this.props;
-    const { code, codeForDiff, isAnswerVisible, isCorrect, showTryAgain } = this.state;
+    const {
+      code,
+      codeForDiff,
+      isAnswerVisible,
+      isCorrect,
+      showTryAgain,
+      isModalVisible
+    } = this.state;
 
     return (
       <div>
+        <div data-testid="lesson-complete-modal">
+          {isModalVisible ? (
+            <Modal onClose={() => this.setState({ isModalVisible: false })}>
+              <div style={{ textAlign: 'center' }}>
+                <h3>
+                  <FaMedal /> {t('chapter.goodjob')}
+                </h3>
+                <hr />
+                <div>{t('chapter.lessonCompleteMessage')}</div>
+                <hr />
+                <div>
+                  <Button
+                    level="primary"
+                    text={t('lesson.nextLesson')}
+                    onClick={this.props.proceed}
+                    type="button"
+                    size="small"
+                  />
+                </div>
+              </div>
+            </Modal>
+          ) : null}
+        </div>
+
         <EditorInput
           code={code}
           answerCode={isCorrect ? code : answerCode}
