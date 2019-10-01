@@ -16,7 +16,7 @@ We are using Lighthouse to improve the quality of this web app with the [Lightho
 
 ### `yarn`
 
-Installs dependencies.
+Installs the dependencies.
 
 ### `yarn start`
 
