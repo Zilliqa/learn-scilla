@@ -1,8 +1,6 @@
 language: node_js
 node_js:
-  # https://github.com/nodejs/LTS
-  - "8" # ends December 2019
-  # - "10" # ends April 2021
+  - "10" # ends April 2021
 
 sudo: required
 
