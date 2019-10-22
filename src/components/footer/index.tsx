@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaGitter, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaTwitter, FaDiscord } from 'react-icons/fa';
 import style from './style.module.css';
 import zilliqaImg from '../../assets/images/zilliqa.png';
 const copyright: string = 'Copyright © Zilliqa 2019';
@@ -34,12 +34,12 @@ const Footer: React.SFC = () => (
         <li className="nav-item">
           <a
             className="text-secondary nav-link"
-            href="https://gitter.im/Zilliqa"
+            href="https://discord.gg/KB6h3T6"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={'Zilliqa Gitter'}
+            aria-label={'Zilliqa Discord'}
           >
-            <FaGitter />
+            <FaDiscord />
           </a>
         </li>
         <li className="nav-item">
