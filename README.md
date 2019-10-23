@@ -1,4 +1,4 @@
-[![Build Status][travis-svg]][travis-url] [![License][license-svg]][license-url] [![Gitter chat][gitter-svg]][gitter-url]
+[![License][license-svg]][license-url] [![Discord chat][discord-svg]][discord-url]
 
 # learn-scilla 
 
@@ -36,11 +36,9 @@ We recommend the community help us make improvements. To report bugs please crea
 
 ## License
 
-This project is open source software licensed as [GPL-3.0](https://github.com/noelyoo/learn-scilla/blob/develop/LICENSE).
+This project is open source software licensed as [GPL-3.0](https://github.com/neutiyoo/learn-scilla/blob/develop/LICENSE).
 
-[travis-svg]: https://travis-ci.com/noelyoo/learn-scilla.svg?branch=master
-[travis-url]: https://travis-ci.com/noelyoo/learn-scilla
 [license-svg]: https://img.shields.io/badge/License-GPLv3-blue.svg
-[license-url]: https://github.com/noelyoo/learn-scilla/blob/master/LICENSE
-[gitter-svg]: http://img.shields.io/badge/chat-on%20gitter-077a8f.svg
-[gitter-url]: https://gitter.im/Zilliqa/SmartContract
+[license-url]: https://github.com/neutiyoo/learn-scilla/blob/master/LICENSE
+[discord-svg]: https://img.shields.io/discord/308323056592486420.svg
+[discord-url]: https://discord.gg/KB6h3T6

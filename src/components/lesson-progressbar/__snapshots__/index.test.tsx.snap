@@ -8,7 +8,7 @@ exports[`Lesson Progressbar tests basic tests matches the snapshot 1`] = `
     className="py-2"
   >
     <span>
-      chapter.chapter 1
+      Chapter 1
     </span>
   </div>
   <div

@@ -6,7 +6,6 @@ import './style.css';
 import DiffViewer from '../editor-diff-viewer';
 
 interface IProps {
-  t: (key: string) => string;
   code: string;
   codeForDiff: string;
   answerCode: string;
@@ -29,7 +28,7 @@ class EditorInput extends React.Component<IProps, IState> {
   };
 
   public render() {
-    const { t, codeForDiff, answerCode, isAnswerVisible, showTryAgain } = this.props;
+    const { codeForDiff, answerCode, isAnswerVisible, showTryAgain } = this.props;
 
     const options = {
       selectOnLineNumbers: true,
@@ -52,7 +51,6 @@ class EditorInput extends React.Component<IProps, IState> {
           />
         </div>
         <DiffViewer
-          t={t}
           codeForDiff={codeForDiff}
           answerCode={answerCode}
           isAnswerVisible={isAnswerVisible}
@@ -60,7 +58,6 @@ class EditorInput extends React.Component<IProps, IState> {
         />
         <div className="text-right">
           <ControlPanel
-            t={t}
             hanldleToggle={this.hanldleToggle}
             handleCheckAnswer={this.handleCheckAnswer}
             isAnswerVisible={isAnswerVisible}

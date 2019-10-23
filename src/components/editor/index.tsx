@@ -5,7 +5,6 @@ import { FaMedal } from 'react-icons/fa';
 import { Button, Modal } from 'accessible-ui';
 
 interface IProps {
-  t: (key: string) => string;
   initialCode: string;
   answerCode: string;
   proceed: () => void;
@@ -54,7 +53,7 @@ export default class EditorUI extends React.Component<IProps, IState> {
   }
 
   public render(): React.ReactNode {
-    const { t, answerCode } = this.props;
+    const { answerCode } = this.props;
     const {
       code,
       codeForDiff,
@@ -71,15 +70,15 @@ export default class EditorUI extends React.Component<IProps, IState> {
             <Modal onClose={() => this.setState({ isModalVisible: false })}>
               <div style={{ textAlign: 'center' }}>
                 <h3>
-                  <FaMedal /> {t('chapter.goodjob')}
+                  <FaMedal /> {'Good Job'}
                 </h3>
                 <hr />
-                <div>{t('chapter.lessonCompleteMessage')}</div>
+                <div>{'You have completed this lesson.'}</div>
                 <hr />
                 <div>
                   <Button
                     level="primary"
-                    text={t('lesson.nextLesson')}
+                    text={'Proceed to Next Lesson'}
                     onClick={this.props.proceed}
                     type="button"
                     size="small"
@@ -99,7 +98,6 @@ export default class EditorUI extends React.Component<IProps, IState> {
           toggleShowAnswer={this.toggleShowAnswer}
           isAnswerVisible={isAnswerVisible}
           showTryAgain={showTryAgain}
-          t={t}
         />
       </div>
     );

@@ -7,22 +7,15 @@ interface IProps {
   lessonNumber: number;
   chapterNumber: number;
   total: number;
-  t: (key: string) => string;
   navigate: (chapterNum: number, lessonNum: number) => void;
 }
 
 // Renders step progressbar dynamically
-const LessonProgressbar: React.SFC<IProps> = ({
-  t,
-  navigate,
-  chapterNumber,
-  lessonNumber,
-  total
-}) => {
+const LessonProgressbar: React.SFC<IProps> = ({ navigate, chapterNumber, lessonNumber, total }) => {
   // initialized array with the given total number
   const list = Array.from({ length: total });
   const percent = (1 / total) * 100;
-  const currentChapterText = `${t('chapter.chapter')} ${chapterNumber}`;
+  const currentChapterText = `Chapter ${chapterNumber}`;
   return (
     <div className="text-center">
       <div className="py-2">

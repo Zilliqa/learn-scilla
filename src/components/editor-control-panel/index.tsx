@@ -3,7 +3,6 @@ import { Button } from 'accessible-ui';
 
 import { FaCheck, FaRegEye, FaRegEyeSlash, FaRegComments, FaTimes } from 'react-icons/fa';
 interface IProps {
-  t: (key: string) => string;
   isAnswerVisible: boolean;
   showTryAgain: boolean;
 
@@ -12,11 +11,11 @@ interface IProps {
 }
 
 const ControlPanel: React.SFC<IProps> = (props) => {
-  const { isAnswerVisible, showTryAgain, t } = props;
-  const showAnswerButtonText = t(isAnswerVisible ? 'editor.hideAnswer' : 'editor.showAnswer');
+  const { isAnswerVisible, showTryAgain } = props;
+  const showAnswerButtonText = isAnswerVisible ? 'Hide Answer' : 'Show Answer';
   const showAnswerButtonIcon = isAnswerVisible ? <FaRegEyeSlash /> : <FaRegEye />;
 
-  const checkAnswerButtonText = t(showTryAgain ? 'editor.tryAgain' : 'editor.checkAnswer');
+  const checkAnswerButtonText = showTryAgain ? 'Try Again' : 'Check Answer';
   const checkAnswerButtonType = showTryAgain ? 'danger' : 'primary';
   const checkAnswerButtonIcon = showTryAgain ? <FaTimes /> : <FaCheck />;
 
@@ -48,7 +47,7 @@ const ControlPanel: React.SFC<IProps> = (props) => {
         rel="noopener noreferrer"
         aria-label={'open chat'}
       >
-        <FaRegComments /> {t('lesson.openChat')}
+        <FaRegComments /> {'Open Chat'}
       </a>{' '}
     </div>
   );

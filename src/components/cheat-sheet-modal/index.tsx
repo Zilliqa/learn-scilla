@@ -3,7 +3,7 @@ import { Button, Modal } from 'accessible-ui';
 import { FaCode } from 'react-icons/fa';
 import './style.css';
 
-const CheatSheetModal = ({ t }) => {
+const CheatSheetModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <span data-testid="cheat-sheet-modal">
@@ -12,13 +12,13 @@ const CheatSheetModal = ({ t }) => {
         level="secondary"
         data-testid="toggle"
         size="small"
-        text={t('lesson.cheatSheet')}
+        text={'Cheat Sheet'}
         before={<FaCode />}
         type="button"
       />
       {isOpen ? (
         <Modal onClose={() => setIsOpen(false)}>
-          <h3>{t('lesson.cheatSheet')}</h3>
+          <h3>{'Cheat Sheet'}</h3>
           <hr />
           <div className="cheat-sheet-table" style={{ padding: '2rem 0' }}>
             <table className="table table-hover table-fixed">

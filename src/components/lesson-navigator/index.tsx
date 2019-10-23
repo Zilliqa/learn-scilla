@@ -3,7 +3,6 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { Button } from 'accessible-ui';
 
 interface IProps {
-  t: (key: string) => string;
   goNext: () => void;
   goBack: () => void;
   lessonNumber: number;
@@ -11,7 +10,7 @@ interface IProps {
 }
 
 const LessonNavigator: React.SFC<IProps> = (props) => {
-  const { t, goNext, goBack, lessonNumber, total } = props;
+  const { goNext, goBack, lessonNumber, total } = props;
 
   const isBackButtonDisabled = lessonNumber <= 1;
   const isProceedButtonDisabled = lessonNumber >= total;
@@ -21,7 +20,7 @@ const LessonNavigator: React.SFC<IProps> = (props) => {
       <Button
         level="secondary"
         size="small"
-        text={t('lesson.back')}
+        text={'Back'}
         onClick={goBack}
         disabled={isBackButtonDisabled}
         before={<FaArrowLeft />}
@@ -31,7 +30,7 @@ const LessonNavigator: React.SFC<IProps> = (props) => {
       <Button
         level="secondary"
         size="small"
-        text={t('lesson.skip')}
+        text={'Skip'}
         onClick={goNext}
         disabled={isProceedButtonDisabled}
         after={<FaArrowRight />}

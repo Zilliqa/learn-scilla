@@ -9,14 +9,12 @@ import ReactGA from 'react-ga';
 import { Spinner } from 'accessible-ui';
 import HomeContainer from './containers/home-container';
 const ChapterListContainer = lazy(() => import('./containers/chapter-list-container'));
-const AccountContainer = lazy(() => import('./containers/account-container'));
 const LessonContainer = lazy(() => import('./containers/lesson-container'));
 
 export const paths = {
   home: '/home',
   chapterList: '/chapters',
-  lesson: '/chapter/:chapter/lesson/:lesson',
-  account: '/account'
+  lesson: '/chapter/:chapter/lesson/:lesson'
 };
 
 const sendPageView = (location) => {
@@ -52,7 +50,6 @@ export const RouterNode: React.SFC = () => (
           <Route exact={true} path={paths.home} component={HomeContainer} />
           <Route exact={true} path={paths.chapterList} component={ChapterListContainer} />
           <Route exact={true} path={paths.lesson} component={LessonContainer} />
-          <Route exact={true} path={paths.account} component={AccountContainer} />
           <Redirect from="/" to={paths.home} />
         </Switch>
       </Suspense>

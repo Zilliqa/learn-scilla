@@ -65,7 +65,7 @@ exports[`Cheat Sheet Modal tests basic tests matches the snapshot 1`] = `
   data-testid="cheat-sheet-modal"
 >
   <button
-    aria-label="lesson.cheatSheet"
+    aria-label="Cheat Sheet"
     className="c0"
     data-testid="toggle"
     onClick={[Function]}
@@ -91,7 +91,7 @@ exports[`Cheat Sheet Modal tests basic tests matches the snapshot 1`] = `
       />
     </svg>
      
-    lesson.cheatSheet
+    Cheat Sheet
      
   </button>
 </span>

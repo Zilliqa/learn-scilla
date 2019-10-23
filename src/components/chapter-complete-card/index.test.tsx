@@ -10,7 +10,7 @@ const navigate = (chapterNum, lessonNum) => console.log('navigate', chapterNum, 
 describe('Chapter Complete Card tests', () => {
   const baseComponent = (props) => (
     <MemoryRouter initialEntries={['/']}>
-      <ChapterCompleteCard navigate={navigate} t={t} total={props.total} chapter={props.chapter} />
+      <ChapterCompleteCard navigate={navigate} total={props.total} chapter={props.chapter} />
     </MemoryRouter>
   );
 

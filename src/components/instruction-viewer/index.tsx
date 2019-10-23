@@ -5,7 +5,7 @@ import { language, configuration } from '../../scilla';
 import './style.css';
 
 interface IProps {
-  instruction: string;
+  instruction: any;
 }
 
 class InstructionViewer extends React.Component<IProps> {
