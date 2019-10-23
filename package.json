@@ -16,9 +16,7 @@
     "eject": "react-scripts eject",
     "prettier": "prettier \"**/*.+(ts|tsx|css)\"",
     "format": "npm run prettier -- --write",
-    "validate": "npm run prettier -- --list-different && tsc --noEmit",
-    "ci": "yarn validate && yarn test:ci",
-    "deploy": "firebase deploy"
+    "validate": "npm run prettier -- --list-different && yarn test:ci && tsc --noEmit"
   },
   "dependencies": {
     "@types/jest": "^24.0.11",
