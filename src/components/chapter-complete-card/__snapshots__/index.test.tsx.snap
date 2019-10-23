@@ -69,23 +69,23 @@ exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
     className="text-secondary"
   >
     <h3>
-      chapter.goodjob
+      Good Job
       !
     </h3>
     <p>
-      chapter.chapterCompleteMessage
+      You have completed this chapter.
     </p>
     <br />
     <div>
       <button
-        aria-label="lesson.nextLesson"
+        aria-label="Proceed to Next Lesson"
         className="c0"
         onClick={[Function]}
         size="medium"
         type="button"
       >
          
-        lesson.nextLesson
+        Proceed to Next Lesson
          
       </button>
     </div>
@@ -95,7 +95,7 @@ exports[`Chapter Complete Card tests basic tests matches the snapshot 1`] = `
       href="/chapters"
       onClick={[Function]}
     >
-      link.tableOfContents
+      Table of Contents
     </a>
   </div>
 </div>

@@ -13,7 +13,6 @@ describe('Lesson Progressbar tests', () => {
       chapterNumber={chapterNumber}
       lessonNumber={5}
       total={10}
-      t={t}
     />
   );
 

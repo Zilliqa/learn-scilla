@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 const t = (s: string) => s;
 
 describe('Cheat Sheet Modal tests', () => {
-  const baseComponent = () => <CheatSheetModal t={t} />;
+  const baseComponent = () => <CheatSheetModal />;
 
   describe('basic tests', () => {
     it('matches the snapshot', () => {

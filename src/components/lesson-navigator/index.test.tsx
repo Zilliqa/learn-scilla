@@ -9,7 +9,7 @@ const t = (s: string) => s;
 
 describe('Lesson Navigator tests', () => {
   const baseComponent = () => (
-    <LessonNavigator lessonNumber={5} total={10} goNext={goNext} goBack={goBack} t={t} />
+    <LessonNavigator lessonNumber={5} total={10} goNext={goNext} goBack={goBack} />
   );
 
   describe('basic tests', () => {

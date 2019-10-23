@@ -7,7 +7,6 @@ interface IProps {
   showTryAgain: boolean;
   codeForDiff: string;
   answerCode: string;
-  t: (key: string) => string;
 }
 
 const DiffViewer: React.SFC<IProps> = (props) => {
@@ -24,7 +23,7 @@ const DiffViewer: React.SFC<IProps> = (props) => {
 
   return (
     <div className="code-diff-container">
-      <span className={titleStyle}>{props.t('editor.hint')}</span>
+      <span className={titleStyle}>{'Hint'}</span>
       <div className={diffBorderStyle}>
         <div className={codeVisibleStyle}>
           <MonacoDiffEditor
