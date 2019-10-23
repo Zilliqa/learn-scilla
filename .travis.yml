@@ -1,9 +1,0 @@
-language: node_js
-node_js:
-  - "10" # ends April 2021
-
-sudo: required
-
-script:
-  - yarn install
-  - yarn validate

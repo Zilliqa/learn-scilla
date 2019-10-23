@@ -1,4 +1,4 @@
-[![Build Status][travis-svg]][travis-url] [![License][license-svg]][license-url] [![Discord chat][discord-svg]][discord-url]
+[![License][license-svg]][license-url] [![Discord chat][discord-svg]][discord-url]
 
 # learn-scilla 
 
@@ -38,8 +38,6 @@ We recommend the community help us make improvements. To report bugs please crea
 
 This project is open source software licensed as [GPL-3.0](https://github.com/neutiyoo/learn-scilla/blob/develop/LICENSE).
 
-[travis-svg]: https://travis-ci.com/neutiyoo/learn-scilla.svg?branch=master
-[travis-url]: https://travis-ci.com/neutiyoo/learn-scilla
 [license-svg]: https://img.shields.io/badge/License-GPLv3-blue.svg
 [license-url]: https://github.com/neutiyoo/learn-scilla/blob/master/LICENSE
 [discord-svg]: https://img.shields.io/discord/308323056592486420.svg
