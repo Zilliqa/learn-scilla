@@ -28,12 +28,6 @@ Open `http://localhost:3000` to view it in the browser.
 Runs the test watcher in an interactive mode.
 We use [Jest](https://jestjs.io/) for testing.
 
-## Contributing
-
-We recommend the community help us make improvements. To report bugs please create an issue in this repository.
-
-#### Read our [contribution guidelines](./CONTRIBUTING.md).
-
 ## License
 
 This project is open source software licensed as [GPL-3.0](https://github.com/neutiyoo/learn-scilla/blob/develop/LICENSE).
