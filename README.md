@@ -2,9 +2,7 @@
 
 # learn-scilla 
 
-An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process. This is one of the [Zilliqa Ecosystem Grant Projects](https://blog.zilliqa.com/announcing-the-second-wave-of-zilliqa-ecosystem-grant-awardees-6e03edadcc0d). 
-
-We are using Lighthouse to improve the quality of this web app with the [Lighthouse Report](https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=https://learn-scilla.firebaseapp.com). 
+An interactive tutorial for people to learn Scilla, Zilliqa’s smart contract language, through a gamification process.
 
 ## About Scilla
 
