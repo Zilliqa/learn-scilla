@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { Button } from 'accessible-ui';
+import { Button } from 'react-fn-components';
 
 interface IProps {
   goNext: () => void;

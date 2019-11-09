@@ -1690,11 +1690,6 @@ accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.7:
     mime-types "~2.1.24"
     negotiator "0.6.2"
 
-accessible-ui@^3.1.7:
-  version "3.1.7"
-  resolved "https://registry.yarnpkg.com/accessible-ui/-/accessible-ui-3.1.7.tgz#64068000befa38decd6898679c051c0bb190c45a"
-  integrity sha512-wN0PIUfsI1Se6RaNZzMqkcBR2EYqOcI3+7yiVTCfmzw7HmwLuwPkNb8YchjjBQu5xBiVyItJ+VrAbxbUzBV/sQ==
-
 acorn-globals@^4.1.0, acorn-globals@^4.3.0:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/acorn-globals/-/acorn-globals-4.3.4.tgz#9fa1926addc11c97308c4e66d7add0d40c3272e7"
@@ -8825,6 +8820,11 @@ react-fast-compare@^2.0.2:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
+
+react-fn-components@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/react-fn-components/-/react-fn-components-0.0.1.tgz#2355ba2492bc426388d54a3fa24c3ca1b833a0c1"
+  integrity sha512-+6kdjH7a1tF8C0T5u9U2IwI+D1fGsULoBD6XhXubAFgC0zAI2mvFZNI9eAPyK9Ptel7OniCo6QmnOQYSygS2Rw==
 
 react-ga@^2.6.0:
   version "2.7.0"
