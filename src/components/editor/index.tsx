@@ -2,7 +2,7 @@ import React from 'react';
 
 import EditorInput from '../editor-input';
 import { FaMedal } from 'react-icons/fa';
-import { Button, Modal } from 'accessible-ui';
+import { Button, Modal } from 'react-fn-components';
 
 interface IProps {
   initialCode: string;

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import { paths } from '../../routes';
 import './style.css';
-import { Button } from 'accessible-ui';
+import { Button } from 'react-fn-components';
 
 interface IProps {
   total: number;

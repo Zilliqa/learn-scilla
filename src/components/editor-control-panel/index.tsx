@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'accessible-ui';
+import { Button } from 'react-fn-components';
 
 import { FaCheck, FaRegEye, FaRegEyeSlash, FaRegComments, FaTimes } from 'react-icons/fa';
 interface IProps {
