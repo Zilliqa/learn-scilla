@@ -33,4 +33,4 @@ This project is open source software licensed as [GPL-3.0](https://github.com/ne
 [license-svg]: https://img.shields.io/badge/License-GPLv3-blue.svg
 [license-url]: https://github.com/neutiyoo/learn-scilla/blob/master/LICENSE
 [discord-svg]: https://img.shields.io/discord/308323056592486420.svg
-[discord-url]: https://discord.gg/KB6h3T6
+[discord-url]: https://discord.gg/mWp9HdR
