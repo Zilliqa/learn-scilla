@@ -34,7 +34,7 @@ const Footer: React.SFC = () => (
         <li className="nav-item">
           <a
             className="text-secondary nav-link"
-            href="https://discord.gg/KB6h3T6"
+            href="https://discord.gg/mWp9HdR"
             target="_blank"
             rel="noopener noreferrer"
             aria-label={'Zilliqa Discord'}
