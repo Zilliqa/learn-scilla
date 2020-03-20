@@ -68,7 +68,7 @@ exports[`Footer tests basic tests matches the snapshot 1`] = `
         <a
           aria-label="Zilliqa Discord"
           className="text-secondary nav-link"
-          href="https://discord.gg/KB6h3T6"
+          href="https://discord.gg/mWp9HdR"
           rel="noopener noreferrer"
           target="_blank"
         >

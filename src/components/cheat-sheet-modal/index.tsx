@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'react-fn-components';
+import { Button, Modal } from '../../fn-components';
 import { FaCode } from 'react-icons/fa';
 import './style.css';
 
