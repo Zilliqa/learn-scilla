@@ -5,7 +5,7 @@ import * as H from 'history';
 import courseInstructions from '../../locales/instructions';
 
 import ChapterList from '../../components/chapter-list';
-import { Spinner } from 'react-fn-components';
+import { Spinner } from '../../fn-components';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import './style.css';

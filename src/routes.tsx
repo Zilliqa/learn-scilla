@@ -6,7 +6,7 @@ import { withRouter } from 'react-router';
 
 import ReactGA from 'react-ga';
 
-import { Spinner } from 'react-fn-components';
+import { Spinner } from './fn-components';
 import HomeContainer from './containers/home-container';
 const ChapterListContainer = lazy(() => import('./containers/chapter-list-container'));
 const LessonContainer = lazy(() => import('./containers/lesson-container'));

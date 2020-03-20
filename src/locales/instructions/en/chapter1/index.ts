@@ -185,7 +185,7 @@ Do note that these variables are not immutable variables nor are they mutable va
 
 The temporary variable declaration format is different from the format in which the mutable variables are declared. For instance, a String variable is declared in the following format:
 \`\`\`
-varibaleName = "value"
+variableName = "value"
 \`\`\`
 Example:
 \`\`\`
