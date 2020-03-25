@@ -175,13 +175,14 @@ const Home = (props) => {
                 <b>Take the first step to become a programmer on blockchain.</b>
               </p>
               <div className="mt-5">
-                <Button
-                  className="px-5"
-                  level="secondary"
-                  theme="dark"
-                  onClick={() => history.push("http://learnblockchain.org/")}
-                  text="Start Now"
-                />
+                <a href={'http://learnblockchain.org/'}>
+                  <Button
+                    className="px-5"
+                    level="secondary"
+                    theme="dark"
+                    text="Start Now"
+                  />
+                </a>
               </div>
             </div>
           </div>
