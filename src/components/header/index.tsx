@@ -71,7 +71,7 @@ const Header = (props) => {
               aria-label={'tutorial'}
             >
               {'Tutorial'}
-            </Link>
+            </a>
           </li>
         </ul>
       </div>
