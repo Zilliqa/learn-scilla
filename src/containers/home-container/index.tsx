@@ -179,7 +179,7 @@ const Home = (props) => {
                   className="px-5"
                   level="secondary"
                   theme="dark"
-                  onClick={() => history.push(paths.chapterList)}
+                  onClick={() => history.push("http://learnblockchain.org/")}
                   text="Start Now"
                 />
               </div>
