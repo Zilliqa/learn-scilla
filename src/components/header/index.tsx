@@ -67,7 +67,7 @@ const Header = (props) => {
           <li className="nav-item" style={{ marginLeft: '1rem' }}>
             <a
               className={`nav-link ${pathname === paths.chapterList ? 'active' : ''}`}
-              href={"http://learnblockchain.org/"}
+              href={"https://learn-scilla.herokuapp.com/"}
               aria-label={'tutorial'}
             >
               {'Tutorial'}
