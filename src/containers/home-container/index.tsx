@@ -37,13 +37,14 @@ const Home = (props) => {
                 </h1>
 
                 <p className="py-3">Step by step Interactive Tutorial</p>
-                <Button
-                  className="px-5"
-                  level="secondary"
-                  theme="dark"
-                  onClick={() => history.push(paths.chapterList)}
-                  text="Get Started"
-                />
+                <a href={'http://learnblockchain.org/'}>
+                  <Button
+                    className="px-5"
+                    level="secondary"
+                    theme="dark"
+                    text="Get Started"
+                  />
+               </a>
               </div>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-8">
@@ -175,13 +176,13 @@ const Home = (props) => {
                 <b>Take the first step to become a programmer on blockchain.</b>
               </p>
               <div className="mt-5">
-                <Button
-                  className="px-5"
-                  level="secondary"
-                  theme="dark"
-                  onClick={() => history.push(paths.chapterList)}
-                  text="Start Now"
-                />
+                <a href={'http://learnblockchain.org/'}>
+                  <Button
+                    className="px-5"
+                    level="secondary"
+                    theme="dark"
+                    text="Start Now"
+                  />
               </div>
             </div>
           </div>
