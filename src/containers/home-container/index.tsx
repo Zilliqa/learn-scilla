@@ -37,7 +37,7 @@ const Home = (props) => {
                 </h1>
 
                 <p className="py-3">Step by step Interactive Tutorial</p>
-                <a href={'http://learnblockchain.org/'}>
+                <a href={'https://learn-scilla.herokuapp.com/'}>
                   <Button
                     className="px-5"
                     level="secondary"
@@ -176,7 +176,7 @@ const Home = (props) => {
                 <b>Take the first step to become a programmer on blockchain.</b>
               </p>
               <div className="mt-5">
-                <a href={'http://learnblockchain.org/'}>
+                <a href={'https://learn-scilla.herokuapp.com/'}>
                   <Button
                     className="px-5"
                     level="secondary"
