@@ -65,13 +65,13 @@ const Header = (props) => {
           </li>
 
           <li className="nav-item" style={{ marginLeft: '1rem' }}>
-            <Link
+            <a
               className={`nav-link ${pathname === paths.chapterList ? 'active' : ''}`}
-              to={paths.chapterList}
+              href={"http://learnblockchain.org/"}
               aria-label={'tutorial'}
             >
               {'Tutorial'}
-            </Link>
+            </a>
           </li>
         </ul>
       </div>
