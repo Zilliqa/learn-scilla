@@ -199,8 +199,8 @@ Let’s take a look at an example of a transition with two variables declared in
 Example:
 \`\`\`
 transition foo()
-    a= "hello";
-    b= Int32 5
+    a = "hello";
+    b = Int32 5
 end
 \`\`\`
 In this example, we declare two variables in a transition named "foo".
@@ -266,9 +266,9 @@ end
 Example:
 \`\`\`
 Transition foo (
-    var1: String,
-    var2: Int32,
-    var3 Uint32
+    var1 : String,
+    var2 : Int32,
+    var3 : Uint32
 )
 end
 \`\`\`
