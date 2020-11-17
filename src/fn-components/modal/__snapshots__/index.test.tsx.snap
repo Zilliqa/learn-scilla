@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot (small) 1`] = `
+.c0 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(10,10,15,0.7);
+  padding: 1.75rem 1rem;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.c1 {
+  max-width: 600px;
+  margin: 2.5rem auto;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  z-index: 10000;
+}
+
+.c2 {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  color: #4c4c4c;
+}
+
+.c3 {
+  padding: 3rem 3rem;
+  overflow-y: auto;
+  max-height: calc(100vh);
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      ✕
+    </div>
+    <div
+      class="c3"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      </p>
+    </div>
+  </div>
+</div>
+`;

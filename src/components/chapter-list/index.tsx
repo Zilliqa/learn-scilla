@@ -1,7 +1,7 @@
 import React from 'react';
 import { CourseInstructionType } from '../../typings';
 import './style.css';
-import { Button } from 'react-fn-components';
+import { Button } from '../../fn-components';
 
 interface IProps {
   chapterList: CourseInstructionType;
