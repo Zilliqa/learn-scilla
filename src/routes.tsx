@@ -24,7 +24,7 @@ const sendPageView = (location) => {
 
 const GAListener = (props) => {
   const { children, history } = props;
-  const GA_KEY = 'UA-146084454-1';
+  const GA_KEY = 'UA-166098752-1';
   ReactGA.initialize(GA_KEY);
   useEffect(() => {
     sendPageView(history.location);
