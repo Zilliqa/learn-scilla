@@ -33,7 +33,6 @@
     "prettier": "^1.18.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-fn-components": "^0.0.1",
     "react-ga": "^2.6.0",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.8.0",
